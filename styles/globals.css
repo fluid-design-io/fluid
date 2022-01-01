@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
@@ -13,4 +17,26 @@ a {
 
 * {
   box-sizing: border-box;
+}
+@layer components {
+  .touch-opacity-0 {
+    opacity: 1;
+  }
+  @media (hover) {
+    .touch-opacity-0 {
+      opacity: 0;
+    }
+  }
+}
+.glare-wrapper {
+  @apply pointer-events-none;
+}
+.elegant-glare .glare-wrapper {
+  @apply opacity-80 dark:opacity-10;
+}
+.glass-glare .glare-wrapper {
+  @apply opacity-30 dark:opacity-10;
+}
+.card-wrap:active {
+  @apply scale-[0.995];
 }
