@@ -36,7 +36,7 @@ export default function Sidebar() {
         <nav className="flex-1 px-4 space-y-2" aria-label="Sidebar">
           {navigation.map((item) =>
             !item.children ? (
-              <div className="rounded-md overflow-hidden">
+              <div key={`nav.${item.name}`} className="rounded-md overflow-hidden">
                 <a
                   href={item.href}
                   className={classNames(

@@ -110,13 +110,13 @@ export default function Home() {
   const selectionBody = items.map((item) => (
     <ul
       key={item.category}
-      className="px-2 border-t border-stone-50/60 dark:border-stone-500/30 py-1 space-y-1"
+      className="px-2 py-1 space-y-1 border-t border-stone-50/60 dark:border-stone-500/30"
     >
-      <li className="px-2 dark:text-stone-300 text-stone-600 font-semibold pointer-events-none">
+      <li className="px-2 font-semibold pointer-events-none dark:text-stone-300 text-stone-600">
         {item.category}
       </li>
       {item.lists.map((list) => (
-        <li>
+        <li key={`body.${list.name}`}>
           <button
             onClick={() => {
               controls.start("hidden");
@@ -141,20 +141,20 @@ export default function Home() {
 
   return (
     <Page meta={meta} sidebar={false} className="">
-      <div className="absolute z-0 top-0 w-full filter blur-xl hidden dark:block">
+      <div className="absolute top-0 z-0 hidden w-full filter blur-xl dark:block">
         <Image src={bgDark} className="w-screen" layout="responsive" />
       </div>
-      <div className="absolute z-0 top-0 w-full filter blur-xl dark:hidden block">
+      <div className="absolute top-0 z-0 block w-full filter blur-xl dark:hidden">
         <Image src={bgLight} className="w-screen" layout="responsive" />
       </div>
       <div className="z-[1] relative">
         <h2 className="block font-[Nunito] md:hidden pt-20 opacity-70 font-semibold px-4 dark:text-stone-100">
           FluidDesign
         </h2>
-        <h1 className="mx-auto dark:text-stone-100 font-bold px-4 text-3xl md:text-6xl md:text-center pt-2 md:pt-48 max-w-4xl">
+        <h1 className="max-w-4xl px-4 pt-2 mx-auto text-3xl font-bold dark:text-stone-100 md:text-6xl md:text-center md:pt-48">
           Modern design components with smooth transitions.
         </h1>
-        <div className="justify-center pt-24 hidden md:flex">
+        <div className="justify-center hidden pt-24 md:flex">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -166,11 +166,11 @@ export default function Home() {
                 <div className="w-2.5 h-2.5 bg-stone-300 dark:bg-stone-600 rounded-full" />
                 <div className="w-2.5 h-2.5 bg-stone-300 dark:bg-stone-600 rounded-full" />
               </div>
-              <div className="flex justify-center items-center flex-1">
+              <div className="flex items-center justify-center flex-1">
                 <div className="w-full text-sm">{selectionBody}</div>
               </div>
             </div>
-            <div className="p-4 w-full relative flex justify-center items-center flex-1">
+            <div className="relative flex items-center justify-center flex-1 w-full p-4">
               <AnimatePresence exitBeforeEnter>
                 {selectedComponent(selected)}
               </AnimatePresence>
@@ -179,7 +179,7 @@ export default function Home() {
         </div>
         <div className="max-w-[480px] mx-auto block md:hidden pt-16 px-8">
           <div className="relative rounded-[4.7rem] shadow-lg shadow-stone-500/10 dark:shadow-stone-900">
-            <div className="notch-container absolute w-full h-24 z-20">
+            <div className="absolute z-20 w-full h-24 notch-container">
               <div className="notch w-[40%] h-[2.15rem] mx-auto bg-stone-300 dark:bg-stone-700 rounded-bl-[1rem] rounded-br-[1rem]" />
             </div>
             <div className="">
