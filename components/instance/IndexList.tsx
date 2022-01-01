@@ -52,11 +52,11 @@ function IndexList() {
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -10, opacity: 0 }}
       transition={{ type: "just" }}
-      className="rounded-lg w-11/12 md:w-2/3 bg-stone-50 dark:bg-stone-800 overflow-hidden shadow-lg shadow-stone-900/10 dark:shadow-stone-900"
+      className="w-11/12 overflow-hidden rounded-lg shadow-lg md:w-2/3 bg-stone-50 dark:bg-stone-800 shadow-stone-900/10 dark:shadow-stone-900"
     >
-      <ul className="divide-y divide-stone-200/75 dark:divide-stone-700/30 select-none">
-        <li className="px-2 py-1 flex justify-between">
-          <h1 className="font-semibold text-stone-700 dark:text-stone-200 text-xs">
+      <ul className="divide-y select-none divide-stone-200/75 dark:divide-stone-700/30">
+        <li className="flex justify-between px-2 py-1">
+          <h1 className="text-xs font-semibold text-stone-700 dark:text-stone-200">
             Animal book
           </h1>
           <p className="text-xs text-stone-500/75 dark:text-stone-500">
@@ -65,14 +65,15 @@ function IndexList() {
         </li>
         {list.map(({ title, description, src, stared }) => (
           <li
+            key={title}
             className="flex space-x-2 items-center px-2 py-1.5 relative group hover:bg-stone-200/30 focus:bgstone-200/30 dark:hover:bg-stone-600/30 dark:focus:bgstone-600/30"
             tabIndex={0}
           >
             <div className="w-8 h-8 min-w-[32px] rounded-full overflow-hidden relative">
               <Image src={src} layout="fill" />
             </div>
-            <div className="select-none flex-1">
-              <h2 className="font-semibold text-stone-800 dark:text-stone-300 leading-4">
+            <div className="flex-1 select-none">
+              <h2 className="font-semibold leading-4 text-stone-800 dark:text-stone-300">
                 {title}
               </h2>
               <p className="leading-tight text-xs md:text-sm text-stone-600/90 dark:text-stone-400/80 max-w-[80%] sm:max-w-[90%] line-clamp-2 md:line-clamp-1">
