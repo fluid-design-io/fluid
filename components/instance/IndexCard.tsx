@@ -10,10 +10,10 @@ function IndexCard() {
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -10, opacity: 0 }}
       transition={{ type: "just" }}
-      className="rounded-lg w-5/6 md:w-1/2 bg-stone-50 dark:bg-stone-800 overflow-hidden shadow-lg shadow-stone-900/10 dark:shadow-stone-900"
+      className="w-5/6 overflow-hidden rounded-lg shadow-lg md:w-1/2 bg-stone-50 dark:bg-stone-800 shadow-stone-900/10 dark:shadow-stone-900/30"
     >
       <div>
-        <div className="aspect-video overflow-hidden relative">
+        <div className="relative overflow-hidden aspect-video">
           <Image src={bg} layout="fill" />
         </div>
         <div className="p-2.5">
@@ -27,13 +27,13 @@ function IndexCard() {
               eiusmod tempor.
             </p>
           </div>
-          <div className="flex justify-between pt-1 items-center">
-            <button className="bg-stone-200 text-stone-700 dark:bg-stone-800 dark:text-stone-200 hover:bg-stone-700 hover:text-stone-100 dark:hover:bg-stone-600 dark:active:bg-stone-500 dark:hover:text-stone-100 focus:bg-stone-700 focus:text-stone-100 dark:focus:bg-stone-600 dark:focus:text-stone-100 transition text-xs font-semibold uppercase py-1 px-2 rounded touch-none">
+          <div className="flex items-center justify-between pt-1">
+            <button className="px-2 py-1 text-xs font-semibold uppercase transition rounded bg-stone-200 text-stone-700 dark:bg-stone-800 dark:text-stone-200 hover:bg-stone-700 hover:text-stone-100 dark:hover:bg-stone-600 dark:active:bg-stone-500 dark:hover:text-stone-100 focus:bg-stone-700 focus:text-stone-100 dark:focus:bg-stone-600 dark:focus:text-stone-100 touch-pan-y">
               button
             </button>
             <div className="flex space-x-2">
-              <ShareIcon className="h-4 w-4 text-stone-400" />
-              <HeartIcon className="h-4 w-4 text-stone-400" />
+              <ShareIcon className="w-4 h-4 text-stone-400" />
+              <HeartIcon className="w-4 h-4 text-stone-400" />
             </div>
           </div>
         </div>

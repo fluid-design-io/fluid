@@ -11,7 +11,7 @@ function IndexSharedLayout() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className={`border border-dashed border-stone-300 dark:border-stone-700 rounded-xl w-5/6 md:w-2/3 md:h-3/5 h-2/5`}
+        className={`border border-dashed border-stone-300 dark:border-stone-700 prefers-contrast:border-stone-600 dark:prefers-contrast:border-stone-400 rounded-xl w-5/6 md:w-2/3 md:h-3/5 h-1/2`}
       >
         <div className="relative w-full h-full">
           {!active && (
@@ -56,12 +56,12 @@ function IndexSharedLayout() {
                   animate={{ opacity: 1, transition: { delay: 0.65 } }}
                   exit={{ opacity: 0 }}
                 >
-                  <hr className="border border-dashed border-stone-300 dark:border-stone-700" />
+                  <hr className="border border-dashed border-stone-300 dark:border-stone-700 prefers-contrast:border-stone-500 dark:prefers-contrast:border-stone-500" />
                   <p className="px-4 py-2 text-sm leading-tight text-stone-600 dark:text-stone-300/80 md:text-base">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod
-                    <span className="hidden md:block">
-                      tempor incididunt ut labore et dolore magna
+                    <span className="hidden md:inline">
+                      {" "}tempor incididunt ut labore et dolore magna
                     </span>
                     aliqua.
                   </p>

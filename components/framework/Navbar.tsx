@@ -80,7 +80,7 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="-my-2 -mr-2 md:hidden">
-          <Popover.Button className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-stone-500">
+          <Popover.Button className="inline-flex items-center justify-center p-2 rounded-md text-stone-400 hover:text-stone-500 hover:bg-stone-100 dark:hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-stone-500">
             <span className="sr-only">Open menu</span>
             <MenuIcon className="w-6 h-6" aria-hidden="true" />
           </Popover.Button>
@@ -95,12 +95,12 @@ export default function Navbar() {
           </Link>
           <div className="flex items-center space-x-4 text-sm lg:space-x-6 md:ml-12">
             {/* <Link href="/components">
-              <a className="font-medium text-gray-500 hover:text-gray-900 dark:text-stone-200">
+              <a className="font-medium text-stone-500 hover:text-stone-900 dark:text-stone-200">
                 Studio
               </a>
             </Link>
             <Link href="/components">
-              <a className="font-medium text-gray-500 hover:text-gray-900 dark:text-stone-200">
+              <a className="font-medium text-stone-500 hover:text-stone-900 dark:text-stone-200">
                 Components
               </a>
             </Link> */}
@@ -121,7 +121,7 @@ export default function Navbar() {
           focus
           className="absolute inset-x-0 top-0 p-2 transition origin-top-right transform md:hidden"
         >
-          <div className="bg-white divide-y-2 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-gray-50">
+          <div className="divide-y-2 rounded-lg shadow-lg bg-stone-200 dark:bg-stone-700 ring-1 ring-black ring-opacity-5 divide-stone-50 dark:divide-stone-600">
             <div className="px-5 pt-5 pb-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -133,7 +133,7 @@ export default function Navbar() {
                   </div>
                 </div>
                 <div className="-mr-2">
-                  <Popover.Button className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-stone-500">
+                  <Popover.Button className="inline-flex items-center justify-center p-2 rounded-md text-stone-400 hover:text-stone-500 hover:bg-stone-100 dark:hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-stone-500">
                     <span className="sr-only">Close menu</span>
                     <XIcon className="w-6 h-6" aria-hidden="true" />
                   </Popover.Button>

@@ -12,9 +12,9 @@ function IndexSimple() {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -10, opacity: 0 }}
         transition={{ type: "just" }}
-        className="w-5/6 h-2/5 md:w-2/3 md:h-3/5"
+        className="w-5/6 h-1/2 md:w-2/3 md:h-3/5"
       >
-        <div className="relative w-full h-full overflow-hidden transition rounded-md select-none bg-stone-200/75 dark:bg-stone-700 hover:shadow dark:hover:shadow-lg group touch-none">
+        <div className="relative w-full h-full overflow-hidden transition rounded-md select-none bg-stone-200/75 dark:bg-stone-700 hover:shadow dark:hover:shadow-lg group touch-pan-y">
           <div className="w-full h-full">
             <div
               className="absolute right-1.5 bottom-1.5 rounded-full  transition active:scale-[0.93] cursor-pointer hover:bg-stone-300/75 dark:hover:bg-stone-800/30 p-1"

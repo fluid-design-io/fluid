@@ -11,9 +11,9 @@ function IndexSoft() {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -10, opacity: 0 }}
         transition={{ type: "just" }}
-        className="w-5/6 h-2/5 md:w-2/3 md:h-3/5 neumorphism"
+        className="w-5/6 h-1/2 md:w-2/3 md:h-3/5 neumorphism"
       >
-        <div className="relative w-full h-full overflow-hidden transition select-none dark:bg-stone-700 rounded-2xl material-shadow-md hover:material-shadow active:material-shadow-sm bg-gradient-to-tl from-stone-100 to-stone-200/75 dark:from-stone-700 dark:to-stone-800/75 touch-none">
+        <div className="relative w-full h-full overflow-hidden transition select-none dark:bg-stone-700 rounded-2xl material-shadow-md hover:material-shadow active:material-shadow-sm bg-gradient-to-tl from-stone-100 to-stone-200/75 dark:from-stone-700 dark:to-stone-800/75 touch-pan-y">
           <div className="w-full h-full">
             <div
               className="absolute right-1.5 bottom-1.5 p-1 rounded-full  transition active:scale-[0.93] border border-transparent cursor-pointer hover:material-inset-sm pointer-touch:material-inset-xs"

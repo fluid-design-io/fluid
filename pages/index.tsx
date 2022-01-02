@@ -1,73 +1,13 @@
-import {
-  AnimatePresence,
-  motion,
-  useAnimation,
-  useMotionValue,
-} from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import React, { useState } from "react";
 import Page from "../components/framework/Page";
-import IndexCard from "../components/instance/IndexCard";
-import IndexElegant from "../components/instance/IndexElegant";
-import IndexEnterExit from "../components/instance/IndexEnterExit";
-import IndexGlass from "../components/instance/IndexGlass";
-import IndexList from "../components/instance/IndexList";
-import IndexSharedLayout from "../components/instance/IndexSharedLayout";
-import IndexSimple from "../components/instance/IndexSimple";
-import IndexSoft from "../components/instance/IndexSoft";
+import IndexIphoneFrame from "../components/instance/IndexIphoneFrame";
+import FeatureCard from "../components/ui/FeatureCard";
 import { SiteMeta } from "../interfaces/framwork";
+import { featuresList, indexElements } from "../lib/index/data";
 import bgDark from "../public/assets/index-bg-dark.jpg";
 import bgLight from "../public/assets/index-bg-light.jpg";
-
-const items = [
-  {
-    category: "Designs",
-    lists: [
-      {
-        name: "Elegant",
-        component: <IndexElegant key={`div.elegant`} />,
-      },
-      {
-        name: "Simple",
-        component: <IndexSimple key={`div.simple`} />,
-      },
-      {
-        name: "Soft",
-        component: <IndexSoft key={`div.soft`} />,
-      },
-      {
-        name: "Glass",
-        component: <IndexGlass key={`div.glass`} />,
-      },
-    ],
-  },
-  {
-    category: "Components",
-    lists: [
-      {
-        name: "Card",
-        component: <IndexCard key={`div.card`} />,
-      },
-      {
-        name: "List",
-        component: <IndexList key={`div.list`} />,
-      },
-    ],
-  },
-  {
-    category: "Transitions",
-    lists: [
-      {
-        name: "Enter & Exit",
-        component: <IndexEnterExit key={`div.enter`} />,
-      },
-      {
-        name: "Shared Layout",
-        component: <IndexSharedLayout key={`div.sharedlayout`} />,
-      },
-    ],
-  },
-];
 
 export default function Home() {
   const [selected, setSelected] = useState("Elegant");
@@ -78,7 +18,7 @@ export default function Home() {
   };
   const selectedComponent = (selected) => {
     let match = [];
-    items.forEach(
+    indexElements.forEach(
       (item) =>
         (match = match.concat(
           item.lists.filter((list) => list.name === selected)
@@ -87,30 +27,10 @@ export default function Home() {
     return match[0]?.component;
   };
 
-  const controls = useAnimation();
-  const y = useMotionValue(0);
-
-  const onDrag = (e, info) => {
-    const { point } = info;
-    y.set(point.y);
-  };
-
-  function onDragEnd(event, info) {
-    const { velocity, point } = info;
-    const shouldClose = velocity.y > 20 || (velocity.y >= 0 && point.y > 45);
-    if (shouldClose) {
-      controls.start("hidden");
-      // onClose();
-    } else {
-      controls.start("visible");
-      // onOpen();
-    }
-  }
-
-  const selectionBody = items.map((item) => (
+  const selectionBody = indexElements.map((item) => (
     <ul
       key={item.category}
-      className="px-2 py-1 space-y-1 border-t border-stone-50/60 dark:border-stone-500/30"
+      className="px-2 py-1 space-y-1 text-sm border-t border-stone-50/60 dark:border-stone-500/30 md:text-base"
     >
       <li className="px-2 font-semibold pointer-events-none dark:text-stone-300 text-stone-600">
         {item.category}
@@ -119,10 +39,8 @@ export default function Home() {
         <li key={`body.${list.name}`}>
           <button
             onClick={() => {
-              controls.start("hidden");
               setSelected(list.name);
             }}
-            onFocus={() => controls.start("visible")}
             className={`${selectedStyle(
               list.name
             )} px-2 py-1 transition w-full text-left rounded-md overflow-hidden focus:outline-none focus:ring-1 focus:ring-stone-200/50 dark:focus:ring-stone-50`}
@@ -141,98 +59,88 @@ export default function Home() {
 
   return (
     <Page meta={meta} sidebar={false} className="">
-      <div className="absolute top-0 z-0 hidden w-full filter blur-xl dark:block">
-        <Image src={bgDark} className="w-screen" layout="responsive" />
-      </div>
-      <div className="absolute top-0 z-0 block w-full filter blur-xl dark:hidden">
-        <Image src={bgLight} className="w-screen" layout="responsive" />
-      </div>
-      <div className="z-[1] relative">
-        <h2 className="block font-[Nunito] md:hidden pt-20 opacity-70 font-semibold px-4 dark:text-stone-100">
-          FluidDesign
-        </h2>
-        <h1 className="w-4/5 max-w-4xl px-4 pt-2 text-3xl font-bold md:mx-auto dark:text-stone-100 md:text-6xl md:text-center md:pt-48 md:w-auto">
-          Modern design components with smooth transitions.
-        </h1>
-        <div className="justify-center hidden pt-24 md:flex">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="w-[80%] h-[380px] max-w-[680px] rounded-xl border border-stone-200/50 dark:border-stone-700 bg-stone-100 dark:bg-stone-700/50 flex overflow-hidden shadow-lg"
-          >
-            <div className="min-w-[180px] bg-stone-50 dark:bg-stone-700 flex-col relative">
-              <div className="flex items-center h-8 space-x-1.5 px-3">
-                <div className="w-2.5 h-2.5 bg-stone-300 dark:bg-stone-600 rounded-full" />
-                <div className="w-2.5 h-2.5 bg-stone-300 dark:bg-stone-600 rounded-full" />
-                <div className="w-2.5 h-2.5 bg-stone-300 dark:bg-stone-600 rounded-full" />
-              </div>
-              <div className="flex items-center justify-center flex-1">
-                <div className="w-full text-sm">{selectionBody}</div>
-              </div>
-            </div>
-            <div className="relative flex items-center justify-center flex-1 w-full p-4">
-              <AnimatePresence exitBeforeEnter>
-                {selectedComponent(selected)}
-              </AnimatePresence>
-            </div>
-          </motion.div>
+      <section className="relative pb-20 md:pb-40">
+        <div className="absolute inset-0 z-0 hidden w-full overflow-hidden pointer-events-none filter blur-xl dark:block">
+          <Image alt="background blur" src={bgDark} className="w-full" layout="responsive" />
         </div>
-        <div className="max-w-[480px] mx-auto block md:hidden pt-16">
-          <div className="relative rounded-[3rem] shadow-lg shadow-stone-500/10 dark:shadow-stone-900 mx-[14.5%]">
-            <div className="absolute z-20 w-full h-24 notch-container">
-              <div className="notch w-[36%] h-[1.875rem] mx-auto bg-stone-300 dark:bg-stone-700 rounded-bl-[1rem] rounded-br-[1rem]" />
-            </div>
-            <div className="overflow-hidden">
-              <div className="inner aspect-[1.125/2.236] rounded-[3rem] border-[0.825rem] border-stone-300 dark:border-stone-700 pb-4 relative flex justify-center items-start overflow-hidden dark:bg-stone-700/50 transform">
-                <div className="w-full h-[65%] flex justify-center items-center relative">
-                  <AnimatePresence exitBeforeEnter>
-                    {selectedComponent(selected)}
-                  </AnimatePresence>
+        <div className="absolute inset-0 z-0 block w-full overflow-hidden pointer-events-none filter blur-xl dark:hidden">
+          <Image alt="background blur" src={bgLight} className="w-full" layout="responsive" />
+        </div>
+        <div className="z-[1] relative">
+          <h5 className="block font-[Nunito] md:hidden pt-20 opacity-70 font-semibold px-4 dark:text-stone-100 ml-0 mr-auto text-base">
+            FluidDesign
+          </h5>
+          <h1 className="w-4/5 max-w-4xl px-4 pt-2 text-3xl font-bold md:mx-auto dark:text-stone-100 md:text-6xl md:text-center md:pt-48 md:w-auto">
+            Modern design components with smooth transitions.
+          </h1>
+          <p className="px-4 mx-auto mt-6 md:text-center md:text-xl text-stone-500 dark:text-stone-300">
+            A collection of beautifully designed components that are{" "}
+            <span className="font-mono font-medium text-stone-900 dark:text-stone-50">
+              responsive
+            </span>
+            , supports features like{" "}
+            <span className="font-mono font-medium text-stone-900 dark:text-stone-50">
+              dark mode{" "}
+            </span>
+            and{" "}
+            <span className="font-mono font-medium text-stone-900 dark:text-stone-50">
+              a11y
+            </span>{" "}
+            with elegant transitions.
+          </p>
+          <div className="justify-center hidden pt-24 md:flex">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="w-[80%] max-w-[680px] rounded-xl border border-stone-200/50 dark:border-stone-700 bg-stone-100 dark:bg-stone-700/50 flex overflow-hidden shadow-lg"
+            >
+              <div className="min-w-[180px] bg-stone-50 dark:bg-stone-700 flex-col relative pb-1">
+                <div className="flex items-center h-8 space-x-1.5 px-3">
+                  <div className="w-2.5 h-2.5 bg-stone-300 dark:bg-stone-600 rounded-full" />
+                  <div className="w-2.5 h-2.5 bg-stone-300 dark:bg-stone-600 rounded-full" />
+                  <div className="w-2.5 h-2.5 bg-stone-300 dark:bg-stone-600 rounded-full" />
                 </div>
-                <motion.div
-                  className="bg-stone-900/10 dark:bg-stone-900/30 absolute z-[9] w-full h-full top-0 left-0 rounded-[2.15rem]"
-                  animate={controls}
-                  initial="hidden"
-                  variants={{
-                    visible: { opacity: 1, pointerEvents: "auto" },
-                    hidden: { opacity: 0, pointerEvents: "none" },
-                  }}
-                  transition={{
-                    delay: 0,
-                  }}
-                  onClick={() => controls.start("hidden")}
-                />
-                <motion.div
-                  className="bg-stone-50 dark:bg-stone-800 rounded-t-xl w-full h-full absolute z-10 pb-36 bottom-[0%] focus:outline-none"
-                  drag="y"
-                  onDragEnd={onDragEnd}
-                  onDrag={onDrag}
-                  initial="hidden"
-                  animate={controls}
-                  transition={{
-                    type: "spring",
-                    damping: 40,
-                    stiffness: 300,
-                  }}
-                  variants={{
-                    visible: { translateY: "20%" },
-                    hidden: { translateY: "70%" },
-                  }}
-                  dragConstraints={{ top: 0, bottom: 0 }}
-                  dragElastic={0.4}
-                  tabIndex={-1}
-                >
-                  <div
-                    onClick={() => controls.start("visible")}
-                    className="w-8 h-1.5 bg-stone-300/60 dark:bg-stone-500 hover:bg-stone-300 dark:hover:bg-stone-600 rounded-full mx-auto my-2"
-                  />
-                  <div className="px-2">{selectionBody}</div>
-                </motion.div>
+                <div className="flex items-center justify-center flex-1">
+                  <div className="w-full text-sm">{selectionBody}</div>
+                </div>
               </div>
-            </div>
+              <div className="relative flex items-center justify-center flex-1 w-full p-4">
+                <AnimatePresence exitBeforeEnter>
+                  {selectedComponent(selected)}
+                </AnimatePresence>
+              </div>
+            </motion.div>
+          </div>
+          <IndexIphoneFrame
+            selected={selected}
+            selectedComponent={selectedComponent}
+            selectedStyle={selectedStyle}
+            setSelected={setSelected}
+          />
+        </div>
+      </section>
+      <section className="px-4 mx-auto mt-8 text-center sm:px-8 max-w-7xl">
+        <h2 className="">
+          "Looks right" <br className="block sm:hidden" /> isn't enough.
+        </h2>
+        <blockquote>
+          <p className="px-4 mx-auto mt-6">
+            Many UI libraries and component designs often only focus on the
+            design and bare functionalities. They cover the majority of users'
+            needs. However, some component designs may not suit users who rely
+            on accessibility features like screen reader, high-contrast, and
+            reduce-motion. Fluid Design aims to create components that works for
+            all users.
+          </p>
+        </blockquote>
+        <div className="mt-12 sm:mt-16 lg:mt-20">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5 lg:gap-6">
+            {featuresList.map((list) => (
+              <FeatureCard {...list} key={list.title} />
+            ))}
           </div>
         </div>
-      </div>
+      </section>
     </Page>
   );
 }

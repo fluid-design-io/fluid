@@ -12,13 +12,13 @@ function IndexGlass() {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -10, opacity: 1 }}
         transition={{ type: "just" }}
-        className="w-5/6 h-2/5 md:w-2/3 md:h-3/5 neumorphism relative z-[1]"
+        className="w-5/6 h-1/2 md:w-2/3 md:h-3/5 neumorphism relative z-[1]"
       >
         <Tilt
           tiltEnable={false}
           glareEnable={true}
           glareMaxOpacity={1}
-          className="relative w-full h-full overflow-hidden transition border shadow-lg select-none glass-glare rounded-2xl bg-gradient-to-tl from-white/20 to-stone-200/5 border-white/20 dark:border-white/5 dark:from-stone-500/20 dark:to-stone-800/10 backdrop-filter backdrop-blur-xl shadow-sky-800/10 touch-none"
+          className="relative w-full h-full overflow-hidden transition border shadow-lg select-none glass-glare rounded-2xl bg-gradient-to-tl from-white/20 to-stone-200/5 border-white/20 dark:border-white/5 dark:from-stone-500/20 dark:to-stone-800/10 backdrop-filter backdrop-blur-xl shadow-sky-800/10 touch-pan-y"
         >
           <div className="w-full h-full">
             <div

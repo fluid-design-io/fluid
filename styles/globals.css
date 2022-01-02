@@ -28,6 +28,14 @@ a {
     }
   }
 }
+
+h2{
+  @apply text-3xl font-bold tracking-tight text-stone-900 sm:text-5xl dark:text-stone-50;
+}
+p {
+  @apply max-w-3xl md:text-lg text-stone-600 dark:text-stone-200 prefers-contrast:text-stone-800 dark:prefers-contrast:text-stone-50;
+}
+
 .glare-wrapper {
   @apply pointer-events-none;
 }

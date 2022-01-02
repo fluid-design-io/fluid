@@ -13,27 +13,30 @@ function IndexElegant() {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -10, opacity: 0 }}
         transition={{ type: "just" }}
-        className="w-5/6 h-2/5 md:w-2/3 md:h-3/5"
+        className="w-5/6 h-1/2 md:w-2/3 md:h-3/5"
       >
-        <div className="card-wrap w-full h-full transition relative">
+        <div className="relative w-full h-full transition card-wrap">
           <Tilt
             glareEnable={true}
             glareMaxOpacity={1}
             tiltMaxAngleX={onClick ? 0 : 4}
             tiltMaxAngleY={onClick ? 0 : 4}
             glarePosition="all"
-            className="bg-stone-200/75 elegant-glare dark:bg-stone-700 select-none h-full  border border-stone-50 dark:border-stone-600/50 overflow-hidden rounded-xl ring-transparent pointer-touch:shadow-ring-light dark:pointer-touch:shadow-ring-dark hover:shadow-ring-light dark:hover:shadow-ring-dark transition touch-none"
+            className="h-full overflow-hidden transition border select-none bg-stone-200/75 elegant-glare dark:bg-stone-700 border-stone-50 dark:border-stone-600/50 rounded-xl ring-transparent pointer-touch:shadow-ring-light dark:pointer-touch:shadow-ring-dark hover:shadow-ring-light dark:hover:shadow-ring-dark touch-pan-y"
           >
-            <div
+            <button
               onMouseDown={() => setOnClick(true)}
               onMouseUp={() => setOnClick(false)}
               className="w-full h-full"
             >
+              <span className="sr-only">
+                {isFav ? "UnFavorite" : "Favorite"} current card
+              </span>
               <div
                 className={`absolute right-2.5 bottom-2.5 rounded-full active:scale-95 transition group cursor-pointer card-button z-10 hover:shadow-ring-light-sm dark:hover:shadow-ring-dark-sm ${
                   isFav
                     ? `bg-rose-500`
-                    : `bg-stone-300/50 dark:bg-stone-500/50 `
+                    : `bg-stone-300/50 dark:bg-stone-500/50 prefers-contrast:bg-stone-500 dark:prefers-contrast:bg-stone-400`
                 }`}
                 onClick={() => {
                   setIsFav(!isFav);
@@ -49,10 +52,10 @@ function IndexElegant() {
               </div>
               <motion.div className="absolute left-2.5 bottom-2.5 rounded-full w-20 bg-stone-300/50 dark:bg-stone-500/50 flex z-10 hover:shadow-ring-light-sm dark:hover:shadow-ring-dark-sm">
                 <div className="rounded-full bg-stone-300/50 dark:bg-stone-500">
-                  <UserIcon className="w-4 h-4 m-1 text-stone-400 dark:text-stone-700" />
+                  <UserIcon className="w-4 h-4 m-1 text-stone-400 dark:text-stone-700 prefers-contrast:text-stone-200 dark:prefers-contrast:text-stone-900" />
                 </div>
               </motion.div>
-            </div>
+            </button>
           </Tilt>
         </div>
       </motion.div>
