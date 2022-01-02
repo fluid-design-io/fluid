@@ -61,10 +61,20 @@ export default function Home() {
     <Page meta={meta} sidebar={false} className="">
       <section className="relative pb-20 md:pb-40">
         <div className="absolute inset-0 z-0 hidden w-full overflow-hidden pointer-events-none filter blur-xl dark:block">
-          <Image alt="background blur" src={bgDark} className="w-full" layout="responsive" />
+          <Image
+            alt="background blur"
+            src={bgDark}
+            className="w-full"
+            layout="responsive"
+          />
         </div>
         <div className="absolute inset-0 z-0 block w-full overflow-hidden pointer-events-none filter blur-xl dark:hidden">
-          <Image alt="background blur" src={bgLight} className="w-full" layout="responsive" />
+          <Image
+            alt="background blur"
+            src={bgLight}
+            className="w-full"
+            layout="responsive"
+          />
         </div>
         <div className="z-[1] relative">
           <h5 className="block font-[Nunito] md:hidden pt-20 opacity-70 font-semibold px-4 dark:text-stone-100 ml-0 mr-auto text-base">
@@ -121,16 +131,16 @@ export default function Home() {
       </section>
       <section className="px-4 mx-auto mt-8 text-center sm:px-8 max-w-7xl">
         <h2 className="">
-          "Looks right" <br className="block sm:hidden" /> isn't enough.
+          "Looks right" <br className="block sm:hidden" /> {`isn't enough`}.
         </h2>
         <blockquote>
           <p className="px-4 mx-auto mt-6">
-            Many UI libraries and component designs often only focus on the
+            {`Many UI libraries and component designs often only focus on the
             design and bare functionalities. They cover the majority of users'
             needs. However, some component designs may not suit users who rely
             on accessibility features like screen reader, high-contrast, and
             reduce-motion. Fluid Design aims to create components that works for
-            all users.
+            all users.`}
           </p>
         </blockquote>
         <div className="mt-12 sm:mt-16 lg:mt-20">
