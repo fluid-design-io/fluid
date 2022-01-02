@@ -11,7 +11,7 @@ function IndexSharedLayout() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className={`w-5/6 md:w-2/3 md:h-3/5 ${active ? "h-auto" : "h-2/5"}`}
+        className={`border border-dashed border-stone-300 dark:border-stone-700 rounded-xl w-5/6 md:w-2/3 md:h-3/5 h-2/5`}
       >
         <div className="relative w-full h-full">
           {!active && (
@@ -59,7 +59,10 @@ function IndexSharedLayout() {
                   <hr className="border border-dashed border-stone-300 dark:border-stone-700" />
                   <p className="px-4 py-2 text-sm leading-tight text-stone-600 dark:text-stone-300/80 md:text-base">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
+                    do eiusmod
+                    <span className="hidden md:block">
+                      tempor incididunt ut labore et dolore magna
+                    </span>
                     aliqua.
                   </p>
                 </motion.div>
