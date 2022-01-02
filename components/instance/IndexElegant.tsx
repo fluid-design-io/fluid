@@ -13,7 +13,7 @@ function IndexElegant() {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -10, opacity: 0 }}
         transition={{ type: "just" }}
-        className="w-11/12 h-1/3 md:w-2/3 md:h-3/5"
+        className="w-5/6 h-2/5 md:w-2/3 md:h-3/5"
       >
         <div className="card-wrap w-full h-full transition relative">
           <Tilt
@@ -22,7 +22,7 @@ function IndexElegant() {
             tiltMaxAngleX={onClick ? 0 : 4}
             tiltMaxAngleY={onClick ? 0 : 4}
             glarePosition="all"
-            className="bg-stone-200/75 elegant-glare dark:bg-stone-700 select-none h-full  border border-stone-50 dark:border-stone-600/50 overflow-hidden rounded-xl ring-transparent pointer-touch:shadow-ring-light dark:pointer-touch:shadow-ring-dark hover:shadow-ring-light dark:hover:shadow-ring-dark transition"
+            className="bg-stone-200/75 elegant-glare dark:bg-stone-700 select-none h-full  border border-stone-50 dark:border-stone-600/50 overflow-hidden rounded-xl ring-transparent pointer-touch:shadow-ring-light dark:pointer-touch:shadow-ring-dark hover:shadow-ring-light dark:hover:shadow-ring-dark transition touch-none"
           >
             <div
               onMouseDown={() => setOnClick(true)}
@@ -56,8 +56,13 @@ function IndexElegant() {
           </Tilt>
         </div>
       </motion.div>
-      <p className="absolute w-full text-center bottom-2 text-stone-400 dark:text-stone-500 text-xs">
-        Try hover on the card and click buttons
+      <p className="absolute w-full text-xs text-center bottom-2 text-stone-400 dark:text-stone-500">
+        <span className="hidden pointer-hover:block">
+          Try hover on the card and click buttons
+        </span>
+        <span className="hidden pointer-touch:block">
+          Try tap the card and click buttons
+        </span>
       </p>
     </>
   );

@@ -63,7 +63,7 @@ const items = [
       },
       {
         name: "Shared Layout",
-        component: <IndexSharedLayout key={`div.sharedlayout`} />
+        component: <IndexSharedLayout key={`div.sharedlayout`} />,
       },
     ],
   },
@@ -151,7 +151,7 @@ export default function Home() {
         <h2 className="block font-[Nunito] md:hidden pt-20 opacity-70 font-semibold px-4 dark:text-stone-100">
           FluidDesign
         </h2>
-        <h1 className="max-w-4xl px-4 pt-2 mx-auto text-3xl font-bold dark:text-stone-100 md:text-6xl md:text-center md:pt-48">
+        <h1 className="w-4/5 max-w-4xl px-4 pt-2 text-3xl font-bold md:mx-auto dark:text-stone-100 md:text-6xl md:text-center md:pt-48 md:w-auto">
           Modern design components with smooth transitions.
         </h1>
         <div className="justify-center hidden pt-24 md:flex">
@@ -177,20 +177,20 @@ export default function Home() {
             </div>
           </motion.div>
         </div>
-        <div className="max-w-[480px] mx-auto block md:hidden pt-16 px-8">
-          <div className="relative rounded-[4.7rem] shadow-lg shadow-stone-500/10 dark:shadow-stone-900">
+        <div className="max-w-[480px] mx-auto block md:hidden pt-16">
+          <div className="relative rounded-[3rem] shadow-lg shadow-stone-500/10 dark:shadow-stone-900 mx-[14.5%]">
             <div className="absolute z-20 w-full h-24 notch-container">
-              <div className="notch w-[40%] h-[2.15rem] mx-auto bg-stone-300 dark:bg-stone-700 rounded-bl-[1rem] rounded-br-[1rem]" />
+              <div className="notch w-[36%] h-[1.875rem] mx-auto bg-stone-300 dark:bg-stone-700 rounded-bl-[1rem] rounded-br-[1rem]" />
             </div>
-            <div className="">
-              <div className="inner aspect-[1.125/2.436] w-full h-full  rounded-[3rem] border-[0.825rem] border-stone-300 dark:border-stone-700 pb-4 relative flex justify-center items-start overflow-hidden dark:bg-stone-700/50">
-                <div className="w-full h-[calc(100%-120px)] flex justify-center items-center relative">
+            <div className="overflow-hidden">
+              <div className="inner aspect-[1.125/2.236] rounded-[3rem] border-[0.825rem] border-stone-300 dark:border-stone-700 pb-4 relative flex justify-center items-start overflow-hidden dark:bg-stone-700/50 transform">
+                <div className="w-full h-[65%] flex justify-center items-center relative">
                   <AnimatePresence exitBeforeEnter>
                     {selectedComponent(selected)}
                   </AnimatePresence>
                 </div>
                 <motion.div
-                  className="bg-stone-900/10 dark:bg-stone-900/30 absolute z-[9] w-full h-full top-0 left-0"
+                  className="bg-stone-900/10 dark:bg-stone-900/30 absolute z-[9] w-full h-full top-0 left-0 rounded-[2.15rem]"
                   animate={controls}
                   initial="hidden"
                   variants={{
@@ -203,7 +203,7 @@ export default function Home() {
                   onClick={() => controls.start("hidden")}
                 />
                 <motion.div
-                  className="bg-stone-50 dark:bg-stone-800 rounded-t-xl w-full h-full absolute z-10 pb-36 shadow-2xl bottom-[0%]"
+                  className="bg-stone-50 dark:bg-stone-800 rounded-t-xl w-full h-full absolute z-10 pb-36 bottom-[0%] focus:outline-none"
                   drag="y"
                   onDragEnd={onDragEnd}
                   onDrag={onDrag}
@@ -215,14 +215,17 @@ export default function Home() {
                     stiffness: 300,
                   }}
                   variants={{
-                    visible: { translateY: "30%" },
-                    hidden: { translateY: "80%" },
+                    visible: { translateY: "20%" },
+                    hidden: { translateY: "70%" },
                   }}
                   dragConstraints={{ top: 0, bottom: 0 }}
                   dragElastic={0.4}
                   tabIndex={-1}
                 >
-                  <div className="w-8 h-1.5 bg-stone-300/60 dark:bg-stone-500 hover:bg-stone-300 dark:hover:bg-stone-600 rounded-full mx-auto my-2" />
+                  <div
+                    onClick={() => controls.start("visible")}
+                    className="w-8 h-1.5 bg-stone-300/60 dark:bg-stone-500 hover:bg-stone-300 dark:hover:bg-stone-600 rounded-full mx-auto my-2"
+                  />
                   <div className="px-2">{selectionBody}</div>
                 </motion.div>
               </div>

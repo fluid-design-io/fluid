@@ -10,7 +10,7 @@ function IndexCard() {
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -10, opacity: 0 }}
       transition={{ type: "just" }}
-      className="rounded-lg w-11/12 md:w-1/2 bg-stone-50 dark:bg-stone-800 overflow-hidden shadow-lg shadow-stone-900/10 dark:shadow-stone-900"
+      className="rounded-lg w-5/6 md:w-1/2 bg-stone-50 dark:bg-stone-800 overflow-hidden shadow-lg shadow-stone-900/10 dark:shadow-stone-900"
     >
       <div>
         <div className="aspect-video overflow-hidden relative">
@@ -28,7 +28,7 @@ function IndexCard() {
             </p>
           </div>
           <div className="flex justify-between pt-1 items-center">
-            <button className="bg-stone-200 text-stone-700 dark:bg-stone-800 dark:text-stone-200 hover:bg-stone-700 hover:text-stone-100 dark:hover:bg-stone-600 dark:active:bg-stone-500 dark:hover:text-stone-100 focus:bg-stone-700 focus:text-stone-100 dark:focus:bg-stone-600 dark:focus:text-stone-100 transition text-xs font-semibold uppercase py-1 px-2 rounded">
+            <button className="bg-stone-200 text-stone-700 dark:bg-stone-800 dark:text-stone-200 hover:bg-stone-700 hover:text-stone-100 dark:hover:bg-stone-600 dark:active:bg-stone-500 dark:hover:text-stone-100 focus:bg-stone-700 focus:text-stone-100 dark:focus:bg-stone-600 dark:focus:text-stone-100 transition text-xs font-semibold uppercase py-1 px-2 rounded touch-none">
               button
             </button>
             <div className="flex space-x-2">

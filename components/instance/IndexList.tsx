@@ -52,9 +52,9 @@ function IndexList() {
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -10, opacity: 0 }}
       transition={{ type: "just" }}
-      className="w-11/12 overflow-hidden rounded-lg shadow-lg md:w-2/3 bg-stone-50 dark:bg-stone-800 shadow-stone-900/10 dark:shadow-stone-900"
+      className="w-5/6 overflow-hidden rounded-lg shadow-lg md:w-2/3 bg-stone-50 dark:bg-stone-800 shadow-stone-900/10 dark:shadow-stone-900"
     >
-      <ul className="divide-y select-none divide-stone-200/75 dark:divide-stone-700/30">
+      <ul className="divide-y select-none divide-stone-200/50 dark:divide-stone-700/30">
         <li className="flex justify-between px-2 py-1">
           <h1 className="text-xs font-semibold text-stone-700 dark:text-stone-200">
             Animal book
@@ -73,10 +73,10 @@ function IndexList() {
               <Image src={src} layout="fill" />
             </div>
             <div className="flex-1 select-none">
-              <h2 className="font-semibold leading-4 text-stone-800 dark:text-stone-300">
+              <h2 className="text-sm font-semibold leading-4 md:text-base text-stone-800 dark:text-stone-300">
                 {title}
               </h2>
-              <p className="leading-tight text-xs md:text-sm text-stone-600/90 dark:text-stone-400/80 max-w-[80%] sm:max-w-[90%] line-clamp-2 md:line-clamp-1">
+              <p className="leading-none md:leading-tight py-0.5 text-xs md:text-sm text-stone-600/90 dark:text-stone-400/80 max-w-[80%] sm:max-w-[90%] line-clamp-2 md:line-clamp-1">
                 {description}
               </p>
             </div>

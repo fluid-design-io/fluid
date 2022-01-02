@@ -11,9 +11,9 @@ function IndexSoft() {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -10, opacity: 0 }}
         transition={{ type: "just" }}
-        className="w-11/12 h-1/3 md:w-2/3 md:h-3/5 neumorphism"
+        className="w-5/6 h-2/5 md:w-2/3 md:h-3/5 neumorphism"
       >
-        <div className="dark:bg-stone-700 select-none overflow-hidden rounded-2xl w-full h-full transition relative material-shadow-md hover:material-shadow active:material-shadow-sm bg-gradient-to-tl from-stone-100 to-stone-200/75 dark:from-stone-700 dark:to-stone-800/75">
+        <div className="relative w-full h-full overflow-hidden transition select-none dark:bg-stone-700 rounded-2xl material-shadow-md hover:material-shadow active:material-shadow-sm bg-gradient-to-tl from-stone-100 to-stone-200/75 dark:from-stone-700 dark:to-stone-800/75 touch-none">
           <div className="w-full h-full">
             <div
               className="absolute right-1.5 bottom-1.5 p-1 rounded-full  transition active:scale-[0.93] border border-transparent cursor-pointer hover:material-inset-sm pointer-touch:material-inset-xs"
@@ -35,8 +35,13 @@ function IndexSoft() {
           </div>
         </div>
       </motion.div>
-      <p className="absolute w-full text-center bottom-2 text-stone-400 dark:text-stone-500 text-xs">
-        Try hover on the card and click buttons
+      <p className="absolute w-full text-xs text-center bottom-2 text-stone-400 dark:text-stone-500">
+        <span className="hidden pointer-hover:block">
+          Try hover on the card and click buttons
+        </span>
+        <span className="hidden pointer-touch:block">
+          Try tap the card and click buttons
+        </span>
       </p>
     </>
   );
