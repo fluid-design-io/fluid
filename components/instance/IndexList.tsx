@@ -70,7 +70,7 @@ function IndexList() {
             tabIndex={0}
           >
             <div className="w-8 h-8 min-w-[32px] rounded-full overflow-hidden relative">
-              <Image src={src} layout="fill" />
+              <Image alt={title} src={src} layout="fill" />
             </div>
             <div className="flex-1 select-none">
               <h3 className="text-sm font-semibold leading-4 md:text-base text-stone-800 dark:text-stone-300">

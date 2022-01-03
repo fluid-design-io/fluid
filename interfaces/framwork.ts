@@ -9,4 +9,6 @@ export interface SiteMeta {
   title: string;
   description?: string;
   imageUrl?: string;
+  date?: Date,
+  authors?: string[],
 }

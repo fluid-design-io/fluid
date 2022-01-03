@@ -14,7 +14,7 @@ function IndexCard() {
     >
       <div>
         <div className="relative overflow-hidden aspect-video">
-          <Image src={bg} layout="fill" />
+          <Image alt="nature" src={bg} layout="fill" />
         </div>
         <div className="p-2.5">
           <div className="flex-grow">

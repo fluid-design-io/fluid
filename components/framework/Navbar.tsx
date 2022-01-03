@@ -12,8 +12,8 @@ import {
   XIcon,
 } from "@heroicons/react/outline";
 import Image from "next/image";
-import logoDark from "../../public/assets/icon-dark.png";
-import logoLight from "../../public/assets/icon-light.png";
+import logoDark from "../../public/assets/icon-dark.svg";
+import logoLight from "../../public/assets/icon-light.svg";
 import Link from "next/link";
 
 const solutions = [

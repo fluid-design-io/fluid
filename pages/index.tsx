@@ -1,16 +1,19 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import React, { useState } from "react";
 import Page from "../components/framework/Page";
 import IndexIphoneFrame from "../components/instance/IndexIphoneFrame";
 import FeatureCard from "../components/ui/FeatureCard";
+import WindowFrame from "../components/WindowFrame";
 import { SiteMeta } from "../interfaces/framwork";
 import { featuresList, indexElements } from "../lib/index/data";
 import bgDark from "../public/assets/index-bg-dark.jpg";
 import bgLight from "../public/assets/index-bg-light.jpg";
+import SplitPane from "react-split-pane/lib/SplitPane";
+import Pane from "react-split-pane/lib/Pane";
 
 export default function Home() {
-  const [selected, setSelected] = useState("Elegant");
+  const [selected, setSelected] = useState("Card");
   const selectedStyle = (item) => {
     return selected === item
       ? `text-stone-900 dark:text-stone-800 bg-white dark:bg-stone-300 shadow`
@@ -26,7 +29,6 @@ export default function Home() {
     );
     return match[0]?.component;
   };
-
   const selectionBody = indexElements.map((item) => (
     <ul
       key={item.category}
@@ -54,7 +56,8 @@ export default function Home() {
 
   const meta: SiteMeta = {
     title: "Fluid Design",
-    description: "A collection of beautifully designed components",
+    description:
+      "Beautiful React components that are responsive, supports features like dark mode and a11y with elegant transitions.",
   };
 
   return (
@@ -84,43 +87,31 @@ export default function Home() {
             Modern design components with smooth transitions.
           </h1>
           <p className="px-4 mx-auto mt-6 md:text-center md:text-xl text-stone-500 dark:text-stone-300">
-            A collection of beautifully designed components that are{" "}
+            Beautiful React components that are{" "}
             <span className="font-mono font-medium text-stone-900 dark:text-stone-50">
               responsive
             </span>
             , supports features like{" "}
             <span className="font-mono font-medium text-stone-900 dark:text-stone-50">
-              dark mode{" "}
-            </span>
+              dark mode
+            </span>{" "}
             and{" "}
             <span className="font-mono font-medium text-stone-900 dark:text-stone-50">
               a11y
             </span>{" "}
             with elegant transitions.
           </p>
-          <div className="justify-center hidden pt-24 md:flex">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="w-[80%] max-w-[680px] rounded-xl border border-stone-200/50 dark:border-stone-700 bg-stone-100 dark:bg-stone-700/50 flex overflow-hidden shadow-lg"
-            >
-              <div className="min-w-[180px] bg-stone-50 dark:bg-stone-700 flex-col relative pb-1">
-                <div className="flex items-center h-8 space-x-1.5 px-3">
-                  <div className="w-2.5 h-2.5 bg-stone-300 dark:bg-stone-600 rounded-full" />
-                  <div className="w-2.5 h-2.5 bg-stone-300 dark:bg-stone-600 rounded-full" />
-                  <div className="w-2.5 h-2.5 bg-stone-300 dark:bg-stone-600 rounded-full" />
-                </div>
-                <div className="flex items-center justify-center flex-1">
-                  <div className="w-full text-sm">{selectionBody}</div>
-                </div>
-              </div>
-              <div className="relative flex items-center justify-center flex-1 w-full p-4">
-                <AnimatePresence exitBeforeEnter>
-                  {selectedComponent(selected)}
-                </AnimatePresence>
-              </div>
-            </motion.div>
-          </div>
+          <WindowFrame
+            className={
+              "mt-24 w-[80%] max-w-[680px] justify-center hidden md:flex mx-auto"
+            }
+            sidebar={selectionBody}
+            content={
+              <AnimatePresence exitBeforeEnter>
+                {selectedComponent(selected)}
+              </AnimatePresence>
+            }
+          />
           <IndexIphoneFrame
             selected={selected}
             selectedComponent={selectedComponent}
@@ -129,7 +120,10 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="px-4 mx-auto mt-8 text-center sm:px-8 max-w-7xl">
+      <section
+        id="features"
+        className="px-4 mx-auto mt-8 text-center sm:px-8 max-w-7xl"
+      >
         <h2 className="">
           "Looks right" <br className="block sm:hidden" /> {`isn't enough`}.
         </h2>
@@ -149,6 +143,47 @@ export default function Home() {
               <FeatureCard {...list} key={list.title} />
             ))}
           </div>
+        </div>
+      </section>
+      <section
+        id="demo"
+        className="px-4 mx-auto mt-24 sm:mt-32 md:mt-40 sm:px-8 max-w-7xl"
+      >
+        <h2 className="text-left">See it live.</h2>
+        <p className="mt-4">
+          Powered by{" "}
+          <span className="font-mono font-medium text-stone-900 dark:text-stone-50">
+            tailwindcss
+          </span>{" "}
+          and{" "}
+          <span className="font-mono font-medium text-stone-900 dark:text-stone-50">
+            framer-motion
+          </span>
+          . Fluid Design merges these mordern framworks to create components
+          that are highly customizable, by you.
+        </p>
+        <div className="mt-8">
+          <SplitPane split="vertical">
+            <Pane
+              initialSize="100%"
+              minSize="320px"
+              maxSize="calc(100% - 16px)"
+            >
+              <div className={`relative overflow-hidden rounded-xl`}>
+                <iframe
+                  src="/examples/responsive-card"
+                  className="w-full h-[496px] pointer-events-none"
+                />
+              </div>
+            </Pane>
+            <Pane>
+              <div className="relative hidden w-full h-full sm:block">
+                <div className="absolute z-20 top-1/2 -left-3 p-2 -mt-6 items-center justify-center pointer-events-none select-none touch-pan-y origin-[50%_50%_0px]">
+                  <div className="w-1.5 h-8 bg-stone-500/60 dark:bg-stone-500/80 prefers-contrast:bg-stone-800 dark:prefers-contrast:bg-stone-300 rounded-full"></div>
+                </div>
+              </div>
+            </Pane>
+          </SplitPane>
         </div>
       </section>
     </Page>
