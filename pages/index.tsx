@@ -9,11 +9,13 @@ import { SiteMeta } from "../interfaces/framwork";
 import { featuresList, indexElements } from "../lib/index/data";
 import bgDark from "../public/assets/index-bg-dark.jpg";
 import bgLight from "../public/assets/index-bg-light.jpg";
-import SplitPane from "react-split-pane/lib/SplitPane";
-import Pane from "react-split-pane/lib/Pane";
+import { SplitPane } from "react-multi-split-pane";
+import Link from "next/link";
+import { rawResponsiveCard } from "./examples/responsive-card";
 
 export default function Home() {
   const [selected, setSelected] = useState("Card");
+  const [isDragging, setIsDragging] = useState(false);
   const selectedStyle = (item) => {
     return selected === item
       ? `text-stone-900 dark:text-stone-800 bg-white dark:bg-stone-300 shadow`
@@ -91,7 +93,7 @@ export default function Home() {
             <span className="font-mono font-medium text-stone-900 dark:text-stone-50">
               responsive
             </span>
-            , supports features like{" "}
+            , supports features like <br />
             <span className="font-mono font-medium text-stone-900 dark:text-stone-50">
               dark mode
             </span>{" "}
@@ -138,7 +140,7 @@ export default function Home() {
           </p>
         </blockquote>
         <div className="mt-12 sm:mt-16 lg:mt-20">
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5 lg:gap-6">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 sm:gap-5 lg:gap-6">
             {featuresList.map((list) => (
               <FeatureCard {...list} key={list.title} />
             ))}
@@ -150,7 +152,7 @@ export default function Home() {
         className="px-4 mx-auto mt-24 sm:mt-32 md:mt-40 sm:px-8 max-w-7xl"
       >
         <h2 className="text-left">See it live.</h2>
-        <p className="mt-4">
+        <p className="mt-4 text-stone-500 dark:text-stone-300">
           Powered by{" "}
           <span className="font-mono font-medium text-stone-900 dark:text-stone-50">
             tailwindcss
@@ -160,30 +162,42 @@ export default function Home() {
             framer-motion
           </span>
           . Fluid Design merges these mordern framworks to create components
-          that are highly customizable, by you.
+          that are highly customizable, by you.{" "}
+          <span className="sm:hidden">
+            (Try resize your screen to move the handle)
+          </span>
         </p>
+        <Link href={"/components"}>
+          <button className="mt-6 primary-button">Browse more</button>
+        </Link>
         <div className="mt-8">
-          <SplitPane split="vertical">
-            <Pane
-              initialSize="100%"
-              minSize="320px"
-              maxSize="calc(100% - 16px)"
-            >
-              <div className={`relative overflow-hidden rounded-xl`}>
-                <iframe
-                  src="/examples/responsive-card"
-                  className="w-full h-[496px] pointer-events-none"
-                />
-              </div>
-            </Pane>
-            <Pane>
-              <div className="relative hidden w-full h-full sm:block">
-                <div className="absolute z-20 top-1/2 -left-3 p-2 -mt-6 items-center justify-center pointer-events-none select-none touch-pan-y origin-[50%_50%_0px]">
-                  <div className="w-1.5 h-8 bg-stone-500/60 dark:bg-stone-500/80 prefers-contrast:bg-stone-800 dark:prefers-contrast:bg-stone-300 rounded-full"></div>
-                </div>
-              </div>
-            </Pane>
+          <SplitPane
+            split="vertical"
+            onDragStarted={() => setIsDragging(true)}
+            onDragFinished={() => setIsDragging(false)}
+            // defaultSizes={[1, 0]}
+            minSize={[320, 24]}
+            className="!relative mx-auto !flex-col sm:!flex-row"
+            // maxSize={"calc(100% - 16px)"}
+          >
+            <div className={`relative overflow-hidden rounded-xl w-full`}>
+              <iframe
+                src="/examples/responsive-card"
+                className={`w-full h-[496px] ${
+                  isDragging ? "pointer-events-none" : ""
+                }`}
+              />
+            </div>
+            <div></div>
           </SplitPane>
+
+          <article className="mt-[-1rem] md:ml-[-0.875rem] rel max-w-7xl h-[35vh] md:h-[320px] overflow-auto prose dark:prose-invert prose-stone w-full rounded-xl">
+            <pre className="">
+              <code className="whitespace-pre-wrap language-html">
+                {`${rawResponsiveCard}`}
+              </code>
+            </pre>
+          </article>
         </div>
       </section>
     </Page>
