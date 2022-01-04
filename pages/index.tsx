@@ -182,7 +182,7 @@ export default function Home() {
             // maxSize={"calc(100% - 16px)"}
           >
             <WindowFrame
-              className={`shadow w-full mx-auto`}
+              className={`shadow w-full mx-auto dark:!bg-[#353330]`}
               content={
                 <iframe
                   src="/examples/responsive-card"

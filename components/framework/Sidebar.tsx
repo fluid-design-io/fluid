@@ -100,6 +100,9 @@ function SidebarMenu({ activeTab }) {
                     <ItemIcon className="w-3.5 h-3.5" aria-hidden="true" />
                   </div>
                   <div className="ml-2 text-base font-medium text-stone-900 dark:text-stone-200">
+                    {activeTab === href && (
+                      <span className="sr-only">Currently selected.</span>
+                    )}
                     {name}
                   </div>
                 </a>
@@ -171,8 +174,8 @@ export default function Sidebar({ hideNav = false }) {
         <button className="mr-2" onClick={() => setSidebarActive(true)}>
           <MenuAlt4Icon className="w-5 h-5 text-stone-400" />
         </button>
-        <div className="text-sm font-medium text-stone-700 dark:text-stone-300">
-          Examples
+        <div className="text-sm font-medium capitalize text-stone-700 dark:text-stone-300">
+          {activeTab}
         </div>
       </div>
       <div

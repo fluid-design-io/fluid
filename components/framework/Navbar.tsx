@@ -45,7 +45,10 @@ export default function Navbar({ logo = true, ...props }) {
         </div>
 
         <div className="hidden md:flex-1 md:flex md:items-center md:justify-between">
-          <div className={`${!logo ? "opacity-0" : ""}`}>
+          <div
+            className={`${!logo ? "opacity-0 pointer-events-none" : ""}`}
+            aria-hidden={!logo}
+          >
             <Link href={"/"}>
               <a className="flex">
                 <div className="flex font-[Nunito] text-stone-700 dark:text-stone-200 font-bold text-[1.175rem]">

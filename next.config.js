@@ -4,7 +4,7 @@ module.exports = {
       {
         source: "/components",
         destination: "/components/examples",
-        permanent: false,
+        permanent: true,
       },
     ];
   },
