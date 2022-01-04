@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import { MotionPageProps, SiteMeta } from "../../interfaces/framwork";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
+import { useEffect, useState } from "react";
 
 function Page({
   header = true,
@@ -23,36 +24,87 @@ function Page({
   motionProps?: MotionPageProps;
 }) {
   const { asPath } = useRouter();
+  const [hideNav, setHideNav] = useState(false);
   const enableMotion =
     typeof motionProps?.enable === "undefined" || motionProps?.enable === true
       ? true
       : false;
+
+  useEffect(() => {
+    var doc = document.documentElement;
+    var w = window;
+
+    var prevScroll = w.scrollY || doc.scrollTop;
+    var curScroll;
+    var direction = 0;
+    var prevDirection = 0;
+
+    var checkScroll = function () {
+      /*
+       ** Find the direction of scroll
+       ** 0 - initial, 1 - up, 2 - down
+       */
+
+      curScroll = w.scrollY || doc.scrollTop;
+      if (curScroll > prevScroll) {
+        //scrolled up
+        direction = 2;
+      } else if (curScroll < prevScroll) {
+        //scrolled down
+        direction = 1;
+      }
+
+      if (direction !== prevDirection) {
+        toggleHeader(direction, curScroll);
+      }
+
+      prevScroll = curScroll;
+    };
+
+    var toggleHeader = function (direction, curScroll) {
+      if (direction === 2 && curScroll > 120) {
+        //replace 52 with the height of your header in px
+        setHideNav(true);
+        prevDirection = direction;
+      } else if (direction === 1) {
+        setHideNav(false);
+        prevDirection = direction;
+      }
+    };
+
+    window.addEventListener("scroll", checkScroll);
+
+    return () => window.removeEventListener("scroll", checkScroll);
+  }, []);
   return (
     <>
       <Header {...meta} />
-      <div className="overflow-x-hidden bg-stone-100 dark:bg-stone-800 flex flex-col min-h-screen">
-        {header && <Navbar />}
-        <div className="flex flex-1 max-w-[1400px] mx-auto relative  w-full">
-          {sidebar && <Sidebar />}
-          <AnimatePresence exitBeforeEnter>
-            <motion.div
-              key={`page-${asPath}`}
-              initial={enableMotion ? { opacity: 0 } : {}}
-              animate={enableMotion ? { opacity: 1 } : {}}
-              exit={enableMotion ? { opacity: 0 } : {}}
-              transition={enableMotion ? { duration: 0.65 } : {}}
-              className={`flex-1 ${className ? className : ``} ${
-                sidebar
-                  ? `max-h-[calc(100vh-61px)] overflow-auto mt-[61px]`
-                  : ``
-              }`}
-            >
-              {children}
-              <Footer />
-            </motion.div>
-          </AnimatePresence>
-        </div>
+      <div className="sticky top-0 z-50 flex flex-col md:flex-col-reverse">
+        {header && (
+          <Navbar
+            logo={!sidebar}
+            className={`
+            ${sidebar ? `md:ml-[200px] lg:ml-[250px]` : ``} 
+            ${hideNav ? "-translate-y-full" : ""}`}
+          />
+        )}
+        {sidebar && <Sidebar hideNav={hideNav} />}
       </div>
+      <AnimatePresence exitBeforeEnter>
+        <motion.div
+          key={`page-${asPath}`}
+          initial={enableMotion ? { opacity: 0 } : {}}
+          animate={enableMotion ? { opacity: 1 } : {}}
+          exit={enableMotion ? { opacity: 0 } : {}}
+          transition={enableMotion ? { duration: 0.65 } : {}}
+          className={`flex-1 ${className ? className : ``}  ${
+            sidebar ? `md:ml-[200px] lg:ml-[250px]` : ``
+          }`}
+        >
+          {children}
+          <Footer />
+        </motion.div>
+      </AnimatePresence>
     </>
   );
 }

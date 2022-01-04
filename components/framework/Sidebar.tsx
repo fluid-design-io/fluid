@@ -1,120 +1,195 @@
-/* This example requires Tailwind CSS v2.0+ */
-import { Disclosure } from "@headlessui/react";
-import Tilt from "react-parallax-tilt";
+import {
+  BookOpenIcon,
+  MenuAlt4Icon,
+  ViewGridIcon,
+} from "@heroicons/react/solid";
+import Image from "next/image";
+import Link from "next/link";
+import { Router, useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import logoDark from "../../public/assets/icon-dark.svg";
+import logoLight from "../../public/assets/icon-light.svg";
 
 const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Dashboard", href: "#1", current: false },
-  { name: "Dashboard", href: "#2", current: false },
-  { name: "Dashboard", href: "#3", current: false },
-  {
-    name: "Team",
-    current: false,
-    children: [
-      { name: "Overview", href: "#" },
-      { name: "Members", href: "#" },
-      { name: "Calendar", href: "#" },
-      { name: "Settings", href: "#" },
-    ],
-  },
+  { name: "Examples", href: "examples", icon: ViewGridIcon },
+  { name: "Usage", href: "usage", icon: BookOpenIcon },
 ];
 const secondaryNavigation = [
-  { name: "Website redesign", href: "#" },
-  { name: "GraphQL API", href: "#" },
-  { name: "Customer migration guides", href: "#" },
-  { name: "Profit sharing program", href: "#" },
+  {
+    groupName: "Components",
+    groupList: [
+      { name: "Alert", href: "alert", isDone: false },
+      { name: "Avatar", href: "avatar", isDone: false },
+      { name: "Badge", href: "badge", isDone: false },
+      { name: "Breadcrumbs", href: "breadcrumbs", isDone: false },
+      { name: "Button", href: "button", isDone: false },
+      { name: "Button-Group", href: "button-Group", isDone: false },
+      { name: "Card", href: "card", isDone: true },
+      { name: "Carousel", href: "carousel", isDone: false },
+      { name: "Collapse", href: "collapse", isDone: false },
+      { name: "Countdown", href: "countdown", isDone: false },
+      { name: "Divider", href: "divider", isDone: false },
+      { name: "Drawer", href: "drawer", isDone: false },
+      { name: "Dropdown", href: "dropdown", isDone: false },
+      { name: "Footer", href: "footer", isDone: false },
+      { name: "Hero", href: "hero", isDone: false },
+      { name: "Indicator", href: "indicator", isDone: false },
+      { name: "Link", href: "link", isDone: false },
+      { name: "Mask", href: "mask", isDone: false },
+      { name: "Menu", href: "menu", isDone: false },
+      { name: "Modal", href: "modal", isDone: false },
+      { name: "Navbar", href: "navbar", isDone: false },
+      { name: "Pagination", href: "pagination", isDone: false },
+      { name: "Progress", href: "progress", isDone: false },
+      { name: "Tab", href: "tab", isDone: false },
+      { name: "Table", href: "table", isDone: false },
+      { name: "Tooltip", href: "tooltip", isDone: false },
+    ],
+  },
+  {
+    groupName: "Forms",
+    groupList: [
+      { name: "Checkbox", href: "form-Checkbox", isDone: false },
+      { name: "Input", href: "form-Input", isDone: false },
+    ],
+  },
 ];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Sidebar() {
+function SidebarMenu({ activeTab }) {
   return (
-    <div className="flex border-r border-stone-200 dark:border-stone-700 pt-5 pb-4 max-h-[calc(100vh-61px)] mt-[61px] overflow-y-auto relative">
-      <div className=" mt-5">
-        <nav className="flex-1 px-4 space-y-2" aria-label="Sidebar">
-          {navigation.map((item) =>
-            !item.children ? (
-              <div key={`nav.${item.name}`} className="rounded-md overflow-hidden">
+    <div className="md:fixed z-40 top-0 left-0 max-h-screen overflow-x-hidden overflow-y-auto bg-stone-50 dark:bg-stone-900 w-[300px] sm:w-[200px] lg:w-[250px] flex pb-4 border-r border-stone-200 dark:border-stone-700">
+      <div className="w-full">
+        <Link href={"/"}>
+          <a className="sticky top-0 z-10 flex items-center justify-start px-4 py-5 space-x-2 bg-stone-50/80 dark:bg-stone-900/80 backdrop-filter backdrop-blur-md">
+            <span className="sr-only">Fluid Design</span>
+            <div className="w-auto h-7 dark:hidden">
+              <Image alt="logo" src={logoDark} width={28} height={28} />
+            </div>
+            <div className="hidden w-auto h-7 dark:block">
+              <Image alt="logo" src={logoLight} width={28} height={28} />
+            </div>
+            <div className="flex font-[Nunito] text-stone-700 dark:text-stone-200 font-bold md:text-[1.175rem]">
+              <p>Fluid Design</p>
+            </div>
+          </a>
+        </Link>
+        <nav className="flex-1 px-4 pb-8 space-y-2" aria-label="Sidebar">
+          {navigation.map(({ name, href, icon: ItemIcon }) => (
+            <div key={`nav.${name}`} className="rounded-md">
+              <Link key={name} href={`/components/${href}`}>
                 <a
-                  href={item.href}
                   className={classNames(
-                    item.current
+                    activeTab === href
                       ? "bg-stone-100 text-stone-900 dark:bg-stone-700 dark:text-stone-100"
-                      : "text-stone-600 dark:text-stone-500 hover:bg-stone-50 hover:text-stone-900 dark:hover:bg-stone-700/80 dark:hover:text-stone-300",
-                    "group w-full flex items-center pl-7 pr-2 py-2 text-sm font-medium rounded-md transition"
+                      : "hover:bg-stone-50 hover:text-stone-900 dark:hover:bg-stone-700/80 dark:hover:text-stone-300",
+                    "group w-full px-2 py-2 text-sm font-medium rounded-md transition flex items-center"
                   )}
                 >
-                  {item.name}
+                  <div
+                    className={`flex items-center justify-center flex-shrink-0 w-6 h-6 border rounded-md 
+                  ${
+                    activeTab === href
+                      ? `text-teal-400 border-teal-400 shadow shadow-teal-400/40`
+                      : `border-stone-100 dark:border-stone-600/80 text-stone-600 dark:text-stone-300`
+                  }`}
+                  >
+                    <ItemIcon className="w-3.5 h-3.5" aria-hidden="true" />
+                  </div>
+                  <div className="ml-2 text-base font-medium text-stone-900 dark:text-stone-200">
+                    {name}
+                  </div>
                 </a>
-              </div>
-            ) : (
-              <Disclosure as="div" key={item.name} className="space-y-1">
-                {({ open }) => (
-                  <>
-                    <Disclosure.Button
-                      className={classNames(
-                        item.current
-                          ? "bg-stone-100 text-stone-900"
-                          : "text-stone-600 hover:bg-stone-50 hover:text-stone-900",
-                        "group w-full flex items-center pr-2 py-2 text-left text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                      )}
-                    >
-                      <svg
-                        className={classNames(
-                          open ? "text-stone-400 rotate-90" : "text-stone-300",
-                          "mr-2 flex-shrink-0 h-5 w-5 transform group-hover:text-stone-400 transition-colors ease-in-out duration-150"
-                        )}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                      >
-                        <path d="M6 6L14 10L6 14V6Z" fill="currentColor" />
-                      </svg>
-                      {item.name}
-                    </Disclosure.Button>
-                    <Disclosure.Panel className="space-y-1">
-                      {item.children.map((subItem) => (
-                        <Disclosure.Button
-                          key={subItem.name}
-                          as="a"
-                          href={subItem.href}
-                          className="group w-full flex items-center pl-10 pr-2 py-2 text-sm font-medium text-stone-600 rounded-md hover:text-stone-900 hover:bg-stone-50"
-                        >
-                          {subItem.name}
-                        </Disclosure.Button>
-                      ))}
-                    </Disclosure.Panel>
-                  </>
-                )}
-              </Disclosure>
-            )
-          )}
-          <div className="space-y-1">
-            <h3
-              className="px-3 text-xs font-semibold text-stone-500 uppercase tracking-wider"
-              id="projects-headline"
-            >
-              Projects
-            </h3>
-            <div
-              className="space-y-1"
-              role="group"
-              aria-labelledby="projects-headline"
-            >
-              {secondaryNavigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="group flex items-center px-3 py-2 text-sm font-medium text-stone-600 rounded-md hover:text-stone-900 hover:bg-stone-50"
-                >
-                  <span className="truncate">{item.name}</span>
-                </a>
-              ))}
+              </Link>
             </div>
-          </div>
+          ))}
+
+          {secondaryNavigation.map(({ groupList, groupName }) => (
+            <div key={`${groupName}`} className="py-2 space-y-1">
+              <h3
+                className="px-3 text-xs font-semibold tracking-wider uppercase select-none text-stone-500 dark:text-stone-400 prefers-contrast:text-stone-700 dark:prefers-contrast:text-slate-100"
+                id={`${groupName}-headline`}
+              >
+                {groupName}
+              </h3>
+              <div
+                className="space-y-1"
+                role="group"
+                aria-labelledby={`${groupName}-headline`}
+              >
+                {groupList.map(({ name, href, isDone }) => (
+                  <Link
+                    key={`${groupName}.${name}`}
+                    href={`/components/${href}`}
+                  >
+                    <a
+                      className={`flex items-center px-3 py-2 text-sm font-medium rounded-md group 
+                      ${!isDone ? "opacity-50" : ""} 
+                      ${
+                        activeTab === href
+                          ? `bg-stone-100 text-stone-900 dark:bg-stone-700 dark:text-stone-100`
+                          : `text-stone-700 dark:text-stone-300/80 hover:bg-stone-50 hover:text-stone-900 dark:hover:bg-stone-700/80 dark:hover:text-stone-100`
+                      }`}
+                    >
+                      <span className="truncate">{name}</span>
+                    </a>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
         </nav>
       </div>
     </div>
+  );
+}
+
+export default function Sidebar({ hideNav = false }) {
+  const [sidebarActive, setSidebarActive] = useState(false);
+  const router = useRouter();
+  const activeTab = router?.pathname?.split("/")?.pop();
+  useEffect(() => {
+    Router.events.on(
+      "routeChangeStart",
+      () => !sidebarActive && setSidebarActive(false)
+    );
+    return () => {
+      Router.events.off("routeChangeStart", () => {});
+    };
+  }, []);
+
+  return (
+    <>
+      <div
+        className={`flex items-center px-4 border-b md:hidden border-b-stone-200 dark:border-b-stone-700 backdrop-filter backdrop-blur-xl bg-stone-100/70 dark:bg-stone-800/60 transition-all duration-300 ${
+          hideNav ? "translate-y-[-61px]  py-4" : " py-2"
+        }`}
+      >
+        <button className="mr-2" onClick={() => setSidebarActive(true)}>
+          <MenuAlt4Icon className="w-5 h-5 text-stone-400" />
+        </button>
+        <div className="text-sm font-medium text-stone-700 dark:text-stone-300">
+          Examples
+        </div>
+      </div>
+      <div
+        onClick={() => setSidebarActive(false)}
+        className={`bg-stone-900 z-[60] md:hidden w-full h-screen inset-0 fixed transition-opacity duration-500 ${
+          sidebarActive
+            ? "opacity-20 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        } `}
+      />
+      <div
+        className={`${
+          sidebarActive ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+        } transition fixed top-0 z-[61] md:relative md:z-40 duration-300`}
+      >
+        <SidebarMenu activeTab={activeTab} />
+      </div>
+    </>
   );
 }

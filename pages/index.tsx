@@ -12,6 +12,7 @@ import bgLight from "../public/assets/index-bg-light.jpg";
 import { SplitPane } from "react-multi-split-pane";
 import Link from "next/link";
 import { rawResponsiveCard } from "./examples/responsive-card";
+import Code from "../util/Code";
 
 export default function Home() {
   const [selected, setSelected] = useState("Card");
@@ -86,14 +87,14 @@ export default function Home() {
             FluidDesign
           </h5>
           <h1 className="w-4/5 max-w-4xl px-4 pt-2 text-3xl font-bold md:mx-auto dark:text-stone-100 md:text-6xl md:text-center md:pt-48 md:w-auto">
-            Modern design components with smooth transitions.
+            Modern UI components with smooth transitions.
           </h1>
           <p className="px-4 mx-auto mt-6 md:text-center md:text-xl text-stone-500 dark:text-stone-300">
-            Beautiful React components that are{" "}
+            Beautiful React UI that are{" "}
             <span className="font-mono font-medium text-stone-900 dark:text-stone-50">
               responsive
             </span>
-            , supports features like <br />
+            , supports features like{" "}<br className="hidden md:inline" />
             <span className="font-mono font-medium text-stone-900 dark:text-stone-50">
               dark mode
             </span>{" "}
@@ -176,28 +177,28 @@ export default function Home() {
             onDragStarted={() => setIsDragging(true)}
             onDragFinished={() => setIsDragging(false)}
             // defaultSizes={[1, 0]}
-            minSize={[320, 24]}
-            className="!relative mx-auto !flex-col sm:!flex-row"
+            minSize={[336, 24]}
+            className="!relative mx-auto !flex-col sm:!flex-row !overflow-visible"
             // maxSize={"calc(100% - 16px)"}
           >
-            <div className={`relative overflow-hidden rounded-xl w-full`}>
-              <iframe
-                src="/examples/responsive-card"
-                className={`w-full h-[496px] ${
-                  isDragging ? "pointer-events-none" : ""
-                }`}
-              />
-            </div>
+            <WindowFrame
+              className={`shadow w-full mx-auto`}
+              content={
+                <iframe
+                  src="/examples/responsive-card"
+                  className={`w-full h-[496px] ${
+                    isDragging ? "pointer-events-none" : ""
+                  }`}
+                />
+              }
+            />
             <div></div>
           </SplitPane>
 
-          <article className="mt-[-1rem] md:ml-[-0.875rem] rel max-w-7xl h-[35vh] md:h-[320px] overflow-auto prose dark:prose-invert prose-stone w-full rounded-xl">
-            <pre className="">
-              <code className="whitespace-pre-wrap language-html">
-                {`${rawResponsiveCard}`}
-              </code>
-            </pre>
-          </article>
+          <Code
+            content={rawResponsiveCard}
+            className="mt-4 sm:mt-[-1rem] md:ml-[-0.875rem] h-[35vh] md:h-[320px] rounded-xl pt-6 max-w-[calc(100vw-2rem)] overflow-x-auto"
+          />
         </div>
       </section>
     </Page>

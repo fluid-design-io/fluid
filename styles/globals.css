@@ -79,3 +79,24 @@ p {
   content: "";
   @apply absolute left-2 right-0 top-[calc(50%-16px)] cursor-ew-resize h-8 w-1.5 bg-stone-500/60 dark:bg-stone-500/80 prefers-contrast:bg-stone-800 dark:prefers-contrast:bg-stone-300 rounded-full;
 }
+
+pre .token-line {
+  line-height: 1.35em;
+  /* height: 1.35em; */
+}
+
+pre .table-row {
+  display: table-row;
+}
+
+pre .line-no {
+  display: table-cell;
+  text-align: right;
+  padding-right: 1em;
+  user-select: none;
+  opacity: 0.5;
+}
+
+pre .line {
+  display: table-cell;
+}
