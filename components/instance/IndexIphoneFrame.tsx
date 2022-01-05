@@ -60,7 +60,7 @@ function IndexIphoneFrame({
   ));
   return (
     <IphoneFrame>
-      <div className="absolute inset-x-0 top-0 w-full pt-6 pb-1 text-xs font-semibold text-center border-b select-none border-b-stone-100 dark:border-b-stone-600/20 text-stone-500 dark:text-stone-200">
+      <div className="absolute inset-x-0 top-0 w-full pt-6 pb-1 overflow-hidden text-xs font-semibold text-center border-b select-none border-b-stone-100 dark:border-b-stone-600/20 text-stone-500 dark:text-stone-200">
         {selected}
       </div>
       <div className="w-full mt-11 h-[58%] flex justify-center items-center relative">

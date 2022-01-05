@@ -1,3 +1,4 @@
+import { Popover, Transition } from "@headlessui/react";
 import {
   BookOpenIcon,
   MenuAlt4Icon,
@@ -6,7 +7,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { Router, useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import logoDark from "../../public/assets/icon-dark.svg";
 import logoLight from "../../public/assets/icon-light.svg";
 
@@ -59,12 +60,12 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function SidebarMenu({ activeTab }) {
+function SidebarMenu({ activeTab, disabled }) {
   return (
     <div className="md:fixed z-40 top-0 left-0 max-h-screen overflow-x-hidden overflow-y-auto bg-stone-50 dark:bg-stone-900 w-[300px] sm:w-[200px] lg:w-[250px] flex pb-4 border-r border-stone-200 dark:border-stone-700">
       <div className="w-full">
         <Link href={"/"}>
-          <a className="sticky top-0 z-10 flex items-center justify-start px-4 py-5 space-x-2 bg-stone-50/80 dark:bg-stone-900/80 backdrop-filter backdrop-blur-md">
+          <a className="sticky top-0 z-10 flex items-center justify-start px-2.5 pt-4 pb-3 space-x-2 bg-stone-50/80 dark:bg-stone-900/80 backdrop-filter backdrop-blur-md" tabIndex={-1} aria-hidden="true">
             <span className="sr-only">Fluid Design</span>
             <div className="w-auto h-7 dark:hidden">
               <Image alt="logo" src={logoDark} width={28} height={28} />
@@ -77,7 +78,7 @@ function SidebarMenu({ activeTab }) {
             </div>
           </a>
         </Link>
-        <nav className="flex-1 px-4 pb-8 space-y-2" aria-label="Sidebar">
+        <nav className="flex-1 p-1 px-4 pb-8 space-y-2" aria-label="Sidebar">
           {navigation.map(({ name, href, icon: ItemIcon }) => (
             <div key={`nav.${name}`} className="rounded-md">
               <Link key={name} href={`/components/${href}`}>
@@ -163,36 +164,53 @@ export default function Sidebar({ hideNav = false }) {
       Router.events.off("routeChangeStart", () => {});
     };
   }, []);
-
+  const body = <SidebarMenu activeTab={activeTab} disabled={!hideNav} />;
   return (
     <>
       <div
-        className={`flex items-center px-4 border-b md:hidden border-b-stone-200 dark:border-b-stone-700 backdrop-filter backdrop-blur-xl bg-stone-100/70 dark:bg-stone-800/60 transition-all duration-300 ${
-          hideNav ? "translate-y-[-61px]  py-4" : " py-2"
-        }`}
+        className={`transition fixed top-0 z-[61] hidden md:block duration-300`}
       >
-        <button className="mr-2" onClick={() => setSidebarActive(true)}>
-          <MenuAlt4Icon className="w-5 h-5 text-stone-400" />
-        </button>
-        <div className="text-sm font-medium capitalize text-stone-700 dark:text-stone-300">
-          {activeTab}
+        {body}
+      </div>
+      <Popover>
+        <div
+          className={`flex items-center px-4 border-b md:hidden border-b-stone-200 dark:border-b-stone-700 backdrop-filter backdrop-blur-xl bg-stone-100/70 dark:bg-stone-800/60 motion-safe:transition-all motion-safe:duration-300 ${
+            hideNav ? "translate-y-[-61px] py-4" : " py-2"
+          }`}
+          role="dialog"
+          aria-modal="true"
+        >
+          <Popover.Button
+            className="mr-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-500 dark:ring-offset-stone-600"
+            onClick={() => setSidebarActive(true)}
+          >
+            <MenuAlt4Icon className="w-5 h-5 text-stone-400" />
+          </Popover.Button>
+          <div className="text-sm font-medium capitalize text-stone-700 dark:text-stone-300">
+            {activeTab}
+          </div>
         </div>
-      </div>
-      <div
-        onClick={() => setSidebarActive(false)}
-        className={`bg-stone-900 z-[60] md:hidden w-full h-screen inset-0 fixed transition-opacity duration-500 ${
-          sidebarActive
-            ? "opacity-20 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        } `}
-      />
-      <div
-        className={`${
-          sidebarActive ? "translate-x-0" : "-translate-x-full md:translate-x-0"
-        } transition fixed top-0 z-[61] md:relative md:z-40 duration-300`}
-      >
-        <SidebarMenu activeTab={activeTab} />
-      </div>
+
+        <Popover.Overlay
+          className={`bg-stone-900 duration-500 opacity-30 fixed inset-0 z-[60] md:hidden`}
+        />
+        <Transition
+          as={Fragment}
+          enter="duration-200 ease-out"
+          enterFrom="motion-safe:-translate-x-full opacity-0"
+          enterTo="motion-safe:translate-x-0 opacity-100 scale-100"
+          leave="duration-100 ease-in"
+          leaveFrom="motion-safe:translate-x-0 opacity-100 scale-100"
+          leaveTo="motion-safe:-translate-x-full pacity-0"
+        >
+          <Popover.Panel
+            focus
+            className={`transition fixed top-0 z-[61] md:relative md:z-40 duration-300`}
+          >
+            {body}
+          </Popover.Panel>
+        </Transition>
+      </Popover>
     </>
   );
 }

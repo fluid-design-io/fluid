@@ -85,7 +85,7 @@ function Page({
             logo={!sidebar}
             className={`
             ${sidebar ? `md:ml-[200px] lg:ml-[250px]` : ``} 
-            ${hideNav ? "-translate-y-full" : ""}`}
+            ${hideNav ? "motion-safe:-translate-y-full motion-reduce:opacity-0 motion-reduce:pointer-events-none" : "motion-reduce:opacity-100"}`}
           />
         )}
         {sidebar && <Sidebar hideNav={hideNav} />}

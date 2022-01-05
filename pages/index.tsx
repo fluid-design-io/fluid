@@ -94,7 +94,7 @@ export default function Home() {
             <span className="font-mono font-medium text-stone-900 dark:text-stone-50">
               responsive
             </span>
-            , supports features like{" "}<br className="hidden md:inline" />
+            , supports features like <br className="hidden md:inline" />
             <span className="font-mono font-medium text-stone-900 dark:text-stone-50">
               dark mode
             </span>{" "}
@@ -125,12 +125,12 @@ export default function Home() {
       </section>
       <section
         id="features"
-        className="px-4 mx-auto mt-8 text-center sm:px-8 max-w-7xl"
+        className="mx-auto mt-8 text-center sm:px-8 max-w-7xl"
       >
         <h2 className="">
           "Looks right" <br className="block sm:hidden" /> {`isn't enough`}.
         </h2>
-        <blockquote>
+        <blockquote className="px-4 sm:px-0">
           <p className="px-4 mx-auto mt-6">
             {`Many UI libraries and component designs often only focus on the
             design and bare functionalities. They cover the majority of users'
@@ -141,10 +141,21 @@ export default function Home() {
           </p>
         </blockquote>
         <div className="mt-12 sm:mt-16 lg:mt-20">
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 sm:gap-5 lg:gap-6">
+          <div className="hidden grid-cols-2 gap-4 mx-auto sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-5 lg:gap-6">
             {featuresList.map((list) => (
               <FeatureCard {...list} key={list.title} />
             ))}
+          </div>
+          <div className="relative flex w-full gap-4 overflow-x-auto snap-x snap-mandatory sm:hidden">
+            <div className="snap-center shrink-0">
+              <div className="w-[calc(50vw+0.5rem-130px)] shrink-0"></div>
+            </div>
+            {featuresList.map((list) => (
+              <FeatureCard {...list} key={list.title} />
+            ))}
+            <div className="snap-center shrink-0">
+              <div className="w-[calc(50vw+0.5rem-130px)] shrink-0"></div>
+            </div>
           </div>
         </div>
       </section>
