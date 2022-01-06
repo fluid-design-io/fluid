@@ -30,10 +30,16 @@ a {
   }
 }
 
-h2 {
+h1:not(:where([class~="component"] *)) {
+  @apply pb-4 text-4xl font-bold tracking-tight text-stone-900 sm:text-6xl dark:text-stone-50;
+}
+h2:not(:where([class~="component"] *)) {
   @apply text-3xl font-bold tracking-tight text-stone-900 sm:text-5xl dark:text-stone-50;
 }
-p {
+h3:not(:where([class~="component"] *)) {
+  @apply text-xl text-stone-900 sm:text-2xl dark:text-stone-50;
+}
+p:not(:where([class~="component"] *)) {
   @apply max-w-3xl md:text-lg text-stone-600 dark:text-stone-200 prefers-contrast:text-stone-800 dark:prefers-contrast:text-stone-50;
 }
 
@@ -99,4 +105,16 @@ pre .line-no {
 
 pre .line {
   display: table-cell;
+}
+
+.doc-nav {
+  @apply flex items-start py-1 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 motion-safe:transition;
+}
+.doc-nav.active {
+  @apply flex items-start py-1 font-medium text-stone-800 dark:text-stone-50;
+}
+
+/* Component Styles */
+.card-bg {
+  @apply bg-stone-50 dark:bg-stone-800 shadow-stone-900/10 dark:shadow-stone-900/30;
 }

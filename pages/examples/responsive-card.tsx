@@ -2,7 +2,6 @@ import { HeartIcon, ShareIcon } from "@heroicons/react/outline";
 import { motion } from "framer-motion";
 import Head from "next/head";
 import Image from "next/image";
-import { WindowDots } from "../../components/WindowFrame";
 import bg from "../../public/assets/index/index-resp-card-bg.jpg";
 function ResponsiveCard() {
   return (
@@ -26,9 +25,9 @@ function ResponsiveCard() {
         transition={{ type: "just" }}
         className="flex items-center justify-center w-full h-screen overflow-hidden "
       >
-        <div className="grid grid-cols-1 w-full max-w-[280px] xs:max-w-xs mx-auto overflow-hidden rounded-lg shadow-lg sm:max-w-2xl sm:w-5/6 bg-stone-50 dark:bg-stone-800 shadow-stone-900/10 dark:shadow-stone-900/30 sm:grid-cols-12 sm:justify-center items-stretch">
+        <div className="grid grid-cols-1 w-full max-w-[280px] xs:max-w-xs mx-auto overflow-hidden rounded-lg shadow-lg sm:max-w-2xl sm:w-5/6 card-bg sm:grid-cols-12 sm:justify-center items-stretch">
           <div className="relative h-48 col-span-1 sm:h-auto sm:col-span-5 md:col-span-6">
-            <Image alt="nature" src={bg} layout="fill" objectFit="cover" />
+            <Image alt="forest with fog cover part of the tree branches" src={bg} layout="fill" objectFit="cover" />
           </div>
           <div className="flex flex-col col-span-1 p-3 sm:p-4 md:p-6 sm:col-span-7 md:col-span-6">
             <div className="flex-grow">

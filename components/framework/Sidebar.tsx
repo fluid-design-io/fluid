@@ -22,29 +22,26 @@ const secondaryNavigation = [
       { name: "Alert", href: "alert", isDone: false },
       { name: "Avatar", href: "avatar", isDone: false },
       { name: "Badge", href: "badge", isDone: false },
-      { name: "Breadcrumbs", href: "breadcrumbs", isDone: false },
+      // { name: "Breadcrumbs", href: "breadcrumbs", isDone: false },
       { name: "Button", href: "button", isDone: false },
-      { name: "Button-Group", href: "button-Group", isDone: false },
       { name: "Card", href: "card", isDone: true },
-      { name: "Carousel", href: "carousel", isDone: false },
-      { name: "Collapse", href: "collapse", isDone: false },
-      { name: "Countdown", href: "countdown", isDone: false },
-      { name: "Divider", href: "divider", isDone: false },
-      { name: "Drawer", href: "drawer", isDone: false },
+      // { name: "Collapse", href: "collapse", isDone: false },
+      // { name: "Divider", href: "divider", isDone: false },
+      // { name: "Drawer", href: "drawer", isDone: false },
       { name: "Dropdown", href: "dropdown", isDone: false },
-      { name: "Footer", href: "footer", isDone: false },
-      { name: "Hero", href: "hero", isDone: false },
-      { name: "Indicator", href: "indicator", isDone: false },
+      // { name: "Footer", href: "footer", isDone: false },
+      // { name: "Hero", href: "hero", isDone: false },
+      // { name: "Indicator", href: "indicator", isDone: false },
       { name: "Link", href: "link", isDone: false },
-      { name: "Mask", href: "mask", isDone: false },
-      { name: "Menu", href: "menu", isDone: false },
+      // { name: "Mask", href: "mask", isDone: false },
+      // { name: "Menu", href: "menu", isDone: false },
       { name: "Modal", href: "modal", isDone: false },
-      { name: "Navbar", href: "navbar", isDone: false },
+      // { name: "Navbar", href: "navbar", isDone: false },
       { name: "Pagination", href: "pagination", isDone: false },
-      { name: "Progress", href: "progress", isDone: false },
+      // { name: "Progress", href: "progress", isDone: false },
       { name: "Tab", href: "tab", isDone: false },
-      { name: "Table", href: "table", isDone: false },
-      { name: "Tooltip", href: "tooltip", isDone: false },
+      // { name: "Table", href: "table", isDone: false },
+      // { name: "Tooltip", href: "tooltip", isDone: false },
     ],
   },
   {
@@ -62,7 +59,7 @@ function classNames(...classes) {
 
 function SidebarMenu({ activeTab, disabled }) {
   return (
-    <div className="md:fixed z-40 top-0 left-0 max-h-screen overflow-x-hidden overflow-y-auto bg-stone-50 dark:bg-stone-900 w-[300px] sm:w-[200px] lg:w-[250px] flex pb-4 border-r border-stone-200 dark:border-stone-700">
+    <div className="md:fixed z-40 top-0 left-0 h-full max-h-screen overflow-x-hidden overflow-y-auto bg-stone-50 dark:bg-stone-900 w-[300px] sm:w-[200px] lg:w-[250px] flex pb-4 border-r border-stone-200 dark:border-stone-700">
       <div className="w-full">
         <Link href={"/"}>
           <a className="sticky top-0 z-10 flex items-center justify-start px-2.5 pt-4 pb-3 space-x-2 bg-stone-50/80 dark:bg-stone-900/80 backdrop-filter backdrop-blur-md" tabIndex={-1} aria-hidden="true">

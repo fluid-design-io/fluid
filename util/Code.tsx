@@ -7,7 +7,7 @@ function Code({ content, ...props }) {
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
           //   style={style}
-          className={`px-4 ${props.className ? props.className : ``}`}
+          className={`px-4 overflow-x-auto ${props.className ? props.className : ``}`}
           style={{ backgroundColor: "rgba(28,25,23,0.9)" }}
         >
           {tokens.map((line, i) => (

@@ -10,18 +10,22 @@ function IndexCard() {
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -10, opacity: 0 }}
       transition={{ type: "just" }}
-      className="w-5/6 overflow-hidden rounded-lg shadow-lg md:w-1/2 bg-stone-50 dark:bg-stone-800 shadow-stone-900/10 dark:shadow-stone-900/30"
+      className="w-5/6 overflow-hidden rounded-lg shadow-lg md:w-1/2 bg-stone-50 dark:bg-stone-800 shadow-stone-900/10 dark:shadow-stone-900/30 component"
     >
       <div>
         <div className="relative overflow-hidden aspect-video">
-          <Image alt="nature" src={bg} layout="fill" />
+          <Image
+            alt="landscape of a mountain at the background with clear sky"
+            src={bg}
+            layout="fill"
+          />
         </div>
         <div className="p-2.5">
           <div className="flex-grow">
-            <h3 className="text-xs text-stone-500 dark:text-stone-500">
+            <h2 className="text-xs text-stone-500 dark:text-stone-500 prefers-contrast:text-stone-700 dark:prefers-contrast:text-stone-300">
               Subtitle
-            </h3>
-            <div className="font-semibold dark:text-stone-100">Card Title</div>
+            </h2>
+            <h1 className="font-semibold dark:text-stone-100">Card Title</h1>
             <p className="pt-1.5 pb-2 text-sm text-stone-600 dark:text-stone-300 leading-tight">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor.

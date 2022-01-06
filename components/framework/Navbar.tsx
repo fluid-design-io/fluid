@@ -25,7 +25,7 @@ export default function Navbar({ logo = true, ...props }) {
     >
       <div className="flex justify-between items-center px-4 py-4 sm:px-6 lg:px-8 md:justify-start md:space-x-2.5 border-b border-b-stone-200 dark:border-b-stone-700 backdrop-filter backdrop-blur-xl bg-stone-100/70 dark:bg-stone-800/60 ">
         <Link href={"/"}>
-          <a className="flex">
+          <a className="flex md:hidden">
             <span className="sr-only">Fluid Design</span>
             <div className="w-auto h-7 dark:hidden">
               <Image alt="logo" src={logoDark} width={28} height={28} />

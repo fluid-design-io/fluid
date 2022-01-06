@@ -37,7 +37,7 @@ function IndexIphoneFrame({
       key={item.category}
       className="px-2 py-1 space-y-1 text-sm border-t border-stone-50/60 dark:border-stone-500/30 md:text-base"
     >
-      <li className="px-2 font-semibold pointer-events-none dark:text-stone-300 text-stone-600">
+      <li className="px-2 font-semibold pointer-events-none dark:text-stone-300 text-stone-600 prefers-contrast:text-stone-700 dark:prefers-contrast:text-stone-200">
         {item.category}
       </li>
       {item.lists.map((list) => (
@@ -50,7 +50,7 @@ function IndexIphoneFrame({
             onFocus={() => controls.start("visible")}
             className={`${selectedStyle(
               list.name
-            )} px-2 py-1 transition w-full text-left rounded-md overflow-hidden focus:outline-none focus:ring-1 focus:ring-stone-200/50 dark:focus:ring-stone-50`}
+            )} px-2 py-1 transition w-full text-left rounded-md overflow-hidden focus:outline-none focus:ring-1 focus:ring-stone-200/50 dark:focus:ring-stone-50 `}
           >
             {list.name}
           </button>
@@ -82,7 +82,7 @@ function IndexIphoneFrame({
         onClick={() => controls.start("hidden")}
       />
       <motion.div
-        className="bg-stone-50 dark:bg-stone-800 rounded-t-xl w-full h-full absolute z-10 pb-36 bottom-[0%] focus:outline-none"
+        className="bg-stone-50 prefers-contrast:bg-white dark:bg-stone-800 dark:prefers-contrast:bg-stone-900 rounded-t-xl w-full h-full absolute z-10 pb-36 bottom-[0%] focus:outline-none"
         drag="y"
         onDragEnd={onDragEnd}
         onDrag={onDrag}

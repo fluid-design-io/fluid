@@ -20,7 +20,7 @@ export default function Home() {
   const selectedStyle = (item) => {
     return selected === item
       ? `text-stone-900 dark:text-stone-800 bg-white dark:bg-stone-300 shadow`
-      : `text-stone-500/80 dark:text-stone-400 hover:text-stone-600 dark:hover:text-stone-100 hover:bg-stone-50/80 dark:hover:bg-stone-300/10 focus:text-stone-600 dark:focus:text-stone-100 focus:bg-stone-50/80 dark:focus:bg-stone-300/10`;
+      : `text-stone-500/80 dark:text-stone-400 prefers-contrast:text-stone-600 dark:prefers-contrast:text-stone-300 hover:text-stone-600 dark:hover:text-stone-100 hover:bg-stone-50/80 dark:hover:bg-stone-300/10 focus:text-stone-600 dark:focus:text-stone-100 focus:bg-stone-50/80 dark:focus:bg-stone-300/10`;
   };
   const selectedComponent = (selected) => {
     let match = [];
@@ -141,12 +141,12 @@ export default function Home() {
           </p>
         </blockquote>
         <div className="mt-12 sm:mt-16 lg:mt-20">
-          <div className="hidden grid-cols-2 gap-4 mx-auto sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-5 lg:gap-6">
+          <div className="grid grid-cols-1 gap-4 mx-auto sm:grid-cols-2 lg:grid-cols-4 sm:gap-5 lg:gap-6">
             {featuresList.map((list) => (
               <FeatureCard {...list} key={list.title} />
             ))}
           </div>
-          <div className="relative flex w-full gap-4 overflow-x-auto snap-x snap-mandatory sm:hidden">
+          {/* <div className="relative flex w-full gap-4 overflow-x-auto snap-x snap-mandatory sm:hidden">
             <div className="snap-center shrink-0">
               <div className="w-[calc(50vw+0.5rem-130px)] shrink-0"></div>
             </div>
@@ -156,7 +156,7 @@ export default function Home() {
             <div className="snap-center shrink-0">
               <div className="w-[calc(50vw+0.5rem-130px)] shrink-0"></div>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
       <section
