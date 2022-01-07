@@ -40,10 +40,10 @@ function CardPage() {
             sectionId={sections[0].sectionId}
             sectionTitle={sections[0].sectionTitle}
             sectionDescription={sections[0]?.description}
-            children={<SingleImage />}
+            component={<SingleImage />}
           />
           <DocSection
-            children={<Collage />}
+            component={<Collage />}
             sectionId={sections[1].sectionId}
             sectionTitle={sections[1].sectionTitle}
             sectionDescription={sections[1]?.description}

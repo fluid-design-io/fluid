@@ -4,7 +4,7 @@ function DocSection({
   sectionId,
   sectionTitle,
   sectionDescription = undefined,
-  children,
+  component,
 }) {
   return (
     <section id={sectionId} className="pb-12">
@@ -24,7 +24,7 @@ function DocSection({
         sectionDescription
       )}
       <div className="flex flex-col space-y-2 sm:space-y-4 md:space-y-8">
-        {children}
+        {component}
       </div>
     </section>
   );
