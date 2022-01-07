@@ -1,9 +1,11 @@
 import { Popover, Transition } from "@headlessui/react";
 import {
   BookOpenIcon,
+  ChevronDownIcon,
   MenuAlt4Icon,
   ViewGridIcon,
 } from "@heroicons/react/solid";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Router, useRouter } from "next/router";
@@ -24,7 +26,7 @@ const secondaryNavigation = [
       { name: "Badge", href: "badge", isDone: false },
       // { name: "Breadcrumbs", href: "breadcrumbs", isDone: false },
       { name: "Button", href: "button", isDone: false },
-      { name: "Card", href: "card", isDone: true },
+      { name: "Card", href: "card", isDone: false },
       // { name: "Collapse", href: "collapse", isDone: false },
       // { name: "Divider", href: "divider", isDone: false },
       // { name: "Drawer", href: "drawer", isDone: false },
@@ -32,6 +34,7 @@ const secondaryNavigation = [
       // { name: "Footer", href: "footer", isDone: false },
       // { name: "Hero", href: "hero", isDone: false },
       // { name: "Indicator", href: "indicator", isDone: false },
+      { name: "Image", href: "image", isDone: true },
       { name: "Link", href: "link", isDone: false },
       // { name: "Mask", href: "mask", isDone: false },
       // { name: "Menu", href: "menu", isDone: false },
@@ -62,7 +65,11 @@ function SidebarMenu({ activeTab, disabled }) {
     <div className="md:fixed z-40 top-0 left-0 h-full max-h-screen overflow-x-hidden overflow-y-auto bg-stone-50 dark:bg-stone-900 w-[300px] sm:w-[200px] lg:w-[250px] flex pb-4 border-r border-stone-200 dark:border-stone-700">
       <div className="w-full">
         <Link href={"/"}>
-          <a className="sticky top-0 z-10 flex items-center justify-start px-2.5 pt-4 pb-3 space-x-2 bg-stone-50/80 dark:bg-stone-900/80 backdrop-filter backdrop-blur-md" tabIndex={-1} aria-hidden="true">
+          <a
+            className="sticky top-0 z-10 flex items-center justify-start px-2.5 pt-4 pb-3 space-x-2 bg-stone-50/80 dark:bg-stone-900/80 backdrop-filter backdrop-blur-md"
+            tabIndex={-1}
+            aria-hidden="true"
+          >
             <span className="sr-only">Fluid Design</span>
             <div className="w-auto h-7 dark:hidden">
               <Image alt="logo" src={logoDark} width={28} height={28} />
@@ -148,19 +155,27 @@ function SidebarMenu({ activeTab, disabled }) {
   );
 }
 
-export default function Sidebar({ hideNav = false }) {
+export default function Sidebar({ hideNav = false, docNav = undefined }) {
   const [sidebarActive, setSidebarActive] = useState(false);
+  const [showMobileDocNav, setShowMobileDocNav] = useState(false);
   const router = useRouter();
   const activeTab = router?.pathname?.split("/")?.pop();
   useEffect(() => {
-    Router.events.on(
-      "routeChangeStart",
-      () => !sidebarActive && setSidebarActive(false)
-    );
-    return () => {
-      Router.events.off("routeChangeStart", () => {});
+    const onRouteChangeStart = (url) => {
+      sidebarActive && setSidebarActive(false);
     };
-  }, []);
+    const onHashChanged = () => {
+      console.log("hash changed");
+      setShowMobileDocNav(false);
+    };
+
+    router.events.on("routeChangeStart", () => onRouteChangeStart);
+    window.addEventListener("hashchange", onHashChanged);
+    return () => {
+      router.events.off("routeChangeStart", () => onRouteChangeStart);
+      window.removeEventListener("hashchange", onHashChanged);
+    };
+  }, [router.events]);
   const body = <SidebarMenu activeTab={activeTab} disabled={!hideNav} />;
   return (
     <>
@@ -171,21 +186,38 @@ export default function Sidebar({ hideNav = false }) {
       </div>
       <Popover>
         <div
-          className={`flex items-center px-4 border-b md:hidden border-b-stone-200 dark:border-b-stone-700 backdrop-filter backdrop-blur-xl bg-stone-100/70 dark:bg-stone-800/60 motion-safe:transition-all motion-safe:duration-300 ${
+          className={`border-b md:hidden px-4 border-b-stone-200 dark:border-b-stone-700 backdrop-filter backdrop-blur-xl bg-stone-100/70 dark:bg-stone-800/60 motion-safe:transition-all motion-safe:duration-300 ${
             hideNav ? "translate-y-[-61px] py-4" : " py-2"
           }`}
-          role="dialog"
-          aria-modal="true"
         >
-          <Popover.Button
-            className="mr-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-500 dark:ring-offset-stone-600"
-            onClick={() => setSidebarActive(true)}
+          <div
+            className={`flex items-center justify-between`}
+            role="dialog"
+            aria-modal="true"
           >
-            <MenuAlt4Icon className="w-5 h-5 text-stone-400" />
-          </Popover.Button>
-          <div className="text-sm font-medium capitalize text-stone-700 dark:text-stone-300">
-            {activeTab}
+            <div className="flex">
+              <Popover.Button
+                className="mr-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-500 dark:ring-offset-stone-600"
+                onClick={() => setSidebarActive(true)}
+              >
+                <MenuAlt4Icon className="w-5 h-5 text-stone-400" />
+              </Popover.Button>
+              <div className="text-sm font-medium capitalize text-stone-700 dark:text-stone-300">
+                {activeTab}
+              </div>
+            </div>
+            <div
+              role={`button`}
+              className="flex items-center justify-center flex-shrink-0 text-sm mobile-doc-nav"
+              tabIndex={0}
+              onClick={() => setShowMobileDocNav(!showMobileDocNav)}
+            >
+              <span className="sr-only">Expand section list</span>
+              {docNav}
+              <ChevronDownIcon className="w-5 h-5 text-stone-500 dark:text-stone-300 prefers-contrast:text-stone-800 dark:prefers-contrast:text-stone-200" />
+            </div>
           </div>
+          {showMobileDocNav && docNav}
         </div>
 
         <Popover.Overlay

@@ -1,6 +1,6 @@
 {
   "name": "fluid-design",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A collection of beautifully designed components that are responsive, supports features like dark mode and a11y with elegant transitions.",
   "private": true,
   "scripts": {
@@ -18,10 +18,10 @@
     "next": "12.0.7",
     "prism-react-renderer": "^1.2.1",
     "react": "17.0.2",
+    "react-copy-to-clipboard": "^5.0.4",
     "react-dom": "17.0.2",
     "react-multi-split-pane": "^0.3.2",
-    "react-parallax-tilt": "^1.5.84",
-    "react-scrollspy-navigation": "^1.0.2"
+    "react-parallax-tilt": "^1.5.84"
   },
   "devDependencies": {
     "@types/react": "^17.0.38",

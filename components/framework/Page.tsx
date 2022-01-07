@@ -7,6 +7,7 @@ import { MotionPageProps, SiteMeta } from "../../interfaces/framwork";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import { useEffect, useState } from "react";
+import { getBody } from "../../lib/getBody";
 
 function Page({
   header = true,
@@ -15,6 +16,7 @@ function Page({
   className,
   meta,
   motionProps,
+  ...props
 }: {
   header?: boolean;
   sidebar?: boolean;
@@ -22,6 +24,7 @@ function Page({
   className?: string;
   meta?: SiteMeta;
   motionProps?: MotionPageProps;
+  [x: string]: any;
 }) {
   const { asPath } = useRouter();
   const [hideNav, setHideNav] = useState(false);
@@ -85,10 +88,16 @@ function Page({
             logo={!sidebar}
             className={`
             ${sidebar ? `md:ml-[200px] lg:ml-[250px]` : ``} 
-            ${hideNav ? "motion-safe:-translate-y-full motion-reduce:opacity-0 motion-reduce:pointer-events-none" : "motion-reduce:opacity-100"}`}
+            ${
+              hideNav
+                ? "motion-safe:-translate-y-full motion-reduce:opacity-0 motion-reduce:pointer-events-none"
+                : "motion-reduce:opacity-100"
+            }`}
           />
         )}
-        {sidebar && <Sidebar hideNav={hideNav} />}
+        {sidebar && (
+          <Sidebar hideNav={hideNav} docNav={props?.docNav || undefined} />
+        )}
       </div>
       <AnimatePresence exitBeforeEnter>
         <motion.div
@@ -102,9 +111,11 @@ function Page({
           }`}
         >
           {children}
-          <Footer />
         </motion.div>
       </AnimatePresence>
+      <div className={`${sidebar ? `md:ml-[200px] lg:ml-[250px]` : ``}`}>
+        <Footer />
+      </div>
     </>
   );
 }
