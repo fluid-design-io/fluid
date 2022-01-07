@@ -45,7 +45,7 @@ function CodeBlock({
         <div className="relative grid w-full">
           <Code
             content={raw}
-            className="w-full flex-shrink !bg-transparent z-[2] max-h-[768px] pt-12 pb-4"
+            className="w-full flex-shrink !bg-transparent z-[2] max-h-[max(calc(80vh-61px),768px)] pt-12 pb-4"
           />
           <div className="bg-stone-800 dark:bg-stone-900/70 w-full h-full absolute inset-0 z-[0]" />
         </div>

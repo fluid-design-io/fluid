@@ -51,7 +51,7 @@ function SingleImage() {
         hover: {
           enabled: true,
           description:
-            "On cursor-based, the description will be visibile when mouse hovers on the image, it will always be visible on touch-only devices.",
+            "On cursor-based devices, the description will be visibile when mouse hovers on the image, it will always be visible on touch-only devices.",
         },
       },
       transitions: {
