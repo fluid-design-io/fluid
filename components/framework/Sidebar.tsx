@@ -65,9 +65,8 @@ function SidebarMenu({ activeTab, disabled }) {
       <div className="w-full">
         <Link href={"/"}>
           <a
-            className="sticky top-0 z-10 flex items-center justify-start px-2.5 pt-4 pb-3 space-x-2 bg-stone-50/80 dark:bg-stone-900/80 backdrop-filter backdrop-blur-md"
-            tabIndex={-1}
-            aria-hidden="true"
+            className="sticky top-0 z-10 flex items-center justify-start mx-2.5 mt-2 pt-2 pb-3 space-x-2 bg-stone-50/80 dark:bg-stone-900/80 backdrop-filter backdrop-blur-md"
+            aria-label="Navigate to home page"
           >
             <span className="sr-only">Fluid Design</span>
             <div className="w-auto h-7 dark:hidden">
