@@ -16,6 +16,7 @@ function Page({
   className,
   meta,
   motionProps,
+  hasMain,
   ...props
 }: {
   header?: boolean;
@@ -24,6 +25,7 @@ function Page({
   className?: string;
   meta?: SiteMeta;
   motionProps?: MotionPageProps;
+  hasMain?: boolean;
   [x: string]: any;
 }) {
   const { asPath } = useRouter();
@@ -82,12 +84,21 @@ function Page({
   return (
     <>
       <Header {...meta} />
+      {hasMain && (
+        <a className="skip-main" href="#main">
+          Skip to main content
+        </a>
+      )}
       <div className="sticky top-0 z-50 flex flex-col md:flex-col-reverse">
         {header && (
           <Navbar
             logo={!sidebar}
             className={`
-            ${sidebar ? `md:ml-[200px] lg:ml-[250px]` : ``} 
+            ${
+              sidebar
+                ? `md:ml-[15.625rem] lg:ml-[13.5rem] xl:ml-[15.625rem]`
+                : ``
+            } 
             ${
               hideNav
                 ? "motion-safe:-translate-y-full motion-reduce:opacity-0 motion-reduce:pointer-events-none"
@@ -107,13 +118,17 @@ function Page({
           exit={enableMotion ? { opacity: 0 } : {}}
           transition={enableMotion ? { duration: 0.65 } : {}}
           className={`flex-1 ${className ? className : ``}  ${
-            sidebar ? `md:ml-[200px] lg:ml-[250px]` : ``
+            sidebar ? `md:ml-[15.625rem] lg:ml-[13.5rem] xl:ml-[15.625rem]` : ``
           }`}
         >
           {children}
         </motion.div>
       </AnimatePresence>
-      <div className={`${sidebar ? `md:ml-[200px] lg:ml-[250px]` : ``}`}>
+      <div
+        className={`${
+          sidebar ? `md:ml-[15.625rem] lg:ml-[13.5rem] xl:ml-[15.625rem]` : ``
+        }`}
+      >
         <Footer />
       </div>
     </>

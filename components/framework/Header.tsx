@@ -18,7 +18,7 @@ export const Header = (meta: SiteMeta) => (
     />
     <meta
       property="og:image"
-      content={meta?.imageUrl ?? "/assets/about/share.webp"}
+      content={meta?.imageUrl ?? "/assets/share.jpg"}
     />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -45,7 +45,7 @@ export const Header = (meta: SiteMeta) => (
     />
     <meta
       property="twitter:image"
-      content={meta?.imageUrl ?? "/assets/about/share.webp"}
+      content={meta?.imageUrl ?? "/assets/share.jpg"}
     />
   </Head>
 );

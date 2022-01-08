@@ -13,11 +13,14 @@ import Code from "../../util/Code";
 import ComponentFeatures from "./ComponentFeatures";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { useState } from "react";
+import CodeBlockNotification from "./CodeBlockNotification";
 
 function CodeBlock({
   title,
   raw,
   features = undefined,
+  notification = undefined,
+  onDismiss = null,
   children,
   ...props
 }: CodeBlockProps) {
@@ -26,7 +29,7 @@ function CodeBlock({
   const touchStyle =
     "pointer-touch:opacity-100 pointer-touch:pointer-events-auto opacity-0 pointer-events-none code-block-touch ";
   const buttonStyle =
-    "rounded-md motion-safe:transition relative z-[5] focus:outline-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-500 dark:ring-offset-stone-600 ";
+    "rounded-md motion-safe:transition relative z-[5] focus-ring ";
   const panels = [
     {
       name: "Features",
@@ -45,9 +48,9 @@ function CodeBlock({
         <div className="relative grid w-full">
           <Code
             content={raw}
-            className="w-full flex-shrink !bg-transparent z-[2] max-h-[max(calc(80vh-61px),768px)] pt-12 pb-4"
+            className="w-full flex-shrink !bg-transparent z-[2] max-h-[max(calc(80vh-61px),400px)] sm:max-h-[max(80vh,720px)] pt-12 pb-4"
           />
-          <div className="bg-stone-800 dark:bg-stone-900/70 w-full h-full absolute inset-0 z-[0]" />
+          <div className="bg-stone-800 dark:bg-stone-900/70 w-full h-full absolute inset-0 z-[0] prefers-contrast:!bg-black" />
         </div>
       ),
     },
@@ -66,28 +69,38 @@ function CodeBlock({
     <div
       className={` ${
         props.className ? props.className : ``
-      } relative rounded-xl border border-stone-300/50 dark:border-stone-500/20 w-full min-h-[16rem] overflow-hidden my-6 not-prose code-block-wrap `}
+      } relative rounded-xl border border-stone-300/50 dark:border-stone-500/20 prefers-contrast:border-stone-800 dark:prefers-contrast:border-stone-100 w-full min-h-[16rem] overflow-hidden my-6 not-prose code-block-wrap focus-ring`}
       tabIndex={0}
+      aria-label={`Example. ${title}. ${
+        features?.interactions ? `This is an interactive component` : ""
+      }`}
     >
+      <CodeBlockNotification
+        notification={notification}
+        onDismiss={() => onDismiss()}
+      />
       <Tab.Group
         defaultIndex={getPanels().findIndex(
           (panel) => panel.name === "Preview"
         )}
       >
         <Tab.List className="absolute top-0 left-0 flex w-full px-2 pt-2 space-x-2 text-sm text-stone-500 prefers-contrast:text-stone-800 dark:text-stone-100">
-          <div className="relative z-[2] font-medium py-1.5 px-2 truncate max-w-full flex space-x-1 items-center">
+          <div
+            className="relative z-[2] font-medium py-1.5 px-2 truncate max-w-full flex space-x-1 items-center"
+            aria-label={`${title}`}
+          >
             <span>{title}</span>
-            <span className="sr-only">This is an interactive component</span>
             {features?.interactions && <CursorClickIcon className="w-4 h-4" />}
           </div>
           <div className="flex-grow" />
           <div
-            className={`flex space-x-2 rounded-md z-[4] py-1 justify-center px-1 backdrop-filter backdrop-blur-md backdrop-brightness-90 bg-stone-50/75 dark:bg-stone-800/30 motion-safe:transition-opacity ${touchStyle}`}
+            className={`flex space-x-2 rounded-md z-[4] py-1 justify-center px-1 backdrop-filter backdrop-blur-md backdrop-brightness-90 bg-stone-50/75 dark:bg-stone-800/30 motion-safe:transition-opacity sm:shadow-md prefers-contrast:shadow-none shadow-stone-600/10 dark:shadow-stone-900 ${touchStyle}`}
           >
             {getPanels().map(({ name, Icon }) => (
               <Tab
                 className={`rounded-md relative z-[3] tap-highlight-none`}
                 key={`tab.${title}.${name}`}
+                aria-label={`Component ${name}`}
               >
                 {({ selected }) => (
                   <div className="relative">
@@ -98,7 +111,6 @@ function CodeBlock({
                           : ""
                       }`}
                     >
-                      <span className="sr-only sm:hidden">{name}</span>
                       <span className="hidden sm:block">{name}</span>
                       <span className="sm:hidden">
                         <Icon className="w-4 h-4" />
@@ -106,7 +118,7 @@ function CodeBlock({
                     </div>
                     {selected && (
                       <motion.div
-                        className={`motion-reduce:hidden absolute z-[2] inset-0 w-full h-full rounded-md bg-stone-50/70 dark:bg-stone-200/10 prefers-contrast:bg-white dark:prefers-contrast:bg-stone-200/40`}
+                        className={`motion-reduce:hidden absolute z-[2] inset-0 w-full h-full rounded-md bg-stone-50/70 dark:bg-stone-200/10 prefers-contrast:bg-white dark:prefers-contrast:bg-stone-200/30 prefers-contrast:border prefers-contrast:border-stone-800 dark:prefers-contrast:border-stone-100`}
                         layoutId={`underline.${title}`}
                       />
                     )}
@@ -115,14 +127,15 @@ function CodeBlock({
               </Tab>
             ))}
             <div
-              className={`w-[2px] flex-grow-0 my-2 mx-1 bg-white bg-opacity-10`}
+              className={`w-[2px] flex-grow-0 my-2 mx-1 bg-stone-400/30 dark:bg-white/10`}
             />
             <CopyToClipboard text={raw} onCopy={handleCopy}>
               <button
                 className={`py-1.5 sm:w-14 text-xs font-medium ${buttonStyle}`}
+                aria-live="assertive"
               >
                 <span className="sr-only">
-                  {isCoping ? "Source code copied" : "Copy cource code"}
+                  {isCoping ? "Source code copied" : "Copy source code"}
                 </span>
                 <span className="hidden sm:block">
                   {isCoping ? "Copied!" : "Copy"}
@@ -140,7 +153,10 @@ function CodeBlock({
         </Tab.List>
         <Tab.Panels>
           {getPanels().map(({ name, component }) => (
-            <Tab.Panel key={`panel.${title}.${name}`}>
+            <Tab.Panel
+              key={`panel.${title}.${name}`}
+              className="focus-visible:border-2 focus-visible:border-stone-500 rounded-xl focus:outline-none"
+            >
               <motion.div
                 initial={{ opacity: shouldReduceMotion ? 1 : 0 }}
                 animate={{ opacity: 1 }}

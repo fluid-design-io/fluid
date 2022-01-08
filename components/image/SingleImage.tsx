@@ -49,22 +49,21 @@ function SingleImage() {
     withOverlay: {
       interactions: {
         hover: {
-          enabled: true,
           description:
             "On cursor-based devices, the description will be visibile when mouse hovers on the image, it will always be visible on touch-only devices.",
         },
       },
       transitions: {
         reduceMotion: {
-          enabled: true,
           description:
             "On cursor-based devices, when users turn on reduce motion accessibility feature, the transition revealing the paragraph will be changed to opacity transition.",
         },
       },
-      contrast: {
-        enabled: true,
-        description:
-          "Image overlay and text overlay will be darkend even more to increase text readablilty.",
+      accessibility: {
+        contrast: {
+          description:
+            "Image overlay and text overlay will be darkend even more to increase text readablilty.",
+        },
       },
     },
   };

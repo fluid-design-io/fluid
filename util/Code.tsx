@@ -6,8 +6,9 @@ function Code({ content, ...props }) {
     <Highlight {...defaultProps} theme={theme} code={content} language="jsx">
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
-          className={`px-4 overflow-x-auto ${props.className ? props.className : ``}`}
-          style={{ backgroundColor: "rgba(28,25,23,0.9)" }}
+          className={`px-4 overflow-x-auto ${
+            props.className ? props.className : ``
+          }`}
         >
           {tokens.map((line, i) => (
             <div

@@ -9,6 +9,8 @@ import imgExit from "../../public/assets/features/comp-feat-exit.png";
 import imgLoop from "../../public/assets/features/comp-feat-loop.png";
 import imgReduceMotion from "../../public/assets/features/comp-feat-reduce-motion.png";
 import imgRTL from "../../public/assets/features/comp-feat-RTL.png";
+import imgScreenReader from "../../public/assets/features/comp-feat-screen-reader.png";
+import imgKeyboard from "../../public/assets/features/comp-feat-keyboard.png";
 import Image from "next/image";
 
 interface FeatureCardProps {
@@ -22,6 +24,8 @@ interface FeatureCardProps {
     | "reduce motion"
     | "enter"
     | "exit"
+    | "screen reader"
+    | "keyboard focus"
     | "loop";
   description?: string;
   img: StaticImageData;
@@ -35,8 +39,12 @@ const FeatureCard = ({
 }: FeatureCardProps) => {
   return (
     <div
-      className="relative flex flex-col items-start col-span-1 p-3 overflow-hidden rounded-lg bg-stone-200/50 dark:bg-stone-900/70"
+      className={`relative flex flex-col items-start p-3 overflow-hidden rounded-lg bg-stone-200/50 dark:bg-stone-900/70 focus-ring col-span-1 ${
+        description && description.length > 200 ? "row-span-2" : ""
+      }`}
       style={{ minHeight: "6.5rem" }}
+      tabIndex={0}
+      aria-label={`Supported feature, ${category}, ${type}. ${description}`}
     >
       <div className="flex-grow" />
       <div className="relative z-[2]">
@@ -45,7 +53,7 @@ const FeatureCard = ({
         </p>
         <h4 className="capitalize">{type}</h4>
         {description && (
-          <p className="pt-2 text-sm tracking-tight text-stone-600 dark:text-stone-300 prefers-contrast:text-stone-800 dark:prefers-contrast:text-stone-100 w-5/6 max-w-[280px]">
+          <p className="w-5/6 pt-2 text-sm tracking-tight text-stone-600 dark:text-stone-300 prefers-contrast:text-stone-800 dark:prefers-contrast:text-stone-100 max-w-[44rem]">
             {description}
           </p>
         )}
@@ -68,9 +76,13 @@ const FeatureCard = ({
 
 function ComponentFeatures({
   features: {
-    RTL = undefined,
-    contrast = undefined,
-    darkMode = undefined,
+    accessibility: {
+      RTL = undefined,
+      contrast = undefined,
+      keyboardFocus = undefined,
+      screenReader = undefined,
+    } = {},
+    ui: { darkMode = undefined } = {},
     interactions: { click = undefined, hover = undefined } = {},
     transitions: {
       enter = undefined,
@@ -91,7 +103,7 @@ function ComponentFeatures({
             category="Interaction"
             type="hover"
             img={imgHover}
-            description={hover?.description}
+            description={hover !== true && hover?.description}
           />
         )}
         {click && (
@@ -99,23 +111,7 @@ function ComponentFeatures({
             category="Interaction"
             type="click"
             img={imgClick}
-            description={click?.description}
-          />
-        )}
-        {contrast && (
-          <FeatureCard
-            category="UI"
-            type="contrast"
-            img={imgContrast}
-            description={contrast?.description}
-          />
-        )}
-        {darkMode && (
-          <FeatureCard
-            category="UI"
-            type="dark mode"
-            img={imgDarkMode}
-            description={darkMode?.description}
+            description={click !== true && click?.description}
           />
         )}
         {enter && (
@@ -123,7 +119,7 @@ function ComponentFeatures({
             category="Transition"
             type="enter"
             img={imgEnter}
-            description={enter?.description}
+            description={enter !== true && enter?.description}
           />
         )}
         {exit && (
@@ -131,7 +127,7 @@ function ComponentFeatures({
             category="Transition"
             type="exit"
             img={imgExit}
-            description={exit?.description}
+            description={exit !== true && exit?.description}
           />
         )}
         {loop && (
@@ -139,7 +135,7 @@ function ComponentFeatures({
             category="Transition"
             type="loop"
             img={imgLoop}
-            description={loop?.description}
+            description={loop !== true && loop?.description}
           />
         )}
         {reduceMotion && (
@@ -147,15 +143,47 @@ function ComponentFeatures({
             category="Transition"
             type="reduce motion"
             img={imgReduceMotion}
-            description={reduceMotion?.description}
+            description={reduceMotion !== true && reduceMotion?.description}
           />
         )}
         {RTL && (
           <FeatureCard
-            category="UI"
+            category="Accessibility"
             type="RTL"
             img={imgRTL}
-            description={RTL?.description}
+            description={RTL !== true && RTL?.description}
+          />
+        )}
+        {screenReader && (
+          <FeatureCard
+            category="Accessibility"
+            type="screen reader"
+            img={imgScreenReader}
+            description={screenReader !== true && screenReader?.description}
+          />
+        )}
+        {keyboardFocus && (
+          <FeatureCard
+            category="Accessibility"
+            type="keyboard focus"
+            img={imgKeyboard}
+            description={keyboardFocus !== true && keyboardFocus?.description}
+          />
+        )}
+        {contrast && (
+          <FeatureCard
+            category="UI"
+            type="contrast"
+            img={imgContrast}
+            description={contrast !== true && contrast?.description}
+          />
+        )}
+        {darkMode && (
+          <FeatureCard
+            category="UI"
+            type="dark mode"
+            img={imgDarkMode}
+            description={darkMode !== true && darkMode?.description}
           />
         )}
       </div>

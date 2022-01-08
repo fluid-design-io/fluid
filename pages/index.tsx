@@ -208,7 +208,7 @@ export default function Home() {
 
           <Code
             content={rawResponsiveCard}
-            className="mt-4 sm:mt-[-1rem] md:ml-[-0.875rem] h-[35vh] md:h-[320px] rounded-xl pt-6 max-w-[calc(100vw-2rem)] overflow-x-auto"
+            className="mt-4 sm:mt-[-1rem] md:ml-[-0.875rem] h-[35vh] md:h-[320px] rounded-xl pt-6 max-w-[calc(100vw-2rem)] overflow-x-auto bg-stone-800 prefers-contrast:!bg-black"
           />
         </div>
       </section>

@@ -3,18 +3,24 @@ interface FeatureOption {
   description?: string;
 }
 export interface CodeBlockFeatureProps {
-  darkMode?: FeatureOption;
-  RTL?: FeatureOption;
-  contrast?: FeatureOption;
+  ui?: {
+    darkMode?: FeatureOption | true;
+  };
+  accessibility?: {
+    RTL?: FeatureOption | true;
+    contrast?: FeatureOption | true;
+    screenReader?: FeatureOption | true;
+    keyboardFocus?: FeatureOption | true;
+  };
   interactions?: {
-    hover?: FeatureOption;
-    click?: FeatureOption;
+    hover?: FeatureOption | true;
+    click?: FeatureOption | true;
   };
   transitions?: {
-    reduceMotion?: FeatureOption;
-    enter?: FeatureOption;
-    exit?: FeatureOption;
-    loop?: FeatureOption;
+    reduceMotion?: FeatureOption | true;
+    enter?: FeatureOption | true;
+    exit?: FeatureOption | true;
+    loop?: FeatureOption | true;
   };
 }
 

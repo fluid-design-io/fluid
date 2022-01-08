@@ -23,9 +23,9 @@ export default function Navbar({ logo = true, ...props }) {
         props.className ? props.className : ``
       } `}
     >
-      <div className="flex justify-between items-center px-4 py-4 sm:px-6 lg:px-8 md:justify-start md:space-x-2.5 border-b border-b-stone-200 dark:border-b-stone-700 backdrop-filter backdrop-blur-xl bg-stone-100/70 dark:bg-stone-800/60 ">
+      <div className="flex justify-between items-center px-4 py-4 sm:px-6 lg:px-8 md:justify-start md:space-x-2.5 border-b border-b-stone-200 dark:border-b-stone-700 backdrop-filter backdrop-blur-xl bg-stone-100/70 dark:bg-stone-800/60 prefers-contrast:bg-stone-100/90 dark:prefers-contrast:bg-black/80">
         <Link href={"/"}>
-          <a className="flex md:hidden">
+          <a className="flex md:hidden md:pointer-events-none">
             <span className="sr-only">Fluid Design</span>
             <div className="w-auto h-7 dark:hidden">
               <Image alt="logo" src={logoDark} width={28} height={28} />
@@ -36,7 +36,7 @@ export default function Navbar({ logo = true, ...props }) {
           </a>
         </Link>
         <div className="-my-2 -mr-2 md:hidden">
-          <Popover.Button className="inline-flex items-center justify-center p-2 rounded-md text-stone-400 hover:text-stone-500 hover:bg-stone-100 dark:hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-stone-500">
+          <Popover.Button className="inline-flex items-center justify-center p-2 rounded-md text-stone-400 hover:text-stone-500 hover:bg-stone-100 dark:hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-stone-500 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50">
             <span className="sr-only">Open menu</span>
             <MenuIcon className="w-6 h-6" aria-hidden="true" />
           </Popover.Button>
@@ -83,7 +83,7 @@ export default function Navbar({ logo = true, ...props }) {
           focus
           className="absolute inset-x-0 top-0 p-2 transition origin-top-right transform motion-reduce:transition-none md:hidden"
         >
-          <div className="divide-y-2 rounded-lg shadow-lg bg-stone-200 dark:bg-stone-700 ring-1 ring-black ring-opacity-5 divide-stone-50 dark:divide-stone-600">
+          <div className="divide-y-2 rounded-lg shadow-lg bg-stone-200 dark:bg-stone-700 ring-1 ring-black ring-opacity-5 divide-stone-50 dark:divide-stone-600 prefers-contrast:bg-stone-50 dark:prefers-contrast:bg-stone-900 prefers-contrast:border prefers-contrast:border-stone-100 prefers-contrast:divide-stone-600 dark:prefers-contrast:divide-stone-200">
             <div className="px-5 pt-5 pb-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -95,7 +95,7 @@ export default function Navbar({ logo = true, ...props }) {
                   </div>
                 </div>
                 <div className="-mr-2">
-                  <Popover.Button className="inline-flex items-center justify-center p-2 rounded-md text-stone-400 hover:text-stone-500 hover:bg-stone-100 dark:hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-stone-500">
+                  <Popover.Button className="inline-flex items-center justify-center p-2 rounded-md text-stone-400 hover:text-stone-500 hover:bg-stone-100 dark:hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-stone-500 prefers-contrast:text-stone-700 dark:prefers-contrast:text-stone-200">
                     <span className="sr-only">Close menu</span>
                     <XIcon className="w-6 h-6" aria-hidden="true" />
                   </Popover.Button>
@@ -110,7 +110,7 @@ export default function Navbar({ logo = true, ...props }) {
                       {/* <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white bg-indigo-500 rounded-md">
                         <navItem.icon className="w-6 h-6" aria-hidden="true" />
                       </div> */}
-                      <div className="text-base font-medium text-stone-900 dark:text-stone-200">
+                      <div className="text-base font-medium text-stone-900 dark:text-stone-200 dark:prefers-contrast:text-stone-50 prefers-contrast:font-bold">
                         {navItem.name}
                       </div>
                     </a>

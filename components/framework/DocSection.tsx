@@ -12,7 +12,7 @@ function DocSection({
         <a
           href={`#image`}
           className="absolute flex items-center -ml-10 border-0 opacity-0 hash group-hover:opacity-100 focus:opacity-100"
-          aria-label="Anchor"
+          aria-label={`${sectionTitle}`}
         >
           <HashtagIcon className="flex items-center justify-center w-6 h-6 p-1 text-gray-400 rounded-md shadow-sm ring-1 ring-gray-900/5 hover:ring-gray-900/10 hover:shadow hover:text-gray-700 dark:bg-gray-700 dark:text-gray-300 dark:shadow-none dark:ring-0" />
         </a>

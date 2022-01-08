@@ -41,7 +41,7 @@ function IndexSharedLayout() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1, transition: { delay: 0.45 } }}
                   exit={{ opacity: 0 }}
-                  className="font-semibold text-lg md:text-xl text-stone-700 dark:text-stone-200 pb-1.5 px-4 flex justify-between"
+                  className="font-semibold text-lg md:text-xl text-stone-700 dark:text-stone-200 pb-1.5 px-4 flex justify-between component"
                 >
                   <h1>New Note</h1>
                   <button

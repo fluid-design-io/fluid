@@ -5,10 +5,9 @@ import {
   MenuAlt4Icon,
   ViewGridIcon,
 } from "@heroicons/react/solid";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { Fragment, useEffect, useState } from "react";
 import logoDark from "../../public/assets/icon-dark.svg";
 import logoLight from "../../public/assets/icon-light.svg";
@@ -62,7 +61,7 @@ function classNames(...classes) {
 
 function SidebarMenu({ activeTab, disabled }) {
   return (
-    <div className="md:fixed z-40 top-0 left-0 h-full max-h-screen overflow-x-hidden overflow-y-auto bg-stone-50 dark:bg-stone-900 w-[300px] sm:w-[200px] lg:w-[250px] flex pb-4 border-r border-stone-200 dark:border-stone-700">
+    <div className="md:fixed z-40 top-0 left-0 h-full max-h-screen overflow-x-hidden overflow-y-auto bg-stone-50 dark:bg-stone-900 w-[18rem] sm:w-[12.5rem] md:w-[15.625rem] lg:w-[13.5rem] xl:w-[15.625rem] flex pb-4 border-r border-stone-200 dark:border-stone-700 prefers-contrast:border-stone-600 dark:prefers-contrast:border-stone-200 dark:prefers-contrast:bg-[rgb(18,15,13)]">
       <div className="w-full">
         <Link href={"/"}>
           <a
@@ -89,8 +88,8 @@ function SidebarMenu({ activeTab, disabled }) {
                 <a
                   className={classNames(
                     activeTab === href
-                      ? "bg-stone-100 text-stone-900 dark:bg-stone-700 dark:text-stone-100"
-                      : "hover:bg-stone-50 hover:text-stone-900 dark:hover:bg-stone-700/80 dark:hover:text-stone-300",
+                      ? "bg-stone-100 text-stone-900 dark:bg-stone-700 dark:text-stone-100 prefers-contrast:border prefers-contrast:border-stone-700 dark:prefers-contrast:border-stone-200"
+                      : "hover:bg-stone-50 hover:text-stone-900 dark:hover:bg-stone-700/80 dark:hover:text-stone-300 ",
                     "group w-full px-2 py-2 text-sm font-medium rounded-md transition flex items-center"
                   )}
                 >
@@ -138,8 +137,8 @@ function SidebarMenu({ activeTab, disabled }) {
                       ${!isDone ? "opacity-50" : ""} 
                       ${
                         activeTab === href
-                          ? `bg-stone-100 text-stone-900 dark:bg-stone-700 dark:text-stone-100`
-                          : `text-stone-700 dark:text-stone-300/80 hover:bg-stone-50 hover:text-stone-900 dark:hover:bg-stone-700/80 dark:hover:text-stone-100`
+                          ? `bg-stone-100 text-stone-900 dark:bg-stone-700 dark:text-stone-100 prefers-contrast:border prefers-contrast:border-stone-700 dark:prefers-contrast:border-stone-200`
+                          : `text-stone-700 dark:text-stone-300/80 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-100 hover:bg-stone-50 hover:text-stone-900 dark:hover:bg-stone-700/80 dark:hover:text-stone-100`
                       }`}
                     >
                       <span className="truncate">{name}</span>
@@ -186,7 +185,7 @@ export default function Sidebar({ hideNav = false, docNav = undefined }) {
       </div>
       <Popover>
         <div
-          className={`border-b md:hidden px-4 border-b-stone-200 dark:border-b-stone-700 backdrop-filter backdrop-blur-xl bg-stone-100/70 dark:bg-stone-800/60 motion-safe:transition-all motion-safe:duration-300 ${
+          className={`border-b md:hidden px-4 border-b-stone-200 dark:border-b-stone-700 backdrop-filter backdrop-blur-xl bg-stone-100/70 dark:bg-stone-800/60 prefers-contrast:bg-stone-100/90 dark:prefers-contrast:bg-black/80 motion-safe:transition-all motion-safe:duration-300 prefers-contrast:border-b-stone-700 dark:prefers-contrast:border-b-stone-200 ${
             hideNav ? "translate-y-[-61px] py-4" : " py-2"
           }`}
         >
@@ -200,9 +199,9 @@ export default function Sidebar({ hideNav = false, docNav = undefined }) {
                 className="mr-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-500 dark:ring-offset-stone-600"
                 onClick={() => setSidebarActive(true)}
               >
-                <MenuAlt4Icon className="w-5 h-5 text-stone-400" />
+                <MenuAlt4Icon className="w-5 h-5 text-stone-400 prefers-contrast:text-stone-800 dark:prefers-contrast:text-stone-50" />
               </Popover.Button>
-              <div className="text-sm font-medium capitalize text-stone-700 dark:text-stone-300">
+              <div className="text-sm font-medium capitalize text-stone-700 dark:text-stone-300 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50 prefers-contrast:font-bold">
                 {activeTab}
               </div>
             </div>
@@ -217,7 +216,11 @@ export default function Sidebar({ hideNav = false, docNav = undefined }) {
               <ChevronDownIcon className="w-5 h-5 text-stone-500 dark:text-stone-300 prefers-contrast:text-stone-800 dark:prefers-contrast:text-stone-200" />
             </div>
           </div>
-          {showMobileDocNav && docNav}
+          {showMobileDocNav && (
+            <div className="mt-1.5 doc-nav-expand prefers-contrast:font-semibold">
+              {docNav}
+            </div>
+          )}
         </div>
 
         <Popover.Overlay
