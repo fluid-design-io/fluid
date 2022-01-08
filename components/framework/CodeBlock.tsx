@@ -94,7 +94,7 @@ function CodeBlock({
           </div>
           <div className="flex-grow" />
           <div
-            className={`flex space-x-2 rounded-md z-[4] py-1 justify-center px-1 backdrop-filter backdrop-blur-md backdrop-brightness-90 bg-stone-50/75 dark:bg-stone-800/30 motion-safe:transition-opacity sm:shadow-md prefers-contrast:shadow-none shadow-stone-600/10 dark:shadow-stone-900 ${touchStyle}`}
+            className={`flex space-x-2 rounded-md z-[4] py-1 justify-center px-1 backdrop-filter backdrop-blur-md backdrop-brightness-90 bg-stone-50/75 dark:bg-stone-800/30 motion-safe:transition-opacity sm:shadow-md prefers-contrast:shadow-none shadow-stone-600/5 dark:shadow-stone-900/50 ${touchStyle}`}
           >
             {getPanels().map(({ name, Icon }) => (
               <Tab

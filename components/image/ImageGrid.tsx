@@ -1,14 +1,19 @@
 import Image from "next/image";
+import { useState } from "react";
+import { CodeBlockFeatureProps } from "../../interfaces/CodeBlock";
 import CodeBlock from "../framework/CodeBlock";
 
 function ImageGrid() {
+  const [notification, setNotification] = useState(undefined);
   const raw = {
     instagram: `
+/* V1.0.0 */
+import Image from "next/image";
 function Example() {
   const images = [
     {
       large:
-        "https://images.unsplash.com/photo-1474511320723-9a56873867b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1514819121162-8f4345eb8fb7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
       author: "Ray Hennessy",
     },
     {
@@ -18,7 +23,7 @@ function Example() {
     },
     {
       large:
-        "https://images.unsplash.com/photo-1490718720478-364a07a997cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80",
+        "https://images.unsplash.com/photo-1490718687940-0ecadf414600?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
       author: "Ray Hennessy",
     },
     {
@@ -59,7 +64,7 @@ function Example() {
   const images = [
     {
       large:
-        "https://images.unsplash.com/photo-1474511320723-9a56873867b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1514819121162-8f4345eb8fb7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
       author: "Ray Hennessy",
     },
     {
@@ -69,7 +74,7 @@ function Example() {
     },
     {
       large:
-        "https://images.unsplash.com/photo-1490718720478-364a07a997cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80",
+        "https://images.unsplash.com/photo-1490718687940-0ecadf414600?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
       author: "Ray Hennessy",
     },
     {
@@ -88,14 +93,38 @@ function Example() {
       author: "Ray Hennessy",
     },
   ];
+  const features: { [x: string]: CodeBlockFeatureProps } = {
+    instagram: {
+      interactions: { click: true },
+    },
+  };
   return (
     <>
-      <CodeBlock title="Instagram Layout" raw={raw.instagram}>
+      <CodeBlock
+        title="Instagram Layout"
+        raw={raw.instagram}
+        notification={notification}
+        onDismiss={() => setNotification(undefined)}
+        features={features.instagram}
+      >
         <div className="grid w-full pt-20 pb-16 place-items-center">
-          <div className="w-full max-w-xs overflow-hidden shadow component card-bg rounded-xl">
+          {/* transform translate-x-0 is needed to patch ios touch will break rounded corners. */}
+          <div className="w-full max-w-xs overflow-hidden transform translate-x-0 shadow component card-bg rounded-xl">
             <div className="grid grid-cols-3 gap-0.5">
               {images.map(({ large, author }) => (
-                <div key={large} className="relative aspect-square">
+                <div
+                  key={large}
+                  className="relative transition cursor-pointer aspect-square hover:opacity-90 active:opacity-80"
+                  tabIndex={0}
+                  aria-label={`Bird image shot by ${author} from Unsplash.`}
+                  onClick={() =>
+                    setNotification({
+                      enabled: true,
+                      image: large,
+                      message: "Image",
+                    })
+                  }
+                >
                   <Image
                     src={large}
                     alt={`Bird image shot by ${author} from Unsplash.`}
