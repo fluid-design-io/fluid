@@ -12,6 +12,8 @@ import { Fragment, useEffect, useState } from "react";
 import logoDark from "../../public/assets/icon-dark.svg";
 import logoLight from "../../public/assets/icon-light.svg";
 
+import { useTranslation } from "next-i18next";
+
 const navigation = [
   { name: "Examples", href: "examples", icon: ViewGridIcon },
   { name: "Usage", href: "usage", icon: BookOpenIcon },
@@ -25,7 +27,8 @@ const secondaryNavigation = [
       { name: "Badge", href: "badge", isDone: false },
       // { name: "Breadcrumbs", href: "breadcrumbs", isDone: false },
       { name: "Button", href: "button", isDone: false },
-      { name: "Card", href: "card", isDone: false },
+      { name: "Card", href: "card", isDone: true },
+      { name: "Empty State", href: "empty-state", isDone: false },
       // { name: "Collapse", href: "collapse", isDone: false },
       // { name: "Divider", href: "divider", isDone: false },
       // { name: "Drawer", href: "drawer", isDone: false },
@@ -60,6 +63,7 @@ function classNames(...classes) {
 }
 
 function SidebarMenu({ activeTab, disabled }) {
+  const { t } = useTranslation("navbar");
   return (
     <div className="md:fixed z-40 top-0 left-0 h-full max-h-screen overflow-x-hidden overflow-y-auto bg-stone-50 dark:bg-stone-900 w-[18rem] sm:w-[12.5rem] md:w-[15.625rem] lg:w-[13.5rem] xl:w-[15.625rem] flex pb-4 border-r border-stone-200 dark:border-stone-700 prefers-contrast:border-stone-600 dark:prefers-contrast:border-stone-200 dark:prefers-contrast:bg-[rgb(18,15,13)]">
       <div className="w-full">
@@ -83,7 +87,7 @@ function SidebarMenu({ activeTab, disabled }) {
         <nav className="flex-1 p-1 px-4 pb-8 space-y-2" aria-label="Sidebar">
           {navigation.map(({ name, href, icon: ItemIcon }) => (
             <div key={`nav.${name}`} className="rounded-md">
-              <Link key={name} href={`/components/${href}`}>
+              <Link key={name} href={`/docs/${href}`}>
                 <a
                   className={classNames(
                     activeTab === href
@@ -97,7 +101,7 @@ function SidebarMenu({ activeTab, disabled }) {
                   ${
                     activeTab === href
                       ? `text-teal-400 border-teal-400 shadow shadow-teal-400/40`
-                      : `border-stone-100 dark:border-stone-600/80 text-stone-600 dark:text-stone-300`
+                      : `border-stone-500 dark:border-stone-200/80 text-stone-600 dark:text-stone-300`
                   }`}
                   >
                     <ItemIcon className="w-3.5 h-3.5" aria-hidden="true" />
@@ -106,7 +110,7 @@ function SidebarMenu({ activeTab, disabled }) {
                     {activeTab === href && (
                       <span className="sr-only">Currently selected.</span>
                     )}
-                    {name}
+                    {t(name)}
                   </div>
                 </a>
               </Link>
@@ -119,7 +123,7 @@ function SidebarMenu({ activeTab, disabled }) {
                 className="px-3 text-xs font-semibold tracking-wider uppercase select-none text-stone-500 dark:text-stone-400 prefers-contrast:text-stone-700 dark:prefers-contrast:text-slate-100"
                 id={`${groupName}-headline`}
               >
-                {groupName}
+                {t(groupName)}
               </h3>
               <div
                 className="space-y-1"
@@ -127,10 +131,7 @@ function SidebarMenu({ activeTab, disabled }) {
                 aria-labelledby={`${groupName}-headline`}
               >
                 {groupList.map(({ name, href, isDone }) => (
-                  <Link
-                    key={`${groupName}.${name}`}
-                    href={`/components/${href}`}
-                  >
+                  <Link key={`${groupName}.${name}`} href={`/docs/${href}`}>
                     <a
                       className={`flex items-center px-3 py-2 text-sm font-medium rounded-md group 
                       ${!isDone ? "opacity-50" : ""} 
@@ -140,7 +141,7 @@ function SidebarMenu({ activeTab, disabled }) {
                           : `text-stone-700 dark:text-stone-300/80 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-100 hover:bg-stone-50 hover:text-stone-900 dark:hover:bg-stone-700/80 dark:hover:text-stone-100`
                       }`}
                     >
-                      <span className="truncate">{name}</span>
+                      <span className="truncate">{t(name)}</span>
                     </a>
                   </Link>
                 ))}

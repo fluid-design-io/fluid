@@ -1,13 +1,27 @@
 import Page from "./Page";
 import React from "react";
-import { getBody } from "../../lib/getBody";
+import ScrollSpy from "../../lib/ScrollSpy";
+import DocSection from "./DocSection";
+import slugConverter from "../../util/slug";
 
-function Doc({ meta, title, description, children, ...props }) {
-  const docNav = getBody(children, "docNav");
+function Doc({ meta, title, description, sections, ...props }) {
+  const docNav = (
+    <ul key={`docNav`} className="doc-nav-wrap">
+      <li className="doc-nav-header">On this page</li>
+      {sections.map(({ title }) => {
+        const sectionSlug = slugConverter(title);
+        return (
+          <li key={`${sectionSlug}`} className="doc-nav" data-to-scrollspy-id={sectionSlug}>
+            <a href={`#${sectionSlug}`}>{title}</a>
+          </li>
+        );
+      })}
+    </ul>
+  );
   return (
     <Page
       meta={meta}
-      docNav={getBody(children, "docNav")}
+      docNav={docNav}
       className="flex min-h-screen space-x-4"
       hasMain={true}
     >
@@ -16,7 +30,13 @@ function Doc({ meta, title, description, children, ...props }) {
         <main id="main" title={`Documentation for the ${title} component`}>
           <h1 className="md:pt-12">{title}</h1>
           <p className="pb-6 text-lg md:text-xl">{description} </p>
-          {getBody(children, "content")}
+          <div key="content" className="flex-grow w-full mx-auto">
+            <ScrollSpy offsetBottom={500}>
+              {sections.map((props) => (
+                <DocSection key={`${props.title}`} {...props} />
+              ))}
+            </ScrollSpy>
+          </div>
         </main>
       </div>
       <div

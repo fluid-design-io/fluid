@@ -11,6 +11,7 @@ import imgReduceMotion from "../../public/assets/features/comp-feat-reduce-motio
 import imgRTL from "../../public/assets/features/comp-feat-RTL.png";
 import imgScreenReader from "../../public/assets/features/comp-feat-screen-reader.png";
 import imgKeyboard from "../../public/assets/features/comp-feat-keyboard.png";
+import imgResponsive from "../../public/assets/features/comp-feat-responsive.png";
 import Image from "next/image";
 
 interface FeatureCardProps {
@@ -21,6 +22,7 @@ interface FeatureCardProps {
     | "RTL"
     | "contrast"
     | "dark mode"
+    | "responsive"
     | "reduce motion"
     | "enter"
     | "exit"
@@ -82,7 +84,7 @@ function ComponentFeatures({
       keyboardFocus = undefined,
       screenReader = undefined,
     } = {},
-    ui: { darkMode = undefined } = {},
+    ui: { darkMode = undefined, responsive = undefined } = {},
     interactions: { click = undefined, hover = undefined } = {},
     transitions: {
       enter = undefined,
@@ -184,6 +186,14 @@ function ComponentFeatures({
             type="dark mode"
             img={imgDarkMode}
             description={darkMode !== true && darkMode?.description}
+          />
+        )}
+        {responsive && (
+          <FeatureCard
+            category="UI"
+            type="responsive"
+            img={imgResponsive}
+            description={responsive !== true && responsive?.description}
           />
         )}
       </div>

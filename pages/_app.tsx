@@ -1,6 +1,10 @@
 import { useEffect } from "react";
+import { appWithTranslation } from "next-i18next";
+import nextI18nextConfig from "../next-i18next.config";
+
 import "../styles/globals.css";
 import "../styles/neumorphism.css";
+import "flag-icons/css/flag-icons.min.css";
 
 function MyApp({ Component, pageProps }) {
   const activateDarkMode = () => {
@@ -27,4 +31,4 @@ function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp, nextI18nextConfig);

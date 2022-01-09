@@ -5,6 +5,7 @@ import {
   ClipboardIcon,
   CodeIcon,
   CursorClickIcon,
+  DesktopComputerIcon,
   EyeIcon,
 } from "@heroicons/react/solid";
 import { motion, useReducedMotion } from "framer-motion";
@@ -14,6 +15,7 @@ import ComponentFeatures from "./ComponentFeatures";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { useState } from "react";
 import CodeBlockNotification from "./CodeBlockNotification";
+import SplitView from "./SplitView";
 
 function CodeBlock({
   title,
@@ -21,7 +23,8 @@ function CodeBlock({
   features = undefined,
   notification = undefined,
   onDismiss = null,
-  children,
+  iframe = null,
+  children = null,
   ...props
 }: CodeBlockProps) {
   const [isCoping, setIsCoping] = useState(false);
@@ -39,7 +42,9 @@ function CodeBlock({
     {
       name: "Preview",
       Icon: EyeIcon,
-      component: children,
+      component: children || (
+        <SplitView iframe={iframe} className="min-h-[28rem]" />
+      ),
     },
     {
       name: "Code",
@@ -89,12 +94,19 @@ function CodeBlock({
             className="relative z-[2] font-medium py-1.5 px-2 truncate max-w-full flex space-x-1 items-center"
             aria-label={`${title}`}
           >
-            <span>{title}</span>
-            {features?.interactions && <CursorClickIcon className="w-4 h-4" />}
+            <span className="[text-shadow:0px_2px_5px_rgba(0,0,0,0.25)]">
+              {title}
+            </span>
+            {features?.interactions && (
+              <CursorClickIcon className="w-4 h-4 filter drop-shadow-md" />
+            )}
+            {features?.ui?.responsive && (
+              <DesktopComputerIcon className="w-4 h-4 filter drop-shadow-md" />
+            )}
           </div>
           <div className="flex-grow" />
           <div
-            className={`flex space-x-2 rounded-md z-[4] py-1 justify-center px-1 backdrop-filter backdrop-blur-md backdrop-brightness-90 bg-stone-50/75 dark:bg-stone-800/30 motion-safe:transition-opacity sm:shadow-md prefers-contrast:shadow-none shadow-stone-600/5 dark:shadow-stone-900/50 ${touchStyle}`}
+            className={`flex space-x-2 rounded-md z-[4] py-1 justify-center px-1 backdrop-filter backdrop-blur-md backdrop-brightness-90 bg-stone-50/75 dark:bg-stone-800/30 motion-safe:transition-opacity sm:shadow-lg prefers-contrast:shadow-none shadow-stone-600/5 dark:shadow-stone-900/20 ${touchStyle}`}
           >
             {getPanels().map(({ name, Icon }) => (
               <Tab
@@ -142,7 +154,7 @@ function CodeBlock({
                 </span>
                 <span className="sm:hidden">
                   {isCoping ? (
-                    <CheckCircleIcon className={`w-4 h-4 text-lime-400`} />
+                    <CheckCircleIcon className={`w-4 h-4 text-lime-500`} />
                   ) : (
                     <ClipboardIcon className={`w-4 h-4`} />
                   )}

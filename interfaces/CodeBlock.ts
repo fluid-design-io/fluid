@@ -5,6 +5,7 @@ interface FeatureOption {
 export interface CodeBlockFeatureProps {
   ui?: {
     darkMode?: FeatureOption | true;
+    responsive?: FeatureOption | true;
   };
   accessibility?: {
     RTL?: FeatureOption | true;
@@ -28,6 +29,10 @@ export interface CodeBlockProps {
   title: string;
   raw: string;
   features?: CodeBlockFeatureProps;
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  iframe?: {
+    url: string;
+    height?: string;
+  };
   [x: string]: any;
 }

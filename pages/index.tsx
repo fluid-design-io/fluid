@@ -1,20 +1,32 @@
-import { AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import React, { useState } from "react";
+import Link from "next/link";
+import Code from "../util/Code";
 import Page from "../components/framework/Page";
+import Image from "next/image";
+import { AnimatePresence } from "framer-motion";
+import { useTranslation, Trans } from "next-i18next";
+import { SplitPane } from "react-multi-split-pane";
+import { rawResponsiveCard } from "./examples/responsive-card";
+import { SiteMeta } from "../interfaces/framwork";
+import { featuresList, indexElements } from "../lib/index/data";
 import IndexIphoneFrame from "../components/instance/IndexIphoneFrame";
 import FeatureCard from "../components/ui/FeatureCard";
 import WindowFrame from "../components/WindowFrame";
-import { SiteMeta } from "../interfaces/framwork";
-import { featuresList, indexElements } from "../lib/index/data";
 import bgDark from "../public/assets/index-bg-dark.jpg";
 import bgLight from "../public/assets/index-bg-light.jpg";
-import { SplitPane } from "react-multi-split-pane";
-import Link from "next/link";
-import { rawResponsiveCard } from "./examples/responsive-card";
-import Code from "../util/Code";
+
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common", "index", "navbar"])),
+      // Will be passed to the page component as props
+    },
+  };
+}
 
 export default function Home() {
+  const { t } = useTranslation();
   const [selected, setSelected] = useState("Card");
   const [isDragging, setIsDragging] = useState(false);
   const selectedStyle = (item) => {
@@ -87,22 +99,18 @@ export default function Home() {
             FluidDesign
           </h5>
           <h1 className="w-4/5 max-w-4xl px-4 pt-2 text-3xl font-bold md:mx-auto dark:text-stone-100 md:text-6xl md:text-center md:pt-48 md:w-auto">
-            Modern UI components with smooth transitions.
+            {t("slogan")}
           </h1>
           <p className="px-4 mx-auto mt-6 md:text-center md:text-xl text-stone-500 dark:text-stone-300">
-            Beautiful React UI that are{" "}
-            <span className="font-mono font-medium text-stone-900 dark:text-stone-50">
-              responsive
-            </span>
-            , supports features like <br className="hidden md:inline" />
-            <span className="font-mono font-medium text-stone-900 dark:text-stone-50">
-              dark mode
-            </span>{" "}
-            and{" "}
-            <span className="font-mono font-medium text-stone-900 dark:text-stone-50">
-              a11y
-            </span>{" "}
-            with elegant transitions.
+            <Trans
+              i18nKey={`site-desc`}
+              ns="common"
+              components={{
+                span: (
+                  <span className="font-mono font-medium text-stone-900 dark:text-stone-50" />
+                ),
+              }}
+            />
           </p>
           <WindowFrame
             className={
@@ -127,17 +135,16 @@ export default function Home() {
         id="features"
         className="mx-auto mt-8 text-center sm:px-8 max-w-7xl"
       >
-        <h2 className="">
-          "Looks right" <br className="block sm:hidden" /> {`isn't enough`}.
+        <h2>
+          <Trans
+            i18nKey={"looks-right-isnt-enough.title"}
+            ns={"index"}
+            components={{ br: <br className="block sm:hidden" /> }}
+          />
         </h2>
         <blockquote className="px-4 sm:px-0">
           <p className="px-4 mx-auto mt-6">
-            {`Many UI libraries and component designs often only focus on the
-            design and bare functionalities. They cover the majority of users'
-            needs. However, some component designs may not suit users who rely
-            on accessibility features like screen reader, high-contrast, and
-            reduce-motion. Fluid Design aims to create components that works for
-            all users.`}
+            {t("looks-right-isnt-enough.body", { ns: "index" })}
           </p>
         </blockquote>
         <div className="mt-12 sm:mt-16 lg:mt-20">
@@ -146,41 +153,26 @@ export default function Home() {
               <FeatureCard {...list} key={list.title} />
             ))}
           </div>
-          {/* <div className="relative flex w-full gap-4 overflow-x-auto snap-x snap-mandatory sm:hidden">
-            <div className="snap-center shrink-0">
-              <div className="w-[calc(50vw+0.5rem-130px)] shrink-0"></div>
-            </div>
-            {featuresList.map((list) => (
-              <FeatureCard {...list} key={list.title} />
-            ))}
-            <div className="snap-center shrink-0">
-              <div className="w-[calc(50vw+0.5rem-130px)] shrink-0"></div>
-            </div>
-          </div> */}
         </div>
       </section>
       <section
         id="demo"
         className="px-4 mx-auto mt-24 sm:mt-32 md:mt-40 sm:px-8 max-w-7xl"
       >
-        <h2 className="text-left">See it live.</h2>
+        <h2 className="text-left">{t("see-it-live", { ns: "index" })}</h2>
         <p className="mt-4 text-stone-500 dark:text-stone-300">
-          Powered by{" "}
-          <span className="font-mono font-medium text-stone-900 dark:text-stone-50">
-            tailwindcss
-          </span>{" "}
-          and{" "}
-          <span className="font-mono font-medium text-stone-900 dark:text-stone-50">
-            framer-motion
-          </span>
-          . Fluid Design merges these mordern framworks to create components
-          that are highly customizable, by you.{" "}
-          <span className="sm:hidden">
-            (Try resize your screen to move the handle)
-          </span>
+          <Trans
+            ns="index"
+            i18nKey={"powered-by"}
+            components={{
+              span: (
+                <span className="font-mono font-medium text-stone-900 dark:text-stone-50" />
+              ),
+            }}
+          />
         </p>
-        <Link href={"/components"}>
-          <button className="mt-6 primary-button">Browse more</button>
+        <Link href={"/docs"}>
+          <button className="mt-6 primary-button">{t("browse-more")}</button>
         </Link>
         <div className="mt-8">
           <SplitPane
@@ -208,7 +200,7 @@ export default function Home() {
 
           <Code
             content={rawResponsiveCard}
-            className="mt-4 sm:mt-[-1rem] md:ml-[-0.875rem] h-[35vh] md:h-[320px] rounded-xl pt-6 max-w-[calc(100vw-2rem)] overflow-x-auto bg-stone-800 prefers-contrast:!bg-black"
+            className="mt-4 sm:mt-[-1rem] md:ml-[-0.875rem] h-[35vh] md:h-[320px] rounded-xl pt-6 max-w-[calc(100vw-2rem)] overflow-x-auto bg-stone-800 dark:bg-stone-900 prefers-contrast:!bg-black"
           />
         </div>
       </section>

@@ -23,7 +23,7 @@ function WindowFrame({ sidebar = null, content, ...props }) {
           </div>
         </div>
       )}
-      <div className="relative flex items-center justify-center flex-1 w-full p-4">
+      <div className="relative flex items-center justify-center flex-1 w-full">
         {!sidebar && (
           <div className="absolute top-0 left-0 z-10">{WindowDots}</div>
         )}
