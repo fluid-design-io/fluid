@@ -2,9 +2,11 @@ import Image from "next/image";
 import { useState } from "react";
 import { CodeBlockFeatureProps } from "../../interfaces/CodeBlock";
 import CodeBlock from "../framework/CodeBlock";
+import { useTranslation } from "next-i18next";
 
 function ImageGrid() {
   const [notification, setNotification] = useState(undefined);
+  const { t } = useTranslation("image");
   const raw = {
     instagram: `
 /* V1.0.0 */
@@ -101,7 +103,7 @@ function Example() {
   return (
     <>
       <CodeBlock
-        title="Instagram Layout"
+        title={t(`instagram-layout.title`, { ns: "image" })}
         raw={raw.instagram}
         notification={notification}
         onDismiss={() => setNotification(undefined)}
@@ -121,7 +123,7 @@ function Example() {
                     setNotification({
                       enabled: true,
                       image: large,
-                      message: "Image",
+                      message: t(`instagram-layout.message`, { ns: "image" }),
                     })
                   }
                 >

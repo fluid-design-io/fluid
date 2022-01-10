@@ -2,7 +2,10 @@ import Image from "next/image";
 import { CodeBlockFeatureProps } from "../../interfaces/CodeBlock";
 import CodeBlock from "../framework/CodeBlock";
 
+import { useTranslation } from "next-i18next";
+
 function SingleImage() {
+  const { t } = useTranslation("common");
   const raw = {
     imageOnly: `
 /* V1.0.0 */
@@ -66,27 +69,27 @@ export default Example
     withOverlay: {
       interactions: {
         hover: {
-          description:
-            "On cursor-based devices, the description will be visibile when mouse hovers on the image, it will always be visible on touch-only devices.",
+          description: t("with-overlay.hover", { ns: "image" }),
         },
       },
       transitions: {
         reduceMotion: {
-          description:
-            "On cursor-based devices, when users turn on reduce motion accessibility feature, the transition revealing the paragraph will be changed to opacity transition.",
+          description: t("with-overlay.reduce-motion", { ns: "image" }),
         },
       },
       accessibility: {
         contrast: {
-          description:
-            "Image overlay and text overlay will be darkend even more to increase text readablilty.",
+          description: t("with-overlay.hover", { ns: "contrast" }),
         },
       },
     },
   };
   return (
     <>
-      <CodeBlock title="Image Only" raw={raw.imageOnly} >
+      <CodeBlock
+        title={t("single-image.title", { ns: "image" })}
+        raw={raw.imageOnly}
+      >
         <div className="grid w-full pt-20 pb-16 place-items-center">
           <div className="w-full h-48 max-w-xs overflow-hidden shadow component card-bg rounded-xl">
             <div className="relative w-full h-48">
@@ -103,7 +106,7 @@ export default Example
         </div>
       </CodeBlock>
       <CodeBlock
-        title="With Overlay"
+        title={t("with-overlay.title", { ns: "image" })}
         raw={raw.withOverlay}
         features={features.withOverlay}
       >
@@ -116,11 +119,10 @@ export default Example
               {/* Text Overlay */}
               <div className="px-4 pb-2 pt-6 absolute bottom-0 left-0 right-0 text-left rtl:text-right z-[5] from-black/0 to-black/50 prefers-contrast:to-black/90 motion-reduce:duration-500 transition-opacity motion-safe:transition-all bg-gradient-to-b translate-y-[calc(100%-3.875rem)] pointer-touch:translate-y-0 group-hover:translate-y-0">
                 <h2 className="text-xl font-semibold text-sky-100">
-                  Ocean is life.
+                  {t("with-overlay.ocl", { ns: "image" })}
                 </h2>
                 <p className="leading-tight transition-opacity opacity-0 text-sky-100 group-hover:opacity-100 pointer-touch:opacity-100 motion-reduce:duration-500 motion-safe:transition-all">
-                  It is pure greatness and everyone must enjoy it. Shot by
-                  Andrzej Kryszpiniuk.
+                  {t("with-overlay.ocldesc", { ns: "image" })}
                 </p>
               </div>
               {/* Image Background */}
@@ -129,7 +131,7 @@ export default Example
                   src={
                     "https://images.unsplash.com/photo-1508624217470-5ef0f947d8be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80"
                   }
-                  alt="Ocean is life, is pure greatness and everyone must enjoy it. Shot by Andrzej Kryszpiniuk."
+                  alt={t("with-overlay.ocldesc", { ns: "image" })}
                   layout="fill"
                   objectFit="cover"
                 />

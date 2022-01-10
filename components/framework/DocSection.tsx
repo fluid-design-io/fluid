@@ -4,10 +4,14 @@ import slug from "../../util/slug";
 function DocSection({ title, description = undefined, component }) {
   return (
     <section id={slug(title)} className="pb-12">
-      <h3 className={`w-full group ${description ? "pb-4" : ""}`}>
+      <h3
+        className={`w-full group flex items-center ${
+          description ? "pb-4" : ""
+        }`}
+      >
         <a
           href={`#image`}
-          className="absolute flex items-center -ml-10 border-0 opacity-0 hash group-hover:opacity-100 focus:opacity-100"
+          className="absolute right-0 flex items-center ml-0 mr-4 border-0 opacity-0 md:right-auto md:mr-auto md:-ml-10 lg:-ml-7 xl:-ml-10 hash group-hover:opacity-100 focus:opacity-100"
           aria-label={`${title}`}
         >
           <HashtagIcon className="flex items-center justify-center w-6 h-6 p-1 text-gray-400 rounded-md shadow-sm ring-1 ring-gray-900/5 hover:ring-gray-900/10 hover:shadow hover:text-gray-700 dark:bg-gray-700 dark:text-gray-300 dark:shadow-none dark:ring-0" />

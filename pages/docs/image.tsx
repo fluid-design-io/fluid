@@ -3,52 +3,57 @@ import React from "react";
 import Doc from "../../components/framework/Doc";
 import { Collage, ImageGrid, SingleImage } from "../../components/image";
 
+import { useTranslation, Trans } from "next-i18next";
+
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import ImageBackground from "../../components/image/ImageBackground";
 
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common", "navbar"])),
+      ...(await serverSideTranslations(locale, ["common", "navbar", "image"])),
       // Will be passed to the page component as props
     },
   };
 }
 function CardPage() {
+  const { t } = useTranslation();
   const meta: SiteMeta = {
-    title: "Fluid Design | Image",
-    description:
-      "This page is focused to provide examples that highlights images as the main piece of UI which users can interact with.",
+    title: "Fluid Design | " + t("Image", { ns: "navbar" }),
+    description: t("image-site-desc", { ns: "image" }),
   };
   const sections = [
     {
-      title: "Single Image",
+      title: t("Single Image", { ns: "image" }),
       description: "",
       component: <SingleImage />,
     },
     {
-      title: "Background",
+      title: t("Background", { ns: "image" }),
       description: "",
       component: <ImageBackground />,
     },
     {
-      title: "Collage",
+      title: t("Collage", { ns: "image" }),
       description: (
-        <p>
-          The aspect ratio of this component is always square. Simply replace{" "}
-          <span
-            className="code-highlight"
-            aria-label="code snippet, aspect-square,"
-          >
-            `aspect-square`
-          </span>{" "}
-          to change it's ratio
-        </p>
+        <Trans
+          i18nKey={"collage-desc"}
+          components={{
+            p: <p />,
+            span: (
+              <span
+                className="code-highlight"
+                aria-label="code snippet, aspect-square,"
+              />
+            ),
+          }}
+          ns={"image"}
+        />
       ),
       component: <Collage />,
     },
     {
-      title: "Grid",
+      title: t("Grid", { ns: "image" }),
       description: "",
       component: <ImageGrid />,
     },
@@ -56,8 +61,8 @@ function CardPage() {
   return (
     <Doc
       meta={meta}
-      title="Image"
-      description="This page is focused to provide examples that highlights images as the main piece of UI which users can interact with."
+      title={t(`Image`, { ns: "navbar" })}
+      description={t("image-site-desc", { ns: "image" })}
       sections={sections}
     />
   );

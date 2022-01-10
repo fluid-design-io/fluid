@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { SplitPane } from "react-multi-split-pane";
-import WindowFrame from "../WindowFrame";
 
 function SplitView({ iframe, ...props }) {
   const [isDragging, setIsDragging] = useState(false);
@@ -20,7 +19,7 @@ function SplitView({ iframe, ...props }) {
           isDragging ? "pointer-events-none" : ""
         }`}
       />
-      <div className="w-full h-full bg-stone-500/20" />
+      <div className="w-full h-full bg-stone-300/40 dark:bg-stone-500/20" />
     </SplitPane>
   );
 }

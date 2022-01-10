@@ -4,18 +4,21 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { useEffect } from "react";
 
+import { useTranslation } from "next-i18next";
+
 function CodeBlockNotification({
   notification: {
     enabled = false,
     Icon = CursorClickIcon,
     image = undefined,
-    title = "Clicked",
+    title = undefined,
     message = undefined,
   } = {},
   duration = 2800,
   onDismiss,
 }) {
   const shouldReduceMotion = useReducedMotion();
+  const { t } = useTranslation("common");
   const handleDismiss = () => enabled && onDismiss();
   useEffect(() => {
     if (enabled) {
@@ -41,7 +44,9 @@ function CodeBlockNotification({
             }}
             exit={{ y: shouldReduceMotion ? 0 : "100%", opacity: 0 }}
             tabIndex={0}
-            aria-label={`Notification, ${title} clicked`}
+            aria-label={t(`notification-clicked`, {
+              title: title ? title : t(`Clicked`),
+            })}
             transition={{ type: "spring", bounce: 0.2 }}
           >
             <div className="flex items-center space-x-4">
@@ -61,7 +66,7 @@ function CodeBlockNotification({
               </div>
               <div className="flex-grow">
                 <h4 className="text-sm text-center text-stone-800 dark:text-stone-200">
-                  {title}
+                  {title ? title : t(`Clicked`)}
                 </h4>
                 <p className="text-xs font-semibold text-center text-stone-600 dark:text-stone-400">
                   {message}
@@ -71,7 +76,7 @@ function CodeBlockNotification({
                 className="p-1.5 transition rounded-full mr-2 hover:bg-stone-400/10 dark:hover:bg-stone-200/10 flex-shrink-0 relative right-1"
                 onClick={() => onDismiss()}
               >
-                <span className="sr-only">Close Notification</span>
+                <span className="sr-only">{t("Close Notification")}</span>
                 <XIcon className="w-4 h-4 text-stone-800 dark:text-stone-200" />
               </button>
             </div>

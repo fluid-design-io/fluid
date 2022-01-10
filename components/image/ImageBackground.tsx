@@ -17,7 +17,7 @@ export function SplitImageBackground() {
           />
         </div>
       </div>
-      <div className="col-span-1 p-4 bg-stone-900">
+      <div className="col-span-1 p-4 bg-stone-50 dark:bg-stone-900">
         <svg
           className="w-full h-64 border-2 border-dashed rounded text-stone-200 dark:text-stone-600 dark:border-stone-600 border-stone-300"
           preserveAspectRatio="none"

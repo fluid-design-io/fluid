@@ -50,7 +50,7 @@ export default function Home() {
       className="px-2 py-1 space-y-1 text-sm border-t border-stone-50/60 dark:border-stone-500/30 md:text-base"
     >
       <li className="px-2 font-semibold pointer-events-none dark:text-stone-300 text-stone-600">
-        {item.category}
+        {t(item.category)}
       </li>
       {item.lists.map((list) => (
         <li key={`body.${list.name}`}>
@@ -62,7 +62,7 @@ export default function Home() {
               list.name
             )} px-2 py-1 transition w-full text-left rounded-md overflow-hidden focus:outline-none focus:ring-1 focus:ring-stone-200/50 dark:focus:ring-stone-50`}
           >
-            {list.name}
+            {t(list.name)}
           </button>
         </li>
       ))}

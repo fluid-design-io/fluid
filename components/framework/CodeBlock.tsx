@@ -13,6 +13,7 @@ import { CodeBlockProps } from "../../interfaces/CodeBlock";
 import Code from "../../util/Code";
 import ComponentFeatures from "./ComponentFeatures";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { useTranslation } from "next-i18next";
 import { useState } from "react";
 import CodeBlockNotification from "./CodeBlockNotification";
 import SplitView from "./SplitView";
@@ -29,6 +30,7 @@ function CodeBlock({
 }: CodeBlockProps) {
   const [isCoping, setIsCoping] = useState(false);
   const shouldReduceMotion = useReducedMotion();
+  const { t } = useTranslation("common");
   const touchStyle =
     "pointer-touch:opacity-100 pointer-touch:pointer-events-auto opacity-0 pointer-events-none code-block-touch ";
   const buttonStyle =
@@ -89,12 +91,12 @@ function CodeBlock({
           (panel) => panel.name === "Preview"
         )}
       >
-        <Tab.List className="absolute top-0 left-0 flex w-full px-2 pt-2 space-x-2 text-sm text-stone-500 prefers-contrast:text-stone-800 dark:text-stone-100">
+        <Tab.List className="absolute top-0 left-0 flex w-full px-2 pt-2 space-x-2 text-sm text-stone-500/75 prefers-contrast:text-stone-800 dark:text-stone-100">
           <div
             className="relative z-[2] font-medium py-1.5 px-2 truncate max-w-full flex space-x-1 items-center"
             aria-label={`${title}`}
           >
-            <span className="[text-shadow:0px_2px_5px_rgba(0,0,0,0.25)]">
+            <span className="dark:[text-shadow:0px_2px_5px_rgba(0,0,0,0.25)]">
               {title}
             </span>
             {features?.interactions && (
@@ -106,7 +108,7 @@ function CodeBlock({
           </div>
           <div className="flex-grow" />
           <div
-            className={`flex space-x-2 rounded-md z-[4] py-1 justify-center px-1 backdrop-filter backdrop-blur-md backdrop-brightness-90 bg-stone-50/75 dark:bg-stone-800/30 motion-safe:transition-opacity sm:shadow-lg prefers-contrast:shadow-none shadow-stone-600/5 dark:shadow-stone-900/20 ${touchStyle}`}
+            className={`flex space-x-2 rounded-md z-[4] py-1 justify-center px-1 backdrop-filter backdrop-blur-md backdrop-brightness-90 bg-stone-50/75 dark:bg-stone-800/30 motion-safe:transition-opacity sm:shadow-md sm:shadow-stone-400/10 prefers-contrast:shadow-none dark:shadow-stone-900/20 ${touchStyle}`}
           >
             {getPanels().map(({ name, Icon }) => (
               <Tab
@@ -120,10 +122,10 @@ function CodeBlock({
                       className={`py-1.5 text-xs font-medium px-2 ${buttonStyle} ${
                         selected
                           ? "motion-reduce:bg-stone-200/70 dark:motion-reduce:bg-stone-900/60 motion-reduce:backdrop-blur-md motion-reduce:backdrop-filter text-stone-800 dark:text-stone-100"
-                          : ""
+                          : "hover:text-stone-800 dark:hover:text-stone-100"
                       }`}
                     >
-                      <span className="hidden sm:block">{name}</span>
+                      <span className="hidden sm:block">{t(name)}</span>
                       <span className="sm:hidden">
                         <Icon className="w-4 h-4" />
                       </span>
@@ -143,14 +145,14 @@ function CodeBlock({
             />
             <CopyToClipboard text={raw} onCopy={handleCopy}>
               <button
-                className={`py-1.5 sm:w-14 text-xs font-medium ${buttonStyle}`}
+                className={`py-1.5 sm:w-14 text-xs font-medium hover:text-stone-800 dark:hover:text-stone-100 ${buttonStyle}`}
                 aria-live="assertive"
               >
                 <span className="sr-only">
-                  {isCoping ? "Source code copied" : "Copy source code"}
+                  {isCoping ? t("Source code copied") : t("Copy source code")}
                 </span>
                 <span className="hidden sm:block">
-                  {isCoping ? "Copied!" : "Copy"}
+                  {isCoping ? t("Copied!") : t("Copy")}
                 </span>
                 <span className="sm:hidden">
                   {isCoping ? (

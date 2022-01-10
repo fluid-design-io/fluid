@@ -52,7 +52,7 @@ function IndexList() {
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -10, opacity: 0 }}
       transition={{ type: "just" }}
-      className="w-5/6 overflow-hidden rounded-lg shadow-lg md:w-2/3 bg-stone-50 dark:bg-stone-800 shadow-stone-900/10 dark:shadow-stone-900/30"
+      className="w-5/6 overflow-hidden rounded-lg shadow-lg md:w-2/3 bg-stone-50 dark:bg-stone-800 shadow-stone-900/10 dark:shadow-stone-900/30 component"
     >
       <ul className="divide-y select-none divide-stone-200/50 dark:divide-stone-700/30">
         <li className="flex justify-between px-2 py-1">

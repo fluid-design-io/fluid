@@ -4,14 +4,21 @@ import ScrollSpy from "../../lib/ScrollSpy";
 import DocSection from "./DocSection";
 import slugConverter from "../../util/slug";
 
+import { useTranslation } from "next-i18next";
+
 function Doc({ meta, title, description, sections, ...props }) {
+  const { t } = useTranslation("common");
   const docNav = (
     <ul key={`docNav`} className="doc-nav-wrap">
-      <li className="doc-nav-header">On this page</li>
+      <li className="doc-nav-header">{t("On this page")}</li>
       {sections.map(({ title }) => {
         const sectionSlug = slugConverter(title);
         return (
-          <li key={`${sectionSlug}`} className="doc-nav" data-to-scrollspy-id={sectionSlug}>
+          <li
+            key={`${sectionSlug}`}
+            className="doc-nav"
+            data-to-scrollspy-id={sectionSlug}
+          >
             <a href={`#${sectionSlug}`}>{title}</a>
           </li>
         );
@@ -27,7 +34,7 @@ function Doc({ meta, title, description, sections, ...props }) {
     >
       <div className="flex-grow max-w-5xl p-4 mx-auto md:px-16 lg:px-8 xl:px-16">
         <div className="hidden md:block lg:hidden">{docNav}</div>
-        <main id="main" title={`Documentation for the ${title} component`}>
+        <main id="main" title={t(`doc-for`, { title })}>
           <h1 className="md:pt-12">{title}</h1>
           <p className="pb-6 text-lg md:text-xl">{description} </p>
           <div key="content" className="flex-grow w-full mx-auto">
