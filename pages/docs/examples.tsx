@@ -29,7 +29,7 @@ export async function getStaticProps({ locale }) {
 
 const GridWrap = ({ children, ...props }) => {
   return (
-    <div className="flex items-center justify-center p-2 py-4 sm:py-2 bg-stone-50 dark:bg-stone-700 rounded-2xl">
+    <div className="flex items-center justify-center p-2 py-4 shadow-xl shadow-stone-800/[0.02] sm:py-2 bg-stone-50 dark:bg-stone-700 rounded-2xl">
       {children}
     </div>
   );
@@ -60,12 +60,13 @@ function ExamplesPage() {
     },
   ];
   return (
-    <Page meta={meta} className="min-h-screen" hasMain>
+    <Page meta={meta} hasMain>
       <CodeBlockNotification
         onDismiss={() => setNotification(undefined)}
         notification={notification}
+        className="!fixed"
       />
-      <div className="flex-grow p-4 mx-auto max-w-7xl md:px-16 lg:px-8 xl:px-16">
+      <div className="flex-grow min-h-screen p-4 mx-auto max-w-7xl md:px-16 lg:px-8 xl:px-16">
         <main id="main" title={t(`doc-for`, { title })}>
           <h1 className="md:pt-12">{title}</h1>
           <p className="pb-6 text-lg md:text-xl"> List of examples </p>

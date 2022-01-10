@@ -16,6 +16,7 @@ function CodeBlockNotification({
   } = {},
   duration = 2800,
   onDismiss,
+  ...props
 }) {
   const shouldReduceMotion = useReducedMotion();
   const { t } = useTranslation("common");
@@ -31,7 +32,11 @@ function CodeBlockNotification({
     };
   }, [enabled]);
   return (
-    <div className="absolute inset-0 w-full h-full z-[10] pointer-events-none flex-col flex items-center justify-end max-h-full overflow-hidden">
+    <div
+      className={`absolute inset-0 w-full h-full z-[10] pointer-events-none flex-col flex items-center justify-end max-h-full overflow-hidden  ${
+        props.className ? props.className : ``
+      } `}
+    >
       <AnimatePresence exitBeforeEnter>
         {enabled && (
           <motion.div

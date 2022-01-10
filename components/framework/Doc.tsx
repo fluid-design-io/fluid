@@ -6,7 +6,7 @@ import slugConverter from "../../util/slug";
 
 import { useTranslation } from "next-i18next";
 
-function Doc({ meta, title, description, sections, ...props }) {
+function Doc({ meta, title, description = "", sections, ...props }) {
   const { t } = useTranslation("common");
   const docNav = (
     <ul key={`docNav`} className="doc-nav-wrap">

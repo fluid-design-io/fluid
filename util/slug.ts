@@ -1,5 +1,5 @@
 export default function slugConverter(str) {
-  console.log(str);
+  // console.log(str);
   if (typeof str !== "string") {
     return "";
   } else {

@@ -7,7 +7,6 @@ import { MotionPageProps, SiteMeta } from "../../interfaces/framwork";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import { useEffect, useState } from "react";
-import { getBody } from "../../lib/getBody";
 
 function Page({
   header = true,
