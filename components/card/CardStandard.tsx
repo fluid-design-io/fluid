@@ -20,8 +20,21 @@ function Example() {
     `,
   };
   const features: { [x: string]: CodeBlockFeatureProps } = {
-    instagram: {
-      interactions: { click: true },
+    standard: {
+      ui: {
+        darkMode: true,
+      },
+      interactions: {
+        click: {
+          description: t(`Standard.click`, { ns: "card" }),
+        },
+      },
+
+      accessibility: {
+        contrast: {
+          description: t(`Standard.contrast`, { ns: "card" }),
+        },
+      },
     },
   };
   const handleClick = (name) => {
@@ -31,11 +44,11 @@ function Example() {
   return (
     <>
       <CodeBlock
-        title={t(`regular.title`, { ns: "card" })}
+        title={t(`Standard.title`, { ns: "card" })}
         raw={raw.instagram}
         notification={notification}
         onDismiss={() => setNotification(undefined)}
-        features={features.instagram}
+        features={features.standard}
       >
         <div className="grid w-full pt-20 pb-16 place-items-center">
           {/* transform translate-x-0 is needed to patch ios touch will break rounded corners. */}

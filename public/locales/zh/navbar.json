@@ -21,5 +21,10 @@
     "Checkbox": "选择框",
     "Input": "输入栏",
     "switch-lanuage": "切换语言到{{name}}",
-    "Language": "语言"
+    "Language": "语言",
+    "Terms": "服务条款",
+    "About": "关于我们",
+    "Privacy": "隐私条款",
+    "License": "执照",
+    "All rights reserved": "版权所有。"
 }

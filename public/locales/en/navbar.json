@@ -21,5 +21,10 @@
     "Checkbox": "Checkbox",
     "Input": "Input",
     "switch-lanuage": "Switch site language to {{name}}",
-    "Language": "Language"
+    "Language": "Language",
+    "Terms": "Terms",
+    "About": "About",
+    "Privacy": "Privacy Policy",
+    "License": "License",
+    "All rights reserved": "All rights reserved."
 }

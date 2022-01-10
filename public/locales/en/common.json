@@ -25,5 +25,8 @@
     "notification-clicked": "Notification, {{title}} clicked.",
     "Close Notification": "Close Notification",
     "On this page": "On this page",
-    "doc-for": "Documentation for the {{title}} component"
+    "doc-for": "Documentation for the {{title}} component",
+    "Share Icon": "Share Icon",
+    "Heart Icon": "Heart Icon",
+    "Card Button": "Card Button"
 }

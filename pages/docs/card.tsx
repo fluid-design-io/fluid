@@ -5,12 +5,12 @@ import Doc from "../../components/framework/Doc";
 import { CardCollage, CardStandard } from "../../components/card";
 
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
+import { useTranslation, Trans } from "next-i18next";
 export async function getStaticProps({ locale }) {
   console.log({ locale });
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common", "navbar"])),
+      ...(await serverSideTranslations(locale, ["common", "navbar", "card"])),
       // Will be passed to the page component as props
     },
   };
@@ -24,25 +24,30 @@ function CardPage() {
   };
   const sections = [
     {
-      title: t("Standard", { ns: "card" }),
+      title: t("Standard.title", { ns: "card" }),
       component: <CardStandard />,
     },
     {
-      title: "Collage",
+      title: t("Collage.title", { ns: "card" }),
       description: (
-        <p>
-          This example uses the Collage component from{" "}
-          <Link href={`/components/image#collage`}>Image Component</Link>.
-        </p>
+        <Trans
+          i18nKey={"Collage.desc"}
+          components={{
+            p: <p />,
+            a: <a href={`/components/image#collage`} />,
+          }}
+          ns="card"
+        />
       ),
       component: <CardCollage />,
     },
   ];
+
   return (
     <Doc
       meta={meta}
-      title="Card"
-      description="Cards are a standard piece of UI and are widely used accross many use cases. It can contain one or multiple elements, components below shows varianties of examples."
+      title={t("Card", { ns: "card" })}
+      description={t("description", { ns: "card" })}
       className="min-h-screen"
       sections={sections}
     />

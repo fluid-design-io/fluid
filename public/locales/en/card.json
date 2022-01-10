@@ -1,0 +1,13 @@
+{
+    "Card": "Card",
+    "description": "Cards are a standard piece of UI and are widely used across many use cases. It can contain one or multiple elements, components below show varieties of examples.",
+    "Standard": {
+        "title": "Standard",
+        "click": "Button, share and heart icons are clickable.",
+        "contrast": "When high-contrast is enabled, a border highlight will be added to the card frame, font thickness is increased, and darkened/brightened based on the theme."
+    },
+    "Collage": {
+        "title": "Collage",
+        "desc": "<p>This example uses the Collage component from<a>Image Component</a>.</p>"
+    }
+}

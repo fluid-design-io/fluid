@@ -34,18 +34,20 @@ export default function Navbar({ logo = true, ...props }) {
       } `}
     >
       <div className="flex justify-between items-center px-4 py-4 md:py-2 sm:px-6 lg:px-8 md:justify-start md:space-x-2.5 border-b border-b-stone-200 dark:border-b-stone-700 backdrop-filter backdrop-blur-xl bg-stone-100/70 dark:bg-stone-800/60 prefers-contrast:bg-stone-100/90 dark:prefers-contrast:bg-black/80">
-        <div className="flex items-center w-full space-x-4">
-          <Link href={"/"}>
-            <a className={`flex ${logo ? "" : `md:hidden`}`}>
-              <span className="sr-only">Fluid Design</span>
-              <div className="w-auto h-7 dark:hidden">
-                <Image alt="logo" src={logoDark} width={28} height={28} />
-              </div>
-              <div className="hidden w-auto h-7 dark:block">
-                <Image alt="logo" src={logoLight} width={28} height={28} />
-              </div>
-            </a>
-          </Link>
+        <div className={`flex items-center space-x-4 ${logo ? "" : "w-full"}`}>
+          <div className={`${logo ? "" : `md:hidden`}`}>
+            <Link href={"/"}>
+              <a className={`flex flex-shrink-0 h-7 w-7`}>
+                <span className="sr-only">Fluid Design</span>
+                <div className="w-auto h-7 dark:hidden">
+                  <Image alt="logo" src={logoDark} width={28} height={28} />
+                </div>
+                <div className="hidden w-auto h-7 dark:block">
+                  <Image alt="logo" src={logoLight} width={28} height={28} />
+                </div>
+              </a>
+            </Link>
+          </div>
           {!logo && (
             <div className="text-sm text-left text-stone-500 dark:text-stone-400 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50">
               V{packageInfo.version}
@@ -179,8 +181,8 @@ export default function Navbar({ logo = true, ...props }) {
           focus
           className="absolute inset-x-0 top-0 p-2 transition origin-top-right transform motion-reduce:transition-none md:hidden"
         >
-          <div className="divide-y-2 rounded-lg shadow-lg bg-stone-200 dark:bg-stone-700 ring-1 ring-black ring-opacity-5 divide-stone-50 dark:divide-stone-600 prefers-contrast:bg-stone-50 dark:prefers-contrast:bg-stone-900 prefers-contrast:border prefers-contrast:border-stone-100 prefers-contrast:divide-stone-600 dark:prefers-contrast:divide-stone-200">
-            <div className="px-5 pt-5 pb-6">
+          <div className="divide-y-2 rounded-lg shadow-lg bg-stone-200 dark:bg-stone-700 ring-1 ring-black ring-opacity-5 divide-stone-100/50 dark:divide-stone-600 prefers-contrast:bg-stone-50 dark:prefers-contrast:bg-stone-900 prefers-contrast:border prefers-contrast:border-stone-100 prefers-contrast:divide-stone-600 dark:prefers-contrast:divide-stone-200">
+            <div className="px-4 pt-4 pb-4">
               <div className="flex items-center justify-between">
                 <div>
                   <div className="w-auto h-7 dark:hidden">
@@ -202,10 +204,7 @@ export default function Navbar({ logo = true, ...props }) {
               <nav className="grid grid-cols-1 gap-7">
                 {navItems.map((navItem) => (
                   <Link key={navItem.name} href={navItem.href}>
-                    <a className="flex items-center p-3 -m-3 rounded-lg hover:bg-stone-50 dark:hover:bg-stone-800">
-                      {/* <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white bg-indigo-500 rounded-md">
-                        <navItem.icon className="w-6 h-6" aria-hidden="true" />
-                      </div> */}
+                    <a className="flex items-center px-4 -m-4 rounded-lg hover:bg-stone-50 dark:hover:bg-stone-800">
                       <div className="text-base font-medium text-stone-900 dark:text-stone-200 dark:prefers-contrast:text-stone-50 prefers-contrast:font-bold">
                         {t(navItem.name)}
                       </div>
@@ -213,6 +212,31 @@ export default function Navbar({ logo = true, ...props }) {
                   </Link>
                 ))}
               </nav>
+            </div>
+            <div className="p-4">
+              <ul role="list" className="grid items-stretch grid-cols-2 gap-4">
+                {languages.map(({ code, country_code, name }) => (
+                  <li key={`lang.${code}`} className="w-full text-base">
+                    <button
+                      className="font-medium w-full flex items-center rounded-md text-stone-900 hover:text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-700 px-2 py-1.5 disabled:opacity-50"
+                      disabled={code === i18n?.language}
+                      onClick={() =>
+                        router.push({ pathname, query }, asPath, {
+                          locale: code,
+                        })
+                      }
+                    >
+                      <span className="sr-only">
+                        {t("switch-language", { name })}
+                      </span>
+                      <span
+                        className={`fi fi-${country_code} rounded-sm mr-2`}
+                      />
+                      {name}
+                    </button>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </Popover.Panel>
