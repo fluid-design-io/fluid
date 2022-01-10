@@ -21,7 +21,7 @@ export default function Footer() {
           ))}
         </div>
         <div className="mt-8 md:mt-0 md:order-1">
-          <p className="text-base text-center text-gray-400">
+          <p className="text-xs text-center text-gray-400">
             &copy; 2021 ImageVision LLC. {" "}
             {t("All rights reserved", { ns: "navbar" })}
           </p>

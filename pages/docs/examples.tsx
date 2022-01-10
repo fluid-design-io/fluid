@@ -1,31 +1,82 @@
 import Page from "../../components/framework/Page";
-import UnderConstruction from "../../components/framework/UnderConstruction";
 import { SiteMeta } from "../../interfaces/framwork";
 
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { CardStandard } from "../../components/card";
-import { ImageGrid } from "../../components/image";
-import { ImageCollageComponent } from "../../components/image/Collage";
-import ImageBackground from "../../components/image/ImageBackground";
+import { CardStandardComponent } from "../../components/card";
+
+import { useTranslation } from "next-i18next";
+import { useState } from "react";
+import CodeBlockNotification from "../../components/framework/CodeBlockNotification";
+import {
+  ImageCollageComponent,
+  ImageOnlyComponent,
+} from "../../components/image";
+
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common", "index", "navbar"])),
+      ...(await serverSideTranslations(locale, [
+        "common",
+        "navbar",
+        "index",
+        "card",
+        "image",
+      ])),
       // Will be passed to the page component as props
     },
   };
 }
 
-function ExamplesPage() {
-  const meta: SiteMeta = {
-    title: "Fluid Design | Examples",
-  };
+const GridWrap = ({ children, ...props }) => {
   return (
-    <Page meta={meta}>
-      <div className="relative grid grid-cols-1 gap-4 mx-auto max-w-7xl lg:grid-cols-2 xl:grid-cols-3 xl:gap-8">
-        <CardStandard />
-        <ImageGrid />
-        <ImageBackground />
+    <div className="flex items-center justify-center p-2 py-4 sm:py-2 bg-stone-50 dark:bg-stone-700 rounded-2xl">
+      {children}
+    </div>
+  );
+};
+
+function ExamplesPage() {
+  const { t } = useTranslation("common");
+  const title = t("Examples");
+  const meta: SiteMeta = {
+    title: "Fluid Design | " + title,
+  };
+  const [notification, setNotification] = useState(undefined);
+  const exampleComponents = [
+    {
+      title: t("Card"),
+      href: "card",
+      Component: CardStandardComponent,
+    },
+    {
+      title: t("Collage"),
+      href: "card",
+      Component: ImageCollageComponent,
+    },
+    {
+      title: t("Single Image"),
+      href: "card",
+      Component: ImageOnlyComponent,
+    },
+  ];
+  return (
+    <Page meta={meta} className="min-h-screen">
+      <CodeBlockNotification
+        onDismiss={() => setNotification(undefined)}
+        notification={notification}
+      />
+      <div className="flex-grow p-4 mx-auto max-w-7xl md:px-16 lg:px-8 xl:px-16">
+        <main id="main" title={t(`doc-for`, { title })}>
+          <h1 className="md:pt-12">{title}</h1>
+          <p className="pb-6 text-lg md:text-xl"> List of examples </p>
+          <div className="relative grid grid-cols-1 gap-4 mx-auto max-w-7xl lg:grid-cols-2 xl:grid-cols-3 xl:gap-8">
+            {exampleComponents.map(({ title, Component }) => (
+              <GridWrap key={`example.${title}`}>
+                <Component {...{ setNotification }} />
+              </GridWrap>
+            ))}
+          </div>
+        </main>
       </div>
     </Page>
   );

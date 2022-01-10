@@ -93,7 +93,7 @@ function CodeBlock({
       >
         <Tab.List className="absolute top-0 left-0 flex w-full px-2 pt-2 space-x-2 text-sm text-stone-500/75 prefers-contrast:text-stone-800 dark:text-stone-100">
           <div
-            className="relative z-[2] font-medium py-1.5 px-2 truncate max-w-full flex space-x-1 items-center"
+            className="relative z-[2] font-medium py-1.5 px-2 truncate max-w-full flex space-x-1 items-center overflow-ellipsis"
             aria-label={`${title}`}
           >
             <span className="dark:[text-shadow:0px_2px_5px_rgba(0,0,0,0.25)]">

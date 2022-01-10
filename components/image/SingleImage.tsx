@@ -1,8 +1,8 @@
-import Image from "next/image";
 import { CodeBlockFeatureProps } from "../../interfaces/CodeBlock";
 import CodeBlock from "../framework/CodeBlock";
 
 import { useTranslation } from "next-i18next";
+import { ImageOnlyComponent, ImageWithOverlayComponent } from ".";
 
 function SingleImage() {
   const { t } = useTranslation("common");
@@ -91,18 +91,7 @@ export default Example
         raw={raw.imageOnly}
       >
         <div className="grid w-full pt-20 pb-16 place-items-center">
-          <div className="w-full h-48 max-w-xs overflow-hidden shadow component card-bg rounded-xl">
-            <div className="relative w-full h-48">
-              <Image
-                src={
-                  "https://images.unsplash.com/photo-1545647274-96644da34363?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3216&q=80"
-                }
-                alt="birds eye view of the beautiful ocean with a boat driving by."
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
-          </div>
+          <ImageOnlyComponent />
         </div>
       </CodeBlock>
       <CodeBlock
@@ -113,30 +102,7 @@ export default Example
         <div className="w-full pt-20 pb-16">
           <div className="grid w-full place-items-center">
             {/* Component */}
-            <div className="relative w-full h-48 max-w-xs overflow-hidden shadow component card-bg rounded-xl group">
-              {/* Background Overlay */}
-              <div className="absolute inset-0 z-[4] opacity-0 group-hover:opacity-100 bg-black/10 motion-reduce:duration-500 transition-opacity motion-safe:transition-all pointer-touch:opacity-100 prefers-contrast:bg-black/20" />
-              {/* Text Overlay */}
-              <div className="px-4 pb-2 pt-6 absolute bottom-0 left-0 right-0 text-left rtl:text-right z-[5] from-black/0 to-black/50 prefers-contrast:to-black/90 motion-reduce:duration-500 transition-opacity motion-safe:transition-all bg-gradient-to-b translate-y-[calc(100%-3.875rem)] pointer-touch:translate-y-0 group-hover:translate-y-0">
-                <h2 className="text-xl font-semibold text-sky-100">
-                  {t("with-overlay.ocl", { ns: "image" })}
-                </h2>
-                <p className="leading-tight transition-opacity opacity-0 text-sky-100 group-hover:opacity-100 pointer-touch:opacity-100 motion-reduce:duration-500 motion-safe:transition-all">
-                  {t("with-overlay.ocldesc", { ns: "image" })}
-                </p>
-              </div>
-              {/* Image Background */}
-              <div className="relative w-full h-48">
-                <Image
-                  src={
-                    "https://images.unsplash.com/photo-1508624217470-5ef0f947d8be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80"
-                  }
-                  alt={t("with-overlay.ocldesc", { ns: "image" })}
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </div>
-            </div>
+            <ImageWithOverlayComponent />
             {/* <div className="pt-16 pb-4">
               <div>Overlay Type</div>
               <div>
