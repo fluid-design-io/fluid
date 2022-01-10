@@ -4,7 +4,7 @@
     "Standard": {
         "title": "Standard",
         "click": "Button, share and heart icons are clickable.",
-        "contrast": "When high-contrast is enabled, a border highlight will be added to the card frame, font thickness is increased, and darkened/brightened based on the theme."
+        "contrast": "When high-contrast is enabled, a border highlight will be added to the card frame, font thickness is increased, and darkened/brightened based on the theme. A highlight border will be added for the share and favorite icon and increased space between the icons. Larger paddings are applied to the button and icons."
     },
     "Collage": {
         "title": "Collage",

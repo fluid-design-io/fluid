@@ -19,7 +19,7 @@ function Doc({ meta, title, description, sections, ...props }) {
             className="doc-nav"
             data-to-scrollspy-id={sectionSlug}
           >
-            <a href={`#${sectionSlug}`}>{title}</a>
+            <a href={`#${sectionSlug}`} className="w-full">{title}</a>
           </li>
         );
       })}

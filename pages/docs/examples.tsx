@@ -3,6 +3,10 @@ import UnderConstruction from "../../components/framework/UnderConstruction";
 import { SiteMeta } from "../../interfaces/framwork";
 
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { CardStandard } from "../../components/card";
+import { ImageGrid } from "../../components/image";
+import { ImageCollageComponent } from "../../components/image/Collage";
+import ImageBackground from "../../components/image/ImageBackground";
 export async function getStaticProps({ locale }) {
   return {
     props: {
@@ -18,7 +22,11 @@ function ExamplesPage() {
   };
   return (
     <Page meta={meta}>
-      <UnderConstruction />
+      <div className="relative grid grid-cols-1 gap-4 mx-auto max-w-7xl lg:grid-cols-2 xl:grid-cols-3 xl:gap-8">
+        <CardStandard />
+        <ImageGrid />
+        <ImageBackground />
+      </div>
     </Page>
   );
 }

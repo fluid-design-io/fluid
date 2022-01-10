@@ -63,7 +63,7 @@ function Example() {
                 layout="fill"
               />
             </div>
-            <div className="p-2.5">
+            <div className="px-4 pt-4 pb-2">
               <div className="flex-grow">
                 <h2 className="text-xs text-stone-500 dark:text-stone-500 prefers-contrast:text-stone-700 dark:prefers-contrast:text-stone-300 prefers-contrast:font-bold">
                   Subtitle
@@ -78,32 +78,38 @@ function Example() {
               </div>
               <div className="flex items-center justify-between pt-1">
                 <button
-                  className={`px-2 py-1 text-xs font-semibold uppercase transition rounded bg-stone-200 text-stone-700 dark:bg-stone-800 dark:text-stone-200 hover:bg-stone-700 hover:text-stone-100 dark:hover:bg-stone-600 dark:active:bg-stone-500 dark:hover:text-stone-100 focus:bg-stone-700 focus:text-stone-100 dark:focus:bg-stone-600 dark:focus:text-stone-100 ${contrastRing}`}
+                  className={`px-2 py-1 text-xs font-semibold uppercase transition rounded bg-stone-200 text-stone-700 dark:bg-stone-800 dark:text-stone-200 hover:bg-stone-700 hover:text-stone-100 dark:hover:bg-stone-600 dark:active:bg-stone-500 dark:hover:text-stone-100 focus:bg-stone-700 focus:text-stone-100 dark:focus:bg-stone-600 dark:focus:text-stone-100 prefers-contrast:py-2 prefers-contrast:px-3 prefers-contrast:dark:bg-transparent prefers-contrast:font-bold ${contrastRing}`}
                   onClick={() => handleClick(t(`Card Button`))}
                 >
                   button
                 </button>
-                <div className="flex space-x-4">
-                  <ShareIcon
-                    className="w-5 h-5 text-stone-400 prefers-contrast:text-stone-700 dark:prefers-contrast:text-stone-200"
-                    onClick={() =>
-                      setNotification({
-                        enabled: true,
-                        message: t(`Share Icon`),
-                        Icon: ShareIcon,
-                      })
-                    }
-                  />
-                  <HeartIcon
-                    className="w-5 h-5 text-stone-400 prefers-contrast:text-stone-700 dark:prefers-contrast:text-stone-200"
-                    onClick={() =>
-                      setNotification({
-                        enabled: true,
-                        message: t(`Heart Icon`),
-                        Icon: HeartIcon,
-                      })
-                    }
-                  />
+                <div className="flex -mr-2">
+                  <button className="p-2 rounded-full hover:bg-stone-200/50 focus:bg-stone-200/50 dark:hover:bg-stone-600 dark:focus:bg-stone-600 prefers-contrast:ring-stone-800 dark:prefers-contrast:ring-stone-200 prefers-contrast:ring-1 prefers-contrast:ml-2">
+                    <span className="sr-only">Share this post</span>
+                    <ShareIcon
+                      className="w-5 h-5 text-stone-400 prefers-contrast:text-stone-700 dark:prefers-contrast:text-stone-200"
+                      onClick={() =>
+                        setNotification({
+                          enabled: true,
+                          message: t(`Share Icon`),
+                          Icon: ShareIcon,
+                        })
+                      }
+                    />
+                  </button>
+                  <button className="p-2 rounded-full hover:bg-stone-200/50 focus:bg-stone-200/50 dark:hover:bg-stone-600 dark:focus:bg-stone-600 prefers-contrast:ring-stone-800 dark:prefers-contrast:ring-stone-200 prefers-contrast:ring-1 prefers-contrast:ml-2">
+                    <span className="sr-only">Fav this post</span>
+                    <HeartIcon
+                      className="w-5 h-5 text-stone-400 prefers-contrast:text-stone-700 dark:prefers-contrast:text-stone-200"
+                      onClick={() =>
+                        setNotification({
+                          enabled: true,
+                          message: t(`Heart Icon`),
+                          Icon: HeartIcon,
+                        })
+                      }
+                    />
+                  </button>
                 </div>
               </div>
             </div>

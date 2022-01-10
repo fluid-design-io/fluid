@@ -10,7 +10,7 @@ function DocSection({ title, description = undefined, component }) {
         }`}
       >
         <a
-          href={`#image`}
+          href={`#${title}`}
           className="absolute right-0 flex items-center ml-0 mr-4 border-0 opacity-0 md:right-auto md:mr-auto md:-ml-10 lg:-ml-7 xl:-ml-10 hash group-hover:opacity-100 focus:opacity-100"
           aria-label={`${title}`}
         >
