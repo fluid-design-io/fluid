@@ -11,15 +11,17 @@ function Doc({ meta, title, description, sections, ...props }) {
   const docNav = (
     <ul key={`docNav`} className="doc-nav-wrap">
       <li className="doc-nav-header">{t("On this page")}</li>
-      {sections.map(({ title }) => {
-        const sectionSlug = slugConverter(title);
+      {sections.map(({ title: { raw, transformed } }) => {
+        const sectionSlug = slugConverter(raw);
         return (
           <li
             key={`${sectionSlug}`}
             className="doc-nav"
             data-to-scrollspy-id={sectionSlug}
           >
-            <a href={`#${sectionSlug}`} className="w-full">{title}</a>
+            <a href={`#${sectionSlug}`} className="w-full">
+              {transformed}
+            </a>
           </li>
         );
       })}
@@ -40,7 +42,7 @@ function Doc({ meta, title, description, sections, ...props }) {
           <div key="content" className="flex-grow w-full mx-auto">
             <ScrollSpy offsetBottom={500}>
               {sections.map((props) => (
-                <DocSection key={`${props.title}`} {...props} />
+                <DocSection key={`${props.title.raw}`} {...props} />
               ))}
             </ScrollSpy>
           </div>

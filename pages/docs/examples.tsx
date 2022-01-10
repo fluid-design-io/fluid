@@ -60,7 +60,7 @@ function ExamplesPage() {
     },
   ];
   return (
-    <Page meta={meta} className="min-h-screen">
+    <Page meta={meta} className="min-h-screen" hasMain>
       <CodeBlockNotification
         onDismiss={() => setNotification(undefined)}
         notification={notification}

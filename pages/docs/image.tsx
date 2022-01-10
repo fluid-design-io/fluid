@@ -24,17 +24,23 @@ function CardPage() {
   };
   const sections = [
     {
-      title: t("Single Image", { ns: "image" }),
+      title: {
+        raw: "Single Image",
+        transformed: t("Single Image", { ns: "image" }),
+      },
       description: "",
       component: <SingleImage />,
     },
     {
-      title: t("Background", { ns: "image" }),
+      title: {
+        raw: "Background",
+        transformed: t("Background", { ns: "image" }),
+      },
       description: "",
       component: <ImageBackground />,
     },
     {
-      title: t("Collage", { ns: "image" }),
+      title: { raw: "Collage", transformed: t("Collage", { ns: "image" }) },
       description: (
         <Trans
           i18nKey={"collage-desc"}
@@ -53,7 +59,7 @@ function CardPage() {
       component: <Collage />,
     },
     {
-      title: t("Grid", { ns: "image" }),
+      title: { raw: "Grid", transformed: t("Grid", { ns: "image" }) },
       description: "",
       component: <ImageGrid />,
     },

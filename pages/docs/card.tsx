@@ -24,11 +24,17 @@ function CardPage() {
   };
   const sections = [
     {
-      title: t("Standard.title", { ns: "card" }),
+      title: {
+        raw: "Standard",
+        transformed: t("Standard.title", { ns: "card" }),
+      },
       component: <CardStandard />,
     },
     {
-      title: t("Collage.title", { ns: "card" }),
+      title: {
+        raw: "Collage",
+        transformed: t("Collage.title", { ns: "card" }),
+      },
       description: (
         <Trans
           i18nKey={"Collage.desc"}

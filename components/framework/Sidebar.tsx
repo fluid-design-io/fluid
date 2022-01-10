@@ -141,7 +141,12 @@ function SidebarMenu({ activeTab, disabled }) {
                           : `text-stone-700 dark:text-stone-300/80 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-100 hover:bg-stone-50 hover:text-stone-900 dark:hover:bg-stone-700/80 dark:hover:text-stone-100`
                       }`}
                     >
-                      <span className="truncate">{t(name)}</span>
+                      <span className="flex items-center truncate">
+                        {t(name)}
+                        {!isDone && (
+                          <span className="pl-1 text-[0.65rem]">({t("in-progress")})</span>
+                        )}
+                      </span>
                     </a>
                   </Link>
                 ))}
