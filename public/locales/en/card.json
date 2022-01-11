@@ -9,5 +9,9 @@
     "Collage": {
         "title": "Collage",
         "desc": "<p>This example uses the Collage component from<a>Image Component</a>.</p>"
+    },
+    "App Store": {
+        "title": "App Store",
+        "GET": "GET"
     }
 }

@@ -170,6 +170,12 @@ pre .line {
   @apply transform translate-x-[43%] prefers-contrast:filter prefers-contrast:contrast-200;
 }
 
+.grid-wrap .grid-title {
+  @apply pointer-hover:opacity-0 pointer-hover:pointer-events-none;
+}
+.grid-wrap:hover .grid-title {
+  @apply opacity-100 pointer-events-auto;
+}
 a.skip-main {
   left: -999px;
   position: absolute;

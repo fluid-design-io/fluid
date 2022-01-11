@@ -2,7 +2,7 @@ import { SiteMeta } from "../../interfaces/framwork";
 import React from "react";
 import Link from "next/link";
 import Doc from "../../components/framework/Doc";
-import { CardCollage, CardStandard } from "../../components/card";
+import { CardAppStore, CardCollage, CardStandard } from "../../components/card";
 
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation, Trans } from "next-i18next";
@@ -29,6 +29,13 @@ function CardPage() {
         transformed: t("Standard.title", { ns: "card" }),
       },
       component: <CardStandard />,
+    },
+    {
+      title: {
+        raw: "App Store",
+        transformed: t("App Store.title", { ns: "card" }),
+      },
+      component: <CardAppStore />,
     },
     {
       title: {

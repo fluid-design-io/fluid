@@ -1,10 +1,14 @@
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
 
-function ImageWithOverlayComponent({ ...props }) {
+function ImageWithOverlayComponent({ src = undefined, ...props }) {
   const { t } = useTranslation("image");
   return (
-    <div className="relative w-full h-48 max-w-xs overflow-hidden shadow component card-bg rounded-xl group">
+    <div
+      className={`relative w-full max-w-xs overflow-hidden shadow component card-bg rounded-xl group  ${
+        props.className ? props.className : `h-48`
+      }`}
+    >
       {/* Background Overlay */}
       <div className="absolute inset-0 z-[4] opacity-0 group-hover:opacity-100 bg-black/10 motion-reduce:duration-500 transition-opacity motion-safe:transition-all pointer-touch:opacity-100 prefers-contrast:bg-black/20" />
       {/* Text Overlay */}
@@ -20,7 +24,9 @@ function ImageWithOverlayComponent({ ...props }) {
       <div className="relative w-full h-48">
         <Image
           src={
-            "https://images.unsplash.com/photo-1508624217470-5ef0f947d8be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80"
+            src
+              ? src
+              : "https://images.unsplash.com/photo-1508624217470-5ef0f947d8be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80"
           }
           alt={t("with-overlay.ocldesc", { ns: "image" })}
           layout="fill"

@@ -1,17 +1,8 @@
-import { useState } from "react";
-import { CodeBlockFeatureProps } from "../../interfaces/CodeBlock";
-import CodeBlock from "../framework/CodeBlock";
-import { useTranslation } from "next-i18next";
-import ImageGridComponent from "./components/ImageGridComponent";
-
-function ImageGrid() {
-  const [notification, setNotification] = useState(undefined);
-  const { t } = useTranslation("image");
-  const raw = {
-    instagram: `
-/* V1.0.0 */
 import Image from "next/image";
-function Example() {
+import { useTranslation } from "next-i18next";
+
+function ImageGridComponent({ setNotification, ...props }) {
+  const { t } = useTranslation("image");
   const images = [
     {
       large:
@@ -44,14 +35,33 @@ function Example() {
       author: "Ray Hennessy",
     },
   ];
+  {
+    /* transform translate-x-0 is needed to patch ios touch will break rounded corners. */
+  }
   return (
-    <div className="w-full max-w-xs overflow-hidden shadow component card-bg rounded-xl">
-      <div className="grid grid-cols-3 gap-0.5">
+    <div
+      className={`w-full max-w-xs overflow-hidden transform translate-x-0 shadow component card-bg rounded-xl  ${
+        props.className ? props.className : `aspect-[1.5/1]`
+      }`}
+    >
+      <div className="grid grid-cols-3 gap-0.5 items-stretch h-full">
         {images.map(({ large, author }) => (
-          <div key={large} className="relative aspect-square">
+          <div
+            key={large}
+            className="relative w-full h-full transition cursor-pointer hover:opacity-90 active:opacity-80"
+            tabIndex={0}
+            aria-label={`Bird image shot by ${author} from Unsplash.`}
+            onClick={() =>
+              setNotification({
+                enabled: true,
+                image: large,
+                message: t(`instagram-layout.message`, { ns: "image" }),
+              })
+            }
+          >
             <Image
               src={large}
-              alt={\`Bird image shot by \${author} from Unsplash.\`}
+              alt={`Bird image shot by ${author} from Unsplash.`}
               layout="fill"
               objectFit="cover"
             />
@@ -61,28 +71,5 @@ function Example() {
     </div>
   );
 }
-    `,
-  };
-  const features: { [x: string]: CodeBlockFeatureProps } = {
-    instagram: {
-      interactions: { click: true },
-    },
-  };
-  return (
-    <>
-      <CodeBlock
-        title={t(`instagram-layout.title`, { ns: "image" })}
-        raw={raw.instagram}
-        notification={notification}
-        onDismiss={() => setNotification(undefined)}
-        features={features.instagram}
-      >
-        <div className="grid w-full pt-20 pb-16 place-items-center">
-          <ImageGridComponent {...{ setNotification }} />
-        </div>
-      </CodeBlock>
-    </>
-  );
-}
 
-export default ImageGrid;
+export default ImageGridComponent;
