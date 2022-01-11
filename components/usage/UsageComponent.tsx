@@ -24,12 +24,14 @@ npm install framer-motion`.trim()}
               tailwind: (
                 <a
                   href="https://tailwindcss.com/docs/installation"
+                  rel="noreferrer"
                   target={"_blank"}
                 />
               ),
               framer: (
                 <a
                   href="https://www.framer.com/docs/introduction/"
+                  rel="noreferrer"
                   target={"_blank"}
                 />
               ),
