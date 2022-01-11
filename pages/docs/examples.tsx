@@ -37,7 +37,7 @@ export async function getStaticProps({ locale }) {
 const GridWrap = ({ title, href, children, router, rowSpan, ...props }) => {
   return (
     <div
-      className={`relative flex items-center justify-center py-4 sm:py-2 rounded-2xl grid-wrap ${
+      className={`relative flex items-center justify-center py-4 sm:py-2 rounded-3xl grid-wrap ${
         rowSpan ? `row-span-1` : `row-span-2`
       }`}
     >
@@ -84,14 +84,14 @@ function ExamplesPage() {
       href: "/image/#single-image",
       Component: ImageOnlyComponent,
       rowSpan: 1,
-      className: "max-w-md shadow-xl h-full aspect-[2.16/1]",
+      className: "max-w-md shadow-xl h-full aspect-[2.16/1] rounded-3xl",
       src: "https://images.unsplash.com/photo-1454123253751-1fe2b9e0c10d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
     },
     {
       title: t("Image With Text"),
       href: "/image/#single-image",
       Component: ImageWithOverlayComponent,
-      className: "max-w-md shadow-xl h-full aspect-[2.16/1]",
+      className: "max-w-md shadow-xl h-full aspect-[2.16/1] rounded-3xl",
       rowSpan: 1,
       src: "https://images.unsplash.com/photo-1620245605605-8ab2cdd2ba91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
     },
@@ -109,7 +109,7 @@ function ExamplesPage() {
       href: "/image/#grid",
       Component: ImageGridComponent,
       rowSpan: 1,
-      className: "max-w-md shadow-xl h-full aspect-[2.16/1]",
+      className: "max-w-md shadow-xl h-full aspect-[2.16/1] rounded-3xl",
     },
   ];
   return (
@@ -138,7 +138,7 @@ function ExamplesPage() {
                       setNotification,
                       className:
                         className ||
-                        "max-w-md shadow-xl h-full aspect-[1/1.16]",
+                        "max-w-md shadow-xl h-full aspect-[1/1.16] rounded-3xl",
                       ...props,
                     }}
                   />

@@ -57,7 +57,15 @@ function CardASLargeImageComponent({
           </p>
         </div>
         <div className="flex-shrink-0">
-          <button className="px-3 py-1.5 font-bold rounded-full bg-stone-50 text-sky-600 min-w-[4.5rem] max-w-[5rem] text-ellipsis truncate hover:bg-stone-300 transition select-none text-sm">
+          <button
+            className="px-3 py-1.5 font-bold rounded-full bg-stone-50 text-sky-600 min-w-[4.5rem] max-w-[5rem] text-ellipsis truncate hover:bg-stone-300 transition select-none text-sm"
+            onClick={() =>
+              setNotification({
+                enabled: true,
+                message: t(`Get`),
+              })
+            }
+          >
             {t(`App Store.GET`, { ns: "card" })}
           </button>
         </div>
