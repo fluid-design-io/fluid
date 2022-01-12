@@ -42,7 +42,10 @@ function Doc({ meta, title, description = "", sections, ...props }) {
           <div key="content" className="flex-grow w-full mx-auto">
             <ScrollSpy offsetBottom={500}>
               {sections.map((props) => (
-                <DocSection key={`${props.title.raw}`} {...props} />
+                <DocSection
+                  key={`${props.title.raw}`}
+                  {...{ docTitle: title, ...props }}
+                />
               ))}
             </ScrollSpy>
           </div>

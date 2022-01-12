@@ -144,7 +144,9 @@ function SidebarMenu({ activeTab, disabled }) {
                       <span className="flex items-center truncate">
                         {t(name)}
                         {!isDone && (
-                          <span className="pl-1 text-[0.65rem]">({t("in-progress")})</span>
+                          <span className="pl-1 text-[0.65rem]">
+                            ({t("in-progress")})
+                          </span>
                         )}
                       </span>
                     </a>
@@ -188,6 +190,7 @@ export default function Sidebar({ hideNav = false, docNav = undefined }) {
       >
         {body}
       </div>
+
       <Popover>
         <div
           className={`border-b md:hidden px-4 border-b-stone-200 dark:border-b-stone-700 backdrop-filter backdrop-blur-xl bg-stone-100/70 dark:bg-stone-800/60 prefers-contrast:bg-stone-100/90 dark:prefers-contrast:bg-black/80 motion-safe:transition-all motion-safe:duration-300 prefers-contrast:border-b-stone-700 dark:prefers-contrast:border-b-stone-200 ${
@@ -210,16 +213,18 @@ export default function Sidebar({ hideNav = false, docNav = undefined }) {
                 {activeTab}
               </div>
             </div>
-            <div
-              role={`button`}
-              className="flex items-center justify-center flex-shrink-0 text-sm mobile-doc-nav"
-              tabIndex={0}
-              onClick={() => setShowMobileDocNav(!showMobileDocNav)}
-            >
-              <span className="sr-only">Expand section list</span>
-              {docNav}
-              <ChevronDownIcon className="w-5 h-5 text-stone-500 dark:text-stone-300 prefers-contrast:text-stone-800 dark:prefers-contrast:text-stone-200" />
-            </div>
+            {docNav && (
+              <div
+                role={`button`}
+                className="flex items-center justify-center flex-shrink-0 text-sm mobile-doc-nav"
+                tabIndex={0}
+                onClick={() => setShowMobileDocNav(!showMobileDocNav)}
+              >
+                <span className="sr-only">Expand section list</span>
+                {docNav}
+                <ChevronDownIcon className="w-5 h-5 text-stone-500 dark:text-stone-300 prefers-contrast:text-stone-800 dark:prefers-contrast:text-stone-200" />
+              </div>
+            )}
           </div>
           {showMobileDocNav && (
             <div className="mt-1.5 doc-nav-expand prefers-contrast:font-semibold">

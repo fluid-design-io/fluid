@@ -5,18 +5,23 @@ function ImageWithOverlayComponent({ src = undefined, ...props }) {
   const { t } = useTranslation("image");
   return (
     <div
-      className={`relative w-full max-w-xs overflow-hidden shadow component card-bg rounded-xl group  ${
+      className={`relative w-full max-w-xs overflow-hidden shadow component card-bg rounded-xl group focus-within:ring-2 focus-within:ring-stone-600 dark:focus-within:ring-stone-300 outline-none ${
         props.className ? props.className : `h-48`
       }`}
+      tabIndex={0}
+      aria-label={`${t("with-overlay.ocl", { ns: "image" })}. ${t(
+        "with-overlay.ocldesc",
+        { ns: "image" }
+      )}`}
     >
       {/* Background Overlay */}
-      <div className="absolute inset-0 z-[4] opacity-0 group-hover:opacity-100 bg-black/10 motion-reduce:duration-500 transition-opacity motion-safe:transition-all pointer-touch:opacity-100 prefers-contrast:bg-black/20" />
+      <div className="absolute inset-0 z-[4] opacity-0 group-hover:opacity-100 group-focus:opacity-100 bg-black/10 motion-reduce:duration-500 transition-opacity motion-safe:transition-all pointer-touch:opacity-100 prefers-contrast:bg-black/20 " />
       {/* Text Overlay */}
-      <div className="px-4 pb-2 pt-6 absolute bottom-0 left-0 right-0 text-left rtl:text-right z-[5] from-black/0 to-black/50 prefers-contrast:to-black/90 motion-reduce:duration-500 transition-opacity motion-safe:transition-all bg-gradient-to-b translate-y-[calc(100%-3.875rem)] pointer-touch:translate-y-0 group-hover:translate-y-0">
+      <div className="px-4 pb-2 pt-6 absolute bottom-0 left-0 right-0 text-left rtl:text-right z-[5] from-black/0 to-black/50 prefers-contrast:to-black/90 motion-reduce:duration-500 transition-opacity motion-safe:transition-all bg-gradient-to-b translate-y-[calc(100%-3.875rem)] pointer-touch:translate-y-0 group-hover:translate-y-0 group-focus:translate-y-0">
         <h2 className="text-xl font-semibold text-sky-100">
           {t("with-overlay.ocl", { ns: "image" })}
         </h2>
-        <p className="leading-tight transition-opacity opacity-0 text-sky-100 group-hover:opacity-100 pointer-touch:opacity-100 motion-reduce:duration-500 motion-safe:transition-all">
+        <p className="leading-tight transition-opacity opacity-0 text-sky-100 group-hover:opacity-100 group-focus:opacity-100 pointer-touch:opacity-100 motion-reduce:duration-500 motion-safe:transition-all">
           {t("with-overlay.ocldesc", { ns: "image" })}
         </p>
       </div>

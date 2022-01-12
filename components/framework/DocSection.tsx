@@ -1,11 +1,23 @@
 import { HashtagIcon } from "@heroicons/react/outline";
+import { useState } from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { useTranslation } from "next-i18next";
 import slug from "../../util/slug";
 
 function DocSection({
   title: { raw, transformed },
+  docTitle = undefined,
   description = undefined,
   component,
 }) {
+  const [isCoping, setIsCoping] = useState(false);
+  const { t } = useTranslation("common");
+  const handleCopy = () => {
+    setIsCoping(true);
+    setTimeout(() => {
+      setIsCoping(false);
+    }, 3000);
+  };
   return (
     <section id={slug(raw)} className="pb-12">
       <h3
@@ -13,13 +25,23 @@ function DocSection({
           description ? "pb-4" : ""
         }`}
       >
-        <a
-          href={`#${slug(raw)}`}
-          className="absolute right-0 flex items-center ml-0 mr-4 border-0 opacity-0 md:right-auto md:mr-auto md:-ml-10 lg:-ml-7 xl:-ml-10 hash group-hover:opacity-100 focus:opacity-100"
-          aria-label={`${transformed}`}
+        <CopyToClipboard
+          text={`https://fluid-design.io/docs/${docTitle}/#${slug(raw)}`}
+          onCopy={handleCopy}
         >
-          <HashtagIcon className="flex items-center justify-center w-6 h-6 p-1 text-gray-400 rounded-md shadow-sm ring-1 ring-gray-900/5 hover:ring-gray-900/10 hover:shadow hover:text-gray-700 dark:bg-gray-700 dark:text-gray-300 dark:shadow-none dark:ring-0" />
-        </a>
+          <a
+            href={`#${slug(raw)}`}
+            className="absolute right-0 flex items-center ml-0 mr-4 border-0 opacity-0 md:right-auto md:mr-auto md:-ml-10 lg:-ml-7 xl:-ml-10 hash group-hover:opacity-100 focus:opacity-100"
+            aria-live="assertive"
+          >
+            <span className="sr-only">
+              {isCoping
+                ? t(`Section hashtag copied`)
+                : `${transformed}. ${t(`Click to copy section hashtag`)}`}
+            </span>
+            <HashtagIcon className="flex items-center justify-center w-6 h-6 p-1 text-gray-400 rounded-md shadow-sm ring-1 ring-gray-900/5 hover:ring-gray-900/10 hover:shadow hover:text-gray-700 dark:bg-gray-700 dark:text-gray-300 dark:shadow-none dark:ring-0" />
+          </a>
+        </CopyToClipboard>
         <span>{transformed}</span>
       </h3>
       {description && typeof description === "string" ? (

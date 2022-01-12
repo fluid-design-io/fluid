@@ -44,8 +44,8 @@ const GridWrap = ({ title, href, children, router, rowSpan, ...props }) => {
       <button
         className="absolute -left-2 -top-1.5 rounded-full bg-stone-100/60 dark:bg-stone-900/30 backdrop-filter backdrop-blur-md border border-stone-50/50 dark:border-stone-50/20 shadow-md shadow-stone-900/5 text-stone-900 dark:text-stone-200 prefers-contrast:bg-stone-50/90 dark:prefers-contrast:bg-stone-900/90 prefers-contrast:border-stone-800 dark:prefers-contrast:border-sonte-200 z-10 px-2 py-1 transition font-semibold uppercase grid-title tracking-wide backdrop-brightness-110 flex items-center justify-start space-x-0 hover:bg-stone-100 dark:hover:bg-stone-900"
         onClick={() => router.push(`/docs${href}`)}
+        aria-label={`Navigate to this ${title} component.`}
       >
-        <span className="sr-only">Navigate to component {title}</span>
         <span className="text-xs prefers-contrast:text-sm">{title}</span>
         <ChevronRightIcon className="w-3.5 h-3.5" />
       </button>
@@ -96,11 +96,12 @@ function ExamplesPage() {
       src: "https://images.unsplash.com/photo-1620245605605-8ab2cdd2ba91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
     },
     {
-      title: t("App Store.title"),
+      title: t("App Store.title", { ns: "card" }),
       href: "/card/#app-store",
       Component: CardASLargeImageComponent,
       srcs: [
         "https://images.unsplash.com/photo-1482977036925-e8fcaa643657?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1628432436663-9e588806592a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
         "https://images.unsplash.com/photo-1540760938999-077b8231d890?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80",
       ],
     },

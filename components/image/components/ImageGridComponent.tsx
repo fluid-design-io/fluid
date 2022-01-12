@@ -64,6 +64,7 @@ function ImageGridComponent({ setNotification, ...props }) {
               alt={`Bird image shot by ${author} from Unsplash.`}
               layout="fill"
               objectFit="cover"
+              className=" select-none pointer-events-none"
             />
           </div>
         ))}

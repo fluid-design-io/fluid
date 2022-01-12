@@ -2,18 +2,12 @@ import { useState } from "react";
 import { CodeBlockFeatureProps } from "../../interfaces/CodeBlock";
 import CodeBlock from "../framework/CodeBlock";
 import CardCollageComponent from "./components/CardCollageComponent";
+//@ts-ignore
+import collage from "raw-loader!../../lib/code/CardCollage.code.txt";
 
 function CardCollage() {
   const raw = {
-    collage: `
-/* V1.0.0 */
-import Image from "next/image";
-function Example() {
-  return (
-
-  );
-}
-    `,
+    collage,
   };
   const features: { [x: string]: CodeBlockFeatureProps } = {
     collage: {

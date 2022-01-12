@@ -22,7 +22,7 @@ const ImageCollageComponent = ({
           ) /* You can use router() to push to a new href once the component is clicked, it is better than wrapping it with an <a /> tag, which is not recommended. */
       }
     >
-      <div className="relative w-full h-full col-span-2">
+      <div className="relative w-full h-full col-span-2 select-none pointer-events-none">
         <Image
           src={
             srcs
@@ -34,7 +34,7 @@ const ImageCollageComponent = ({
           objectFit="cover"
         />
       </div>
-      <div className="grid grid-flow-col grid-rows-2 gap-0.5">
+      <div className="grid grid-flow-col grid-rows-2 gap-0.5 select-none pointer-events-none">
         <div className="relative w-full h-full">
           <Image
             src={
@@ -47,7 +47,7 @@ const ImageCollageComponent = ({
             objectFit="cover"
           />
         </div>
-        <div className="relative w-full h-full">
+        <div className="relative w-full h-full select-none pointer-events-none">
           <Image
             src={
               srcs

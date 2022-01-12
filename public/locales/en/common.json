@@ -29,5 +29,7 @@
     "doc-for": "Documentation for the {{title}} component",
     "Share Icon": "Share Icon",
     "Heart Icon": "Heart Icon",
-    "Card Button": "Card Button"
+    "Card Button": "Card Button",
+    "Card Title": "Card Title",
+    "Subtitle": "Subtitle"
 }

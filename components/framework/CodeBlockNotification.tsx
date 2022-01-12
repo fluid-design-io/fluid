@@ -33,7 +33,7 @@ function CodeBlockNotification({
   }, [enabled]);
   return (
     <div
-      className={`absolute inset-0 w-full h-full z-[10] pointer-events-none flex-col flex items-center justify-end max-h-full overflow-hidden  ${
+      className={`absolute inset-0 w-full h-full z-30 pointer-events-none flex-col flex items-center justify-end max-h-full overflow-hidden  ${
         props.className ? props.className : ``
       } `}
     >

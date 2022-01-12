@@ -49,7 +49,7 @@ export default function Navbar({ logo = true, ...props }) {
             </Link>
           </div>
           {!logo && (
-            <div className="text-sm text-left text-stone-500 dark:text-stone-400 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50">
+            <div className="sm:text-sm text-left text-stone-500 dark:text-stone-400 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50 text-xs">
               V{packageInfo.version}
             </div>
           )}

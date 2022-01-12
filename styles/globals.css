@@ -173,7 +173,7 @@ pre .line {
 .grid-wrap .grid-title {
   @apply pointer-hover:opacity-0 pointer-hover:pointer-events-none;
 }
-.grid-wrap:hover .grid-title {
+.grid-wrap:hover .grid-title, .grid-wrap:focus-within .grid-title {
   @apply opacity-100 pointer-events-auto;
 }
 a.skip-main {
@@ -202,5 +202,7 @@ a.skip-main:active {
 
 /* Component Styles */
 .card-bg {
-  @apply bg-stone-50 dark:bg-stone-800 shadow-stone-900/10 dark:shadow-stone-900/30;
+  @apply bg-stone-50 dark:bg-stone-800 shadow-stone-900/10 dark:shadow-stone-900/30 will-change-transform;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }

@@ -7,7 +7,7 @@ function ImageOnlyComponent({ src = undefined, ...props }) {
         props.className ? props.className : `h-48`
       } `}
     >
-      <div className="relative w-full h-full">
+      <div className="relative w-full h-full pointer-events-none select-none">
         <Image
           src={
             src

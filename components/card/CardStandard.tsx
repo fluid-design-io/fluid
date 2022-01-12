@@ -3,20 +3,14 @@ import { CodeBlockFeatureProps } from "../../interfaces/CodeBlock";
 import CodeBlock from "../framework/CodeBlock";
 import { useTranslation } from "next-i18next";
 import CardStandardComponent from "./components/CardStandardComponent";
+//@ts-ignore
+import standard from "raw-loader!../../lib/code/CardStandardComponent.code.txt";
 
 function CardStandard() {
   const [notification, setNotification] = useState(undefined);
   const { t } = useTranslation("image");
   const raw = {
-    instagram: `
-/* V1.0.0 */
-import Image from "next/image";
-function Example() {
-  return (
-
-  );
-}
-    `,
+    standard,
   };
   const features: { [x: string]: CodeBlockFeatureProps } = {
     standard: {
@@ -36,14 +30,11 @@ function Example() {
       },
     },
   };
-  const handleClick = (name) => {
-    setNotification({ enabled: true, message: name });
-  };
   return (
     <>
       <CodeBlock
         title={t(`Standard.title`, { ns: "card" })}
-        raw={raw.instagram}
+        raw={raw.standard}
         notification={notification}
         onDismiss={() => setNotification(undefined)}
         features={features.standard}

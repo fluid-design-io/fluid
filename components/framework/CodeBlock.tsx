@@ -93,17 +93,17 @@ function CodeBlock({
       >
         <Tab.List className="absolute top-0 left-0 flex w-full px-2 pt-2 space-x-2 text-sm text-stone-500/75 prefers-contrast:text-stone-800 dark:text-stone-100">
           <div
-            className="relative z-[2] font-medium py-1.5 px-2 truncate max-w-full flex space-x-1 items-center overflow-ellipsis"
+            className="relative z-[2] font-medium py-1.5 px-2 max-w-full flex space-x-1 items-center overflow-ellipsis"
             aria-label={`${title}`}
           >
-            <span className="dark:[text-shadow:0px_2px_5px_rgba(0,0,0,0.25)]">
+            <span className="dark:[text-shadow:0px_2px_5px_rgba(0,0,0,0.25)] line-clamp-1">
               {title}
             </span>
             {features?.interactions && (
-              <CursorClickIcon className="w-4 h-4 filter drop-shadow-md" />
+              <CursorClickIcon className="w-4 h-4 filter drop-shadow-md flex-shrink-0" />
             )}
             {features?.ui?.responsive && (
-              <DesktopComputerIcon className="w-4 h-4 filter drop-shadow-md" />
+              <DesktopComputerIcon className="w-4 h-4 filter drop-shadow-md flex-shrink-0" />
             )}
           </div>
           <div className="flex-grow" />
@@ -175,7 +175,7 @@ function CodeBlock({
                 initial={{ opacity: shouldReduceMotion ? 1 : 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: shouldReduceMotion ? 1 : 0 }}
-                className="relative flex items-center justify-center"
+                className="relative flex items-center justify-center will-change-transform"
               >
                 {component}
               </motion.div>
