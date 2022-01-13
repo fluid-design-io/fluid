@@ -18,7 +18,10 @@ function AppSegment({
     <Tab.Group>
       <Tab.List className={"segment-wrap"}>
         {segments.map((segment) => (
-          <Tab key={segment.value} className={`segmenet-inner`}>
+          <Tab
+            key={segment.value}
+            className={`segmenet-inner pointer-touch:outline-none`}
+          >
             {({ selected }) => (
               <SegmentButton {...{ selected, defaultValue, ...segment }} />
             )}
@@ -28,7 +31,12 @@ function AppSegment({
       <AnimatePresence exitBeforeEnter>
         <Tab.Panels>
           {segments.map(({ value, component }) => (
-            <Tab.Panel key={`tab.${value}`}>{component}</Tab.Panel>
+            <Tab.Panel
+              className="pointer-touch:outline-none"
+              key={`tab.${value}`}
+            >
+              {component}
+            </Tab.Panel>
           ))}
         </Tab.Panels>
       </AnimatePresence>
@@ -40,7 +48,12 @@ export function SegmentButton({ label, selected }) {
   return (
     <div className={`segment-button ${selected ? "selected" : ""}`}>
       <span className="relative z-[2] pointer-events-none">{label}</span>
-      {selected && <motion.div layoutId="switch" className={`active-button`} />}
+      {selected && (
+        <motion.div
+          layoutId={`${label}.switch`}
+          className={`active-button`}
+        />
+      )}
     </div>
   );
 }

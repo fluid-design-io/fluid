@@ -116,7 +116,7 @@ function Page({
           animate={enableMotion ? { opacity: 1 } : {}}
           exit={enableMotion ? { opacity: 0 } : {}}
           transition={enableMotion ? { duration: 0.65 } : {}}
-          className={`flex-1 ${className ? className : ``}  ${
+          className={`flex-1 max-w-full overflow-x-hidden ${className ? className : ``}  ${
             sidebar ? `md:ml-[15.625rem] lg:ml-[13.5rem] xl:ml-[15.625rem]` : ``
           }`}
         >

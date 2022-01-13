@@ -11,8 +11,9 @@ export const buttonColors = [
       "ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
       light: `
+          min-w-[3rem]
         select-none
-        transition
+        transition-colors
         
         bg-stone-50
         text-stone-800
@@ -54,8 +55,9 @@ export const buttonColors = [
         dark:focus-visible:ring-offset-stone-600
         `.replace(/[\n\r]\s*/g, " "),
       dark: `
+          min-w-[3rem]
         select-none
-        transition
+        transition-colors
         
         bg-stone-900
         text-stone-100
@@ -102,8 +104,9 @@ export const buttonColors = [
       "ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
       light: `
+          min-w-[3rem]
         select-none
-        transition
+        transition-colors
         
         bg-stone-50
         text-orange-500
@@ -145,8 +148,9 @@ export const buttonColors = [
         dark:focus-visible:ring-offset-orange-600
         `.replace(/[\n\r]\s*/g, " "),
       dark: `
+          min-w-[3rem]
         select-none
-        transition
+        transition-colors
         
         bg-orange-500
         text-orange-50
@@ -192,8 +196,9 @@ export const buttonColors = [
       "ring-yellow-500 ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
       light: `
+          min-w-[3rem]
           select-none
-          transition
+          transition-colors
           
           bg-stone-50
           text-yellow-600
@@ -235,8 +240,9 @@ export const buttonColors = [
           dark:focus-visible:ring-offset-yellow-600
           `.replace(/[\n\r]\s*/g, " "),
       dark: `
+          min-w-[3rem]
           select-none
-          transition
+          transition-colors
           
           bg-yellow-300
           text-stone-900/75
@@ -282,11 +288,12 @@ export const buttonColors = [
       "ring-lime-500 ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
       light: `
+          min-w-[3rem]
           select-none
-          transition
+          transition-colors
           
           bg-stone-50
-          text-lime-600
+          text-lime-700
           focus:bg-lime-500
           hover:bg-lime-500
           hover:text-lime-50
@@ -325,8 +332,9 @@ export const buttonColors = [
           dark:focus-visible:ring-offset-lime-600
           `.replace(/[\n\r]\s*/g, " "),
       dark: `
+          min-w-[3rem]
           select-none
-          transition
+          transition-colors
           
           bg-lime-300
           text-stone-900/75
@@ -372,8 +380,9 @@ export const buttonColors = [
       "ring-green-500 ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
       light: `
+          min-w-[3rem]
           select-none
-          transition
+          transition-colors
           
           bg-stone-50
           text-green-600
@@ -415,8 +424,9 @@ export const buttonColors = [
           dark:focus-visible:ring-offset-green-600
           `.replace(/[\n\r]\s*/g, " "),
       dark: `
+          min-w-[3rem]
           select-none
-          transition
+          transition-colors
           
           bg-green-300
           text-stone-900/75
@@ -462,8 +472,9 @@ export const buttonColors = [
       "ring-teal-500 ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
       light: `
+          min-w-[3rem]
           select-none
-          transition
+          transition-colors
           
           bg-stone-50
           text-teal-600
@@ -505,8 +516,9 @@ export const buttonColors = [
           dark:focus-visible:ring-offset-teal-600
           `.replace(/[\n\r]\s*/g, " "),
       dark: `
+          min-w-[3rem]
           select-none
-          transition
+          transition-colors
           
           bg-teal-300
           text-stone-900/75
@@ -552,8 +564,9 @@ export const buttonColors = [
       "ring-sky-500 ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
       light: `
+          min-w-[3rem]
           select-none
-          transition
+          transition-colors
           
           bg-stone-50
           text-sky-600
@@ -595,8 +608,9 @@ export const buttonColors = [
           dark:focus-visible:ring-offset-sky-600
           `.replace(/[\n\r]\s*/g, " "),
       dark: `
+          min-w-[3rem]
           select-none
-          transition
+          transition-colors
           
           bg-sky-300
           text-stone-900/75
@@ -643,8 +657,9 @@ export const buttonColors = [
       "ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
       light: `
+          min-w-[3rem]
         select-none
-        transition
+        transition-colors
         
         bg-stone-50
         text-indigo-500
@@ -686,8 +701,9 @@ export const buttonColors = [
         dark:focus-visible:ring-offset-indigo-600
         `.replace(/[\n\r]\s*/g, " "),
       dark: `
+          min-w-[3rem]
         select-none
-        transition
+        transition-colors
         
         bg-indigo-500
         text-indigo-50
@@ -734,8 +750,9 @@ export const buttonColors = [
       "ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
       light: `
+          min-w-[3rem]
         select-none
-        transition
+        transition-colors
         
         bg-stone-50
         text-fuchsia-500
@@ -777,8 +794,9 @@ export const buttonColors = [
         dark:focus-visible:ring-offset-fuchsia-600
         `.replace(/[\n\r]\s*/g, " "),
       dark: `
+          min-w-[3rem]
         select-none
-        transition
+        transition-colors
         
         bg-fuchsia-500
         text-fuchsia-50
@@ -824,8 +842,9 @@ export const buttonColors = [
       "ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
       light: `
+          min-w-[3rem]
         select-none
-        transition
+        transition-colors
         
         bg-stone-50
         text-rose-500
@@ -867,8 +886,9 @@ export const buttonColors = [
         dark:focus-visible:ring-offset-rose-600
         `.replace(/[\n\r]\s*/g, " "),
       dark: `
+          min-w-[3rem]
         select-none
-        transition
+        transition-colors
         
         bg-rose-500
         text-rose-50
@@ -914,8 +934,9 @@ export const buttonColors = [
       "ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
       light: `
+          min-w-[3rem]
         select-none
-        transition
+        transition-colors
         
         bg-stone-50
         text-red-500
@@ -957,8 +978,9 @@ export const buttonColors = [
         dark:focus-visible:ring-offset-red-600
         `.replace(/[\n\r]\s*/g, " "),
       dark: `
+          min-w-[3rem]
         select-none
-        transition
+        transition-colors
         
         bg-red-500
         text-red-50
@@ -1008,7 +1030,7 @@ const ColorRadioButton = ({
 }) => {
   return (
     <button
-      className={`rounded-full w-6 h-6 m-1 hover:opacity-80 transition flex justify-center items-center ${palette} ${
+      className={`rounded-full w-6 h-6 m-1 hover:opacity-80 transition-colors flex justify-center items-center ${palette} ${
         selected ? active : ``
       }`}
       onClick={() => setSelected(name)}
