@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { SplitImageBackground } from "../../components/image/ImageBackground";
+import ImageBGResponsiveComponent from "../../components/image/components/ImageBGResponsiveComponent";
 function ResponsiveCard() {
   return (
     <>
@@ -15,7 +15,7 @@ function ResponsiveCard() {
         />
       </Head>
       <div className="flex items-center justify-center w-full h-screen overflow-hidden">
-        <SplitImageBackground />
+        <ImageBGResponsiveComponent />
       </div>
     </>
   );

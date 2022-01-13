@@ -54,7 +54,7 @@ function CardASLargeImageComponent({
       {/* Top Content */}
       <div className="absolute top-0 left-0 p-5 z-[2] pointer-events-none dark:prefers-contrast:[text-shadow:0px_2px_7.5px_rgba(0,0,0,0.75)]">
         <p className="text-sm font-medium uppercase text-stone-800/60 dark:text-stone-200/75 transition prefers-contrast:font-bold prefers-contrast:text-stone-800 dark:prefers-contrast:text-stone-100">
-          {t("Subtitle")}
+          {t("Subtitle", { ns: "common" })}
         </p>
         <h3 className="w-4/5 pt-1 text-3xl font-bold dark:text-stone-50 text-stone-800">
           {t("App Store.cool-things", { ns: "card" })}
@@ -78,7 +78,7 @@ function CardASLargeImageComponent({
         </div>
         <div>
           <h2 className="font-medium leading-tight text-stone-800 dark:text-stone-50/90 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50 prefers-contrast:font-bold">
-            {t("Card Title")}
+            {t("Card Title", { ns: "common" })}
           </h2>
           <p className="text-sm leading-none text-stone-800/60 dark:text-stone-50/50 line-clamp-2 prefers-contrast:text-stone-800 dark:prefers-contrast:text-stone-200 prefers-contrast:font-semibold">
             Lorem ipsum dolor sit amet.

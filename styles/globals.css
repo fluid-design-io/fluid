@@ -91,6 +91,12 @@ p:not(:where([class~="component"] *)) {
 .secondary-button {
   @apply px-4 py-2 text-sm font-medium bg-white border rounded-md shadow-sm text-stone-700 border-stone-300 hover:bg-stone-50 dark:bg-stone-600 dark:hover:bg-stone-700 dark:text-stone-100 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-500 dark:ring-offset-stone-600 button-preset;
 }
+.button-gray-light {
+  @apply transition select-none bg-stone-900 text-stone-100 focus:bg-stone-800 hover:bg-stone-800 hover:text-stone-50 focus:text-stone-50 active:bg-stone-700 prefers-contrast:border prefers-contrast:border-stone-50 prefers-contrast:hover:bg-stone-600 prefers-contrast:focus:bg-stone-600 prefers-contrast:hover:text-stone-50 dark:bg-stone-600 dark:text-stone-50 dark:hover:bg-stone-500 dark:focus:bg-stone-500 dark:hover:text-stone-50 dark:focus:text-stone-50 dark:prefers-contrast:font-bold dark:prefers-contrast:bg-transparent dark:prefers-contrast:bg-stone-100 dark:prefers-contrast:text-stone-900 dark:prefers-contrast:hover:bg-stone-800 dark:prefers-contrast:focus:bg-stone-800 dark:prefers-contrast:border-stone-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-50 focus-visible:ring-offset-transparent dark:focus-visible:ring-offset-stone-50;
+}
+.button-gray-dark {
+  @apply transition select-none bg-stone-50 text-stone-800 focus:bg-stone-100 hover:bg-stone-100 hover:text-stone-900 focus:text-stone-900 active:bg-stone-200 prefers-contrast:border prefers-contrast:bg-stone-50 prefers-contrast:text-stone-900 prefers-contrast:border-stone-800 prefers-contrast:hover:bg-stone-50 prefers-contrast:focus:bg-stone-50 prefers-contrast:hover:text-stone-900 dark:bg-stone-900 dark:text-stone-100 dark:hover:bg-stone-900/50 dark:focus:bg-stone-900/50 dark:active:bg-stone-700 dark:hover:text-stone-100 dark:focus:text-stone-100 dark:prefers-contrast:font-bold dark:prefers-contrast:bg-black dark:prefers-contrast:text-stone-50 dark:prefers-contrast:hover:bg-stone-800 dark:prefers-contrast:focus:bg-stone-800 dark:prefers-contrast:hover:text-stone-50 dark:prefers-contrast:focus:text-stone-50 dark:prefers-contrast:border-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-offset-transparent dark:focus-visible:ring-offset-stone-600;
+}
 
 .Resizer {
   z-index: 1;
@@ -173,7 +179,8 @@ pre .line {
 .grid-wrap .grid-title {
   @apply pointer-hover:opacity-0 pointer-hover:pointer-events-none;
 }
-.grid-wrap:hover .grid-title, .grid-wrap:focus-within .grid-title {
+.grid-wrap:hover .grid-title,
+.grid-wrap:focus-within .grid-title {
   @apply opacity-100 pointer-events-auto;
 }
 a.skip-main {
@@ -200,6 +207,22 @@ a.skip-main:active {
   z-index: 999;
 }
 
+/* App Segment Control */
+.segment-wrap {
+  @apply rounded-full inline-table prefers-contrast:border prefers-contrast:border-black dark:prefers-contrast:border-white;
+}
+.segment-wrap .segmenet-inner {
+  @apply inline-flex space-x-4 transition hover:delay-[0ms] rounded-full delay-100 duration-300;
+}
+.segment-wrap .segmenet-inner .segment-button {
+  @apply dark:text-white/80 text-stone-500 dark:text-stone-400 relative min-w-[4.5rem] transition px-3 py-1.5 font-semibold text-sm transform active:scale-95  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent focus:ring-stone-500 dark:focus:ring-stone-400 rounded-full prefers-contrast:text-stone-700 dark:prefers-contrast:text-stone-300 hover:opacity-80 outline-none;
+}
+.segment-wrap .segmenet-inner .segment-button.selected {
+  @apply shadow-lg prefers-contrast:text-white dark:prefers-contrast:text-black text-stone-800 dark:text-stone-200 hover:opacity-100;
+}
+.segment-wrap .segmenet-inner .active-button {
+  @apply absolute inset-0 z-[1] rounded-full bg-white dark:bg-white/20 prefers-contrast:bg-black dark:prefers-contrast:bg-white;
+}
 /* Component Styles */
 .card-bg {
   @apply bg-stone-50 dark:bg-stone-800 shadow-stone-900/10 dark:shadow-stone-900/30 will-change-transform;

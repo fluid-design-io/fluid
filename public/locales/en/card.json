@@ -1,6 +1,7 @@
 {
     "Card": "Card",
     "description": "Cards are a standard piece of UI and are widely used across many use cases. It can contain one or multiple elements, components below show varieties of examples.",
+    "Card Button": "Card Button",
     "Standard": {
         "title": "Standard",
         "click": "Button, share and heart icons are clickable.",

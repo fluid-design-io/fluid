@@ -1,0 +1,16 @@
+{
+    "Button": "Button",
+    "Color": "Color",
+    "Type": "Type",
+    "Radius": "Radius",
+    "Icon": "Icon",
+    "description": "Buttons provide a clickable element that can be used in forms or anywhere simple, standard button functionality is required. They can show text, icons, or both. Buttons can be styled with a variety of attributes to look a certain way.",
+    "Button Studio": {
+        "title": "Text Button",
+        "sub-title": "Filled Buttons",
+        "small": "Small",
+        "regular": "Regular",
+        "medium": "Medium",
+        "large": "Large"
+    }
+}

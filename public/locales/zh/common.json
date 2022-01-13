@@ -26,5 +26,12 @@
     "notification-clicked": "新消息, 点击了{{title}}。",
     "Close Notification": "关闭消息",
     "On this page": "此页内容",
-    "doc-for": "关于{{title}}模块的文档内容"
+    "doc-for": "关于{{title}}模块的文档内容",
+    "Share Icon": "分享图标",
+    "Heart Icon": "喜欢图标",
+    "Card Button": "卡片按钮",
+    "Card Title": "卡片标题",
+    "Subtitle": "副标题",
+    "Examples": "例子",
+    "list-of-examples":"展示所有组件的示例列表。"
 }

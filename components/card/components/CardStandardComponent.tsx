@@ -28,10 +28,10 @@ function CardStandardComponent({ setNotification, src = undefined, ...props }) {
       <div className="flex flex-col flex-grow h-full px-4 pt-4 pb-2">
         <div className="flex-grow">
           <h2 className="text-xs text-stone-500 dark:text-stone-500 prefers-contrast:text-stone-700 dark:prefers-contrast:text-stone-300 prefers-contrast:font-bold">
-            Subtitle
+            {t("Subtitle", { ns: "common" })}
           </h2>
           <h1 className="font-semibold dark:text-stone-100 prefers-contrast:font-bold">
-            Card Title
+            {t("Card Title", { ns: "common" })}
           </h1>
           <p className="pt-1.5 pb-2 text-sm text-stone-600 dark:text-stone-300 leading-tight prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-100 prefers-contrast:font-medium">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -44,11 +44,11 @@ function CardStandardComponent({ setNotification, src = undefined, ...props }) {
             onClick={() =>
               setNotification({
                 enabled: true,
-                message: t(`Card Button`),
+                message: t(`Card Button`, { ns: "card" }),
               })
             }
           >
-            button
+            {t(`Card Button`, { ns: "card" })}
           </button>
           <div className="flex -mr-2">
             <button className="p-2 rounded-full hover:bg-stone-200/50 focus:bg-stone-200/50 dark:hover:bg-stone-600 dark:focus:bg-stone-600 prefers-contrast:ring-stone-800 dark:prefers-contrast:ring-stone-200 prefers-contrast:ring-1 prefers-contrast:ml-2">

@@ -26,10 +26,12 @@
     "notification-clicked": "Notification, {{title}} clicked.",
     "Close Notification": "Close Notification",
     "On this page": "On this page",
-    "doc-for": "Documentation for the {{title}} component",
+    "doc-for": "Documentation for {{title}}",
     "Share Icon": "Share Icon",
     "Heart Icon": "Heart Icon",
     "Card Button": "Card Button",
     "Card Title": "Card Title",
-    "Subtitle": "Subtitle"
+    "Subtitle": "Subtitle",
+    "Examples": "Examples",
+    "list-of-examples":"List of examples that showcase all of the components."
 }
