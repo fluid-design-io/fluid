@@ -76,7 +76,7 @@ function CodeBlock({
     <div
       className={` ${
         props.className ? props.className : ``
-      } relative rounded-xl border border-stone-300/50 dark:border-stone-500/20 prefers-contrast:border-stone-800 dark:prefers-contrast:border-stone-100 w-full min-h-[16rem] overflow-hidden my-6 not-prose code-block-wrap focus-ring`}
+      } relative rounded-xl border border-stone-300/50 dark:border-stone-500/20 prefers-contrast:border-stone-800 dark:prefers-contrast:border-stone-100 w-full min-h-[16rem] overflow-hidden transform-gpu translate-x-0 my-6 not-prose code-block-wrap focus-ring`}
       tabIndex={0}
       aria-label={`Example. ${title}. ${
         features?.interactions ? `This is an interactive component` : ""
@@ -100,10 +100,10 @@ function CodeBlock({
               {title}
             </span>
             {features?.interactions && (
-              <CursorClickIcon className="w-4 h-4 filter drop-shadow-md flex-shrink-0" />
+              <CursorClickIcon className="flex-shrink-0 w-4 h-4 filter drop-shadow-md" />
             )}
             {features?.ui?.responsive && (
-              <DesktopComputerIcon className="w-4 h-4 filter drop-shadow-md flex-shrink-0" />
+              <DesktopComputerIcon className="flex-shrink-0 w-4 h-4 filter drop-shadow-md" />
             )}
           </div>
           <div className="flex-grow" />
