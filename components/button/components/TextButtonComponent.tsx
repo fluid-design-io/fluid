@@ -58,38 +58,38 @@ function TextButtonComponent({ setNotification, src = undefined, ...props }) {
           <button
             className={`px-2.5 py-1 text-xs font-semibold prefers-contrast:py-1.5 prefers-contrast:px-3 ${activeButton.color.light} ${activeRadius.style.small} `}
             onClick={() =>
-              handleClick({ message: t(`Text Button.small`, { ns: "button" }) })
+              handleClick({ message: t(`Button Studio.small`, { ns: "button" }) })
             }
           >
-            {t(`Text Button.small`, { ns: "button" })}
+            {t(`Button Studio.small`, { ns: "button" })}
           </button>
           <button
             className={`px-4 py-2 text-sm font-medium prefers-contrast:py-2.5 prefers-contrast:px-4.5 ${activeButton.color.light} ${activeRadius.style.regular}`}
             onClick={() =>
               handleClick({
-                message: t(`Text Button.regular`, { ns: "button" }),
+                message: t(`Button Studio.regular`, { ns: "button" }),
               })
             }
           >
-            {t(`Text Button.regular`, { ns: "button" })}
+            {t(`Button Studio.regular`, { ns: "button" })}
           </button>
           <button
             className={`px-4 py-2 tracking-wide font-medium prefers-contrast:py-2.5 prefers-contrast:px-4.5 ${activeButton.color.light} ${activeRadius.style.medium}`}
             onClick={() =>
               handleClick({
-                message: t(`Text Button.medium`, { ns: "button" }),
+                message: t(`Button Studio.medium`, { ns: "button" }),
               })
             }
           >
-            {t(`Text Button.medium`, { ns: "button" })}
+            {t(`Button Studio.medium`, { ns: "button" })}
           </button>
           <button
             className={`px-6 py-2.5 tracking-wider font-semibold prefers-contrast:py-2.5 ${activeButton.color.light} ${activeRadius.style.large}`}
             onClick={() =>
-              handleClick({ message: t(`Text Button.large`, { ns: "button" }) })
+              handleClick({ message: t(`Button Studio.large`, { ns: "button" }) })
             }
           >
-            {t(`Text Button.large`, { ns: "button" })}
+            {t(`Button Studio.large`, { ns: "button" })}
           </button>
         </div>
         <div
@@ -100,38 +100,38 @@ function TextButtonComponent({ setNotification, src = undefined, ...props }) {
           <button
             className={`px-2.5 py-1 text-xs font-semibold prefers-contrast:py-1.5 prefers-contrast:px-3 ${activeButton.color.dark} ${activeRadius.style.small}`}
             onClick={() =>
-              handleClick({ message: t(`Text Button.small`, { ns: "button" }) })
+              handleClick({ message: t(`Button Studio.small`, { ns: "button" }) })
             }
           >
-            {t(`Text Button.small`, { ns: "button" })}
+            {t(`Button Studio.small`, { ns: "button" })}
           </button>
           <button
             className={`px-4 py-2 text-sm font-medium prefers-contrast:py-2.5 prefers-contrast:px-4.5 ${activeButton.color.dark} ${activeRadius.style.medium}`}
             onClick={() =>
               handleClick({
-                message: t(`Text Button.regular`, { ns: "button" }),
+                message: t(`Button Studio.regular`, { ns: "button" }),
               })
             }
           >
-            {t(`Text Button.regular`, { ns: "button" })}
+            {t(`Button Studio.regular`, { ns: "button" })}
           </button>
           <button
             className={`px-4 py-2 tracking-wide font-medium prefers-contrast:py-2.5 prefers-contrast:px-4.5 ${activeButton.color.dark} ${activeRadius.style.regular}`}
             onClick={() =>
               handleClick({
-                message: t(`Text Button.medium`, { ns: "button" }),
+                message: t(`Button Studio.medium`, { ns: "button" }),
               })
             }
           >
-            {t(`Text Button.medium`, { ns: "button" })}
+            {t(`Button Studio.medium`, { ns: "button" })}
           </button>
           <button
             className={`px-6 py-2.5 tracking-wider font-semibold prefers-contrast:py-2.5 ${activeButton.color.dark} ${activeRadius.style.large}`}
             onClick={() =>
-              handleClick({ message: t(`Text Button.large`, { ns: "button" }) })
+              handleClick({ message: t(`Button Studio.large`, { ns: "button" }) })
             }
           >
-            {t(`Text Button.large`, { ns: "button" })}
+            {t(`Button Studio.large`, { ns: "button" })}
           </button>
         </div>
       </div>
