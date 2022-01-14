@@ -6,25 +6,26 @@ import {
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
 import { useState } from "react";
+import { useCookies } from "react-cookie";
 import AppSegment from "../../ui/AppSegment";
 import ButtonLabel from "./ButtonLabel";
 import ButtonRadius, { radius } from "./ButtonRadius";
 import ColorButtons, { buttonColors } from "./ColorButtons";
 
-function TextButtonComponent({ setNotification, src = undefined, ...props }) {
+function TextButtonComponent({
+  setNotification,
+  src = undefined,
+  selectedColor,
+  selectedRadius,
+  selectedType,
+  selectedIcon,
+  setCookie,
+  activeButton,
+  activeRadius,
+  buttonLabel,
+  ...props
+}) {
   const { t } = useTranslation("button");
-
-  const [selectedColor, setSelectedColor] = useState("gray");
-  const [selectedRadius, setSelectedRadius] = useState<
-    "default" | "none" | "full"
-  >("default");
-  const [selectedType, setSelectedType] = useState("color");
-  const [selectedIcon, setSelectedIcon] = useState<"start" | "end" | "none">(
-    "none"
-  );
-  const [buttonLabel, setButtonLabel] = useState("");
-  const activeButton = buttonColors.find((btn) => btn.name === selectedColor);
-  const activeRadius = radius.find((btn) => btn.type === selectedRadius);
 
   const handleClick = ({ message, Icon = undefined }) => {
     setNotification({ enabled: true, message, Icon });
@@ -35,10 +36,7 @@ function TextButtonComponent({ setNotification, src = undefined, ...props }) {
       value: "color",
       label: t("Color", { ns: "button" }),
       component: (
-        <ColorButtons
-          key={`segment.color`}
-          {...{ setSelectedColor, selectedColor }}
-        />
+        <ColorButtons key={`segment.color`} {...{ setCookie, selectedColor }} />
       ),
     },
     {
@@ -47,7 +45,7 @@ function TextButtonComponent({ setNotification, src = undefined, ...props }) {
       component: (
         <ButtonRadius
           key={`segment.radius`}
-          {...{ setSelectedRadius, selectedRadius }}
+          {...{ setCookie, selectedRadius, palette: activeButton.palette }}
         />
       ),
     },
@@ -57,7 +55,12 @@ function TextButtonComponent({ setNotification, src = undefined, ...props }) {
       component: (
         <ButtonLabel
           key={`segment.label`}
-          {...{ setSelectedIcon, selectedIcon, setButtonLabel, buttonLabel }}
+          {...{
+            setCookie,
+            selectedIcon,
+            buttonLabel,
+            palette: activeButton.palette,
+          }}
         />
       ),
     },
@@ -131,7 +134,7 @@ function TextButtonComponent({ setNotification, src = undefined, ...props }) {
                 ? t(`Button Studio.regular`, { ns: "button" })
                 : buttonLabel}
               {selectedIcon === "end" && (
-                <PaperAirplaneIcon className="w-4 h-4 ml-2" />
+                <PaperAirplaneIcon className="w-4 h-4 ml-1.5" />
               )}
             </motion.button>
             <motion.button
@@ -261,7 +264,7 @@ function TextButtonComponent({ setNotification, src = undefined, ...props }) {
                 ? t(`Button Studio.regular`, { ns: "button" })
                 : buttonLabel}
               {selectedIcon === "end" && (
-                <PaperAirplaneIcon className="w-4 h-4 ml-2" />
+                <PaperAirplaneIcon className="w-4 h-4 ml-1.5" />
               )}
             </motion.button>
             <motion.button
@@ -332,7 +335,7 @@ function TextButtonComponent({ setNotification, src = undefined, ...props }) {
       <div className="flex flex-col items-center justify-center w-full p-4 rounded-md shadow-lg outline-none card-bg dark:bg-stone-900/80 dark:prefers-contrast:bg-stone-800/90 shadow-stone-800/5 sm:rounded-xl">
         <AppSegment
           defaultValue={selectedType}
-          onUpdate={(category) => setSelectedType(category)}
+          onUpdate={(category) => setCookie("selectedType", category)}
           segments={segments}
         />
       </div>

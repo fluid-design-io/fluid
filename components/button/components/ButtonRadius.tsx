@@ -4,20 +4,24 @@ import Image from "next/image";
 export const radius = [
   {
     type: "none",
-    Icon: ({ selected }) => (
+    Icon: ({ selected, palette }) => (
       <div
         className={`w-16 h-16 absolute left-1/3 top-1/3 ${
           selected
-            ? `bg-sky-500 dark:bg-stone-200 prefers-contrast:bg-sky-600 dark:prefers-contrast:bg-sky-400`
+            ? `${palette}`
             : `bg-stone-400 dark:bg-stone-500 prefers-contrast:bg-stone-800 dark:prefers-contrast:bg-stone-200`
         } `}
       />
     ),
     style: {
-      small: "rounded-none uppercase",
-      regular: "rounded-none uppercase",
-      medium: "rounded-none uppercase",
-      large: "rounded-none uppercase",
+      small: "uppercase",
+      regular: "uppercase",
+      medium: "uppercase",
+      large: "uppercase",
+      _small: "rounded-none uppercase",
+      _regular: "rounded-none uppercase",
+      _medium: "rounded-none uppercase",
+      _large: "rounded-none uppercase",
     },
     animate: {
       small: {
@@ -36,20 +40,24 @@ export const radius = [
   },
   {
     type: "default",
-    Icon: ({ selected }) => (
+    Icon: ({ selected, palette }) => (
       <div
         className={`w-16 h-16 absolute left-1/3 top-1/3 rounded-lg ${
           selected
-            ? `bg-sky-500 dark:bg-stone-200 prefers-contrast:bg-sky-600 dark:prefers-contrast:bg-sky-400`
+            ? `${palette}`
             : `bg-stone-400 dark:bg-stone-500 prefers-contrast:bg-stone-800 dark:prefers-contrast:bg-stone-200`
         } `}
       />
     ),
     style: {
-      small: "rounded",
-      regular: "rounded-md",
-      medium: "rounded-lg",
-      large: "rounded-[.625rem]",
+      small: "",
+      regular: "",
+      medium: "",
+      large: "",
+      _small: "rounded",
+      _regular: "rounded-md",
+      _medium: "rounded-lg",
+      _large: "rounded-[.625rem]",
     },
     animate: {
       small: {
@@ -68,20 +76,24 @@ export const radius = [
   },
   {
     type: "full",
-    Icon: ({ selected }) => (
+    Icon: ({ selected, palette }) => (
       <div
         className={`w-12 h-12 absolute left-1/3 top-1/3 rounded-full ${
           selected
-            ? `bg-sky-500 dark:bg-stone-200 prefers-contrast:bg-sky-600 dark:prefers-contrast:bg-sky-400`
+            ? `${palette}`
             : `bg-stone-400 dark:bg-stone-500 prefers-contrast:bg-stone-800 dark:prefers-contrast:bg-stone-200`
         } `}
       />
     ),
     style: {
-      small: "rounded-full !px-4",
-      regular: "rounded-full !px-4.5",
-      medium: "rounded-full !px-5",
-      large: "rounded-full !px-6 !py-2",
+      small: "!px-4",
+      regular: "!px-4.5",
+      medium: "!px-5",
+      large: "!px-6 !py-2",
+      _small: "rounded-full !px-4",
+      _regular: "rounded-full !px-4.5",
+      _medium: "rounded-full !px-5",
+      _large: "rounded-full !px-6 !py-2",
     },
     animate: {
       small: {
@@ -100,12 +112,14 @@ export const radius = [
   },
 ];
 
-function ButtonRadius({ setSelectedRadius, selectedRadius, ...props }) {
+function ButtonRadius({ setCookie, selectedRadius, ...props }) {
   return (
     <RadioGroup
       value={selectedRadius}
-      onChange={setSelectedRadius}
-      className={"flex items-center justify-between space-x-4 mt-4 w-full tap-highlight-none"}
+      onChange={(value) => setCookie("selectedRadius", value)}
+      className={
+        "flex items-center justify-between space-x-4 mt-4 w-full tap-highlight-none"
+      }
     >
       {radius.map(({ type, Icon }) => (
         <RadioGroup.Option
@@ -120,7 +134,7 @@ function ButtonRadius({ setSelectedRadius, selectedRadius, ...props }) {
           }
         >
           <div className="relative w-12 h-12 overflow-hidden rounded-full">
-            <Icon selected={selectedRadius === type} />
+            <Icon selected={selectedRadius === type} palette={props.palette} />
           </div>
         </RadioGroup.Option>
       ))}

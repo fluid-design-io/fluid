@@ -5,6 +5,7 @@ import nextI18nextConfig from "../next-i18next.config";
 import "../styles/globals.css";
 import "../styles/neumorphism.css";
 import "flag-icons/css/flag-icons.min.css";
+import { CookiesProvider } from "react-cookie";
 
 function MyApp({ Component, pageProps }) {
   const activateDarkMode = () => {
@@ -28,7 +29,11 @@ function MyApp({ Component, pageProps }) {
         .matchMedia("(prefers-color-scheme: dark)")
         .removeEventListener("change", () => {});
   }, []);
-  return <Component {...pageProps} />;
+  return (
+    <CookiesProvider>
+      <Component {...pageProps} />
+    </CookiesProvider>
+  );
 }
 
 export default appWithTranslation(MyApp, nextI18nextConfig);

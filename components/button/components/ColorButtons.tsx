@@ -6,7 +6,7 @@ export const buttonColors = [
   {
     name: `gray`,
     palette:
-      "bg-stone-500 dark:bg-stone-600 ring-stone-500 dark:ring-stone-600",
+      "bg-stone-500 dark:bg-stone-600 ring-stone-500 dark:ring-stone-600 text-white",
     active:
       "ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
@@ -79,6 +79,7 @@ export const buttonColors = [
         dark:focus:bg-stone-500
         dark:hover:text-stone-50
         dark:focus:text-stone-50
+        dark:active:bg-stone-600
         
         dark:prefers-contrast:font-bold
         dark:prefers-contrast:bg-transparent
@@ -99,7 +100,7 @@ export const buttonColors = [
   {
     name: `orange`,
     palette:
-      "bg-orange-500 dark:bg-orange-600 ring-orange-500 dark:ring-orange-600",
+      "bg-orange-500 dark:bg-orange-600 ring-orange-500 dark:ring-orange-600 text-white",
     active:
       "ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
@@ -170,6 +171,7 @@ export const buttonColors = [
         dark:text-orange-50
         dark:hover:bg-orange-500
         dark:focus:bg-orange-500
+        dark:active:bg-orange-600
         dark:hover:text-orange-50
         dark:focus:text-orange-50
         
@@ -191,7 +193,7 @@ export const buttonColors = [
   },
   {
     name: `yellow`,
-    palette: "bg-yellow-500 dark:bg-oragne-600",
+    palette: "bg-yellow-500 dark:bg-oragne-600 text-black",
     active:
       "ring-yellow-500 ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
@@ -262,6 +264,7 @@ export const buttonColors = [
           dark:text-stone-900/80
           dark:hover:bg-yellow-400
           dark:focus:bg-yellow-400
+          dark:active:bg-yellow-500
           dark:hover:text-yellow-800
           dark:focus:text-yellow-800
           
@@ -283,7 +286,7 @@ export const buttonColors = [
   },
   {
     name: `lime`,
-    palette: "bg-lime-500 dark:bg-oragne-600",
+    palette: "bg-lime-500 dark:bg-oragne-600 text-black",
     active:
       "ring-lime-500 ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
@@ -354,6 +357,7 @@ export const buttonColors = [
           dark:text-stone-900/80
           dark:hover:bg-lime-400
           dark:focus:bg-lime-400
+          dark:active:bg-lime-500
           dark:hover:text-lime-800
           dark:focus:text-lime-800
           
@@ -375,7 +379,7 @@ export const buttonColors = [
   },
   {
     name: `green`,
-    palette: "bg-green-500 dark:bg-oragne-600",
+    palette: "bg-green-500 dark:bg-oragne-600 text-black",
     active:
       "ring-green-500 ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
@@ -446,6 +450,7 @@ export const buttonColors = [
           dark:text-stone-900/80
           dark:hover:bg-green-400
           dark:focus:bg-green-400
+          dark:active:bg-green-500
           dark:hover:text-green-800
           dark:focus:text-green-800
           
@@ -467,7 +472,7 @@ export const buttonColors = [
   },
   {
     name: `teal`,
-    palette: "bg-teal-500 dark:bg-oragne-600",
+    palette: "bg-teal-500 dark:bg-oragne-600 text-black",
     active:
       "ring-teal-500 ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
@@ -538,6 +543,7 @@ export const buttonColors = [
           dark:text-stone-900/80
           dark:hover:bg-teal-400
           dark:focus:bg-teal-400
+          dark:active:bg-teal-500
           dark:hover:text-teal-800
           dark:focus:text-teal-800
           
@@ -559,7 +565,7 @@ export const buttonColors = [
   },
   {
     name: `sky`,
-    palette: "bg-sky-500 dark:bg-sky-600",
+    palette: "bg-sky-500 dark:bg-sky-600 text-black",
     active:
       "ring-sky-500 ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
@@ -627,9 +633,10 @@ export const buttonColors = [
           prefers-contrast:hover:text-sky-800
           
           dark:bg-sky-500
-          dark:text-stone-900/80
+          dark:text-stone-900/90
           dark:hover:bg-sky-400
           dark:focus:bg-sky-400
+          dark:active:bg-sky-500
           dark:hover:text-sky-800
           dark:focus:text-sky-800
           
@@ -652,7 +659,7 @@ export const buttonColors = [
   {
     name: `indigo`,
     palette:
-      "bg-indigo-500 dark:bg-indigo-600 ring-indigo-500 dark:ring-indigo-600",
+      "bg-indigo-500 dark:bg-indigo-600 ring-indigo-500 dark:ring-indigo-600 text-white",
     active:
       "ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
@@ -678,12 +685,12 @@ export const buttonColors = [
         prefers-contrast:hover:text-indigo-800
         
         dark:bg-stone-900
-        dark:text-indigo-400
+        dark:text-indigo-300
         dark:hover:bg-stone-900/50
         dark:focus:bg-stone-900/50
         dark:active:bg-stone-700
-        dark:hover:text-indigo-400
-        dark:focus:text-indigo-400
+        dark:hover:text-indigo-200
+        dark:focus:text-indigo-200
         
         dark:prefers-contrast:font-bold
         dark:prefers-contrast:bg-black
@@ -723,6 +730,7 @@ export const buttonColors = [
         dark:text-indigo-50
         dark:hover:bg-indigo-500
         dark:focus:bg-indigo-500
+        dark:active:bg-indigo-600
         dark:hover:text-indigo-50
         dark:focus:text-indigo-50
         
@@ -745,7 +753,7 @@ export const buttonColors = [
   {
     name: `fuchsia`,
     palette:
-      "bg-fuchsia-500 dark:bg-fuchsia-600 ring-fuchsia-500 dark:ring-fuchsia-600",
+      "bg-fuchsia-500 dark:bg-fuchsia-600 ring-fuchsia-500 dark:ring-fuchsia-600 text-white",
     active:
       "ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
@@ -816,6 +824,7 @@ export const buttonColors = [
         dark:text-fuchsia-50
         dark:hover:bg-fuchsia-500
         dark:focus:bg-fuchsia-500
+        dark:active:bg-fuchsia-500
         dark:hover:text-fuchsia-50
         dark:focus:text-fuchsia-50
         
@@ -837,7 +846,7 @@ export const buttonColors = [
   },
   {
     name: `rose`,
-    palette: "bg-rose-500 dark:bg-rose-600 ring-rose-500 dark:ring-rose-600",
+    palette: "bg-rose-500 dark:bg-rose-600 ring-rose-500 dark:ring-rose-600 text-white",
     active:
       "ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
@@ -908,6 +917,7 @@ export const buttonColors = [
         dark:text-rose-50
         dark:hover:bg-rose-500
         dark:focus:bg-rose-500
+        dark:active:bg-rose-500
         dark:hover:text-rose-50
         dark:focus:text-rose-50
         
@@ -929,7 +939,7 @@ export const buttonColors = [
   },
   {
     name: `red`,
-    palette: "bg-red-500 dark:bg-red-600 ring-red-500 dark:ring-red-600",
+    palette: "bg-red-500 dark:bg-red-600 ring-red-500 dark:ring-red-600 text-white",
     active:
       "ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
@@ -955,12 +965,12 @@ export const buttonColors = [
         prefers-contrast:hover:text-red-800
         
         dark:bg-stone-900
-        dark:text-red-500
+        dark:text-red-400
         dark:hover:bg-stone-900/50
         dark:focus:bg-stone-900/50
         dark:active:bg-stone-700
-        dark:hover:text-red-400
-        dark:focus:text-red-400
+        dark:hover:text-red-300
+        dark:focus:text-red-300
         
         dark:prefers-contrast:font-bold
         dark:prefers-contrast:bg-black
@@ -1000,6 +1010,7 @@ export const buttonColors = [
         dark:text-red-50
         dark:hover:bg-red-500
         dark:focus:bg-red-500
+        dark:active:bg-red-500
         dark:hover:text-red-50
         dark:focus:text-red-50
         
@@ -1026,21 +1037,21 @@ const ColorRadioButton = ({
   active,
   selected = false,
   name,
-  setSelected,
+  setCookie,
 }) => {
   return (
     <button
       className={`rounded-full w-6 h-6 m-1 hover:opacity-80 transition-colors flex justify-center items-center ${palette} ${
         selected ? active : ``
       }`}
-      onClick={() => setSelected(name)}
+      onClick={() => setCookie("selectedColor", name)}
     >
       {selected && <CheckIcon className="w-4 h-4 text-white" />}
     </button>
   );
 };
 
-function ColorButtons({ setSelectedColor, selectedColor, ...props }) {
+function ColorButtons({ setCookie, selectedColor, ...props }) {
   const { t } = useTranslation("button");
 
   return (
@@ -1059,7 +1070,7 @@ function ColorButtons({ setSelectedColor, selectedColor, ...props }) {
             active,
             selected: selectedColor === name,
             name,
-            setSelected: setSelectedColor,
+            setCookie: setCookie,
           }}
         />
       ))}
