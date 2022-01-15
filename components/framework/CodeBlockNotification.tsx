@@ -42,12 +42,11 @@ function CodeBlockNotification({
           <motion.div
             key={`2`}
             className="relative w-4/5 max-w-[240px] p-1 mb-4 rounded-full shadow-lg pointer-events-auto bg-stone-50/40 dark:bg-stone-700/60 backdrop-blur-2xl backdrop-filter sm:w-3/5 shadow-stone-700/10 overflow-hidden"
-            initial={{ y: shouldReduceMotion ? 0 : "150%", opacity: 0 }}
+            initial={{ y: shouldReduceMotion ? 0 : "150%" }}
             animate={{
               y: shouldReduceMotion ? 0 : enabled ? 0 : "150%",
-              opacity: 1,
             }}
-            exit={{ y: shouldReduceMotion ? 0 : "100%", opacity: 0 }}
+            exit={{ y: shouldReduceMotion ? 0 : "150%" }}
             tabIndex={0}
             aria-label={t(`notification-clicked`, {
               title: title ? title : t(`Clicked`),

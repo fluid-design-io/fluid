@@ -229,3 +229,222 @@ a.skip-main:active {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
+.glass-button-wrap {
+  background-image: -ms-linear-gradient(
+    top,
+    #3d709d 0%,
+    #82b5c8 50%,
+    #8494cf 75%,
+    #2f53ad 100%
+  );
+  background-image: -moz-linear-gradient(
+    top,
+    #3d709d 0%,
+    #82b5c8 50%,
+    #8494cf 75%,
+    #2f53ad 100%
+  );
+  background-image: -o-linear-gradient(
+    top,
+    #3d709d 0%,
+    #82b5c8 50%,
+    #8494cf 75%,
+    #2f53ad 100%
+  );
+  background-image: -webkit-linear-gradient(
+    top,
+    #3d709d 0%,
+    #82b5c8 50%,
+    #8494cf 75%,
+    #2f53ad 100%
+  );
+  background-image: linear-gradient(
+    to bottom,
+    #3d709d 0%,
+    #82b5c8 50%,
+    #8494cf 75%,
+    #2f53ad 100%
+  );
+}
+.glass-bg-circle {
+  display: block;
+  position: absolute;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+}
+.glass-bg-one {
+  width: max(60px, 3.5vw);
+  height: max(60px, 3.5vw);
+}
+.glass-bg-two {
+  width: max(85px, 6.5vw);
+  height: max(85px, 6.5vw);
+}
+.glass-bg-three {
+  width: max(45px, 7.5vw);
+  height: max(45px, 7.5vw);
+}
+.glass-bg-four {
+  width: max(75px, 9.5vw);
+  height: max(75px, 9.5vw);
+}
+.glass-bg-five {
+  width: max(60px, 10vw);
+  height: max(60px, 10vw);
+}
+.glass-bg-six {
+  width: max(80px, 12vw);
+  height: max(80px, 12vw);
+}
+.glass-bg-seven {
+  width: max(60px, 10vw);
+  height: max(60px, 10vw);
+}
+/*color transparency*/
+.white {
+  background: #fff;
+}
+.azure {
+  background: #3d709d;
+}
+.ciano {
+  background: #9dd7ec;
+}
+.purple {
+  background: #8494cf;
+}
+.blue {
+  background: #2f53ad;
+}
+/*blur*/
+.blur_one {
+}
+.blur_two {
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
+}
+.blur_three {
+  -webkit-filter: blur(8px);
+  -moz-filter: blur(8px);
+  -o-filter: blur(8px);
+  -ms-filter: blur(8px);
+  filter: blur(8px);
+}
+.blur_four {
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+}
+.blur_five {
+  -webkit-filter: blur(16px);
+  -moz-filter: blur(16px);
+  -o-filter: blur(16px);
+  -ms-filter: blur(16px);
+  filter: blur(16px);
+}
+/*opacity*/
+.op_one {
+  opacity: 0.1;
+}
+.op_two {
+  opacity: 0.2;
+}
+.op_three {
+  opacity: 0.3;
+}
+.op_four {
+  opacity: 0.4;
+}
+.op_five {
+  opacity: 0.5;
+}
+.op_six {
+  opacity: 0.6;
+}
+.op_seven {
+  opacity: 0.7;
+}
+
+.glass-bg-one {
+  animation: glass-bg-one 40s linear 0 infinite alternate;
+  -webkit-animation: glass-bg-one 40s linear 0 infinite alternate;
+}
+
+/*animations*/
+@-webkit-keyframes glass-bg-one {
+  0% {
+    -webkit-transform: translate(0px, 0px);
+  }
+  100% {
+    -webkit-transform: translate(20px, 300px);
+  }
+}
+@-moz-keyframes glass-bg-one {
+  0% {
+    -moz-transform: translate(0px, 0px);
+  }
+  100% {
+    -moz-transform: translate(20px, 300px);
+  }
+}
+@-o-keyframes glass-bg-one {
+  0% {
+    -o-transform: translate(0px, 0px);
+  }
+  100% {
+    -o-transform: translate(20px, 300px);
+  }
+}
+@keyframes glass-bg-one {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  100% {
+    transform: translate(20px, 300px);
+  }
+}
+
+.glass-bg-two {
+  animation: glass-bg-two 60s linear 5s infinite alternate;
+  -webkit-animation: glass-bg-two 60s linear 5s infinite alternate;
+}
+
+/*animations*/
+@-webkit-keyframes glass-bg-two {
+  0% {
+    -webkit-transform: translate(0px, 0px);
+  }
+  100% {
+    -webkit-transform: translate(10px, 200px);
+  }
+}
+@-moz-keyframes glass-bg-two {
+  0% {
+    -moz-transform: translate(0px, 0px);
+  }
+  100% {
+    -moz-transform: translate(10px, 200px);
+  }
+}
+@-o-keyframes glass-bg-two {
+  0% {
+    -o-transform: translate(0px, 0px);
+  }
+  100% {
+    -o-transform: translate(10px, 200px);
+  }
+}
+@keyframes glass-bg-two {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  100% {
+    transform: translate(10px, 200px);
+  }
+}

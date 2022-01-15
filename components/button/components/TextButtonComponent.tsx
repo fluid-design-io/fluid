@@ -5,12 +5,10 @@ import {
 } from "@heroicons/react/solid";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
-import { useState } from "react";
-import { useCookies } from "react-cookie";
 import AppSegment from "../../ui/AppSegment";
 import ButtonLabel from "./ButtonLabel";
-import ButtonRadius, { radius } from "./ButtonRadius";
-import ColorButtons, { buttonColors } from "./ColorButtons";
+import ButtonRadius from "./ButtonRadius";
+import ColorButtons from "./ColorButtons";
 
 function TextButtonComponent({
   setNotification,
@@ -19,6 +17,7 @@ function TextButtonComponent({
   selectedRadius,
   selectedType,
   selectedIcon,
+  iconOnly,
   setCookie,
   activeButton,
   activeRadius,
@@ -58,6 +57,7 @@ function TextButtonComponent({
           {...{
             setCookie,
             selectedIcon,
+            iconOnly,
             buttonLabel,
             palette: activeButton.palette,
           }}
@@ -97,13 +97,18 @@ function TextButtonComponent({
               }
             >
               {selectedIcon === "start" && (
-                <MailIconSolid className="w-3 h-3 mr-1" />
+                <MailIconSolid
+                  className={`w-3 h-3 ${JSON.parse(iconOnly) ? "" : "mr-1"}`}
+                />
               )}
-              {buttonLabel.length === 0
-                ? t(`Button Studio.small`, { ns: "button" })
-                : buttonLabel}
+              {!JSON.parse(iconOnly) &&
+                (buttonLabel.length === 0
+                  ? t(`Button Studio.small`, { ns: "button" })
+                  : buttonLabel)}
               {selectedIcon === "end" && (
-                <PaperAirplaneIconSolid className="w-3 h-3 ml-1" />
+                <PaperAirplaneIconSolid
+                  className={`w-3 h-3 ${JSON.parse(iconOnly) ? "" : "ml-1"}`}
+                />
               )}
             </motion.button>
             <motion.button
@@ -128,13 +133,18 @@ function TextButtonComponent({
               }
             >
               {selectedIcon === "start" && (
-                <MailIcon className="w-4 h-4 mr-2" />
+                <MailIcon
+                  className={`w-4 h-4 ${JSON.parse(iconOnly) ? "" : "mr-2"}`}
+                />
               )}
-              {buttonLabel.length === 0
-                ? t(`Button Studio.regular`, { ns: "button" })
-                : buttonLabel}
+              {!JSON.parse(iconOnly) &&
+                (buttonLabel.length === 0
+                  ? t(`Button Studio.regular`, { ns: "button" })
+                  : buttonLabel)}
               {selectedIcon === "end" && (
-                <PaperAirplaneIcon className="w-4 h-4 ml-1.5" />
+                <PaperAirplaneIcon
+                  className={`w-4 h-4 ${JSON.parse(iconOnly) ? "" : "ml-1.5"}`}
+                />
               )}
             </motion.button>
             <motion.button
@@ -159,13 +169,18 @@ function TextButtonComponent({
               }
             >
               {selectedIcon === "start" && (
-                <MailIcon className="w-5 h-5 mr-2" />
+                <MailIcon
+                  className={`w-5 h-5 ${JSON.parse(iconOnly) ? "" : "mr-2"}`}
+                />
               )}
-              {buttonLabel.length === 0
-                ? t(`Button Studio.medium`, { ns: "button" })
-                : buttonLabel}
+              {!JSON.parse(iconOnly) &&
+                (buttonLabel.length === 0
+                  ? t(`Button Studio.medium`, { ns: "button" })
+                  : buttonLabel)}
               {selectedIcon === "end" && (
-                <PaperAirplaneIcon className="w-5 h-5 ml-2" />
+                <PaperAirplaneIcon
+                  className={`w-5 h-5 ${JSON.parse(iconOnly) ? "" : "ml-2"}`}
+                />
               )}
             </motion.button>
             <motion.button
@@ -190,13 +205,18 @@ function TextButtonComponent({
               }
             >
               {selectedIcon === "start" && (
-                <MailIcon className="w-5 h-5 mr-2" />
+                <MailIcon
+                  className={`w-5 h-5 ${JSON.parse(iconOnly) ? "" : "mr-2"}`}
+                />
               )}
-              {buttonLabel.length === 0
-                ? t(`Button Studio.large`, { ns: "button" })
-                : buttonLabel}
+              {!JSON.parse(iconOnly) &&
+                (buttonLabel.length === 0
+                  ? t(`Button Studio.large`, { ns: "button" })
+                  : buttonLabel)}
               {selectedIcon === "end" && (
-                <PaperAirplaneIcon className="w-5 h-5 ml-2" />
+                <PaperAirplaneIcon
+                  className={`w-5 h-5 ${JSON.parse(iconOnly) ? "" : "ml-2"}`}
+                />
               )}
             </motion.button>
           </div>
@@ -227,13 +247,18 @@ function TextButtonComponent({
               }
             >
               {selectedIcon === "start" && (
-                <MailIconSolid className="w-3 h-3 mr-1" />
+                <MailIconSolid
+                  className={`w-3 h-3 ${JSON.parse(iconOnly) ? "" : "mr-1"}`}
+                />
               )}
-              {buttonLabel.length === 0
-                ? t(`Button Studio.small`, { ns: "button" })
-                : buttonLabel}
+              {!JSON.parse(iconOnly) &&
+                (buttonLabel.length === 0
+                  ? t(`Button Studio.small`, { ns: "button" })
+                  : buttonLabel)}
               {selectedIcon === "end" && (
-                <PaperAirplaneIconSolid className="w-3 h-3 ml-1" />
+                <PaperAirplaneIconSolid
+                  className={`w-3 h-3 ${JSON.parse(iconOnly) ? "" : "ml-1"}`}
+                />
               )}
             </motion.button>
             <motion.button
@@ -258,13 +283,20 @@ function TextButtonComponent({
               }
             >
               {selectedIcon === "start" && (
-                <MailIcon className="w-4 h-4 mr-2" />
+                <MailIcon
+                  className={`w-4 h-4 ${JSON.parse(iconOnly) ? "" : "mr-2"}`}
+                />
               )}
-              {buttonLabel.length === 0
-                ? t(`Button Studio.regular`, { ns: "button" })
-                : buttonLabel}
+              {!JSON.parse(iconOnly) &&
+                (buttonLabel.length === 0
+                  ? t(`Button Studio.regular`, { ns: "button" })
+                  : buttonLabel)}
               {selectedIcon === "end" && (
-                <PaperAirplaneIcon className="w-4 h-4 ml-1.5" />
+                <PaperAirplaneIcon
+                  className={`w-4 h-4 ml ${
+                    JSON.parse(iconOnly) ? "" : "ml-1.5"
+                  }`}
+                />
               )}
             </motion.button>
             <motion.button
@@ -289,13 +321,18 @@ function TextButtonComponent({
               }
             >
               {selectedIcon === "start" && (
-                <MailIcon className="w-5 h-5 mr-2" />
+                <MailIcon
+                  className={`w-5 h-5 ${JSON.parse(iconOnly) ? "" : "mr-2"}`}
+                />
               )}
-              {buttonLabel.length === 0
-                ? t(`Button Studio.medium`, { ns: "button" })
-                : buttonLabel}
+              {!JSON.parse(iconOnly) &&
+                (buttonLabel.length === 0
+                  ? t(`Button Studio.medium`, { ns: "button" })
+                  : buttonLabel)}
               {selectedIcon === "end" && (
-                <PaperAirplaneIcon className="w-5 h-5 ml-2" />
+                <PaperAirplaneIcon
+                  className={`w-5 h-5 ${JSON.parse(iconOnly) ? "" : "ml-2"}`}
+                />
               )}
             </motion.button>
             <motion.button
@@ -320,13 +357,18 @@ function TextButtonComponent({
               }
             >
               {selectedIcon === "start" && (
-                <MailIcon className="w-5 h-5 mr-2" />
+                <MailIcon
+                  className={`w-5 h-5 ${JSON.parse(iconOnly) ? "" : "mr-2"}`}
+                />
               )}
-              {buttonLabel.length === 0
-                ? t(`Button Studio.large`, { ns: "button" })
-                : buttonLabel}
+              {!JSON.parse(iconOnly) &&
+                (buttonLabel.length === 0
+                  ? t(`Button Studio.large`, { ns: "button" })
+                  : buttonLabel)}
               {selectedIcon === "end" && (
-                <PaperAirplaneIcon className="w-5 h-5 ml-2" />
+                <PaperAirplaneIcon
+                  className={`w-5 h-5 ${JSON.parse(iconOnly) ? "" : "ml-2"}`}
+                />
               )}
             </motion.button>
           </div>

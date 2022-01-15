@@ -565,7 +565,7 @@ export const buttonColors = [
   },
   {
     name: `sky`,
-    palette: "bg-sky-500 dark:bg-sky-600 text-black",
+    palette: "bg-sky-400 dark:bg-sky-600 text-black",
     active:
       "ring-sky-500 ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {

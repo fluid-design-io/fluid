@@ -132,7 +132,7 @@ function CodeBlock({
                     </div>
                     {selected && (
                       <motion.div
-                        className={`motion-reduce:hidden absolute z-[2] inset-0 w-full h-full rounded-md bg-stone-50/70 dark:bg-stone-200/10 prefers-contrast:bg-white dark:prefers-contrast:bg-stone-200/30 prefers-contrast:border prefers-contrast:border-stone-800 dark:prefers-contrast:border-stone-100`}
+                        className={`motion-reduce:hidden absolute z-[2] inset-0 w-full h-full rounded-md bg-stone-50/70 dark:bg-stone-200/20 prefers-contrast:bg-white dark:prefers-contrast:bg-stone-200/30 prefers-contrast:border prefers-contrast:border-stone-800 dark:prefers-contrast:border-stone-100`}
                         layoutId={`underline.${title}`}
                       />
                     )}

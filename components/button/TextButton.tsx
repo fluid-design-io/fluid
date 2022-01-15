@@ -16,6 +16,7 @@ function TextButton() {
     "selectedType",
     "selectedIcon",
     "buttonLabel",
+    "iconOnly",
   ]);
   const {
     selectedColor = "gray",
@@ -23,6 +24,7 @@ function TextButton() {
     selectedType = "color",
     selectedIcon = "none",
     buttonLabel = "",
+    iconOnly = "false",
   } = cookies;
 
   const activeButton = buttonColors.find((btn) => btn.name === selectedColor);
@@ -33,10 +35,10 @@ function TextButton() {
   const raw = {
     customizer: `
 /* 
-V1.0.0
+V1.0.2
 Button - Button Customizer
 Component by fluid-design.io
-Last updated: 1/14/21
+Last updated: 1/15/21
 
 ------ Extra Dependency Required ------
 
@@ -70,9 +72,11 @@ function Example() {
             : ``
         }
         ${
-          buttonLabel.length === 0
-            ? t(`Button Studio.small`, { ns: "button" })
-            : buttonLabel
+          !JSON.parse(iconOnly)
+            ? buttonLabel.length === 0
+              ? t(`Button Studio.small`, { ns: "button" })
+              : buttonLabel
+            : ``
         }
         ${
           selectedIcon === "end"
@@ -95,9 +99,11 @@ function Example() {
             : ``
         }
         ${
-          buttonLabel.length === 0
-            ? t(`Button Studio.regular`, { ns: "button" })
-            : buttonLabel
+          !JSON.parse(iconOnly)
+            ? buttonLabel.length === 0
+              ? t(`Button Studio.regular`, { ns: "button" })
+              : buttonLabel
+            : ``
         }
         ${
           selectedIcon === "end"
@@ -121,9 +127,11 @@ function Example() {
             : ``
         }
         ${
-          buttonLabel.length === 0
-            ? t(`Button Studio.medium`, { ns: "button" })
-            : buttonLabel
+          !JSON.parse(iconOnly)
+            ? buttonLabel.length === 0
+              ? t(`Button Studio.medium`, { ns: "button" })
+              : buttonLabel
+            : ``
         }
         ${
           selectedIcon === "end"
@@ -146,9 +154,11 @@ function Example() {
             : ``
         }
         ${
-          buttonLabel.length === 0
-            ? t(`Button Studio.large`, { ns: "button" })
-            : buttonLabel
+          !JSON.parse(iconOnly)
+            ? buttonLabel.length === 0
+              ? t(`Button Studio.large`, { ns: "button" })
+              : buttonLabel
+            : ``
         }
         ${
           selectedIcon === "end"
@@ -172,9 +182,11 @@ function Example() {
             : ``
         }
         ${
-          buttonLabel.length === 0
-            ? t(`Button Studio.small`, { ns: "button" })
-            : buttonLabel
+          !JSON.parse(iconOnly)
+            ? buttonLabel.length === 0
+              ? t(`Button Studio.small`, { ns: "button" })
+              : buttonLabel
+            : ``
         }
         ${
           selectedIcon === "end"
@@ -198,9 +210,11 @@ function Example() {
             : ``
         }
         ${
-          buttonLabel.length === 0
-            ? t(`Button Studio.regular`, { ns: "button" })
-            : buttonLabel
+          !JSON.parse(iconOnly)
+            ? buttonLabel.length === 0
+              ? t(`Button Studio.regular`, { ns: "button" })
+              : buttonLabel
+            : ``
         }
         ${
           selectedIcon === "end"
@@ -224,9 +238,11 @@ function Example() {
             : ``
         }
         ${
-          buttonLabel.length === 0
-            ? t(`Button Studio.medium`, { ns: "button" })
-            : buttonLabel
+          !JSON.parse(iconOnly)
+            ? buttonLabel.length === 0
+              ? t(`Button Studio.medium`, { ns: "button" })
+              : buttonLabel
+            : ``
         }
         ${
           selectedIcon === "end"
@@ -250,9 +266,11 @@ function Example() {
             : ``
         }
         ${
-          buttonLabel.length === 0
-            ? t(`Button Studio.large`, { ns: "button" })
-            : buttonLabel
+          !JSON.parse(iconOnly)
+            ? buttonLabel.length === 0
+              ? t(`Button Studio.large`, { ns: "button" })
+              : buttonLabel
+            : ``
         }
         ${
           selectedIcon === "end"
@@ -269,25 +287,16 @@ export default Example;
     `,
   };
   const features: { [x: string]: CodeBlockFeatureProps } = {
-    rounded: {
+    customizer: {
       ui: {
-        darkMode: {
-          description: t(`Rounded.dark`, { ns: "button" }),
-        },
+        darkMode: true,
       },
       interactions: {
-        click: {
-          description: t(`Rounded.click`, { ns: "button" }),
-        },
-        hover: {
-          description: t(`Rounded.hover`, { ns: "button" }),
-        },
+        click: true,
+        hover: true,
       },
-
       accessibility: {
-        contrast: {
-          description: t(`Rounded.contrast`, { ns: "button" }),
-        },
+        contrast: true,
       },
     },
   };
@@ -296,9 +305,9 @@ export default Example;
       <CodeBlock
         title={t(`Button Studio.sub-title`, { ns: "button" })}
         raw={raw.customizer}
+        features={features.customizer}
         notification={notification}
         onDismiss={() => setNotification(undefined)}
-        features={features.standard}
       >
         <div className="pt-20 pb-4 min-h-[28rem] grid place-items-center">
           <TextButtonComponent
@@ -308,6 +317,7 @@ export default Example;
               selectedRadius,
               selectedType,
               selectedIcon,
+              iconOnly,
               setCookie,
               activeButton,
               activeRadius,

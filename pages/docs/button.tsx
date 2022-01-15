@@ -4,7 +4,7 @@ import Doc from "../../components/framework/Doc";
 
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation, Trans } from "next-i18next";
-import { TextButton } from "../../components/button";
+import { GlassButton, TextButton } from "../../components/button";
 export async function getStaticProps({ locale }) {
   console.log({ locale });
   return {
@@ -24,10 +24,23 @@ function ButtonPage() {
   const sections = [
     {
       title: {
-        raw: "Button Studio",
+        raw: "Customizer",
         transformed: t("Button Studio.title", { ns: "button" }),
       },
+      description: (
+        <p>
+          <Trans as="p" i18nKey={"Button Studio.description"} ns={"button"} />
+        </p>
+      ),
       component: <TextButton />,
+    },
+    {
+      title: {
+        raw: "Glass Button",
+        transformed: t("Glass Button.title", { ns: "button" }),
+      },
+      description: t("Glass Button.description", { ns: "button" }),
+      component: <GlassButton />,
     },
   ];
 
