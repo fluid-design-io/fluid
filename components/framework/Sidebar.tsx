@@ -130,28 +130,47 @@ function SidebarMenu({ activeTab, disabled }) {
                 role="group"
                 aria-labelledby={`${groupName}-headline`}
               >
-                {groupList.map(({ name, href, isDone }) => (
-                  <Link key={`${groupName}.${name}`} href={`/docs/${href}`}>
-                    <a
+                {groupList.map(({ name, href, isDone }) =>
+                  !isDone ? (
+                    <p
                       className={`flex items-center px-3 py-2 text-sm font-medium rounded-md group contrast-bg contrast-text
+                  ${!isDone ? "opacity-50" : ""} 
+                  ${
+                    activeTab === href
+                      ? `bg-stone-100 text-stone-900 dark:bg-stone-700 dark:text-stone-100 prefers-contrast:border prefers-contrast:border-stone-700 dark:prefers-contrast:border-stone-200`
+                      : `text-stone-700 dark:text-stone-300/80 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-100`
+                  }`}
+                    >
+                      {t(name)}
+                      {!isDone && (
+                        <span className="pl-1 text-[0.65rem]">
+                          ({t("in-progress")})
+                        </span>
+                      )}
+                    </p>
+                  ) : (
+                    <Link key={`${groupName}.${name}`} href={`/docs/${href}`}>
+                      <a
+                        className={`flex items-center px-3 py-2 text-sm font-medium rounded-md group contrast-bg contrast-text
                       ${!isDone ? "opacity-50" : ""} 
                       ${
                         activeTab === href
                           ? `bg-stone-100 text-stone-900 dark:bg-stone-700 dark:text-stone-100 prefers-contrast:border prefers-contrast:border-stone-700 dark:prefers-contrast:border-stone-200`
                           : `text-stone-700 dark:text-stone-300/80 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-100`
                       }`}
-                    >
-                      <span className="flex items-center truncate">
-                        {t(name)}
-                        {!isDone && (
-                          <span className="pl-1 text-[0.65rem]">
-                            ({t("in-progress")})
-                          </span>
-                        )}
-                      </span>
-                    </a>
-                  </Link>
-                ))}
+                      >
+                        <span className="flex items-center truncate">
+                          {t(name)}
+                          {!isDone && (
+                            <span className="pl-1 text-[0.65rem]">
+                              ({t("in-progress")})
+                            </span>
+                          )}
+                        </span>
+                      </a>
+                    </Link>
+                  )
+                )}
               </div>
             </div>
           ))}
