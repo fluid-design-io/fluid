@@ -124,17 +124,17 @@ function ExamplesPage() {
       className: "shadow-xl h-full rounded-3xl overflow-hidden",
     },
     {
-      title: t("List", { ns: "list" }),
-      href: "/list/#detail",
-      Component: ListDetailComponent,
-      className: "max-w-md shadow-xl h-full !rounded-3xl example",
-    },
-    {
       title: t("Grid", { ns: "image" }),
       href: "/image/#grid",
       Component: ImageGridComponent,
       rowSpan: 1,
       className: "max-w-md shadow-xl h-full aspect-[2.16/1] rounded-3xl",
+    },
+    {
+      title: t("List", { ns: "list" }),
+      href: "/list/#detail",
+      Component: ListDetailComponent,
+      className: "max-w-md shadow-xl h-full !rounded-3xl example",
     },
   ];
   return (
@@ -148,7 +148,7 @@ function ExamplesPage() {
         <main id="main" title={t(`doc-for`, { title })}>
           <h1 className="md:pt-12">{title}</h1>
           <p className="pb-6 text-lg md:text-xl"> {t(`list-of-examples`)} </p>
-          <div className="relative grid items-stretch max-w-xs grid-cols-1 gap-4 mx-auto sm:gap-12 sm:max-w-full md:max-w-sm lg:max-w-2xl xl:max-w-[76rem] sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 lg:gap-8 xl:gap-12 ">
+          <div className="relative grid items-stretch max-w-xs grid-cols-1 gap-4 mx-auto sm:gap-12 sm:max-w-full lg:max-w-2xl xl:max-w-[76rem] sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-3 md:gap-6 lg:gap-8 xl:gap-12 grid-flow-row-dense grid-rows-[16]">
             {exampleComponents.map(({ className, Component, ...props }) => (
               <GridWrap
                 key={`example.${props.title}`}
