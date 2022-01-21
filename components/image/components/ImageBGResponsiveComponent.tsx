@@ -8,7 +8,7 @@ function ImageBGResponsiveComponent({ ...props }) {
       }`}
     >
       <div className="col-span-1">
-        <div className="relative w-full py-36">
+        <div className="relative w-full h-full py-36">
           <Image
             src="https://images.unsplash.com/photo-1532040675891-5991e7e3d0cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
             alt="Blue ocean and sand from birds eye view. By Ben Krygsman from Unsplash."
@@ -18,7 +18,7 @@ function ImageBGResponsiveComponent({ ...props }) {
           />
         </div>
       </div>
-      <div className="col-span-1 p-4 bg-stone-50 dark:bg-stone-900">
+      <div className="flex items-center justify-center col-span-1 p-4 bg-stone-50 dark:bg-stone-900">
         <svg
           className="w-full h-64 border-2 border-dashed rounded text-stone-200 dark:text-stone-600 dark:border-stone-600 border-stone-300"
           preserveAspectRatio="none"

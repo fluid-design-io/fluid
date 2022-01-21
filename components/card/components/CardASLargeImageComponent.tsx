@@ -9,7 +9,7 @@ function CardASLargeImageComponent({
   const { t } = useTranslation("card");
   return (
     <div
-      className={`w-full max-w-xs overflow-hidden shadow component card-bg rounded-xl h-full flex flex-col items-stretch relative motion-safe:hover:scale-[0.97] motion-safe:active:scale-95 motion-safe:transition ${
+      className={`w-full max-w-xs overflow-hidden shadow-lg shadow-stone-900/10 component card-bg rounded-xl h-full flex flex-col items-stretch relative motion-safe:hover:scale-[0.97] motion-safe:active:scale-95 motion-safe:transition ${
         props.className ? props.className : ` aspect-[1/1.15]`
       }`}
     >
@@ -53,7 +53,7 @@ function CardASLargeImageComponent({
       </div>
       {/* Top Content */}
       <div className="absolute top-0 left-0 p-5 z-[2] pointer-events-none dark:prefers-contrast:[text-shadow:0px_2px_7.5px_rgba(0,0,0,0.75)]">
-        <p className="text-sm font-medium uppercase text-stone-800/60 dark:text-stone-200/75 transition prefers-contrast:font-bold prefers-contrast:text-stone-800 dark:prefers-contrast:text-stone-100">
+        <p className="text-sm font-medium uppercase transition text-stone-800/60 dark:text-stone-200/75 prefers-contrast:font-bold prefers-contrast:text-stone-800 dark:prefers-contrast:text-stone-100">
           {t("Subtitle", { ns: "common" })}
         </p>
         <h3 className="w-4/5 pt-1 text-3xl font-bold dark:text-stone-50 text-stone-800">

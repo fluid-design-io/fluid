@@ -37,7 +37,7 @@ const secondaryNavigation = [
       // { name: "Hero", href: "hero", isDone: false },
       // { name: "Indicator", href: "indicator", isDone: false },
       { name: "Image", href: "image", isDone: true },
-      { name: "Link", href: "link", isDone: false },
+      { name: "List", href: "list", isDone: true },
       // { name: "Mask", href: "mask", isDone: false },
       // { name: "Menu", href: "menu", isDone: false },
       // { name: "Modal", href: "modal", isDone: false },
@@ -65,7 +65,7 @@ function classNames(...classes) {
 function SidebarMenu({ activeTab, disabled }) {
   const { t } = useTranslation("navbar");
   return (
-    <div className="md:fixed z-40 top-0 left-0 h-full max-h-screen overflow-x-hidden overflow-y-auto bg-stone-50 dark:bg-stone-900 w-[18rem] sm:w-[12.5rem] md:w-[15.625rem] lg:w-[13.5rem] xl:w-[15.625rem] flex pb-4 border-r border-stone-200 dark:border-stone-700 prefers-contrast:border-stone-600 dark:prefers-contrast:border-stone-200 dark:prefers-contrast:bg-[rgb(18,15,13)]">
+    <div className="md:fixed z-40 top-0 left-0 h-full max-h-screen overflow-x-hidden overflow-y-auto bg-stone-50 dark:bg-stone-900 w-[18rem] sm:w-[12.5rem] md:w-[15.625rem] lg:w-[13.5rem] xl:w-[15.625rem] flex pb-4 border-r border-stone-200 dark:border-stone-700 prefers-contrast:border-stone-600 dark:prefers-contrast:border-stone-200 dark:prefers-contrast:bg-[rgb(18,15,13)] min-h-screen">
       <div className="w-full">
         <Link href={"/"}>
           <a
@@ -133,12 +133,12 @@ function SidebarMenu({ activeTab, disabled }) {
                 {groupList.map(({ name, href, isDone }) => (
                   <Link key={`${groupName}.${name}`} href={`/docs/${href}`}>
                     <a
-                      className={`flex items-center px-3 py-2 text-sm font-medium rounded-md group 
+                      className={`flex items-center px-3 py-2 text-sm font-medium rounded-md group contrast-bg contrast-text
                       ${!isDone ? "opacity-50" : ""} 
                       ${
                         activeTab === href
                           ? `bg-stone-100 text-stone-900 dark:bg-stone-700 dark:text-stone-100 prefers-contrast:border prefers-contrast:border-stone-700 dark:prefers-contrast:border-stone-200`
-                          : `text-stone-700 dark:text-stone-300/80 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-100 hover:bg-stone-50 hover:text-stone-900 dark:hover:bg-stone-700/80 dark:hover:text-stone-100`
+                          : `text-stone-700 dark:text-stone-300/80 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-100`
                       }`}
                     >
                       <span className="flex items-center truncate">

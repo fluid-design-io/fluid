@@ -43,6 +43,15 @@ a {
   .focus-ring {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-stone-500 dark:focus-visible:ring-offset-stone-600;
   }
+  .contrast-ring {
+    @apply outline-none ring-1 ring-offset-1 ring-stone-800 dark:ring-offset-stone-200;
+  }
+  .contrast-bg {
+    @apply outline-none hover:prefers-contrast:!bg-amber-300 prefers-contrast:focus-within:!bg-amber-300 dark:hover:prefers-contrast:!bg-amber-400 dark:focus-within:prefers-contrast:!bg-amber-400 hover:prefers-contrast:contrast-ring focus-within:prefers-contrast:contrast-ring;
+  }
+  .contrast-text {
+    @apply prefers-contrast:focus-within:!text-stone-900 prefers-contrast:hover:!text-stone-900 dark:prefers-contrast:focus-within:!text-stone-900 dark:prefers-contrast:hover:!text-stone-900;
+  }
   @media (hover) {
     .touch-opacity-0 {
       opacity: 0;
@@ -229,6 +238,15 @@ a.skip-main:active {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
+.example .list-detail-li{
+  @apply px-4 py-1.5;
+}
+
+
+
+
+
+/* iOS BG */
 .glass-button-wrap {
   background-image: -ms-linear-gradient(
     top,

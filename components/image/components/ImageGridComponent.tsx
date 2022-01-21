@@ -40,7 +40,7 @@ function ImageGridComponent({ setNotification, ...props }) {
   }
   return (
     <div
-      className={`w-full max-w-xs overflow-hidden transform translate-x-0 shadow component card-bg rounded-xl  ${
+      className={`w-full max-w-xs overflow-hidden transform translate-x-0 shadow component card-bg rounded-xl ${
         props.className ? props.className : `aspect-[1.5/1]`
       }`}
     >

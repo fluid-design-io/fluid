@@ -19,6 +19,7 @@ import {
 } from "../../components/image";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
+import { ListDetailComponent } from "../../components/list";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -123,6 +124,12 @@ function ExamplesPage() {
       className: "shadow-xl h-full rounded-3xl overflow-hidden",
     },
     {
+      title: t("List", { ns: "list" }),
+      href: "/list/#detail",
+      Component: ListDetailComponent,
+      className: "max-w-md shadow-xl h-full !rounded-3xl example",
+    },
+    {
       title: t("Grid", { ns: "image" }),
       href: "/image/#grid",
       Component: ImageGridComponent,
@@ -141,7 +148,7 @@ function ExamplesPage() {
         <main id="main" title={t(`doc-for`, { title })}>
           <h1 className="md:pt-12">{title}</h1>
           <p className="pb-6 text-lg md:text-xl"> {t(`list-of-examples`)} </p>
-          <div className="relative grid items-stretch max-w-xs grid-cols-1 gap-4 mx-auto sm:gap-12 sm:max-w-full md:max-w-sm lg:max-w-2xl xl:max-w-[76rem] sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 lg:gap-8 xl:gap-12">
+          <div className="relative grid items-stretch max-w-xs grid-cols-1 gap-4 mx-auto sm:gap-12 sm:max-w-full md:max-w-sm lg:max-w-2xl xl:max-w-[76rem] sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 lg:gap-8 xl:gap-12 ">
             {exampleComponents.map(({ className, Component, ...props }) => (
               <GridWrap
                 key={`example.${props.title}`}
@@ -159,6 +166,9 @@ function ExamplesPage() {
                 />
               </GridWrap>
             ))}
+            <div className="w-full aspect-[2.16/1] hidden sm:block row-span-1" />
+            <div className="w-full aspect-[2.16/1] hidden sm:block row-span-1" />
+            <div className="w-full aspect-[2.16/1] hidden sm:block row-span-1" />
           </div>
         </main>
       </div>
