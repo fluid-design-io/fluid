@@ -18,7 +18,7 @@ export async function getStaticProps({ locale }) {
 function CardPage() {
   const { t } = useTranslation("card");
   const meta: SiteMeta = {
-    title: "Fluid Design | " + t("Card", { ns: "card" }),
+    title: "Fluid Design Docs | " + t("Card", { ns: "card" }),
     description:
       "Cards are a standard piece of UI and are widely used accross many use cases. It can contain one or multiple elements, components below shows varianties of examples.",
   };

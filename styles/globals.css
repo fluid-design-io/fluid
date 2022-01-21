@@ -63,7 +63,7 @@ h1:not(:where([class~="component"] *)) {
   @apply pb-4 text-4xl font-bold tracking-tight text-stone-900 sm:text-6xl dark:text-stone-50;
 }
 h2:not(:where([class~="component"] *)) {
-  @apply text-3xl font-bold tracking-tight text-stone-900 sm:text-5xl dark:text-stone-50;
+  @apply text-xl font-medium text-stone-900 sm:text-2xl dark:text-stone-50 prefers-contrast:font-semibold;
 }
 h3:not(:where([class~="component"] *)) {
   @apply text-xl font-medium text-stone-900 sm:text-2xl dark:text-stone-50 prefers-contrast:font-semibold;

@@ -7,6 +7,7 @@ import { MotionPageProps, SiteMeta } from "../../interfaces/framwork";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import { useEffect, useState } from "react";
+import { getBody, getBodyExcept } from "../../lib/getBody";
 
 function Page({
   header = true,
@@ -109,20 +110,27 @@ function Page({
           <Sidebar hideNav={hideNav} docNav={props?.docNav || undefined} />
         )}
       </div>
-      <AnimatePresence exitBeforeEnter>
-        <motion.div
-          key={`page-${asPath}`}
-          initial={enableMotion ? { opacity: 0 } : {}}
-          animate={enableMotion ? { opacity: 1 } : {}}
-          exit={enableMotion ? { opacity: 0 } : {}}
-          transition={enableMotion ? { duration: 0.65 } : {}}
-          className={`flex-1 max-w-full overflow-x-hidden ${className ? className : ``}  ${
-            sidebar ? `md:ml-[15.625rem] lg:ml-[13.5rem] xl:ml-[15.625rem]` : ``
-          }`}
-        >
-          {children}
-        </motion.div>
-      </AnimatePresence>
+      <div className="flex">
+        <AnimatePresence exitBeforeEnter>
+          <motion.main
+            key={`page-${asPath}`}
+            initial={enableMotion ? { opacity: 0 } : {}}
+            animate={enableMotion ? { opacity: 1 } : {}}
+            exit={enableMotion ? { opacity: 0 } : {}}
+            transition={enableMotion ? { duration: 0.65 } : {}}
+            className={`flex-1 max-w-full overflow-x-hidden ${
+              className ? className : ``
+            }  ${
+              sidebar
+                ? `md:ml-[15.625rem] lg:ml-[13.5rem] xl:ml-[15.625rem]`
+                : ``
+            }`}
+          >
+            {getBodyExcept(children, "sidenav")}
+          </motion.main>
+        {getBody(children, "sidenav")}
+        </AnimatePresence>
+      </div>
       <div
         className={`${
           sidebar ? `md:ml-[15.625rem] lg:ml-[13.5rem] xl:ml-[15.625rem]` : ``

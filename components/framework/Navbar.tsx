@@ -4,6 +4,7 @@ import { Popover, Transition } from "@headlessui/react";
 import { ChartBarIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import { useTranslation, i18n } from "next-i18next";
+import { DocSearch } from "@docsearch/react";
 import Link from "next/link";
 import logoDark from "../../public/assets/icon-dark.svg";
 import logoLight from "../../public/assets/icon-light.svg";
@@ -49,7 +50,7 @@ export default function Navbar({ logo = true, ...props }) {
             </Link>
           </div>
           {!logo && (
-            <div className="sm:text-sm text-left text-stone-500 dark:text-stone-400 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50 text-xs">
+            <div className="text-xs text-left sm:text-sm text-stone-500 dark:text-stone-400 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50">
               V{packageInfo.version}
             </div>
           )}
@@ -87,6 +88,12 @@ export default function Navbar({ logo = true, ...props }) {
                 {t("Docs")}
               </a>
             </Link>
+            <DocSearch
+              appId="K0KL3WHKQ9"
+              indexName="fluid-design"
+              apiKey="d0f98b3c812f5772095392ffbbc76496"
+              
+            />
             <div className="w-0.5 h-3 bg-stone-400 dark:bg-stone-500" />
             <Popover className="relative flex items-center">
               {({ open }) => (

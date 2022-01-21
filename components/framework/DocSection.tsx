@@ -20,8 +20,8 @@ function DocSection({
   };
   return (
     <section id={slug(raw)} className="pb-12">
-      <h3
-        className={`w-full group flex items-center ${
+      <h2
+        className={`w-full group flex items-center doc-section-header ${
           description ? "pb-4" : ""
         }`}
       >
@@ -32,18 +32,19 @@ function DocSection({
           <a
             href={`#${slug(raw)}`}
             className="absolute right-0 flex items-center ml-0 mr-4 border-0 opacity-0 md:right-auto md:mr-auto md:-ml-10 lg:-ml-7 xl:-ml-10 hash group-hover:opacity-100 focus:opacity-100"
+            title={`Click to copy section for ${transformed}`}
             aria-live="assertive"
-          >
-            <span className="sr-only">
-              {isCoping
+            aria-label={
+              isCoping
                 ? t(`Section hashtag copied`)
-                : `${transformed}. ${t(`Click to copy section hashtag`)}`}
-            </span>
+                : `${transformed}. ${t(`Click to copy section hashtag`)}`
+            }
+          >
             <HashtagIcon className="flex items-center justify-center w-6 h-6 p-1 text-gray-400 rounded-md shadow-sm ring-1 ring-gray-900/5 hover:ring-gray-900/10 hover:shadow hover:text-gray-700 dark:bg-gray-700 dark:text-gray-300 dark:shadow-none dark:ring-0" />
           </a>
         </CopyToClipboard>
-        <span>{transformed}</span>
-      </h3>
+        {transformed}
+      </h2>
       {description && typeof description === "string" ? (
         <p>{description}</p>
       ) : (

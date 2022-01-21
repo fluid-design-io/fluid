@@ -17,7 +17,7 @@ export async function getStaticProps({ locale }) {
 function ButtonPage() {
   const { t } = useTranslation("button");
   const meta: SiteMeta = {
-    title: "Fluid Design | " + t("Button", { ns: "button" }),
+    title: "Fluid Design Docs | " + t("Button", { ns: "button" }),
     description:
       "Buttons provide a clickable element that can be used in forms or anywhere simple, standard button functionality is required. They can show text, icons, or both. Buttons can be styled with a variety of attributes to look a certain way.",
   };

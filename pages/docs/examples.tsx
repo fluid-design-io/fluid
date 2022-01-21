@@ -70,7 +70,7 @@ function ExamplesPage() {
   const router = useRouter();
   const title = t("Examples");
   const meta: SiteMeta = {
-    title: "Fluid Design | " + title,
+    title: "Fluid Design Docs | " + title,
   };
   const [notification, setNotification] = useState(undefined);
   const exampleComponents = [

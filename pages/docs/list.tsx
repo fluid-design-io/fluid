@@ -17,7 +17,7 @@ export async function getStaticProps({ locale }) {
 function ListPage() {
   const { t } = useTranslation("list");
   const meta: SiteMeta = {
-    title: "Fluid Design | " + t("List", { ns: "list" }),
+    title: "Fluid Design Docs | " + t("List", { ns: "list" }),
     description:
       "lists are a standard piece of UI and are widely used accross many use cases. It can contain one or multiple elements, components below shows varianties of examples.",
   };

@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { appWithTranslation } from "next-i18next";
 import nextI18nextConfig from "../next-i18next.config";
-
+import '@docsearch/css';
+import "flag-icons/css/flag-icons.min.css";
 import "../styles/globals.css";
 import "../styles/neumorphism.css";
-import "flag-icons/css/flag-icons.min.css";
 import { CookiesProvider } from "react-cookie";
 
 function MyApp({ Component, pageProps }) {

@@ -19,7 +19,7 @@ export async function getStaticProps({ locale }) {
 function CardPage() {
   const { t } = useTranslation();
   const meta: SiteMeta = {
-    title: "Fluid Design | " + t("Image", { ns: "navbar" }),
+    title: "Fluid Design Docs | " + t("Image", { ns: "navbar" }),
     description: t("image-site-desc", { ns: "image" }),
   };
   const sections = [
