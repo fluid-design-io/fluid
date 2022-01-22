@@ -92,7 +92,6 @@ export default function Navbar({ logo = true, ...props }) {
               appId="K0KL3WHKQ9"
               indexName="fluid-design"
               apiKey="d0f98b3c812f5772095392ffbbc76496"
-              
             />
             <div className="w-0.5 h-3 bg-stone-400 dark:bg-stone-500" />
             <Popover className="relative flex items-center">

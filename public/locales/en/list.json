@@ -14,6 +14,16 @@
         "ul": "List of states in United States",
         "loadmore": "Load more"
     },
+    "WithIcon": {
+        "title": "With Icon",
+        "list": {
+            "explore": "explore",
+            "user": "user",
+            "settings": "settings",
+            "cart": "cart",
+            "fav": "favorites"
+        }
+    },
     "country": {
         "Alabama": "Alabama",
         "Alaska": "Alaska",

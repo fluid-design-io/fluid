@@ -31,8 +31,9 @@ function DocSection({
         >
           <a
             href={`#${slug(raw)}`}
-            className="absolute right-0 flex items-center ml-0 mr-4 border-0 opacity-0 md:right-auto md:mr-auto md:-ml-10 lg:-ml-7 xl:-ml-10 hash group-hover:opacity-100 focus:opacity-100"
+            className="absolute right-0 flex items-center ml-0 mr-4 border-0 opacity-0 anchor anchor-link md:right-auto md:mr-auto md:-ml-10 lg:-ml-7 xl:-ml-10 hash group-hover:opacity-100 focus:opacity-100"
             title={`Click to copy section for ${transformed}`}
+            data-target="app.anchorLink"
             aria-live="assertive"
             aria-label={
               isCoping

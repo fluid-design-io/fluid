@@ -30,6 +30,7 @@ export async function getStaticProps({ locale }) {
         "index",
         "card",
         "image",
+        "list",
       ])),
       // Will be passed to the page component as props
     },

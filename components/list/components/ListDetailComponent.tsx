@@ -65,7 +65,7 @@ function ListDetailComponent({ setNotification, ...props }) {
         props.className ? props.className : ``
       } `}
     >
-      <ul className="divide-y select-none divide-stone-200/50 dark:divide-stone-700/30">
+      <ul className="divide-y select-none divide-stone-200/50 dark:divide-stone-700/30 prefers-contrast:divide-stone-600 dark:prefers-contrast:divide-stone-200">
         <li className="flex justify-between px-2 py-1 list-detail-li">
           <h1 className="text-xs font-semibold text-stone-700 dark:text-stone-200">
             Animal book
