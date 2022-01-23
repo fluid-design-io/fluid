@@ -5,7 +5,7 @@
         "title": "简洁"
     },
     "Detail": {
-        "title": "详情",
+        "title": "详细",
         "started": "星标",
         "unstarted": "未星标"
     },
@@ -13,6 +13,16 @@
         "title": "文字",
         "ul": "美国各州列表",
         "loadmore": "加载更多"
+    },
+    "WithIcon": {
+        "title": "带图标",
+        "list": {
+            "explore": "探索",
+            "user": "用户",
+            "settings": "设置",
+            "cart": "购物车",
+            "fav": "收藏"
+        }
     },
     "country": {
         "Alabama": "阿拉巴马州",

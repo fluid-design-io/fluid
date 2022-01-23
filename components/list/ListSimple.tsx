@@ -4,6 +4,8 @@ import { useTranslation } from "next-i18next";
 import ListTextOnlyComponent from "./components/ListTextOnlyComponent";
 //@ts-ignore
 import textOnly from "raw-loader!../../lib/code/ListSimpleTextOnly.code.txt";
+//@ts-ignore
+import withIcon from "raw-loader!../../lib/code/ListWithIcon.code.txt";
 import { ListWithIconComponent } from ".";
 import { useState } from "react";
 
@@ -12,7 +14,7 @@ function ListSimple() {
   const { t } = useTranslation("common");
   const raw = {
     textOnly,
-    withIcon: "",
+    withIcon,
   };
   return (
     <>

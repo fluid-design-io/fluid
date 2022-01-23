@@ -2,22 +2,19 @@
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { ChartBarIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
-import Image from "next/image";
 import { useTranslation, i18n } from "next-i18next";
 import { DocSearch } from "@docsearch/react";
 import Link from "next/link";
-import logoDark from "../../public/assets/icon-dark.svg";
-import logoLight from "../../public/assets/icon-light.svg";
 
-import packageInfo from "../../package.json";
 import { ChevronDownIcon, TranslateIcon } from "@heroicons/react/solid";
 import { languages } from "../../lib/languages";
 import { useRouter } from "next/router";
+import AppLogo from "../ui/AppLogo";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-export default function Navbar({ logo = true, ...props }) {
+export default function Navbar({ sidebar, ...props }) {
   const { t } = useTranslation("navbar");
   const router = useRouter();
   const { pathname, asPath, query } = router;
@@ -35,25 +32,27 @@ export default function Navbar({ logo = true, ...props }) {
       } `}
     >
       <div className="flex justify-between items-center px-4 py-4 md:py-2 sm:px-6 lg:px-8 md:justify-start md:space-x-2.5 border-b border-b-stone-200 dark:border-b-stone-700 backdrop-filter backdrop-blur-xl bg-stone-100/70 dark:bg-stone-800/60 prefers-contrast:bg-stone-100/90 dark:prefers-contrast:bg-black/80">
-        <div className={`flex items-center space-x-4 ${logo ? "" : "w-full"}`}>
-          <div className={`${logo ? "" : `md:hidden`}`}>
-            <Link href={"/"}>
-              <a className={`flex flex-shrink-0 h-7 w-7`}>
-                <span className="sr-only">Fluid Design</span>
-                <div className="w-auto h-7 dark:hidden">
-                  <Image alt="logo" src={logoDark} width={28} height={28} />
-                </div>
-                <div className="hidden w-auto h-7 dark:block">
-                  <Image alt="logo" src={logoLight} width={28} height={28} />
-                </div>
-              </a>
-            </Link>
-          </div>
-          {!logo && (
-            <div className="text-xs text-left sm:text-sm text-stone-500 dark:text-stone-400 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50">
-              V{packageInfo.version}
+        <div className={`flex items-center space-x-4 flex-grow justify-between md:justify-start`}>
+          <AppLogo className={`${sidebar ? "md:hidden" : ""}`} />
+          {!sidebar && (
+            <div
+              className={` hidden md:block flex-shrink-0`}
+              aria-hidden={sidebar}
+            >
+              <Link href={"/"}>
+                <a className="flex">
+                  <div className="flex font-[Nunito] text-stone-700 dark:text-stone-200 font-bold text-[1.175rem]">
+                    <p>Fluid Design</p>
+                  </div>
+                </a>
+              </Link>
             </div>
           )}
+          <DocSearch
+            appId="K0KL3WHKQ9"
+            indexName="fluid-design"
+            apiKey="d0f98b3c812f5772095392ffbbc76496"
+          />
         </div>
         <div className="-my-2 -mr-2 md:hidden">
           <Popover.Button className="inline-flex items-center justify-center p-2 rounded-md text-stone-400 hover:text-stone-500 hover:bg-stone-100 dark:hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-stone-500 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50">
@@ -61,38 +60,13 @@ export default function Navbar({ logo = true, ...props }) {
             <MenuIcon className="w-6 h-6" aria-hidden="true" />
           </Popover.Button>
         </div>
-        <div
-          className={` hidden md:block flex-shrink-0 ${
-            !logo ? "opacity-0 pointer-events-none hidden" : ""
-          }`}
-          aria-hidden={!logo}
-        >
-          <Link href={"/"}>
-            <a className="flex">
-              <div className="flex font-[Nunito] text-stone-700 dark:text-stone-200 font-bold text-[1.175rem]">
-                <p>Fluid Design</p>
-              </div>
-            </a>
-          </Link>
-        </div>
-        <div className="hidden w-full lg:block" />
-        <div className="hidden md:flex-1 md:flex md:items-center md:justify-between">
+        <div className="hidden md:flex">
           <div className="flex items-center flex-shrink-0 space-x-4 text-sm lg:space-x-6 md:ml-12">
-            {/* <Link href="/Docs">
-              <a className="font-medium text-stone-500 hover:text-stone-900 dark:text-stone-200">
-                Studio
-              </a>
-            </Link> */}
             <Link href="/docs">
               <a className="font-medium text-stone-500 hover:text-stone-900 dark:text-stone-200">
                 {t("Docs")}
               </a>
             </Link>
-            <DocSearch
-              appId="K0KL3WHKQ9"
-              indexName="fluid-design"
-              apiKey="d0f98b3c812f5772095392ffbbc76496"
-            />
             <div className="w-0.5 h-3 bg-stone-400 dark:bg-stone-500" />
             <Popover className="relative flex items-center">
               {({ open }) => (
@@ -187,17 +161,10 @@ export default function Navbar({ logo = true, ...props }) {
           focus
           className="absolute inset-x-0 top-0 p-2 transition origin-top-right transform motion-reduce:transition-none md:hidden"
         >
-          <div className="divide-y-2 rounded-lg shadow-lg bg-stone-200 dark:bg-stone-700 ring-1 ring-black ring-opacity-5 divide-stone-100/50 dark:divide-stone-600 prefers-contrast:bg-stone-50 dark:prefers-contrast:bg-stone-900 prefers-contrast:border prefers-contrast:border-stone-100 prefers-contrast:divide-stone-600 dark:prefers-contrast:divide-stone-200">
+          <div className="divide-y-2 rounded-lg shadow-lg bg-stone-50 dark:bg-stone-700 ring-1 ring-black ring-opacity-5 divide-stone-200/50 dark:divide-stone-600 prefers-contrast:bg-stone-50 dark:prefers-contrast:bg-stone-900 prefers-contrast:border prefers-contrast:border-stone-100 prefers-contrast:divide-stone-600 dark:prefers-contrast:divide-stone-200">
             <div className="px-4 pt-4 pb-4">
               <div className="flex items-center justify-between">
-                <div>
-                  <div className="w-auto h-7 dark:hidden">
-                    <Image alt="logo" src={logoDark} width={28} height={28} />
-                  </div>
-                  <div className="hidden w-auto h-7 dark:block">
-                    <Image alt="logo" src={logoLight} width={28} height={28} />
-                  </div>
-                </div>
+                <AppLogo />
                 <div className="-mr-2">
                   <Popover.Button className="inline-flex items-center justify-center p-2 rounded-md text-stone-400 hover:text-stone-500 hover:bg-stone-100 dark:hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-stone-500 prefers-contrast:text-stone-700 dark:prefers-contrast:text-stone-200">
                     <span className="sr-only">{t("Close menu")}</span>

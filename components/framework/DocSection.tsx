@@ -21,19 +21,18 @@ function DocSection({
   return (
     <section id={slug(raw)} className="pb-12">
       <h2
-        className={`w-full group flex items-center doc-section-header ${
+        className={`w-full group flex items-center doc-section-header anchor ${
           description ? "pb-4" : ""
         }`}
       >
         <CopyToClipboard
-          text={`https://fluid-design.io/docs/${docTitle}/#${slug(raw)}`}
+          text={`https://fluid-design.io/docs/${docTitle.toLowerCase()}/#${slug(raw)}`}
           onCopy={handleCopy}
         >
           <a
             href={`#${slug(raw)}`}
-            className="absolute right-0 flex items-center ml-0 mr-4 border-0 opacity-0 anchor anchor-link md:right-auto md:mr-auto md:-ml-10 lg:-ml-7 xl:-ml-10 hash group-hover:opacity-100 focus:opacity-100"
-            title={`Click to copy section for ${transformed}`}
-            data-target="app.anchorLink"
+            className="absolute right-0 flex items-center ml-0 mr-4 border-0 opacity-0 anchor anchor-link hash-link md:right-auto md:mr-auto md:-ml-10 lg:-ml-7 xl:-ml-10 hash group-hover:opacity-100 focus:opacity-100"
+            title={`Direct link to heading ${transformed}`}
             aria-live="assertive"
             aria-label={
               isCoping

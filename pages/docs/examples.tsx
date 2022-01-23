@@ -121,7 +121,7 @@ function ExamplesPage() {
       title: t("Background", { ns: "image" }),
       href: "/image/#background",
       Component: ImageBGResponsiveComponent,
-      colSpan: "col-span-1 md:col-span-2",
+      colSpan: "col-span-1 lg:col-span-2",
       className: "shadow-xl h-full rounded-3xl overflow-hidden",
     },
     {
@@ -149,7 +149,7 @@ function ExamplesPage() {
         <main id="main" title={t(`doc-for`, { title })}>
           <h1 className="md:pt-12">{title}</h1>
           <p className="pb-6 text-lg md:text-xl"> {t(`list-of-examples`)} </p>
-          <div className="relative grid items-stretch max-w-xs grid-cols-1 gap-4 mx-auto sm:gap-12 sm:max-w-full lg:max-w-2xl xl:max-w-[76rem] sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-3 md:gap-6 lg:gap-8 xl:gap-12 grid-flow-row-dense grid-rows-[16]">
+          <div className="relative grid items-stretch mx-auto grid-cols-1 max-w-xs lg:max-w-2xl lg:grid-cols-2 xl:max-w-none xl:grid-cols-3 md:gap-6 lg:gap-8 xl:gap-12 grid-flow-row-dense grid-rows-[16]">
             {exampleComponents.map(({ className, Component, ...props }) => (
               <GridWrap
                 key={`example.${props.title}`}
@@ -167,9 +167,6 @@ function ExamplesPage() {
                 />
               </GridWrap>
             ))}
-            <div className="w-full aspect-[2.16/1] hidden sm:block row-span-1" />
-            <div className="w-full aspect-[2.16/1] hidden sm:block row-span-1" />
-            <div className="w-full aspect-[2.16/1] hidden sm:block row-span-1" />
           </div>
         </main>
       </div>

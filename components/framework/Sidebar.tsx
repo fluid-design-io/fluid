@@ -5,14 +5,13 @@ import {
   MenuAlt4Icon,
   ViewGridIcon,
 } from "@heroicons/react/solid";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment, useEffect, useState } from "react";
-import logoDark from "../../public/assets/icon-dark.svg";
-import logoLight from "../../public/assets/icon-light.svg";
 
 import { useTranslation } from "next-i18next";
+import AppLogo from "../ui/AppLogo";
+import packageInfo from "../../package.json";
 
 const navigation = [
   { name: "Examples", href: "examples", icon: ViewGridIcon },
@@ -73,20 +72,18 @@ function SidebarMenu({ activeTab, disabled }) {
             aria-label="Navigate to home page"
           >
             <span className="sr-only">Fluid Design</span>
-            <div className="w-auto h-7 dark:hidden">
-              <Image alt="logo" src={logoDark} width={28} height={28} />
-            </div>
-            <div className="hidden w-auto h-7 dark:block">
-              <Image alt="logo" src={logoLight} width={28} height={28} />
-            </div>
-            <div className="flex font-[Nunito] text-stone-700 dark:text-stone-200 font-bold md:text-[1.175rem]">
+            <AppLogo />
+            <div className="font-[Nunito] text-stone-700 dark:text-stone-200 font-bold md:text-[1.175rem] -mt-[0.125rem]">
               <p>Fluid Design</p>
+              <div className="text-[0.6rem] tracking-wide font-bold font-sans text-left text-stone-500 dark:text-stone-400 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50 -mt-1.5">
+                V{packageInfo.version}
+              </div>
             </div>
           </a>
         </Link>
         <nav className="flex-1 p-1 px-4 pb-8 space-y-2" aria-label="Sidebar">
           {navigation.map(({ name, href, icon: ItemIcon }) => (
-            <div key={`nav.${name}`} className="rounded-md">
+            <div key={`nav.${name}.${href}`} className="rounded-md">
               <Link key={name} href={`/docs/${href}`}>
                 <a
                   className={classNames(
@@ -133,6 +130,7 @@ function SidebarMenu({ activeTab, disabled }) {
                 {groupList.map(({ name, href, isDone }) =>
                   !isDone ? (
                     <p
+                      key={`isNotDone.${groupName}.${name}`}
                       className={`flex items-center px-3 py-2 text-sm font-medium rounded-md group contrast-bg contrast-text
                   ${!isDone ? "opacity-50" : ""} 
                   ${

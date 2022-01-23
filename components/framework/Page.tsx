@@ -92,7 +92,7 @@ function Page({
       <div className="sticky top-0 z-50 flex flex-col md:flex-col-reverse">
         {header && (
           <Navbar
-            logo={!sidebar}
+            sidebar={sidebar}
             className={`
             ${
               sidebar
