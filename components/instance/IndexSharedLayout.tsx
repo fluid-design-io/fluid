@@ -8,7 +8,7 @@ function IndexSharedLayout() {
   return (
     <>
       <motion.div
-        initial={{ opacity: 0 }}
+        initial={false}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         className={`border border-dashed border-stone-300 dark:border-stone-700 prefers-contrast:border-stone-600 dark:prefers-contrast:border-stone-400 rounded-xl w-5/6 md:w-2/3 md:h-3/5 h-1/2`}

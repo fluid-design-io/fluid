@@ -24,6 +24,9 @@
             "fav": "收藏"
         }
     },
+    "Nested": {
+        "title": "嵌套式"
+    },
     "country": {
         "Alabama": "阿拉巴马州",
         "Alaska": "阿拉斯加州",

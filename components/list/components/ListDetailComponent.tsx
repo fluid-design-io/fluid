@@ -17,7 +17,7 @@ const StaredButton = ({ stared, setNotification }) => {
           Icon: StartIconOutline,
         });
       }}
-      className="absolute p-1.5 rounded-full right-0.5 prefers-contrast:group-focus-visible:bg-stone-50 prefers-contrast:group-hover:bg-stone-50 dark:prefers-contrast:group-focus-visible:bg-stone-900 dark:prefers-contrast:group-hover:bg-stone-900 transition"
+      className="absolute p-1.5 rounded-full ltr:right-0.5 ltr:left-auto rtl:left-0.5 rtl:right-auto  prefers-contrast:group-focus-visible:bg-stone-50 prefers-contrast:group-hover:bg-stone-50 dark:prefers-contrast:group-focus-visible:bg-stone-900 dark:prefers-contrast:group-hover:bg-stone-900 transition"
     >
       <StarIcon className="w-5 h-5 text-yellow-400" />
     </button>
@@ -31,7 +31,7 @@ const StaredButton = ({ stared, setNotification }) => {
           Icon: StarIcon,
         });
       }}
-      className="group-hover:opacity-100 group-focus:opacity-100 focus:opacity-100 opacity-80 pointer-hover:opacity-0 absolute p-1.5 rounded-full right-0.5 prefers-contrast:group-focus-visible:bg-stone-900 prefers-contrast:group-hover:bg-stone-900 transition"
+      className="group-hover:opacity-100 group-focus:opacity-100 focus:opacity-100 opacity-80 pointer-hover:opacity-0 absolute p-1.5 rounded-full  ltr:right-0.5 ltr:left-auto rtl:left-0.5 rtl:right-auto prefers-contrast:group-focus-visible:bg-stone-900 prefers-contrast:group-hover:bg-stone-900 transition"
     >
       <StarIcon className="w-5 h-5 text-stone-300 dark:text-stone-600 dark:prefers-contrast:text-stone-100" />
     </button>
@@ -80,7 +80,7 @@ function ListDetailComponent({ setNotification, ...props }) {
             className="flex space-x-2 items-center px-2 py-1.5 relative group hover:bg-stone-200/30 focus:bgstone-200/30 dark:hover:bg-stone-600/30 dark:focus:bg-stone-600/30 hover:prefers-contrast:bg-amber-300 dark:hover:prefers-contrast:bg-amber-400 group transition outline-none"
             tabIndex={0}
           >
-            <div className="w-8 h-8 min-w-[32px] rounded-full overflow-hidden relative">
+            <div className="w-8 h-8 min-w-[32px] rounded-full overflow-hidden relative rtl:ml-2">
               <Image alt={title} src={src} layout="fill" />
             </div>
             <div className="flex-1 select-none">

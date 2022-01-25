@@ -4,11 +4,11 @@ interface FeatureOption {
 }
 export interface CodeBlockFeatureProps {
   ui?: {
+    RTL?: FeatureOption | true;
     darkMode?: FeatureOption | true;
     responsive?: FeatureOption | true;
   };
   accessibility?: {
-    RTL?: FeatureOption | true;
     contrast?: FeatureOption | true;
     screenReader?: FeatureOption | true;
     keyboardFocus?: FeatureOption | true;

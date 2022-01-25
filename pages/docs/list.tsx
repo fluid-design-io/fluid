@@ -4,7 +4,7 @@ import Doc from "../../components/framework/Doc";
 
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation, Trans } from "next-i18next";
-import { ListDetail, ListSimple } from "../../components/list";
+import { ListDetail, ListNested, ListSimple } from "../../components/list";
 export async function getStaticProps({ locale }) {
   console.log({ locale });
   return {
@@ -28,6 +28,13 @@ function ListPage() {
         transformed: t("Simple.title", { ns: "list" }),
       },
       component: <ListSimple />,
+    },
+    {
+      title: {
+        raw: "Nested",
+        transformed: t("Nested.title", { ns: "list" }),
+      },
+      component: <ListNested />,
     },
     {
       title: {

@@ -17,6 +17,19 @@ function ListDetail() {
     withStart: {
       interactions: {
         hover: true,
+        click: {
+          description:"List item and start button are cliable."
+        },
+      },
+      ui: {
+        RTL: true,
+        darkMode: true,
+      },
+      accessibility: {
+        contrast: {
+          description:
+            "A divide border will be added to seperate each items. When hover, item background will change to bright yellow.",
+        },
       },
     },
   };

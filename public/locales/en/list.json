@@ -24,6 +24,9 @@
             "fav": "favorites"
         }
     },
+    "Nested":{
+        "title":"Nested"
+    },
     "country": {
         "Alabama": "Alabama",
         "Alaska": "Alaska",

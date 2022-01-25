@@ -211,7 +211,7 @@ export default function Sidebar({ hideNav = false, docNav = undefined }) {
       <Popover>
         <div
           className={`border-b md:hidden px-4 border-b-stone-200 dark:border-b-stone-700 backdrop-filter backdrop-blur-xl bg-stone-100/70 dark:bg-stone-800/60 prefers-contrast:bg-stone-100/90 dark:prefers-contrast:bg-black/80 motion-safe:transition-all motion-safe:duration-300 prefers-contrast:border-b-stone-700 dark:prefers-contrast:border-b-stone-200 ${
-            hideNav ? "translate-y-[-61px] py-4" : " py-2"
+            hideNav ? "translate-y-[-69px] py-4" : " py-2"
           }`}
         >
           <div

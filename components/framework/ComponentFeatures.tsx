@@ -53,7 +53,7 @@ const FeatureCard = ({
         <p className="text-xs font-medium text-stone-500 dark:text-stone-400 prefers-contrast:text-stone-700 dark:prefers-contrast:text-stone-200">
           {category}
         </p>
-        <h4 className="capitalize">{type}</h4>
+        <h4 className="capitalize">{type}{type === "RTL" && " (right-to-left)" }</h4>
         {description && (
           <p className="w-5/6 pt-2 text-sm tracking-tight text-stone-600 dark:text-stone-300 prefers-contrast:text-stone-800 dark:prefers-contrast:text-stone-100 max-w-[44rem]">
             {description}
@@ -79,12 +79,11 @@ const FeatureCard = ({
 function ComponentFeatures({
   features: {
     accessibility: {
-      RTL = undefined,
       contrast = undefined,
       keyboardFocus = undefined,
       screenReader = undefined,
     } = {},
-    ui: { darkMode = undefined, responsive = undefined } = {},
+    ui: { RTL = undefined, darkMode = undefined, responsive = undefined } = {},
     interactions: { click = undefined, hover = undefined } = {},
     transitions: {
       enter = undefined,
@@ -150,7 +149,7 @@ function ComponentFeatures({
         )}
         {RTL && (
           <FeatureCard
-            category="Accessibility"
+            category="UI"
             type="RTL"
             img={imgRTL}
             description={RTL !== true && RTL?.description}
