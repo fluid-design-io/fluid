@@ -80,14 +80,14 @@ function ListDetailComponent({ setNotification, ...props }) {
             className="flex space-x-2 items-center px-2 py-1.5 relative group hover:bg-stone-200/30 focus:bgstone-200/30 dark:hover:bg-stone-600/30 dark:focus:bg-stone-600/30 hover:prefers-contrast:bg-amber-300 dark:hover:prefers-contrast:bg-amber-400 group transition outline-none"
             tabIndex={0}
           >
-            <div className="w-8 h-8 min-w-[32px] rounded-full overflow-hidden relative rtl:ml-2">
-              <Image alt={title} src={src} layout="fill" />
+            <div className="relative flex-shrink-0 w-8 h-8 overflow-hidden rounded-full rtl:ml-2">
+              <Image alt={title} src={src} layout="fill" objectFit="cover" />
             </div>
             <div className="flex-1 select-none">
-              <h3 className="text-sm font-semibold leading-4 md:text-base text-stone-800 dark:text-stone-300 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50 dark:prefers-contrast:group-focus-visible:text-stone-900 dark:prefers-contrast:group-hover:text-stone-900">
+              <h3 className="text-sm font-semibold leading-4 prefers-contrast:text-base md:text-base text-stone-800 dark:text-stone-300 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50 dark:prefers-contrast:group-focus-visible:text-stone-900 dark:prefers-contrast:group-hover:text-stone-900">
                 {title}
               </h3>
-              <p className="leading-none md:leading-tight py-0.5 text-xs md:text-sm text-stone-600/90 dark:text-stone-400/80 max-w-[80%] sm:max-w-[90%] line-clamp-2 md:line-clamp-1 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50 dark:prefers-contrast:group-focus-visible:text-stone-800 dark:prefers-contrast:group-hover:text-stone-800">
+              <p className="leading-none md:leading-tight py-0.5 text-xs prefers-contrast:text-sm prefers-contrast:font-medium md:text-sm text-stone-600/90 dark:text-stone-400/80 max-w-[80%] sm:max-w-[90%] line-clamp-2 md:line-clamp-1 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50 dark:prefers-contrast:group-focus-visible:text-stone-800 dark:prefers-contrast:group-hover:text-stone-800">
                 {description}
               </p>
             </div>

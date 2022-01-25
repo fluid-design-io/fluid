@@ -45,7 +45,7 @@ function ListNested() {
   return (
     <>
       <CodeBlock
-        title={t("Nested.title", { ns: "list" })}
+        title={t("Nested.sub-title", { ns: "list" })}
         raw={raw.nested}
         onDismiss={() => setNotification(undefined)}
         notification={notification}

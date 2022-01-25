@@ -4,4 +4,5 @@ export { default as ListNested } from "./ListNested";
 export { default as ListTextOnlyComponent } from "./components/ListTextOnlyComponent";
 export { default as ListWithIconComponent } from "./components/ListWithIconComponent";
 export { default as ListDetailComponent } from "./components/ListDetailComponent";
+export { default as ListDetailLargeComponent } from "./components/ListDetailLargeComponent";
 export { default as ListNestedAnimateComponent } from "./components/ListNestedAnimateComponent";

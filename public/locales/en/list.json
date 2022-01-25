@@ -6,8 +6,13 @@
     },
     "Detail": {
         "title": "Detail",
+        "sub-title": "Compact",
         "started": "Started",
         "unstarted": "Unstarted"
+    },
+    "Large": {
+        "title": "Large",
+        "sub-title": "Large Avatar"
     },
     "TextOnly": {
         "title": "Text Only",
@@ -24,8 +29,9 @@
             "fav": "favorites"
         }
     },
-    "Nested":{
-        "title":"Nested"
+    "Nested": {
+        "title": "Nested",
+        "sub-title": "Expandable list"
     },
     "country": {
         "Alabama": "Alabama",

@@ -25,7 +25,8 @@
         }
     },
     "Nested": {
-        "title": "嵌套式"
+        "title": "嵌套式",
+        "sub-title": "可开展列表"
     },
     "country": {
         "Alabama": "阿拉巴马州",
