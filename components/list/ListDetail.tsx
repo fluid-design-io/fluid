@@ -53,10 +53,9 @@ function ListDetail() {
         raw={raw.large}
         features={features.large}
         onDismiss={() => setNotification(undefined)}
-        notification={notification}
       >
         <div className="grid w-full pt-20 pb-16 place-items-center">
-          <ListDetailLargeComponent setNotification={setNotification} />
+          <ListDetailLargeComponent />
         </div>
       </CodeBlock>
     </>

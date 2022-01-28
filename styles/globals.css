@@ -11,16 +11,18 @@ html {
   height: 85px;
   margin: -85px 0 0;
 }
-
 html,
 body {
-  @apply bg-stone-100 dark:bg-stone-800 prefers-contrast:bg-stone-50 dark:prefers-contrast:bg-[rgb(18,15,13)];
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+
+body {
+  @apply bg-stone-100 dark:bg-stone-800 prefers-contrast:bg-stone-50 dark:prefers-contrast:bg-[rgb(18,15,13)];
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -238,13 +240,9 @@ a.skip-main:active {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
-.example .list-detail-li{
+.example .list-detail-li {
   @apply px-4 py-1.5;
 }
-
-
-
-
 
 /* iOS BG */
 .glass-button-wrap {

@@ -1,9 +1,8 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
 import Image from "next/image";
-import { useState } from "react";
 import { useTranslation } from "next-i18next";
 
-function ListDetailLargeComponent({ setNotification, ...props }) {
+function ListDetailLargeComponent({ ...props }) {
   const list = [
     {
       title: "Erin",

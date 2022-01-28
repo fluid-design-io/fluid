@@ -1,0 +1,82 @@
+import { useTranslation, Trans } from "next-i18next";
+import { AppForm, AppInput, SubmitButton } from "../components/form";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Page from "../components/framework/Page";
+import { SiteMeta } from "../interfaces/framwork";
+import * as Yup from "yup";
+import AppTextarea from "../components/form/AppTextarea";
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common", "index", "navbar"])),
+      // Will be passed to the page component as props
+    },
+  };
+}
+
+const validationSchema = Yup.object().shape({
+  email: Yup.string().required().email().label("Email"),
+  name: Yup.string().required().label("Name"),
+  message: Yup.string().required().label("Message"),
+});
+
+export default function ContactPage() {
+  const { t } = useTranslation();
+  const meta: SiteMeta = {
+    title: "Fluid Design",
+    description:
+      "Beautiful React components that are responsive, supports features like dark mode and a11y with elegant transitions.",
+  };
+  const handleSubmit = async (values) => {
+    const { email, name, message } = values;
+    const res = await fetch("/api/send-contact", {
+      body: JSON.stringify({
+        email,
+        name,
+        message,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+
+    const { error } = await res.json();
+    if (error) {
+      console.log(error);
+      // setShowSuccessMessage(false);
+      // setShowFailureMessage(true);
+      // setButtonText("Send");
+      return;
+    }
+    //   setShowSuccessMessage(true);
+    //   setShowFailureMessage(false);
+    //   setButtonText("Send");
+  };
+  return (
+    <Page meta={meta} sidebar={false} className="">
+      <div>Contact</div>
+      <section className={``}>
+        <div className="relative flex justify-center">
+          <div className={`w-full max-w-xs`}>
+            <AppForm
+              initialValues={{
+                email: "",
+                name: "",
+                message: "",
+              }}
+              onSubmit={handleSubmit}
+              validationSchema={validationSchema}
+            >
+              <AppInput autoFocus name="email" type="text" />
+              <AppInput name="name" type="text" />
+              <AppTextarea name="message" type="text" className="resize-none" />
+              <SubmitButton title="Submit" />
+            </AppForm>
+          </div>
+        </div>
+      </section>
+    </Page>
+  );
+}
