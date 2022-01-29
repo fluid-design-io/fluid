@@ -1,34 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+<p align="center">
 
-First, run the development server:
+<a href="#">
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+<img alt="Ionic" src="https://github.com/fluid-design-io/fluid/blob/main/.github/assets/logo.webp?raw=true" width="80" />
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+</a>
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+</p>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+<h1 align="center">
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Fluid
 
-## Learn More
+</h1>
 
-To learn more about Next.js, take a look at the following resources:
+<p align="center">
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Fluid is an open source React UI library for building beautiful mordern UI components that supports advanced a11y features.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+</p>
 
-## Deploy on Vercel
+<p align="center">
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Fluid is based on <a href="https://reactjs.com/">React</a>, <a href="https://tailwindcss.com/">tailwindcss</a>, <a href="https://headlessui.dev/">headless-ui</a>, and <a href="https://www.framer.com/motion/">framer-motion</a>.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+</p>
+
+<p align="center">
+
+<a href="https://github.com/fluid-design-io/fluid/blob/main/LICENSE">
+
+<img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Ionic Framework is released under the MIT license." />
+
+</a>
+
+</p>
+
+<h2 align="center">
+
+<a href="http://fluid-design.io/docs/usage">Usage</a>
+
+<span> · </span>
+
+<a href="http://fluid-design.io/docs/docs">Docs</a>
+
+<span> · </span>
+
+<a href="http://fluid-design.io/docs/examples">Examples</a>
+
+<br />
+###  Getting Started
+
+Start a new project by following our quick [Getting Started guide](http://fluid-design.io/docs/usage).
+
+We would love to hear from you! If you have any feedback or run into issues using our library, please file
+
+an [issue](https://github.com/fluid-design-io/fluid/issues/new) on this repository.
+
+
+###  Examples
+
+The [Example Page](http://fluid-design.io/docs/examples) provides many possiple ways to group components into a nice-looking ui.
+
+It is the perfect starting point for learning and building your own app.
+
+###  Future Goals
+
+Fluid will keep adding new components and provide more customizations to exisiting ones.
