@@ -9,7 +9,10 @@ const AppLogo: React.FC<ButtonProps> = ({ ...props }) => {
   return (
     <div className={` ${props.className ? props.className : ``}`}>
       <Link href={"/"}>
-        <a className={`flex flex-shrink-0 h-7 w-7`}>
+        <a
+          className={`flex flex-shrink-0 h-7 w-7`}
+          aria-label="Navigate to home page"
+        >
           <span className="sr-only">Fluid Design</span>
           <div className={`w-auto h-7 dark:hidden`}>
             <Image alt="logo" src={logoDark} width={28} height={28} />

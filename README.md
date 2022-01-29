@@ -3,7 +3,7 @@
 
 <a href="#">
 
-<img alt="Ionic" src="https://github.com/fluid-design-io/fluid/blob/main/.github/assets/fluid-logo.webp?raw=true" width="80" />
+<img alt="Fluid" src="https://github.com/fluid-design-io/fluid/blob/main/public/assets/fluid-logo.webp?raw=true" width="80" />
 
 </a>
 

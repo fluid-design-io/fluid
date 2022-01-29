@@ -5,7 +5,7 @@ export default function Footer() {
   const { t } = useTranslation("navbar");
   const navigation = [
     { name: t("Privacy", { ns: "navbar" }), href: "privacy" },
-    { name: t("About", { ns: "navbar" }), href: "about" },
+    { name: t("Contact", { ns: "navbar" }), href: "contact" },
   ];
   return (
     <footer className="mt-8 relative z-[10]">
@@ -22,7 +22,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 md:mt-0 md:order-1">
           <p className="text-xs text-center text-gray-400">
-            &copy; 2021 ImageVision LLC. {" "}
+            &copy; 2022 ImageVision LLC. {" "}
             {t("All rights reserved", { ns: "navbar" })}
           </p>
         </div>

@@ -66,21 +66,16 @@ function SidebarMenu({ activeTab, disabled }) {
   return (
     <div className="md:fixed z-40 top-0 left-0 h-full max-h-screen overflow-x-hidden overflow-y-auto bg-stone-50 dark:bg-stone-900 w-[18rem] sm:w-[12.5rem] md:w-[15.625rem] lg:w-[13.5rem] xl:w-[15.625rem] flex pb-4 border-r border-stone-200 dark:border-stone-700 prefers-contrast:border-stone-600 dark:prefers-contrast:border-stone-200 dark:prefers-contrast:bg-[rgb(18,15,13)] min-h-screen">
       <div className="w-full">
-        <Link href={"/"}>
-          <a
-            className="sticky top-0 z-10 flex items-center justify-start mx-2.5 mt-2 pt-2 pb-3 space-x-2 bg-stone-50/80 dark:bg-stone-900/80 backdrop-filter backdrop-blur-md"
-            aria-label="Navigate to home page"
-          >
-            <span className="sr-only">Fluid Design</span>
-            <AppLogo />
-            <div className="font-[Nunito] text-stone-700 dark:text-stone-200 font-bold md:text-[1.175rem] -mt-[0.125rem]">
-              <p>Fluid Design</p>
-              <div className="text-[0.6rem] tracking-wide font-bold font-sans text-left text-stone-500 dark:text-stone-400 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50 -mt-1.5">
-                V{packageInfo.version}
-              </div>
+        <div className="sticky top-0 z-10 flex items-center justify-start mx-2.5 lg:mx-4 mt-2 pt-2 pb-3 space-x-2 bg-stone-50/80 dark:bg-stone-900/80 backdrop-filter backdrop-blur-md">
+          <span className="sr-only">Fluid Design</span>
+          <AppLogo />
+          <div className="font-[Nunito] text-stone-700 dark:text-stone-200 font-bold md:text-[1.175rem] -mt-[0.125rem]">
+            <p>Fluid Design</p>
+            <div className="text-[0.6rem] tracking-wide font-bold font-sans text-left text-stone-500 dark:text-stone-400 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50 -mt-1.5">
+              V{packageInfo.version}
             </div>
-          </a>
-        </Link>
+          </div>
+        </div>
         <nav className="flex-1 p-1 px-4 pb-8 space-y-2" aria-label="Sidebar">
           {navigation.map(({ name, href, icon: ItemIcon }) => (
             <div key={`nav.${name}.${href}`} className="rounded-md">

@@ -135,13 +135,13 @@ export default function Home() {
         id="features"
         className="mx-auto mt-8 text-center sm:px-8 max-w-7xl"
       >
-        <h2>
+        <h1>
           <Trans
             i18nKey={"looks-right-isnt-enough.title"}
             ns={"index"}
             components={{ br: <br className="block sm:hidden" /> }}
           />
-        </h2>
+        </h1>
         <blockquote className="px-4 sm:px-0">
           <p className="px-4 mx-auto mt-6">
             {t("looks-right-isnt-enough.body", { ns: "index" })}
@@ -159,7 +159,7 @@ export default function Home() {
         id="demo"
         className="px-4 mx-auto mt-24 sm:mt-32 md:mt-40 sm:px-8 max-w-7xl"
       >
-        <h2 className="text-left">{t("see-it-live", { ns: "index" })}</h2>
+        <h1 className="text-left">{t("see-it-live", { ns: "index" })}</h1>
         <p className="mt-4 text-stone-500 dark:text-stone-300">
           <Trans
             ns="index"

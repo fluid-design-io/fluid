@@ -56,8 +56,8 @@ export default function ContactPage() {
   };
   return (
     <Page meta={meta} sidebar={false} className="">
-      <div>Contact</div>
-      <section className={``}>
+      <div />
+      <section className={`pt-16`}>
         <div className="relative flex justify-center">
           <div className={`w-full max-w-xs`}>
             <AppForm
