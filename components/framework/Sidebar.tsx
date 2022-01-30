@@ -22,6 +22,7 @@ const secondaryNavigation = [
     groupName: "Components",
     groupList: [
       // { name: "Alert", href: "alert", isDone: false },
+      { name: "Accordion", href: "accordion", isDone: true },
       { name: "Avatar", href: "avatar", isDone: false },
       // { name: "Badge", href: "badge", isDone: false },
       // { name: "Breadcrumbs", href: "breadcrumbs", isDone: false },
@@ -149,7 +150,7 @@ function SidebarMenu({ activeTab, disabled }) {
                       ${
                         activeTab === href
                           ? `bg-stone-100 text-stone-900 dark:bg-stone-700 dark:text-stone-100 prefers-contrast:border prefers-contrast:border-stone-700 dark:prefers-contrast:border-stone-200`
-                          : `text-stone-700 dark:text-stone-300/80 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-100`
+                          : `text-stone-700 dark:text-stone-300/80 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-100 hover:bg-stone-50 dark:hover:bg-stone-700 transition-colors`
                       }`}
                       >
                         <span className="flex items-center truncate">

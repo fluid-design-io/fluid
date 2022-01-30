@@ -57,7 +57,10 @@ export default function ContactPage() {
   return (
     <Page meta={meta} sidebar={false} className="">
       <div />
-      <section className={`pt-16`}>
+      <h1 className={`pt-16 px-4 text-center`}>
+        {t(`Get in touch`, { ns: "common" })}
+      </h1>
+      <section className={`pt-4`}>
         <div className="relative flex justify-center">
           <div className={`w-full max-w-xs`}>
             <AppForm
@@ -72,7 +75,7 @@ export default function ContactPage() {
               <AppInput autoFocus name="email" type="text" />
               <AppInput name="name" type="text" />
               <AppTextarea name="message" type="text" className="resize-none" />
-              <SubmitButton title="Submit" />
+              <SubmitButton title="Submit" slot="end" />
             </AppForm>
           </div>
         </div>

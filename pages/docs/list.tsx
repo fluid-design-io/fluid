@@ -6,7 +6,6 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation, Trans } from "next-i18next";
 import { ListDetail, ListNested, ListSimple } from "../../components/list";
 export async function getStaticProps({ locale }) {
-  console.log({ locale });
   return {
     props: {
       ...(await serverSideTranslations(locale, ["common", "navbar", "list"])),

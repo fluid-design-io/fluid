@@ -56,15 +56,17 @@ async function sendEmail(req, res) {
     reply_to: {
       email,
       name,
-    }, 
+    },
     template_id: "d-3b17bc146fd44a87a0d402e7d1095dba",
   };
   try {
     // console.log("REQ.BODY", req.body); ${req.body.subject}
-    // @ts-ignore
-    await sendgrid.send(toSender);
-    // @ts-ignore
-    await sendgrid.send(toAdmin);
+    await sendgrid
+      // @ts-ignore
+      .send(toSender)
+      // @ts-ignore
+      .then(async () => await sendgrid.send(toAdmin))
+      .catch((err) => console.log(err));
   } catch (error) {
     // console.log(error);
     return res.status(error.statusCode || 500).json({ error: error.message });

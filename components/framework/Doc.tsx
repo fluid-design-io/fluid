@@ -39,7 +39,7 @@ function Doc({ meta, title, description = "", sections, ...props }) {
       >
         <div className="hidden md:block lg:hidden">{docNav}</div>
         <article title={t(`doc-for`, { title })}>
-          <h1 className="md:pt-12">{title}</h1>
+          <h1 className="capitalize md:pt-12">{title}</h1>
           <p className="pb-6 text-lg md:text-xl">{description}</p>
           <div key="content" className="flex-grow w-full mx-auto">
             <ScrollSpy offsetBottom={500}>

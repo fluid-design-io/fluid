@@ -50,6 +50,7 @@ Fluid is based on <a href="https://reactjs.com/">React</a>, <a href="https://tai
 <a href="http://fluid-design.io/docs/examples">Examples</a>
 
 <br />
+
 ###  Getting Started
 
 Start a new project by following our quick [Getting Started guide](http://fluid-design.io/docs/usage).
