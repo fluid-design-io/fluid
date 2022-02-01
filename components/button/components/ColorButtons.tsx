@@ -11,8 +11,12 @@ export const buttonColors = [
       "ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
       light: `
-          min-w-[3rem]
+        min-w-[3rem]
         select-none
+        disabled:cursor-not-allowed 
+        disabled:opacity-80 
+        disabled:filter 
+        disabled:saturate-0
         transition-colors
         
         bg-stone-50
@@ -57,6 +61,10 @@ export const buttonColors = [
       dark: `
           min-w-[3rem]
         select-none
+        disabled:cursor-not-allowed 
+        disabled:opacity-80 
+        disabled:filter 
+        disabled:saturate-0
         transition-colors
         
         bg-stone-900
@@ -107,6 +115,10 @@ export const buttonColors = [
       light: `
           min-w-[3rem]
         select-none
+        disabled:cursor-not-allowed 
+        disabled:opacity-80 
+        disabled:filter 
+        disabled:saturate-0
         transition-colors
         
         bg-stone-50
@@ -151,6 +163,10 @@ export const buttonColors = [
       dark: `
           min-w-[3rem]
         select-none
+        disabled:cursor-not-allowed 
+        disabled:opacity-80 
+        disabled:filter 
+        disabled:saturate-0
         transition-colors
         
         bg-orange-500
@@ -200,6 +216,10 @@ export const buttonColors = [
       light: `
           min-w-[3rem]
           select-none
+          disabled:cursor-not-allowed 
+          disabled:opacity-80 
+          disabled:filter 
+          disabled:saturate-0
           transition-colors
           
           bg-stone-50
@@ -244,6 +264,10 @@ export const buttonColors = [
       dark: `
           min-w-[3rem]
           select-none
+          disabled:cursor-not-allowed 
+          disabled:opacity-80 
+          disabled:filter 
+          disabled:saturate-0
           transition-colors
           
           bg-yellow-300
@@ -293,6 +317,10 @@ export const buttonColors = [
       light: `
           min-w-[3rem]
           select-none
+          disabled:cursor-not-allowed 
+          disabled:opacity-80 
+          disabled:filter 
+          disabled:saturate-0
           transition-colors
           
           bg-stone-50
@@ -337,6 +365,10 @@ export const buttonColors = [
       dark: `
           min-w-[3rem]
           select-none
+          disabled:cursor-not-allowed 
+          disabled:opacity-80 
+          disabled:filter 
+          disabled:saturate-0
           transition-colors
           
           bg-lime-300
@@ -386,6 +418,10 @@ export const buttonColors = [
       light: `
           min-w-[3rem]
           select-none
+          disabled:cursor-not-allowed 
+          disabled:opacity-80 
+          disabled:filter 
+          disabled:saturate-0
           transition-colors
           
           bg-stone-50
@@ -430,6 +466,10 @@ export const buttonColors = [
       dark: `
           min-w-[3rem]
           select-none
+          disabled:cursor-not-allowed 
+          disabled:opacity-80 
+          disabled:filter 
+          disabled:saturate-0
           transition-colors
           
           bg-green-300
@@ -479,6 +519,10 @@ export const buttonColors = [
       light: `
           min-w-[3rem]
           select-none
+          disabled:cursor-not-allowed 
+          disabled:opacity-80 
+          disabled:filter 
+          disabled:saturate-0
           transition-colors
           
           bg-stone-50
@@ -523,6 +567,10 @@ export const buttonColors = [
       dark: `
           min-w-[3rem]
           select-none
+          disabled:cursor-not-allowed 
+          disabled:opacity-80 
+          disabled:filter 
+          disabled:saturate-0
           transition-colors
           
           bg-teal-300
@@ -572,6 +620,10 @@ export const buttonColors = [
       light: `
           min-w-[3rem]
           select-none
+          disabled:cursor-not-allowed 
+          disabled:opacity-80 
+          disabled:filter 
+          disabled:saturate-0
           transition-colors
           
           bg-stone-50
@@ -616,6 +668,10 @@ export const buttonColors = [
       dark: `
           min-w-[3rem]
           select-none
+          disabled:cursor-not-allowed 
+          disabled:opacity-80 
+          disabled:filter 
+          disabled:saturate-0
           transition-colors
           
           bg-sky-300
@@ -666,6 +722,10 @@ export const buttonColors = [
       light: `
           min-w-[3rem]
         select-none
+        disabled:cursor-not-allowed 
+        disabled:opacity-80 
+        disabled:filter 
+        disabled:saturate-0
         transition-colors
         
         bg-stone-50
@@ -710,6 +770,10 @@ export const buttonColors = [
       dark: `
           min-w-[3rem]
         select-none
+        disabled:cursor-not-allowed 
+        disabled:opacity-80 
+        disabled:filter 
+        disabled:saturate-0
         transition-colors
         
         bg-indigo-500
@@ -760,6 +824,10 @@ export const buttonColors = [
       light: `
           min-w-[3rem]
         select-none
+        disabled:cursor-not-allowed 
+        disabled:opacity-80 
+        disabled:filter 
+        disabled:saturate-0
         transition-colors
         
         bg-stone-50
@@ -804,6 +872,10 @@ export const buttonColors = [
       dark: `
           min-w-[3rem]
         select-none
+        disabled:cursor-not-allowed 
+        disabled:opacity-80 
+        disabled:filter 
+        disabled:saturate-0
         transition-colors
         
         bg-fuchsia-500
@@ -846,13 +918,18 @@ export const buttonColors = [
   },
   {
     name: `rose`,
-    palette: "bg-rose-500 dark:bg-rose-600 ring-rose-500 dark:ring-rose-600 text-white",
+    palette:
+      "bg-rose-500 dark:bg-rose-600 ring-rose-500 dark:ring-rose-600 text-white",
     active:
       "ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
       light: `
           min-w-[3rem]
         select-none
+        disabled:cursor-not-allowed 
+        disabled:opacity-80 
+        disabled:filter 
+        disabled:saturate-0
         transition-colors
         
         bg-stone-50
@@ -897,6 +974,10 @@ export const buttonColors = [
       dark: `
           min-w-[3rem]
         select-none
+        disabled:cursor-not-allowed 
+        disabled:opacity-80 
+        disabled:filter 
+        disabled:saturate-0
         transition-colors
         
         bg-rose-500
@@ -939,13 +1020,18 @@ export const buttonColors = [
   },
   {
     name: `red`,
-    palette: "bg-red-500 dark:bg-red-600 ring-red-500 dark:ring-red-600 text-white",
+    palette:
+      "bg-red-500 dark:bg-red-600 ring-red-500 dark:ring-red-600 text-white",
     active:
       "ring-2 ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-800",
     color: {
       light: `
           min-w-[3rem]
         select-none
+        disabled:cursor-not-allowed 
+        disabled:opacity-80 
+        disabled:filter 
+        disabled:saturate-0
         transition-colors
         
         bg-stone-50
@@ -990,6 +1076,10 @@ export const buttonColors = [
       dark: `
           min-w-[3rem]
         select-none
+        disabled:cursor-not-allowed 
+        disabled:opacity-80 
+        disabled:filter 
+        disabled:saturate-0
         transition-colors
         
         bg-red-500

@@ -81,6 +81,7 @@ function TextButtonComponent({
               animate={activeRadius.animate.small}
               layoutId={`Button Studio.small.light`}
               className={`flex-shrink-0 flex justify-center items-center px-2.5 py-1 text-xs font-semibold prefers-contrast:py-1.5 prefers-contrast:px-3 ${activeButton.color.light} ${activeRadius.style.small}`}
+              aria-label={buttonLabel ? `${buttonLabel}, Button` : `Button`}
               onClick={() =>
                 handleClick({
                   message:

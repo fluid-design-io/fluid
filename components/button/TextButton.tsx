@@ -35,10 +35,10 @@ function TextButton() {
   const raw = {
     customizer: `
 /* 
-V1.0.2
+V1.1.0
 Button - Button Customizer
 Component by fluid-design.io
-Last updated: 1/15/21
+Last updated: 2/1/22
 
 ------ Extra Dependency Required ------
 
@@ -65,6 +65,7 @@ function Example() {
           activeButton.color.light
         } ${activeRadius.style._small}\`}
         onClick={() => null}
+        aria-label={'Button'}
       >
         ${
           selectedIcon === "start"
@@ -92,6 +93,7 @@ function Example() {
           activeButton.color.light
         } ${activeRadius.style._regular}\`}
         onClick={() => null}
+        aria-label={'Button'}
       >
         ${
           selectedIcon === "start"
@@ -120,6 +122,7 @@ function Example() {
           activeButton.color.light
         } ${activeRadius.style._medium}\`}
         onClick={() => null}
+        aria-label={'Button'}
       >
         ${
           selectedIcon === "start"
@@ -147,6 +150,7 @@ function Example() {
           activeButton.color.light
         } ${activeRadius.style._large}\`}
         onClick={() => null}
+        aria-label={'Button'}
       >
         ${
           selectedIcon === "start"
@@ -175,6 +179,7 @@ function Example() {
           activeButton.color.dark
         } ${activeRadius.style._small}\`}
         onClick={() => null}
+        aria-label={'Button'}
       >
         ${
           selectedIcon === "start"
@@ -203,6 +208,7 @@ function Example() {
           activeButton.color.dark
         } ${activeRadius.style._regular}\`}
         onClick={() => null}
+        aria-label={'Button'}
       >
         ${
           selectedIcon === "start"
@@ -231,6 +237,7 @@ function Example() {
           activeButton.color.dark
         } ${activeRadius.style._medium}\`}
         onClick={() => null}
+        aria-label={'Button'}
       >
         ${
           selectedIcon === "start"
@@ -259,6 +266,7 @@ function Example() {
           activeButton.color.dark
         } ${activeRadius.style._large}\`}
         onClick={() => null}
+        aria-label={'Button'}
       >
         ${
           selectedIcon === "start"
