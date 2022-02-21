@@ -2,22 +2,18 @@ import CodeBlock from "../framework/CodeBlock";
 
 import { useTranslation } from "next-i18next";
 //@ts-ignore
-import withOutIcon from "raw-loader!../../lib/code/AccordionSimpleWithOutIcon.code.txt";
-//@ts-ignore
-import withIcon from "raw-loader!../../lib/code/AccordionSimpleWithIcon.code.txt";
-import { AccordionSimpleComponent } from ".";
+import withDivider from "raw-loader!../../lib/code/AccordionDivider.code.txt";
 import { CodeBlockFeatureProps } from "../../interfaces/CodeBlock";
-import AccordionSimpleWithIconComponent from "./components/AccordionSimpleWithIconComponent";
+import AccordionDividerComponent from "./components/AccordionDividerComponent";
 
-function AccordionSimple() {
+function AccordionDivider() {
   const { t } = useTranslation("common");
   const raw = {
-    withOutIcon,
-    withIcon,
+    withDivider,
   };
 
   const features: { [x: string]: CodeBlockFeatureProps } = {
-    withOutIcon: {
+    withDivider: {
       interactions: {
         hover: true,
         click: true,
@@ -47,25 +43,16 @@ function AccordionSimple() {
   return (
     <>
       <CodeBlock
-        title={t("Simple.withOutIcon.title", { ns: "accordion" })}
-        raw={raw.withOutIcon}
-        features={features.withOutIcon}
+        title={t("Divider.withDivider.title", { ns: "accordion" })}
+        raw={raw.withDivider}
+        features={features.withDivider}
       >
         <div className="grid w-full pt-20 pb-16 place-items-center">
-          <AccordionSimpleComponent />
-        </div>
-      </CodeBlock>
-      <CodeBlock
-        title={t("Divider.withIcon.title", { ns: "accordion" })}
-        raw={raw.withIcon}
-        features={features.withOutIcon}
-      >
-        <div className="grid w-full pt-20 pb-16 place-items-center">
-          <AccordionSimpleWithIconComponent />
+          <AccordionDividerComponent />
         </div>
       </CodeBlock>
     </>
   );
 }
 
-export default AccordionSimple;
+export default AccordionDivider;

@@ -1,11 +1,16 @@
-import { useTranslation } from "next-i18next";
+/* 
+V1.0.0
+Accordion - With Divider
+Component by fluid-design.io
+Last updated: 2/22/22
+*/
 import { Disclosure } from "@headlessui/react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
 
 const data = [
   {
-    title: "Section 1",
+    title: "Shop",
     details: (
       <p
         className={`my-2 text-stone-600 dark:text-stone-300 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50`}
@@ -20,7 +25,7 @@ const data = [
     isOpen: true,
   },
   {
-    title: "Section 2",
+    title: "Service",
     details: (
       <p
         className={`my-2 text-stone-600 dark:text-stone-300 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50`}
@@ -34,7 +39,7 @@ const data = [
     isOpen: false,
   },
   {
-    title: "Section 3",
+    title: "About",
     details: (
       <>
         <p
@@ -59,8 +64,7 @@ const data = [
   },
 ];
 
-function AccordionSimpleComponent() {
-  const { t } = useTranslation("accordion");
+function Example() {
   const shouldReduceMotion = useReducedMotion();
   const rowStyle =
     "hover:bg-stone-200/30 focus-visible:bg-stone-200/30 dark:hover:bg-stone-600/30 dark:focus-visible:bg-stone-600/30 hover:prefers-contrast:bg-amber-300 dark:hover:prefers-contrast:bg-amber-400 text-stone-700 dark:text-stone-200 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50 dark:prefers-contrast:focus-visible:text-stone-900 dark:prefers-contrast:hover:text-stone-900 focus-within:outline-none focus-within:ring-1 focus-within:ring-stone-400 dark:focus-within:ring-stone-500 prefers-contrast:focus-within:ring-stone-900 dark:prefers-contrast:focus-within:ring-stone-200 focus-within:ring-inset transition-colors [-webkit-tap-highlight-color:transparent]";
@@ -89,7 +93,7 @@ function AccordionSimpleComponent() {
     </motion.div>
   );
   return (
-    <div className="w-full max-w-xs px-2 py-1 overflow-hidden rounded-lg shadow-lg md:w-2/3 bg-stone-50 dark:bg-stone-900 shadow-stone-900/10 dark:shadow-stone-900/30 component prefers-contrast:bg-white dark:prefers-contrast:bg-stone-900 prefers-contrast:contrast-ring">
+    <div className="w-[calc(100%-2rem)] px-2 py-1 overflow-hidden divide-y rounded-lg divide-stone-300/75 dark:divide-stone-700 prefers-contrast:divide-stone-800 dark:prefers-contrast:divide-stone-50 prefers-contrast:contrast-ring component">
       {data.map(({ title, details, isOpen }) => (
         <Disclosure
           as="div"
@@ -104,7 +108,7 @@ function AccordionSimpleComponent() {
                   as="button"
                   className={`flex px-4 py-2 w-full justify-between items-center rounded-md ${rowStyle} ${
                     open
-                      ? `bg-stone-200/50 hover:bg-stone-200/50 dark:bg-stone-600/50 dark:hover:bg-stone-600/50 prefers-contrast:bg-amber-300 dark:prefers-contrast:bg-amber-400 text-stone-700 dark:text-stone-200 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-900`
+                      ? `bg-stone-50 hover:bg-stone-50 dark:bg-stone-600/50 dark:hover:bg-stone-600/50 prefers-contrast:bg-amber-300 dark:prefers-contrast:bg-amber-400 text-stone-700 dark:text-stone-200 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-900`
                       : ``
                   }`}
                   aria-live="assertive"
@@ -141,4 +145,4 @@ function AccordionSimpleComponent() {
   );
 }
 
-export default AccordionSimpleComponent;
+export default Example;

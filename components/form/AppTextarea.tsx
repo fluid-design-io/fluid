@@ -9,12 +9,14 @@ function AppTextarea({ name, ...props }) {
   const label = `${name[0].toUpperCase()}${name.slice(1)}`;
   return (
     <AppFormItem {...{ error, focused }}>
-      <AppLabel {...{ errors, error, focused, label, name }} />
+      <AppLabel
+        {...{ errors, error, focused, label, name, value: values[name] }}
+      />
       <textarea
         {...props}
         className={getInputColor({ error, className: props.className })}
         value={values[name]}
-        placeholder={label}
+        placeholder={!!error ? label : undefined}
         onChange={handleChange}
         onFocus={() => setFocused(true)}
         onBlur={() => {

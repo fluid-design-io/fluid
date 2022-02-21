@@ -1,11 +1,18 @@
 import { useTranslation } from "next-i18next";
 import { Disclosure } from "@headlessui/react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  CogIcon,
+  InformationCircleIcon,
+  ShoppingCartIcon,
+  UserIcon,
+} from "@heroicons/react/outline";
 
 const data = [
   {
-    title: "Section 1",
+    title: "Shop",
     details: (
       <p
         className={`my-2 text-stone-600 dark:text-stone-300 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50`}
@@ -17,10 +24,11 @@ const data = [
         vulputate.
       </p>
     ),
+    Icon: ShoppingCartIcon,
     isOpen: true,
   },
   {
-    title: "Section 2",
+    title: "Service",
     details: (
       <p
         className={`my-2 text-stone-600 dark:text-stone-300 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50`}
@@ -31,10 +39,11 @@ const data = [
         quam. In suscipit faucibus urna.
       </p>
     ),
+    Icon: CogIcon,
     isOpen: false,
   },
   {
-    title: "Section 3",
+    title: "About",
     details: (
       <>
         <p
@@ -46,20 +55,21 @@ const data = [
           commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu iaculis
           leo purus venenatis dui.
         </p>
-        <ul
-          className={`mb-2 text-stone-600 dark:text-stone-400 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50`}
-        >
-          <li>List item one</li>
-          <li>List item two</li>
-          <li>List item three</li>
-        </ul>
+          <ul
+            className={`mb-2 text-stone-600 dark:text-stone-400 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50`}
+          >
+            <li>List item one</li>
+            <li>List item two</li>
+            <li>List item three</li>
+          </ul>
       </>
     ),
+    Icon: InformationCircleIcon,
     isOpen: false,
   },
 ];
 
-function AccordionSimpleComponent() {
+function AccordionSimpleWithIconComponent() {
   const { t } = useTranslation("accordion");
   const shouldReduceMotion = useReducedMotion();
   const rowStyle =
@@ -90,7 +100,7 @@ function AccordionSimpleComponent() {
   );
   return (
     <div className="w-full max-w-xs px-2 py-1 overflow-hidden rounded-lg shadow-lg md:w-2/3 bg-stone-50 dark:bg-stone-900 shadow-stone-900/10 dark:shadow-stone-900/30 component prefers-contrast:bg-white dark:prefers-contrast:bg-stone-900 prefers-contrast:contrast-ring">
-      {data.map(({ title, details, isOpen }) => (
+      {data.map(({ title, details, isOpen, Icon }) => (
         <Disclosure
           as="div"
           key={title}
@@ -109,7 +119,13 @@ function AccordionSimpleComponent() {
                   }`}
                   aria-live="assertive"
                 >
-                  <p>{title}</p>
+                  <span className={`flex items-center`}>
+                    <Icon
+                      className="flex-shrink-0 w-4 h-4 ltr:mr-2 rtl:ml-2"
+                      aria-hidden="true"
+                    />
+                    <p>{title}</p>
+                  </span>
                   <span className={`rtl:block hidden`}>
                     <ChevronLeftIcon
                       className={`w-4 h-4 transform transition ${
@@ -141,4 +157,4 @@ function AccordionSimpleComponent() {
   );
 }
 
-export default AccordionSimpleComponent;
+export default AccordionSimpleWithIconComponent;

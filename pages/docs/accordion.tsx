@@ -4,7 +4,7 @@ import Doc from "../../components/framework/Doc";
 
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation, Trans } from "next-i18next";
-import { AccordionSimple } from "../../components/accordion";
+import { AccordionDivider, AccordionSimple } from "../../components/accordion";
 export async function getStaticProps({ locale }) {
   console.log({ locale });
   return {
@@ -32,6 +32,13 @@ function AccordionPage() {
         transformed: t("Simple.title", { ns: "accordion" }),
       },
       component: <AccordionSimple />,
+    },
+    {
+      title: {
+        raw: "Divider",
+        transformed: t("Divider.title", { ns: "accordion" }),
+      },
+      component: <AccordionDivider />,
     },
   ];
 

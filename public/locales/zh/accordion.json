@@ -9,5 +9,11 @@
         "withIcon": {
             "title": "带图标"
         }
+    },
+    "Divider": {
+        "title": "隔段",
+        "withDivider": {
+            "title": "带隔段"
+        }
     }
 }

@@ -55,7 +55,7 @@ export default function ContactPage() {
     //   setButtonText("Send");
   };
   return (
-    <Page meta={meta} sidebar={false} className="">
+    <Page meta={meta} sidebar={false} className="min-h-screen">
       <div />
       <h1 className={`pt-16 px-4 text-center`}>
         {t(`Get in touch`, { ns: "common" })}

@@ -4,10 +4,16 @@
     "Simple": {
         "title": "Simple",
         "withOutIcon": {
-            "title": "With Out Icon"
+            "title": "Without Icon"
         },
         "withIcon": {
             "title": "With Icon"
+        }
+    },
+    "Divider": {
+        "title": "Divider",
+        "withDivider": {
+            "title": "With Divider"
         }
     }
 }

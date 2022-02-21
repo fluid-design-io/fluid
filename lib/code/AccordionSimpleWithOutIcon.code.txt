@@ -1,8 +1,8 @@
 /* 
 V1.0.0
-Accordion - With Out Icon
+Accordion - Without Icon
 Component by fluid-design.io
-Last updated: 1/30/21
+Last updated: 2/22/22
 */
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
 import { Disclosure } from "@headlessui/react";
@@ -13,7 +13,7 @@ const data = [
     title: "Section 1",
     details: (
       <p
-        className={`my-2 text-stone-600 dark:text-stone-400 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50`}
+        className={`my-2 text-stone-600 dark:text-stone-300 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50`}
       >
         Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
         ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
@@ -28,7 +28,7 @@ const data = [
     title: "Section 2",
     details: (
       <p
-        className={`my-2 text-stone-600 dark:text-stone-400 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50`}
+        className={`my-2 text-stone-600 dark:text-stone-300 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50`}
       >
         Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
         purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis
@@ -43,7 +43,7 @@ const data = [
     details: (
       <>
         <p
-          className={`my-2 text-stone-600 dark:text-stone-400 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50`}
+          className={`my-2 text-stone-600 dark:text-stone-300 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50`}
         >
           Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque
           lobortis. Phasellus pellentesque purus in massa. Aenean in pede.
@@ -52,7 +52,7 @@ const data = [
           leo purus venenatis dui.
         </p>
         <ul
-          className={`mb-2 text-stone-600 dark:text-stone-400 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50`}
+          className={`mb-2 text-stone-600 dark:text-stone-300 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50`}
         >
           <li>List item one</li>
           <li>List item two</li>
