@@ -1,0 +1,19 @@
+{
+    "accordion": "accordion",
+    "description": "Accordions allow you to reduce vertical space by creating collapsible sections in your content while also organizing and grouping information.",
+    "Simple": {
+        "title": "Simple",
+        "withOutIcon": {
+            "title": "Without Icon"
+        },
+        "withIcon": {
+            "title": "With Icon"
+        }
+    },
+    "Divider": {
+        "title": "Divider",
+        "withDivider": {
+            "title": "With Divider"
+        }
+    }
+}

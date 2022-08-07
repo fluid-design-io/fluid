@@ -1,0 +1,24 @@
+{
+    "Card": "Card",
+    "description": "Cards are a standard piece of UI and are widely used across many use cases. It can contain one or multiple elements, components below show varieties of examples.",
+    "Card Button": "Card Button",
+    "Standard": {
+        "title": "Standard",
+        "click": "Button, share and heart icons are clickable.",
+        "contrast": "When high-contrast is enabled, a border highlight will be added to the card frame, font thickness is increased, and darkened/brightened based on the theme. A highlight border will be added for the share and favorite icon and increased space between the icons. Larger paddings are applied to the button and icons."
+    },
+    "Collage": {
+        "title": "Collage",
+        "desc": "<p>This example uses the Collage component from<a>Image Component</a>.</p>"
+    },
+    "App Store": {
+        "title": "App Store styled card",
+        "sub-title": "Large Image",
+        "get": "get",
+        "cool-things": "Cool Things To Check Out",
+        "dark": "Image, text and buttons changes based on user's theme.",
+        "click": "Card body and button are clickable. Card will also scale down when clicked.",
+        "hover": "Card will scale down when hover",
+        "contrast": "As some texts are on top of the background image, the font weight is increased, the color is tune up to have more contrast. The opacity of the background blur on the bottom is increased. The \"GET\" button added a highlight ring."
+    }
+}

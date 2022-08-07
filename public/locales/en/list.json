@@ -1,0 +1,85 @@
+{
+    "List": "List",
+    "description": "Lists are composed of multiple rows of items that can include text, buttons, toggles, icons, thumbnails, and other elements. Lists are typically made up of items with similar data content, such as images and text.",
+    "Simple": {
+        "title": "Simple"
+    },
+    "Detail": {
+        "title": "Detail",
+        "sub-title": "Compact",
+        "started": "Started",
+        "unstarted": "Unstarted"
+    },
+    "Large": {
+        "title": "Large",
+        "sub-title": "Large Avatar"
+    },
+    "TextOnly": {
+        "title": "Text Only",
+        "ul": "List of states in United States",
+        "loadmore": "Load more"
+    },
+    "WithIcon": {
+        "title": "With Icon",
+        "list": {
+            "explore": "explore",
+            "user": "user",
+            "settings": "settings",
+            "cart": "cart",
+            "fav": "favorites"
+        }
+    },
+    "Nested": {
+        "title": "Nested",
+        "sub-title": "Expandable list"
+    },
+    "country": {
+        "Alabama": "Alabama",
+        "Alaska": "Alaska",
+        "Arizona": "Arizona",
+        "Arkansas": "Arkansas",
+        "California": "California",
+        "Colorado": "Colorado",
+        "Connecticut": "Connecticut",
+        "Delaware": "Delaware",
+        "Florida": "Florida",
+        "Georgia": "Georgia",
+        "Hawaii": "Hawaii",
+        "Idaho": "Idaho",
+        "IllinoisIndiana": "IllinoisIndiana",
+        "Iowa": "Iowa",
+        "Kansas": "Kansas",
+        "Kentucky": "Kentucky",
+        "Louisiana": "Louisiana",
+        "Maine": "Maine",
+        "Maryland": "Maryland",
+        "Massachusetts": "Massachusetts",
+        "Michigan": "Michigan",
+        "Minnesota": "Minnesota",
+        "Mississippi": "Mississippi",
+        "Missouri": "Missouri",
+        "MontanaNebraska": "MontanaNebraska",
+        "Nevada": "Nevada",
+        "New Hampshire": "New Hampshire",
+        "New Jersey": "New Jersey",
+        "New Mexico": "New Mexico",
+        "New York": "New York",
+        "North Carolina": "North Carolina",
+        "North Dakota": "North Dakota",
+        "Ohio": "Ohio",
+        "Oklahoma": "Oklahoma",
+        "Oregon": "Oregon",
+        "PennsylvaniaRhode Island": "PennsylvaniaRhode Island",
+        "South Carolina": "South Carolina",
+        "South Dakota": "South Dakota",
+        "Tennessee": "Tennessee",
+        "Texas": "Texas",
+        "Utah": "Utah",
+        "Vermont": "Vermont",
+        "Virginia": "Virginia",
+        "Washington": "Washington",
+        "West Virginia": "West Virginia",
+        "Wisconsin": "Wisconsin",
+        "Wyoming": "Wyoming"
+    }
+}

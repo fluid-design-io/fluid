@@ -1,0 +1,37 @@
+:root .neumorphism {
+  --color-text: #253048;
+  --color-background: #fafafa;
+  --color-background-tint: #e7e5e4;
+  --color-shadow-light: #ffffff;
+  --color-shadow-dark: #d6d3d1;
+  --color-shadow-dark-xl: #a8a29e;
+  --color-shadow-black: #253048;
+  --color-primary: #09abb3;
+  --color-secondary: #5fd1e0;
+  --color-text: #292524;
+  --color-text-medium: #78716c;
+  --color-shadow-highlight-rgb: 255, 255, 255;
+  --color-shadow-shadow-rgb: 196, 194, 192;
+  --shadow-neumorphism-ring-sm: 0 0 0 4px var(--color-background), 0px 4px 25px -1px rgba(0, 0, 0, 0.08),
+      -6px -6px 24px rgba(var(--color-shadow-highlight-rgb),1), 6px 6px 24px var(--color-shadow-dark);
+  --shadow-neumorphism-ring: 0 0 0 4px var(--color-background), 0px 4px 25px -1px rgba(0, 0, 0, 0.08),
+      -6px -6px 24px rgba(var(--color-shadow-highlight-rgb),1), 6px 6px 24px var(--color-shadow-dark);
+  --shadow-neumorphism-ring-inset: box-shadow: inset 4.5px 4.5px 16px 8px rgba(0, 0, 0, 0.17), var(--shadow-neumorphism-ring);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root .neumorphism {
+    --color-background: #383636;
+    --color-background-tint: #514949;
+    --color-shadow-light: #726868;
+    --color-shadow-dark: #342c2c;
+    --color-shadow-dark-xl: #a3b1c6;
+    --color-shadow-black: #161b26;
+    --color-primary: #0e8f96;
+    --color-secondary: #4fa0ab;
+    --color-text: #eaeef6;
+    --color-text-medium: #757f8e;
+    --color-shadow-highlight-rgb: 94,89,89;
+    --color-shadow-shadow-rgb: 26,22,22;
+  }
+}
