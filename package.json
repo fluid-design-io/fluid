@@ -13,6 +13,7 @@
   "dependencies": {
     "@capacitor/storage": "^1.2.5",
     "@docsearch/react": "^3.2.0",
+    "@fluid-design/fluid-ui": "^1.0.4",
     "@hcaptcha/react-hcaptcha": "^1.1.0",
     "@headlessui/react": "^1.6.6",
     "@heroicons/react": "^1.0.6",
