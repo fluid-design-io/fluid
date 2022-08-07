@@ -12,7 +12,7 @@ import imgRTL from "../../public/assets/features/comp-feat-RTL.png";
 import imgScreenReader from "../../public/assets/features/comp-feat-screen-reader.png";
 import imgKeyboard from "../../public/assets/features/comp-feat-keyboard.png";
 import imgResponsive from "../../public/assets/features/comp-feat-responsive.png";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 interface FeatureCardProps {
   category: "Accessibility" | "Interaction" | "Transition" | "UI";
