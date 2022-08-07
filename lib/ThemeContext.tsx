@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint no-use-before-define: 0 */
 import React, {
   FC,
