@@ -46,6 +46,7 @@ function AppForm({ initialValues, onSubmit, validationSchema, children }) {
       {({ values, resetForm }) => (
         <>
           {children}
+          {/* @ts-ignore */}
           <HCaptcha
             id="hcaptcha-area"
             size="invisible"
