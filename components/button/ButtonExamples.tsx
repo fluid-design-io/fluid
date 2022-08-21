@@ -6,7 +6,7 @@ import {
   FluidButtonSizes,
   FluidButtonWeights,
   FulidButtonLoadingOptions,
-} from "@fluid-design/fluid-ui";
+} from "@fluid-design/fluid-ui/dist/lib/components/FluidUI/FluidTheme";
 import { useTranslation } from "next-i18next";
 import { useId, useState } from "react";
 
