@@ -1,11 +1,20 @@
-import { useEffect } from "react";
-import { appWithTranslation } from "next-i18next";
-import nextI18nextConfig from "../next-i18next.config";
-import '@docsearch/css';
+import { CH } from "@code-hike/mdx/components";
+import "@docsearch/css";
+import { MDXProvider } from "@mdx-js/react";
 import "flag-icons/css/flag-icons.min.css";
+import { motion } from "framer-motion";
+import { appWithTranslation } from "next-i18next";
+import { useEffect } from "react";
+import { CookiesProvider } from "react-cookie";
+
+import { Table } from "../components";
+import { CodeFrame } from "../components/framework";
+import { getComponents } from "../components/mdx/mdx-components";
+import nextI18nextConfig from "../next-i18next.config";
+// import "@code-hike/mdx/dist/index.css";
+import "../styles/code-hike.css";
 import "../styles/globals.css";
 import "../styles/neumorphism.css";
-import { CookiesProvider } from "react-cookie";
 
 function MyApp({ Component, pageProps }) {
   const activateDarkMode = () => {
@@ -31,7 +40,13 @@ function MyApp({ Component, pageProps }) {
   }, []);
   return (
     <CookiesProvider>
-      <Component {...pageProps} />
+      <MDXProvider
+        components={getComponents({
+          components: { CH, CodeFrame, motion, Table },
+        })}
+      >
+        <Component {...pageProps} />
+      </MDXProvider>
     </CookiesProvider>
   );
 }

@@ -23,12 +23,30 @@ class MyDocument extends Document {
             href="/assets/favicon/favicon-16x16.png"
           />
           <link rel="manifest" href="/manifest.json" />
-          <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#44403c" />
+          <link
+            rel="mask-icon"
+            href="/assets/favicon/safari-pinned-tab.svg"
+            color="#44403c"
+          />
           <meta name="msapplication-TileColor" content="#2b5797" />
-          
+
           <link
             href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Nunito:wght@700&display=swap"
             rel="stylesheet"
+          />
+          <link
+            rel="preload"
+            href="/fonts/inter-var-latin.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
+            href="/fonts/nunito-latin.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
           />
         </Head>
         <body>

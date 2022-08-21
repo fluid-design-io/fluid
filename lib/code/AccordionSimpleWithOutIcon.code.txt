@@ -12,7 +12,7 @@ const data = [
     title: "Section 1",
     details: (
       <p
-        className={`my-2 text-stone-600 dark:text-stone-300 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50`}
+        className={`my-2 text-primary-600 dark:text-primary-300 prefers-contrast:text-primary-900 dark:prefers-contrast:text-primary-50`}
       >
         Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
         ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
@@ -27,7 +27,7 @@ const data = [
     title: "Section 2",
     details: (
       <p
-        className={`my-2 text-stone-600 dark:text-stone-300 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50`}
+        className={`my-2 text-primary-600 dark:text-primary-300 prefers-contrast:text-primary-900 dark:prefers-contrast:text-primary-50`}
       >
         Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
         purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis
@@ -42,7 +42,7 @@ const data = [
     details: (
       <>
         <p
-          className={`my-2 text-stone-600 dark:text-stone-300 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50`}
+          className={`my-2 text-primary-600 dark:text-primary-300 prefers-contrast:text-primary-900 dark:prefers-contrast:text-primary-50`}
         >
           Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque
           lobortis. Phasellus pellentesque purus in massa. Aenean in pede.
@@ -51,7 +51,7 @@ const data = [
           leo purus venenatis dui.
         </p>
         <ul
-          className={`mb-2 text-stone-600 dark:text-stone-300 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50`}
+          className={`mb-2 text-primary-600 dark:text-primary-300 prefers-contrast:text-primary-900 dark:prefers-contrast:text-primary-50`}
         >
           <li>List item one</li>
           <li>List item two</li>
@@ -65,7 +65,7 @@ const data = [
 
 function Example() {
   return (
-    <div className="w-full max-w-xs px-2 py-1 overflow-hidden rounded-lg shadow-lg md:w-2/3 bg-stone-50 dark:bg-stone-900 shadow-stone-900/10 dark:shadow-stone-900/30 component prefers-contrast:bg-white dark:prefers-contrast:bg-stone-900 prefers-contrast:contrast-ring">
+    <div className="w-full max-w-xs px-2 py-1 overflow-hidden rounded-lg shadow-lg md:w-2/3 bg-primary-50 dark:bg-primary-900 shadow-primary-900/10 dark:shadow-primary-900/30 component prefers-contrast:bg-white dark:prefers-contrast:bg-primary-900 prefers-contrast:contrast-ring">
       <Accordion>
         {data.map((item, index) => (
           <AccordionPanel key={index} header={item.title} isOpen={item.isOpen}>

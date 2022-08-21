@@ -12,7 +12,7 @@ function Example() {
   return (
     <div className="w-full max-w-xs mx-auto component">
         <div
-            className="grid w-full aspect-square grid-cols-3 overflow-hidden shadow component card-bg rounded-xl gap-x-0.5 focus:ring-2 focus:ring-offset-2 focus:ring-stone-500"
+            className="grid w-full aspect-square grid-cols-3 overflow-hidden shadow component card-bg rounded-xl gap-x-0.5 focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
             tabIndex={0}
             aria-label={\`Collage related to Forest, by John Doe\`}
             onClick={

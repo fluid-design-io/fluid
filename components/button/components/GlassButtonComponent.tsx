@@ -40,7 +40,7 @@ function GlassButtonComponent({ setNotification, ...props }) {
           dragSnapToOrigin={true}
           onDragStart={() => setIsDragging(true)}
           onDragEnd={() => setIsDragging(false)}
-          className={`relative px-6 py-2 rounded-lg bg-stone-900/40 backdrop-filter backdrop-blur-md backdrop-brightness-90 backdrop-saturate-150 text-white/70 contrast-more:black/90 contrast-more:text-white/90  dark:contrast-more:border-white border border-white/10 transition-colors font-medium select-none ${
+          className={`relative px-6 py-2 rounded-lg bg-primary-900/40 backdrop-filter backdrop-blur-md backdrop-brightness-90 backdrop-saturate-150 text-white/70 contrast-more:black/90 contrast-more:text-white/90  dark:contrast-more:border-white border border-white/10 transition-colors font-medium select-none ${
             isDragging
               ? "z-50"
               : "active:bg-black/70 hover:bg-black/60 z-10 contrast-more:hover:bg-black contrast-more:active:border-black"

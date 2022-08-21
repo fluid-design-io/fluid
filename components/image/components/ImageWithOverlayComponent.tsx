@@ -5,7 +5,7 @@ function ImageWithOverlayComponent({ src = undefined, ...props }) {
   const { t } = useTranslation("image");
   return (
     <div
-      className={`relative w-full max-w-xs overflow-hidden shadow component card-bg rounded-xl group focus-within:ring-2 focus-within:ring-stone-600 dark:focus-within:ring-stone-300 outline-none ${
+      className={`relative w-full max-w-xs overflow-hidden shadow component card-bg rounded-xl group focus-within:ring-2 focus-within:ring-primary-600 dark:focus-within:ring-primary-300 outline-none ${
         props.className ? props.className : `h-48`
       }`}
       tabIndex={0}

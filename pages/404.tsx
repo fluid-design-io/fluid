@@ -1,4 +1,4 @@
-import Page from "../components/framework/Page";
+import {Page} from "../components/framework";
 import UnderConstruction from "../components/framework/UnderConstruction";
 import { SiteMeta } from "../interfaces/framwork";
 

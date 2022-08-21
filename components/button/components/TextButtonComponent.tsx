@@ -375,7 +375,7 @@ function TextButtonComponent({
           </div>
         </div>
       </AnimatePresence>
-      <div className="flex flex-col items-center justify-center w-full p-4 rounded-md shadow-lg outline-none card-bg dark:bg-stone-900/80 dark:contrast-more:bg-stone-800/90 shadow-stone-800/5 sm:rounded-xl">
+      <div className="flex flex-col items-center justify-center w-full p-4 rounded-md shadow-lg outline-none card-bg dark:bg-primary-900/80 dark:contrast-more:bg-primary-800/90 shadow-primary-800/5 sm:rounded-xl">
         <AppSegment
           defaultValue={selectedType}
           onUpdate={(category) => setCookie("selectedType", category)}

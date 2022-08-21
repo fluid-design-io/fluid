@@ -44,7 +44,7 @@ export const ThemeSwitch = ({
         {mode === "light" && (
           <motion.button
             key="dark-toggle"
-            className="focus-visible:borde-gray-400/80 rounded border border-transparent p-1.5 hover:border-gray-400/30 hover:bg-gray-400/10 focus-visible:border focus-visible:bg-gray-500/10"
+            className="focus-visible:borde-primary-400/80 rounded border border-transparent p-1.5 hocus:border-primary-400/30 hocus:bg-primary-400/10 focus-visible:border focus-visible:bg-primary-500/10 focus-ring"
             onClick={() => handleModeChange("dark")}
             initial="initial"
             animate="animate"
@@ -63,7 +63,7 @@ export const ThemeSwitch = ({
               }}
             >
               <MdDarkMode
-                className={clsxm("h-4 w-4 fill-stone-600 transition-colors")}
+                className={clsxm("h-4 w-4 fill-primary-600 transition-colors")}
               />
             </motion.div>
           </motion.button>
@@ -71,7 +71,7 @@ export const ThemeSwitch = ({
         {mode === "dark" && (
           <motion.button
             key="light-toggle"
-            className="focus-visible:borde-gray-400/80 absolute inset-0 rounded border border-transparent p-1.5 hover:border-gray-400/30 hover:bg-gray-400/10 focus-visible:border focus-visible:bg-gray-500/10"
+            className="focus-visible:borde-primary-400/80 absolute inset-0 rounded border border-transparent p-1.5 hocus:border-primary-400/30 hocus:bg-primary-400/10 focus-visible:border focus-visible:bg-primary-500/10 focus-ring"
             onClick={() => handleModeChange("light")}
             initial="initial"
             animate="animate"
@@ -89,7 +89,9 @@ export const ThemeSwitch = ({
                 mass: 0.2,
               }}
             >
-              <MdOutlineLightMode className={clsxm("h-4 w-4 fill-stone-100")} />
+              <MdOutlineLightMode
+                className={clsxm("h-4 w-4 fill-primary-100")}
+              />
             </motion.div>
           </motion.button>
         )}

@@ -14,7 +14,7 @@ npm install -D tailwindcss
 npx tailwindcss init
 /* Framer Motion */
 npm install framer-motion`.trim()}
-          className={`bg-stone-800 dark:bg-stone-900 rounded-lg py-4`}
+          className={`bg-primary-800 dark:bg-primary-900 rounded-lg py-4`}
         />
         <p>
           <Trans

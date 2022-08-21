@@ -10,7 +10,7 @@ const ImageCollageComponent = ({
   };
   return (
     <div
-      className={`w-full max-w-xs mx-auto component grid aspect-square grid-cols-3 overflow-hidden shadow component card-bg rounded-xl gap-x-0.5 focus:ring-2 focus:ring-offset-2 focus:ring-stone-500 cursor-pointer motion-safe:hover:scale-[0.992] motion-safe:active:scale-[0.98] motion-safe:transition contrast-more:hover:ring-2 contrast-more:hover:ring-stone-800 dark:contrast-more:hover:ring-stone-50 contrast-more:hover:ring-offset-2 select-none  ${
+      className={`w-full max-w-xs mx-auto component grid aspect-square grid-cols-3 overflow-hidden shadow component card-bg rounded-xl gap-x-0.5 focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 cursor-pointer motion-safe:hover:scale-[0.992] motion-safe:active:scale-[0.98] motion-safe:transition contrast-more:hover:ring-2 contrast-more:hover:ring-primary-800 dark:contrast-more:hover:ring-primary-50 contrast-more:hover:ring-offset-2 select-none  ${
         props.className ? props.className : ``
       }`}
       tabIndex={0}

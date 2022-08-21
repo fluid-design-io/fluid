@@ -22,7 +22,7 @@ function IndexElegant() {
             tiltMaxAngleX={onClick ? 0 : 4}
             tiltMaxAngleY={onClick ? 0 : 4}
             glarePosition="all"
-            className="h-full overflow-hidden transition border select-none bg-stone-200/75 elegant-glare dark:bg-stone-700 border-stone-50 dark:border-stone-600/50 rounded-xl ring-transparent pointer-touch:shadow-ring-light dark:pointer-touch:shadow-ring-dark hover:shadow-ring-light dark:hover:shadow-ring-dark touch-pan-y"
+            className="h-full overflow-hidden transition border select-none bg-primary-200/75 elegant-glare dark:bg-primary-700 border-primary-50 dark:border-primary-600/50 rounded-xl ring-transparent pointer-touch:shadow-ring-light dark:pointer-touch:shadow-ring-dark hover:shadow-ring-light dark:hover:shadow-ring-dark touch-pan-y"
           >
             <button
               onMouseDown={() => setOnClick(true)}
@@ -36,7 +36,7 @@ function IndexElegant() {
                 className={`absolute right-2.5 bottom-2.5 rounded-full active:scale-95 transition group cursor-pointer card-button z-10 hover:shadow-ring-light-sm dark:hover:shadow-ring-dark-sm ${
                   isFav
                     ? `bg-rose-500`
-                    : `bg-stone-300/50 dark:bg-stone-500/50 contrast-more:bg-stone-500 dark:contrast-more:bg-stone-400`
+                    : `bg-primary-300/50 dark:bg-primary-500/50 contrast-more:bg-primary-500 dark:contrast-more:bg-primary-400`
                 }`}
                 onClick={() => {
                   setIsFav(!isFav);
@@ -45,21 +45,21 @@ function IndexElegant() {
                 <HeartIcon
                   className={`w-4 h-4 m-1 transition group-active:scale-75 ${
                     isFav
-                      ? `text-stone-50 dark:text-stone-200`
-                      : `text-stone-400 dark:text-stone-700`
+                      ? `text-primary-50 dark:text-primary-200`
+                      : `text-primary-400 dark:text-primary-700`
                   }`}
                 />
               </div>
-              <motion.div className="absolute left-2.5 bottom-2.5 rounded-full w-20 bg-stone-300/50 dark:bg-stone-500/50 flex z-10 hover:shadow-ring-light-sm dark:hover:shadow-ring-dark-sm">
-                <div className="rounded-full bg-stone-300/50 dark:bg-stone-500">
-                  <UserIcon className="w-4 h-4 m-1 text-stone-400 dark:text-stone-700 contrast-more:text-stone-200 dark:contrast-more:text-stone-900" />
+              <motion.div className="absolute left-2.5 bottom-2.5 rounded-full w-20 bg-primary-300/50 dark:bg-primary-500/50 flex z-10 hover:shadow-ring-light-sm dark:hover:shadow-ring-dark-sm">
+                <div className="rounded-full bg-primary-300/50 dark:bg-primary-500">
+                  <UserIcon className="w-4 h-4 m-1 text-primary-400 dark:text-primary-700 contrast-more:text-primary-200 dark:contrast-more:text-primary-900" />
                 </div>
               </motion.div>
             </button>
           </Tilt>
         </div>
       </motion.div>
-      <p className="absolute w-full text-xs text-center bottom-2 text-stone-400 dark:text-stone-500">
+      <p className="absolute w-full text-xs text-center bottom-2 text-primary-400 dark:text-primary-500">
         <span className="hidden pointer-hover:block">
           Try hover on the card and click buttons
         </span>

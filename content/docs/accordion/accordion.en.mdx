@@ -1,0 +1,196 @@
+---
+title: "Fluid Design Docs | Accordion"
+description: "Accordion component for Fluid Design"
+date: "2022-08-11"
+author: "Oliver Pan"
+tags:
+  - "fluid ui"
+  - "react"
+  - "framer motion"
+  - "headless ui"
+  - "tailwindcss"
+  - "Accordion"
+---
+
+# Accordion
+
+Accordions allow you to reduce vertical space by creating collapsible sections in your content while also organizing and grouping information.
+
+<CH.Code>
+
+```jsx main.tsx
+import { Accordion, AccordionPanel } from "@fluid-design/fluid-ui";
+import { data } from "./data";
+
+<Accordion>
+  {data.map((item, index) => (
+    <AccordionPanel key={index} header={item.title} isOpen={item.isOpen}>
+      {item.details}
+    </AccordionPanel>
+  ))}
+</Accordion>;
+```
+
+```jsx data.tsx
+export const data = [
+  {
+    title: "Section 1",
+    details: (
+      <p
+        className={`my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50`}
+      >
+        Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+        ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+        amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo
+        ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque
+        vulputate.
+      </p>
+    ),
+    isOpen: true,
+  },
+  {
+    title: "Section 2",
+    details: (
+      <p
+        className={`my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50`}
+      >
+        Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+        purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis
+        porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non
+        quam. In suscipit faucibus urna.
+      </p>
+    ),
+    isOpen: false,
+  },
+  {
+    title: "Section 3",
+    details: (
+      <>
+        <p
+          className={`my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50`}
+        >
+          Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque
+          lobortis. Phasellus pellentesque purus in massa. Aenean in pede.
+          Phasellus ac libero ac tellus pellentesque semper. Sed ac felis. Sed
+          commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu iaculis
+          leo purus venenatis dui.
+        </p>
+        <ul
+          className={`mb-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-400 dark:contrast-more:text-primary-50`}
+        >
+          <li>List item one</li>
+          <li>List item two</li>
+          <li>List item three</li>
+        </ul>
+      </>
+    ),
+    isOpen: false,
+  },
+];
+```
+
+</CH.Code>
+
+## Default
+
+<CodeFrame title="">
+  <AccordionExamples.Simple />
+</CodeFrame>
+
+## With Icons
+
+<CH.Section>
+
+You can use [`headerIcon`](focus://main.tsx#7) to add an icon to the header.
+The icon needs to be a function, you can import them from libraries such as [react-icons](https://react-icons.github.io/) or [heroicons](https://heroicons.com/).
+
+<CH.Code>
+
+```jsx main.tsx
+<Accordion>
+  {dataWithIcons.map((item, index) => (
+    <AccordionPanel
+      key={index}
+      header={item.title}
+      isOpen={item.isOpen}
+      // mark
+      headerIcon={item.Icon}
+    >
+      {item.details}
+    </AccordionPanel>
+  ))}
+</Accordion>
+```
+
+```jsx data.tsx
+import {
+  CogIcon,
+  InformationCircleIcon,
+  ShoppingCartIcon,
+} from "@heroicons/react/outline";
+const dataWithIcons = [
+  {
+    title: "Shop",
+    details: (
+      <p
+        className={`my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50`}
+      >
+        Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+        ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+        amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo
+        ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque
+        vulputate.
+      </p>
+    ),
+    Icon: ShoppingCartIcon,
+    isOpen: true,
+  },
+  {
+    title: "Service",
+    details: (
+      <p
+        className={`my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50`}
+      >
+        Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+        purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis
+        porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non
+        quam. In suscipit faucibus urna.
+      </p>
+    ),
+    Icon: CogIcon,
+    isOpen: false,
+  },
+  {
+    title: "About",
+    details: (
+      <>
+        <p
+          className={`my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50`}
+        >
+          Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque
+          lobortis. Phasellus pellentesque purus in massa. Aenean in pede.
+          Phasellus ac libero ac tellus pellentesque semper. Sed ac felis. Sed
+          commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu iaculis
+          leo purus venenatis dui.
+        </p>
+        <ul
+          className={`mb-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-400 dark:contrast-more:text-primary-50`}
+        >
+          <li>List item one</li>
+          <li>List item two</li>
+          <li>List item three</li>
+        </ul>
+      </>
+    ),
+    Icon: InformationCircleIcon,
+    isOpen: false,
+  },
+];
+```
+
+</CH.Code>
+</CH.Section>
+
+<CodeFrame title="Custom icons">
+  <AccordionExamples.WithIcons />
+</CodeFrame>

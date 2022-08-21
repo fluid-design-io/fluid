@@ -10,7 +10,7 @@ function IndexEnterExit() {
       exit={{ opacity: 0 }}
       className="flex flex-col items-center justify-center"
     >
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode='wait' >
         {show && (
           <>
             <motion.div
@@ -45,7 +45,7 @@ function IndexEnterExit() {
       <div className="absolute left-0 w-full text-xs text-center bottom-2">
         <button
           onClick={() => setShow(!show)}
-          className="px-2 py-1 transition rounded-md shadow-sm  text-stone-500 hover:text-stone-700 dark:text-stone-400 bg-stone-50 hover:bg-white dark:bg-stone-700 dark:hover:bg-stone-800"
+          className="px-2 py-1 transition rounded-md shadow-sm  text-primary-500 hover:text-primary-700 dark:text-primary-400 bg-primary-50 hover:bg-white dark:bg-primary-700 dark:hover:bg-primary-800"
         >
           Toggle
         </button>

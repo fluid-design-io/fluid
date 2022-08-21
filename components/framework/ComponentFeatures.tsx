@@ -41,7 +41,7 @@ const FeatureCard = ({
 }: FeatureCardProps) => {
   return (
     <div
-      className={`relative flex flex-col items-start p-3 overflow-hidden rounded-lg bg-stone-200/50 dark:bg-stone-900/70 focus-ring col-span-1 ${
+      className={`relative flex flex-col items-start p-3 overflow-hidden rounded-lg bg-primary-200/50 dark:bg-primary-900/70 focus-ring col-span-1 ${
         description && description.length > 200 ? "row-span-2" : ""
       }`}
       style={{ minHeight: "6.5rem" }}
@@ -50,18 +50,21 @@ const FeatureCard = ({
     >
       <div className="flex-grow" />
       <div className="relative z-[2]">
-        <p className="text-xs font-medium text-stone-500 dark:text-stone-400 contrast-more:text-stone-700 dark:contrast-more:text-stone-200">
+        <p className="text-xs font-medium text-primary-500 dark:text-primary-400 contrast-more:text-primary-700 dark:contrast-more:text-primary-200">
           {category}
         </p>
-        <h4 className="capitalize">{type}{type === "RTL" && " (right-to-left)" }</h4>
+        <h4 className="capitalize">
+          {type}
+          {type === "RTL" && " (right-to-left)"}
+        </h4>
         {description && (
-          <p className="w-5/6 pt-2 text-sm tracking-tight text-stone-600 dark:text-stone-300 contrast-more:text-stone-800 dark:contrast-more:text-stone-100 max-w-[44rem]">
+          <p className="w-5/6 pt-2 text-sm tracking-tight text-primary-600 dark:text-primary-300 contrast-more:text-primary-800 dark:contrast-more:text-primary-100 max-w-[44rem]">
             {description}
           </p>
         )}
       </div>
       <div className="absolute img-wrap w-full right-0 z-[1] select-none pointer-events-none">
-        <div className="relative w-full h-full">
+        <div className="relative w-full h-full bg-grid-slate-100">
           <Image
             className="flex img"
             src={img}

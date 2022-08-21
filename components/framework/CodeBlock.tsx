@@ -9,17 +9,18 @@ import {
   EyeIcon,
 } from "@heroicons/react/solid";
 import { motion, useReducedMotion } from "framer-motion";
-import { CodeBlockProps } from "../../interfaces/CodeBlock";
-import Code from "../../util/Code";
-import ComponentFeatures from "./ComponentFeatures";
-import { CopyToClipboard } from "react-copy-to-clipboard";
 import { useTranslation } from "next-i18next";
 import { useState } from "react";
-import CodeBlockNotification from "./CodeBlockNotification";
-import SplitView from "./SplitView";
-import clsxm from "../../lib/clsxm";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
-function CodeBlock({
+import { CodeBlockProps } from "../../interfaces/CodeBlock";
+import clsxm from "../../lib/clsxm";
+import Code from "../../util/Code";
+import CodeBlockNotification from "./CodeBlockNotification";
+import ComponentFeatures from "./ComponentFeatures";
+import SplitView from "./SplitView";
+
+export const CodeBlock = ({
   title,
   raw,
   features = undefined,
@@ -28,7 +29,7 @@ function CodeBlock({
   iframe = null,
   children = null,
   ...props
-}: CodeBlockProps) {
+}: CodeBlockProps) => {
   const [isCoping, setIsCoping] = useState(false);
   const shouldReduceMotion = useReducedMotion();
   const { t } = useTranslation("common");
@@ -59,7 +60,7 @@ function CodeBlock({
             content={raw}
             className="w-full flex-shrink !bg-transparent z-[2]  pt-12 pb-4"
           />
-          <div className="bg-stone-800 dark:bg-stone-900/70 w-full h-full absolute inset-0 z-[0] contrast-more:!bg-black" />
+          <div className="bg-primary-800 dark:bg-primary-900/70 w-full h-full absolute inset-0 z-[0] contrast-more:!bg-black" />
         </div>
       ),
     },
@@ -78,7 +79,7 @@ function CodeBlock({
     <div
       className={` ${
         props.className ? props.className : ``
-      } relative rounded-xl border border-stone-300/50 dark:border-stone-500/20 contrast-more:border-stone-800 dark:contrast-more:border-stone-100 w-full min-h-[16rem] overflow-hidden transform-gpu translate-x-0 my-6 not-prose code-block-wrap focus-ring`}
+      } relative rounded-xl border border-primary-300/50 dark:border-primary-500/20 contrast-more:border-primary-800 dark:contrast-more:border-primary-100 w-full min-h-[16rem] overflow-hidden transform-gpu translate-x-0 my-6 not-prose code-block-wrap focus-ring`}
       tabIndex={0}
       aria-label={`Example. ${title}. ${
         features?.interactions ? `This is an interactive component` : ""
@@ -93,7 +94,7 @@ function CodeBlock({
           (panel) => panel.name === "Preview"
         )}
       >
-        <Tab.List className="absolute top-0 left-0 flex w-full px-2 pt-2 space-x-2 text-sm text-stone-500/75 contrast-more:text-stone-800 dark:text-stone-100">
+        <Tab.List className="absolute top-0 left-0 flex w-full px-2 pt-2 space-x-2 text-sm text-primary-500/75 contrast-more:text-primary-800 dark:text-primary-100">
           <div className="flex items-stretch justify-between w-full space-x-4">
             <div
               className="relative z-[2] font-medium py-1.5 pl-2 max-w-full flex space-x-1 items-center overflow-ellipsis component flex-shrink-0"
@@ -113,13 +114,13 @@ function CodeBlock({
               className={`overflow-y-hidden overflow-x-auto z-[4] flex items-stretch flex-nowrap justify-start w-full px-2`}
             >
               <div
-                className={`rounded-md flex items-center justify-center px-4 flex-shrink-0 ring-1 ring-stone-300 ring-inset`}
+                className={`rounded-md flex items-center justify-center px-4 flex-shrink-0 ring-1 ring-primary-300 ring-inset`}
               >
                 <span className={`text-sm font-semibold`}>Form.tsx</span>
               </div>
             </div> */}
             <div
-              className={`flex space-x-2 rounded-md z-[4] py-1 flex-shrink-0 justify-center px-1 backdrop-filter backdrop-blur-md backdrop-brightness-90 bg-stone-50/75 dark:bg-stone-800/30 motion-safe:transition-opacity sm:shadow-md sm:shadow-stone-400/10 contrast-more:shadow-none dark:shadow-stone-900/20 ${touchStyle}`}
+              className={`flex space-x-2 rounded-md z-[4] py-1 flex-shrink-0 justify-center px-1 backdrop-filter backdrop-blur-md backdrop-brightness-90 bg-primary-50/75 dark:bg-primary-800/30 motion-safe:transition-opacity sm:shadow-md sm:shadow-primary-400/10 contrast-more:shadow-none dark:shadow-primary-900/20 ${touchStyle}`}
             >
               {getPanels().map(({ name, Icon }) => (
                 <Tab
@@ -134,8 +135,8 @@ function CodeBlock({
                           `py-1.5 text-xs font-medium px-2`,
                           buttonStyle,
                           selected
-                            ? "motion-reduce:bg-stone-200/70 dark:motion-reduce:bg-stone-900/60 motion-reduce:backdrop-blur-md motion-reduce:backdrop-filter text-stone-800 dark:text-stone-100"
-                            : "hover:text-stone-800 dark:hover:text-stone-100"
+                            ? "motion-reduce:bg-primary-200/70 dark:motion-reduce:bg-primary-900/60 motion-reduce:backdrop-blur-md motion-reduce:backdrop-filter text-primary-800 dark:text-primary-100"
+                            : "hover:text-primary-800 dark:hover:text-primary-100"
                         )}
                       >
                         <span className="hidden sm:!block">{t(name)}</span>
@@ -145,7 +146,7 @@ function CodeBlock({
                       </div>
                       {selected && (
                         <motion.div
-                          className={`motion-reduce:hidden absolute z-[2] inset-0 w-full h-full rounded-md bg-stone-50/70 dark:bg-stone-200/20 contrast-more:bg-white dark:contrast-more:bg-stone-200/30 contrast-more:border contrast-more:border-stone-800 dark:contrast-more:border-stone-100`}
+                          className={`motion-reduce:hidden absolute z-[2] inset-0 w-full h-full rounded-md bg-primary-50/70 dark:bg-primary-200/20 contrast-more:bg-white dark:contrast-more:bg-primary-200/30 contrast-more:border contrast-more:border-primary-800 dark:contrast-more:border-primary-100`}
                           layoutId={`underline.${title}`}
                         />
                       )}
@@ -154,11 +155,11 @@ function CodeBlock({
                 </Tab>
               ))}
               <div
-                className={`w-[2px] flex-grow-0 my-2 mx-1 bg-stone-400/30 dark:bg-white/10`}
+                className={`w-[2px] flex-grow-0 my-2 mx-1 bg-primary-400/30 dark:bg-white/10`}
               />
               <CopyToClipboard text={raw} onCopy={handleCopy}>
                 <button
-                  className={`py-1.5 sm:w-14 text-xs font-medium hover:text-stone-800 dark:hover:text-stone-100 ${buttonStyle}`}
+                  className={`py-1.5 sm:w-14 text-xs font-medium hover:text-primary-800 dark:hover:text-primary-100 ${buttonStyle}`}
                   aria-live="assertive"
                 >
                   <span className="sr-only">
@@ -183,7 +184,7 @@ function CodeBlock({
           {getPanels().map(({ name, component }) => (
             <Tab.Panel
               key={`panel.${title}.${name}`}
-              className="focus-visible:border-2 focus-visible:border-stone-500 rounded-xl focus:outline-none"
+              className="focus-visible:border-2 focus-visible:border-primary-500 rounded-xl focus:outline-none"
             >
               <motion.div
                 initial={{ opacity: shouldReduceMotion ? 1 : 0 }}
@@ -199,6 +200,4 @@ function CodeBlock({
       </Tab.Group>
     </div>
   );
-}
-
-export default CodeBlock;
+};

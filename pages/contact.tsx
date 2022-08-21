@@ -1,7 +1,7 @@
 import { useTranslation, Trans } from "next-i18next";
 import { AppForm, AppInput, SubmitButton } from "../components/form";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Page from "../components/framework/Page";
+import {Page} from "../components/framework";
 import { SiteMeta } from "../interfaces/framwork";
 import * as Yup from "yup";
 import AppTextarea from "../components/form/AppTextarea";

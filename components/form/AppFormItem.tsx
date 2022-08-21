@@ -7,8 +7,8 @@ function AppFormItem({ error, focused, children, ...props }) {
         !!error
           ? "border-red-400 contrast-more:border-red-500 dark:contrast-more:border-red-300"
           : focused
-          ? `border-stone-200 contrast-more:border-stone-800 dark:contrast-more:border-amber-800`
-          : `border-transparent contrast-more:border-stone-800 dark:contrast-more:border-stone-200`
+          ? `border-primary-200 contrast-more:border-primary-800 dark:contrast-more:border-amber-800`
+          : `border-transparent contrast-more:border-primary-800 dark:contrast-more:border-primary-200`
       }  ${props.className ? props.className : ``}`}
     >
       {children}

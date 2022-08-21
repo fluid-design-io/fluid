@@ -50,15 +50,15 @@ function Example() {
       </div>
       {/* Top Content */}
       <div className="absolute top-0 left-0 p-5 z-[2] pointer-events-none dark:prefers-contrast:[text-shadow:0px_2px_7.5px_rgba(0,0,0,0.75)]">
-        <p className="text-sm font-medium uppercase transition text-stone-800/60 dark:text-stone-200/75 prefers-contrast:font-bold prefers-contrast:text-stone-800 dark:prefers-contrast:text-stone-100">
+        <p className="text-sm font-medium uppercase transition text-primary-800/60 dark:text-primary-200/75 prefers-contrast:font-bold prefers-contrast:text-primary-800 dark:prefers-contrast:text-primary-100">
           Subtitle
         </p>
-        <h3 className="w-4/5 pt-1 text-3xl font-bold dark:text-stone-50 text-stone-800">
+        <h3 className="w-4/5 pt-1 text-3xl font-bold dark:text-primary-50 text-primary-800">
           Cool Things To Check Out
         </h3>
       </div>
       {/* Bottom Info Bar */}
-      <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between flex-shrink-0 w-full px-4 py-4 space-x-4 bg-stone-50 bg-opacity-30 dark:bg-stone-800 dark:bg-opacity-40 backdrop-filter backdrop-blur-3xl backdrop-saturate-150 backdrop-brightness-105 dark:backdrop-brightness-95 z-[3] prefers-contrast:bg-opacity-80 dark:prefers-contrast:bg-opacity-80 transition">
+      <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between flex-shrink-0 w-full px-4 py-4 space-x-4 bg-primary-50 bg-opacity-30 dark:bg-primary-800 dark:bg-opacity-40 backdrop-filter backdrop-blur-3xl backdrop-saturate-150 backdrop-brightness-105 dark:backdrop-brightness-95 z-[3] prefers-contrast:bg-opacity-80 dark:prefers-contrast:bg-opacity-80 transition">
         <div className="flex-shrink-0 w-12 h-12 overflow-hidden rounded-lg">
           <div className="relative w-full h-full">
             <Image
@@ -72,16 +72,16 @@ function Example() {
           </div>
         </div>
         <div>
-          <h2 className="font-medium leading-tight text-stone-800 dark:text-stone-50/90 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50 prefers-contrast:font-bold">
+          <h2 className="font-medium leading-tight text-primary-800 dark:text-primary-50/90 prefers-contrast:text-primary-900 dark:prefers-contrast:text-primary-50 prefers-contrast:font-bold">
             Card Title
           </h2>
-          <p className="text-sm leading-none text-stone-800/60 dark:text-stone-50/50 line-clamp-2 prefers-contrast:text-stone-800 dark:prefers-contrast:text-stone-200 prefers-contrast:font-semibold">
+          <p className="text-sm leading-none text-primary-800/60 dark:text-primary-50/50 line-clamp-2 prefers-contrast:text-primary-800 dark:prefers-contrast:text-primary-200 prefers-contrast:font-semibold">
             Lorem ipsum dolor sit amet.
           </p>
         </div>
         <div className="flex-shrink-0">
           <button
-            className="px-3 py-1.5 font-bold rounded-full bg-stone-50 text-sky-600 min-w-[4.5rem] max-w-[5rem] text-ellipsis truncate hover:bg-stone-300 transition select-none text-sm relative z-[5] dark:bg-stone-700 dark:hover:bg-stone-800 dark:text-sky-500/80 prefers-contrast:ring-2 prefers-contrast:ring-sky-700 dark:prefers-contrast:ring-sky-500 prefers-contrast:ring-offset-0 outline-none prefers-contrast:text-sky-700 dark:prefers-contrast:text-sky-400 uppercase focus-within:ring focus-within:ring-sky-500 focus-within:ring-offset border-0"
+            className="px-3 py-1.5 font-bold rounded-full bg-primary-50 text-sky-600 min-w-[4.5rem] max-w-[5rem] text-ellipsis truncate hover:bg-primary-300 transition select-none text-sm relative z-[5] dark:bg-primary-700 dark:hover:bg-primary-800 dark:text-sky-500/80 prefers-contrast:ring-2 prefers-contrast:ring-sky-700 dark:prefers-contrast:ring-sky-500 prefers-contrast:ring-offset-0 outline-none prefers-contrast:text-sky-700 dark:prefers-contrast:text-sky-400 uppercase focus-within:ring focus-within:ring-sky-500 focus-within:ring-offset border-0"
             onClick={() => null}
           >
             <span className="sr-only">Card action, get this item.</span>

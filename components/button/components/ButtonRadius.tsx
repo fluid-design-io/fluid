@@ -9,7 +9,7 @@ export const radius = [
         className={`w-16 h-16 absolute left-1/3 top-1/3 ${
           selected
             ? `${palette}`
-            : `bg-stone-400 dark:bg-stone-500 contrast-more:bg-stone-800 dark:contrast-more:bg-stone-200`
+            : `bg-primary-400 dark:bg-primary-500 contrast-more:bg-primary-800 dark:contrast-more:bg-primary-200`
         } `}
       />
     ),
@@ -45,7 +45,7 @@ export const radius = [
         className={`w-16 h-16 absolute left-1/3 top-1/3 rounded-lg ${
           selected
             ? `${palette}`
-            : `bg-stone-400 dark:bg-stone-500 contrast-more:bg-stone-800 dark:contrast-more:bg-stone-200`
+            : `bg-primary-400 dark:bg-primary-500 contrast-more:bg-primary-800 dark:contrast-more:bg-primary-200`
         } `}
       />
     ),
@@ -81,7 +81,7 @@ export const radius = [
         className={`w-12 h-12 absolute left-1/3 top-1/3 rounded-full ${
           selected
             ? `${palette}`
-            : `bg-stone-400 dark:bg-stone-500 contrast-more:bg-stone-800 dark:contrast-more:bg-stone-200`
+            : `bg-primary-400 dark:bg-primary-500 contrast-more:bg-primary-800 dark:contrast-more:bg-primary-200`
         } `}
       />
     ),
@@ -128,8 +128,8 @@ function ButtonRadius({ setCookie, selectedRadius, ...props }) {
           className={({ active, checked }) =>
             `rounded-full w-12 h-12 flex items-center justify-center transition ${
               checked
-                ? `bg-stone-800 `
-                : `bg-stone-200 dark:bg-stone-800 hover:opacity-80 cursor-pointer`
+                ? `bg-primary-800 `
+                : `bg-primary-200 dark:bg-primary-800 hover:opacity-80 cursor-pointer`
             } `
           }
         >

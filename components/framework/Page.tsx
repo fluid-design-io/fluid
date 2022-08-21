@@ -4,12 +4,12 @@ import { useRouter } from "next/dist/client/router";
 import { Header } from "./Header";
 import Footer from "./Footer";
 import { MotionPageProps, SiteMeta } from "../../interfaces/framwork";
-import Navbar from "./Navbar";
-import Sidebar from "./Sidebar";
+import { Navbar } from "./Navbar";
+import { Sidebar } from "./Sidebar";
 import { useEffect, useState } from "react";
 import { getBody, getBodyExcept } from "../../lib/getBody";
 
-function Page({
+export const Page = ({
   header = true,
   sidebar = true,
   children,
@@ -27,7 +27,7 @@ function Page({
   motionProps?: MotionPageProps;
   hasMain?: boolean;
   [x: string]: any;
-}) {
+}) => {
   const { asPath } = useRouter();
   const [hideNav, setHideNav] = useState(false);
   const enableMotion =
@@ -101,7 +101,7 @@ function Page({
             } 
             ${
               hideNav
-                ? "motion-safe:-translate-y-full motion-reduce:opacity-0 motion-reduce:pointer-events-none"
+                ? "motion-safe:-translate-y-full motion-reduce:pointer-events-none motion-reduce:opacity-0"
                 : "motion-reduce:opacity-100"
             }`}
           />
@@ -111,14 +111,14 @@ function Page({
         )}
       </div>
       <div className="flex">
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence mode="wait">
           <motion.main
             key={`page-${asPath}`}
             initial={enableMotion ? { opacity: 0 } : {}}
             animate={enableMotion ? { opacity: 1 } : {}}
             exit={enableMotion ? { opacity: 0 } : {}}
             transition={enableMotion ? { duration: 0.65 } : {}}
-            className={`max-w-full overflow-x-hidden w-full ${
+            className={`w-full max-w-full overflow-x-hidden ${
               className ? className : ``
             }  ${
               sidebar
@@ -128,7 +128,7 @@ function Page({
           >
             {getBodyExcept(children, "sidenav")}
           </motion.main>
-        {getBody(children, "sidenav")}
+          {getBody(children, "sidenav")}
         </AnimatePresence>
       </div>
       <div
@@ -140,6 +140,4 @@ function Page({
       </div>
     </>
   );
-}
-
-export default Page;
+};

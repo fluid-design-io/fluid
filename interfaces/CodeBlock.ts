@@ -36,3 +36,9 @@ export interface CodeBlockProps {
   };
   [x: string]: any;
 }
+
+export interface CodeFrameProps {
+  title: string;
+  children: React.ReactNode;
+  [x: string]: any;
+}

@@ -25,15 +25,15 @@ function ListDetailLargeComponent({ ...props }) {
   ];
   return (
     <div
-      className={`w-full max-w-xs overflow-hidden rounded-lg shadow-lg bg-stone-50 dark:bg-stone-900 shadow-stone-900/10 dark:shadow-stone-900/30 component contrast-more:bg-white dark:contrast-more:bg-stone-900 contrast-more:contrast-ring ${
+      className={`w-full max-w-xs overflow-hidden rounded-lg shadow-lg bg-primary-50 dark:bg-primary-900 shadow-primary-900/10 dark:shadow-primary-900/30 component contrast-more:bg-white dark:contrast-more:bg-primary-900 contrast-more:contrast-ring ${
         props.className ? props.className : ``
       } `}
     >
-      <ul className="divide-y select-none divide-stone-200/50 dark:divide-stone-700/30 contrast-more:divide-stone-600 dark:contrast-more:divide-stone-200">
+      <ul className="divide-y select-none divide-primary-200/50 dark:divide-primary-700/30 contrast-more:divide-primary-600 dark:contrast-more:divide-primary-200">
         {list.map(({ title, description, src, time }) => (
           <li
             key={title}
-            className="relative flex items-center px-4 py-2 space-x-3 transition outline-none hover:bg-stone-200/30 focus:bgstone-200/30 dark:hover:bg-stone-600/30 dark:focus:bg-stone-600/30 hover:contrast-more:bg-amber-300 dark:hover:contrast-more:bg-amber-400 group"
+            className="relative flex items-center px-4 py-2 space-x-3 transition outline-none hover:bg-primary-200/30 focus:bgstone-200/30 dark:hover:bg-primary-600/30 dark:focus:bg-primary-600/30 hover:contrast-more:bg-amber-300 dark:hover:contrast-more:bg-amber-400 group"
             tabIndex={0}
           >
             <div className="relative overflow-hidden rounded-full w-11 h-11 rtl:ml-4">
@@ -41,11 +41,11 @@ function ListDetailLargeComponent({ ...props }) {
             </div>
             <div className="flex-1 select-none">
               <div className={`flex justify-between items-center`}>
-                <h3 className="text-sm font-semibold md:!text-base text-stone-800 dark:text-stone-300 contrast-more:text-stone-900 dark:contrast-more:text-stone-50 dark:contrast-more:group-focus-visible:text-stone-900 dark:contrast-more:group-hover:text-stone-900 line-clamp-1 contrast-more:text-base">
+                <h3 className="text-sm font-semibold md:!text-base text-primary-800 dark:text-primary-300 contrast-more:text-primary-900 dark:contrast-more:text-primary-50 dark:contrast-more:group-focus-visible:text-primary-900 dark:contrast-more:group-hover:text-primary-900 line-clamp-1 contrast-more:text-base">
                   {title}
                 </h3>
                 <p
-                  className={`flex-shrink-0 text-stone-400 dark:text-stone-400/80 contrast-more:text-stone-900 dark:contrast-more:text-stone-50 flex items-center md:!text-sm text-xs`}
+                  className={`flex-shrink-0 text-primary-400 dark:text-primary-400/80 contrast-more:text-primary-900 dark:contrast-more:text-primary-50 flex items-center md:!text-sm text-xs`}
                 >
                   {time}
                   <span className={`rtl:!block hidden`}>
@@ -56,7 +56,7 @@ function ListDetailLargeComponent({ ...props }) {
                   </span>
                 </p>
               </div>
-              <p className="text-xs contrast-more:text-sm contrast-more:font-medium leading-tight md:!text-sm text-stone-600/90 dark:text-stone-400/80 line-clamp-2 contrast-more:text-stone-900 dark:contrast-more:text-stone-50 dark:contrast-more:group-focus-visible:text-stone-800 dark:contrast-more:group-hover:text-stone-800 md:!leading-tight min-h-[1.75rem] w-5/6 md:!w-full">
+              <p className="text-xs contrast-more:text-sm contrast-more:font-medium leading-tight md:!text-sm text-primary-600/90 dark:text-primary-400/80 line-clamp-2 contrast-more:text-primary-900 dark:contrast-more:text-primary-50 dark:contrast-more:group-focus-visible:text-primary-800 dark:contrast-more:group-hover:text-primary-800 md:!leading-tight min-h-[1.75rem] w-5/6 md:!w-full">
                 {description}
               </p>
             </div>

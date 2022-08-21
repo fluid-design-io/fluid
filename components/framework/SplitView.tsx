@@ -19,7 +19,7 @@ function SplitView({ iframe, ...props }) {
           isDragging ? "pointer-events-none" : ""
         }`}
       />
-      <div className="w-full h-full bg-stone-300/40 dark:bg-stone-500/20" />
+      <div className="w-full h-full bg-primary-300/40 dark:bg-primary-500/20" />
     </SplitPane>
   );
 }

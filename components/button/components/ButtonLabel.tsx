@@ -36,7 +36,7 @@ function ButtonLabel({
           maxLength={18}
           autoCapitalize="on"
           onChange={handleChange}
-          className="block px-3 py-1.5 border rounded-md shadow-sm appearance-none placeholder-stone-400 border-stone-300 dark:border-stone-600 bg-transparent focus:outline-none focus:ring-stone-500 focus:border-stone-500 text-sm dark:text-stone-50 contrast-more:font-medium contrast-more:dark:border-stone-50"
+          className="block px-3 py-1.5 border rounded-md shadow-sm appearance-none placeholder-primary-400 border-primary-300 dark:border-primary-600 bg-transparent focus:outline-none focus:ring-primary-500 focus:border-primary-500 text-sm dark:text-primary-50 contrast-more:font-medium contrast-more:dark:border-primary-50"
           autoFocus={buttonLabel.length === 0}
         />
       </form>
@@ -54,7 +54,7 @@ function ButtonLabel({
             `rounded-full w-12 h-12 flex items-center justify-center transition ${
               checked
                 ? `${props.palette}`
-                : `bg-stone-200 hover:opacity-80 cursor-pointer`
+                : `bg-primary-200 hover:opacity-80 cursor-pointer`
             } `
           }
         >
@@ -72,7 +72,7 @@ function ButtonLabel({
             `rounded-full w-12 h-12 flex items-center justify-center transition ${
               checked
                 ? `${props.palette}`
-                : `bg-stone-200 hover:opacity-80 cursor-pointer`
+                : `bg-primary-200 hover:opacity-80 cursor-pointer`
             } `
           }
         >
@@ -90,7 +90,7 @@ function ButtonLabel({
             `rounded-full w-12 h-12 flex items-center justify-center transition ${
               checked
                 ? `${props.palette}`
-                : `bg-stone-200 hover:opacity-80 cursor-pointer`
+                : `bg-primary-200 hover:opacity-80 cursor-pointer`
             } `
           }
         >
@@ -108,22 +108,22 @@ function ButtonLabel({
             className={`rounded-full w-12 h-12 flex items-center justify-center transition text-center relative overflow-hidden ${
               JSON.parse(iconOnly)
                 ? `${props.palette}`
-                : `bg-stone-200 hover:opacity-80 cursor-pointer`
+                : `bg-primary-200 hover:opacity-80 cursor-pointer`
             } ${
-              JSON.parse(iconOnly) ? "ring-4 ring-inset ring-stone-200 dark:ring-stone-700" : ""
+              JSON.parse(iconOnly) ? "ring-4 ring-inset ring-primary-200 dark:ring-primary-700" : ""
             } `}
             onClick={() => setCookie("iconOnly", !JSON.parse(iconOnly))}
             aria-label={iconOnly ? "Enable text" : "Disable text"}
             aria-live="assertive"
           >
-            <AnimatePresence exitBeforeEnter>
+            <AnimatePresence mode='wait' >
               {JSON.parse(iconOnly) && (
                 <motion.span
                   key={`button.iconOnly.strike`}
                   initial={{ width: 0, rotate: 45 }}
                   animate={{ width: 50, rotate: 45 }}
                   exit={{ width: 0, rotate: 45 }}
-                  className={`h-1 absolute bg-stone-200 dark:bg-stone-700 z-10`}
+                  className={`h-1 absolute bg-primary-200 dark:bg-primary-700 z-10`}
                   transition={{ type: "spring", bounce: 0, duration: 0.45 }}
                 />
               )}

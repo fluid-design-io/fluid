@@ -18,9 +18,9 @@ function ImageBGResponsiveComponent({ ...props }) {
           />
         </div>
       </div>
-      <div className="flex items-center justify-center col-span-1 p-4 bg-stone-50 dark:bg-stone-900">
+      <div className="flex items-center justify-center col-span-1 p-4 bg-primary-50 dark:bg-primary-900">
         <svg
-          className="w-full h-64 border-2 border-dashed rounded text-stone-200 dark:text-stone-600 dark:border-stone-600 border-stone-300"
+          className="w-full h-64 border-2 border-dashed rounded text-primary-200 dark:text-primary-600 dark:border-primary-600 border-primary-300"
           preserveAspectRatio="none"
           stroke="currentColor"
           fill="none"

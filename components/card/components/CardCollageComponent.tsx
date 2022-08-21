@@ -27,7 +27,7 @@ function CardCollageComponent({ setNotification }) {
             Forest
           </h3>
         </div>
-        <p className="pt-1 text-sm text-stone-600 dark:text-stone-400 contrast-more:text-stone-800 dark:contrast-more:text-stone-100 contrast-more:font-medium">
+        <p className="pt-1 text-sm text-primary-600 dark:text-primary-400 contrast-more:text-primary-800 dark:contrast-more:text-primary-100 contrast-more:font-medium">
           32 photos •{" "}
           <span className="cursor-pointer hover:opacity-80 hover:underline">
             <a href="" aria-label={`Browse more images by John Doe`}>
@@ -40,7 +40,7 @@ function CardCollageComponent({ setNotification }) {
             {tags.map(({ id, name }) => (
               <li key={id} className="list-none">
                 <button
-                  className="px-4 py-1 text-sm font-medium capitalize rounded-full focus:ring-2 focus:ring-offset-2 focus:ring-stone-500 bg-stone-200 dark:bg-stone-700 contrast-more:hover:ring-2 contrast-more:hover:ring-stone-800 dark:contrast-more:hover:ring-stone-50 contrast-more:hover:ring-offset-2 hover:bg-stone-300 dark:hover:bg-stone-600 contrast-more:font-semibold contrast-more:border contrast-more:border-stone-700 dark:contrast-more:border-stone-200 dark:contrast-more:bg-stone-800 dark:contrast-more:text-stone-50 contrast-more:text-stone-800"
+                  className="px-4 py-1 text-sm font-medium capitalize rounded-full focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 bg-primary-200 dark:bg-primary-700 contrast-more:hover:ring-2 contrast-more:hover:ring-primary-800 dark:contrast-more:hover:ring-primary-50 contrast-more:hover:ring-offset-2 hover:bg-primary-300 dark:hover:bg-primary-600 contrast-more:font-semibold contrast-more:border contrast-more:border-primary-700 dark:contrast-more:border-primary-200 dark:contrast-more:bg-primary-800 dark:contrast-more:text-primary-50 contrast-more:text-primary-800"
                   aria-label={`Browse category related to ${name}`}
                   onClick={() => handleClick(name)}
                 >

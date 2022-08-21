@@ -17,10 +17,10 @@ function FeatureCard({
       <div className="hidden w-16 h-16 overflow-hidden rounded-full md:!w-24 md:!h-24 dark:!block contrast-more:filter contrast-more:contrast-125">
         <Image alt={title} src={dark} />
       </div>
-      <h3 className="pt-2.5 font-semibold text-stone-700 dark:text-stone-200">
+      <h3 className="pt-2.5 font-semibold text-primary-700 dark:text-primary-200">
         {t(`${title}.title`)}
       </h3>
-      <p className="mx-auto max-w-[220px] sm:max-w-[280px] w-[calc(100vw-2rem)] sm:w-auto pt-3 text-sm sm:px-8 text-stone-600 dark:text-stone-300">
+      <p className="mx-auto max-w-[220px] sm:max-w-[280px] w-[calc(100vw-2rem)] sm:w-auto pt-3 text-sm sm:px-8 text-primary-600 dark:text-primary-300">
         {t(`${title}.description`)}
       </p>
     </div>

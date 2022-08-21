@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="flex justify-center space-x-6 md:!order-2">
           {navigation.map(({ name, href }) => (
             <Link href={`/${href}`} key={name}>
-              <a className="text-gray-400 hover:text-gray-500">
+              <a className="text-primary-400 hover:text-primary-500">
                 <span className="sr-only">{name}</span>
                 {name}
               </a>
@@ -21,7 +21,7 @@ export default function Footer() {
           ))}
         </div>
         <div className="mt-8 md:!mt-0 md:!order-1">
-          <p className="text-xs text-center text-gray-400">
+          <p className="text-xs text-center text-primary-400">
             &copy; 2022 ImageVision LLC. {" "}
             {t("All rights reserved", { ns: "navbar" })}
           </p>

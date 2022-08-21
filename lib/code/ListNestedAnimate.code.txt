@@ -18,7 +18,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 function Example({ setNotification, ...props }) {
   const shouldReduceMotion = useReducedMotion();
   const rowStyle =
-    "hover:bg-stone-200/30 focus-visible:bg-stone-200/30 dark:hover:bg-stone-600/30 dark:focus-visible:bg-stone-600/30 hover:prefers-contrast:bg-amber-300 dark:hover:prefers-contrast:bg-amber-400 text-stone-700 dark:text-stone-200 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-50 dark:prefers-contrast:focus-visible:text-stone-900 dark:prefers-contrast:hover:text-stone-900 focus-within:outline-none focus-within:ring-1 focus-within:ring-stone-400 dark:focus-within:ring-stone-500 prefers-contrast:focus-within:ring-stone-900 dark:prefers-contrast:focus-within:ring-stone-200 focus-within:ring-inset transition-colors [-webkit-tap-highlight-color:transparent]";
+    "hover:bg-primary-200/30 focus-visible:bg-primary-200/30 dark:hover:bg-primary-600/30 dark:focus-visible:bg-primary-600/30 hover:prefers-contrast:bg-amber-300 dark:hover:prefers-contrast:bg-amber-400 text-primary-700 dark:text-primary-200 prefers-contrast:text-primary-900 dark:prefers-contrast:text-primary-50 dark:prefers-contrast:focus-visible:text-primary-900 dark:prefers-contrast:hover:text-primary-900 focus-within:outline-none focus-within:ring-1 focus-within:ring-primary-400 dark:focus-within:ring-primary-500 prefers-contrast:focus-within:ring-primary-900 dark:prefers-contrast:focus-within:ring-primary-200 focus-within:ring-inset transition-colors [-webkit-tap-highlight-color:transparent]";
   const navigation = [
     { name: "Dashboard", Icon: HomeIcon, current: true, href: "#" },
     {
@@ -79,12 +79,12 @@ function Example({ setNotification, ...props }) {
 
   return (
     <div
-      className={`w-full max-w-xs overflow-hidden rounded-lg shadow-lg md:w-2/3 bg-stone-50 dark:bg-stone-900 shadow-stone-900/10 dark:shadow-stone-900/30 component prefers-contrast:bg-white dark:prefers-contrast:bg-stone-900 prefers-contrast:contrast-ring  ${
+      className={`w-full max-w-xs overflow-hidden rounded-lg shadow-lg md:w-2/3 bg-primary-50 dark:bg-primary-900 shadow-primary-900/10 dark:shadow-primary-900/30 component prefers-contrast:bg-white dark:prefers-contrast:bg-primary-900 prefers-contrast:contrast-ring  ${
         props.className ? props.className : ``
       }`}
     >
       <nav
-        className="flex-1 px-2 py-1 prefers-contrast:divide-y prefers-contrast:divide-stone-600 dark:prefers-contrast:divide-stone-200"
+        className="flex-1 px-2 py-1 prefers-contrast:divide-y prefers-contrast:divide-primary-600 dark:prefers-contrast:divide-primary-200"
         aria-label="Sidebar"
       >
         {navigation.map(({ children, name, Icon }) =>
@@ -115,7 +115,7 @@ function Example({ setNotification, ...props }) {
                       as="button"
                       className={`flex px-4 py-2 w-full justify-between items-center rounded-md ${rowStyle} ${
                         open
-                          ? `bg-stone-200/50 hover:bg-stone-200/50 dark:bg-stone-600/50 dark:hover:bg-stone-600/50 prefers-contrast:bg-amber-300 dark:prefers-contrast:bg-amber-400 text-stone-700 dark:text-stone-200 prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-900`
+                          ? `bg-primary-200/50 hover:bg-primary-200/50 dark:bg-primary-600/50 dark:hover:bg-primary-600/50 prefers-contrast:bg-amber-300 dark:prefers-contrast:bg-amber-400 text-primary-700 dark:text-primary-200 prefers-contrast:text-primary-900 dark:prefers-contrast:text-primary-900`
                           : ``
                       }`}
                       aria-live="assertive"

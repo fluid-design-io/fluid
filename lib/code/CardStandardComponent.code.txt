@@ -16,10 +16,10 @@ import Image from "next/image";
 import { HeartIcon, ShareIcon } from "@heroicons/react/outline";
 
 function Example() {
-  const contrastRing = `prefers-contrast:border prefers-contrast:border-stone-800 dark:prefers-contrast:border-stone-200`;
+  const contrastRing = `prefers-contrast:border prefers-contrast:border-primary-800 dark:prefers-contrast:border-primary-200`;
   return (
     <div
-      className={`w-full max-w-xs overflow-hidden transform translate-x-0 shadow component card-bg rounded-xl bg-stone-50 dark:bg-stone-900 dark:prefers-contrast:bg-black ${contrastRing} aspect-[1/1.15] flex flex-col`}
+      className={`w-full max-w-xs overflow-hidden transform translate-x-0 shadow component card-bg rounded-xl bg-primary-50 dark:bg-primary-900 dark:prefers-contrast:bg-black ${contrastRing} aspect-[1/1.15] flex flex-col`}
     >
       <div className="h-full">
         <div className="relative w-full h-full overflow-hidden select-none pointer-events-none">
@@ -33,36 +33,36 @@ function Example() {
       </div>
       <div className="flex flex-col flex-grow h-full px-4 pt-4 pb-2">
         <div className="flex-grow">
-          <h2 className="text-xs text-stone-500 dark:text-stone-500 prefers-contrast:text-stone-700 dark:prefers-contrast:text-stone-300 prefers-contrast:font-bold">
+          <h2 className="text-xs text-primary-500 dark:text-primary-500 prefers-contrast:text-primary-700 dark:prefers-contrast:text-primary-300 prefers-contrast:font-bold">
             Subtitle
           </h2>
-          <h1 className="font-semibold dark:text-stone-100 prefers-contrast:font-bold">
+          <h1 className="font-semibold dark:text-primary-100 prefers-contrast:font-bold">
             Card Title
           </h1>
-          <p className="pt-1.5 pb-2 text-sm text-stone-600 dark:text-stone-300 leading-tight prefers-contrast:text-stone-900 dark:prefers-contrast:text-stone-100 prefers-contrast:font-medium">
+          <p className="pt-1.5 pb-2 text-sm text-primary-600 dark:text-primary-300 leading-tight prefers-contrast:text-primary-900 dark:prefers-contrast:text-primary-100 prefers-contrast:font-medium">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor.
           </p>
         </div>
         <div className="flex items-center justify-between pt-1">
           <button
-            className={`px-2 py-1 text-xs font-semibold uppercase transition rounded bg-stone-200 text-stone-700 dark:bg-stone-800 dark:text-stone-200 hover:bg-stone-700 hover:text-stone-100 dark:hover:bg-stone-600 dark:active:bg-stone-500 dark:hover:text-stone-100 focus:bg-stone-700 focus:text-stone-100 dark:focus:bg-stone-600 dark:focus:text-stone-100 prefers-contrast:py-2 prefers-contrast:px-3 prefers-contrast:dark:bg-transparent prefers-contrast:font-bold ${contrastRing}`}
+            className={`px-2 py-1 text-xs font-semibold uppercase transition rounded bg-primary-200 text-primary-700 dark:bg-primary-800 dark:text-primary-200 hover:bg-primary-700 hover:text-primary-100 dark:hover:bg-primary-600 dark:active:bg-primary-500 dark:hover:text-primary-100 focus:bg-primary-700 focus:text-primary-100 dark:focus:bg-primary-600 dark:focus:text-primary-100 prefers-contrast:py-2 prefers-contrast:px-3 prefers-contrast:dark:bg-transparent prefers-contrast:font-bold ${contrastRing}`}
             onClick={() => null}
           >
             button
           </button>
           <div className="flex -mr-2">
-            <button className="p-2 rounded-full hover:bg-stone-200/50 focus:bg-stone-200/50 dark:hover:bg-stone-600 dark:focus:bg-stone-600 prefers-contrast:ring-stone-800 dark:prefers-contrast:ring-stone-200 prefers-contrast:ring-1 prefers-contrast:ml-2">
+            <button className="p-2 rounded-full hover:bg-primary-200/50 focus:bg-primary-200/50 dark:hover:bg-primary-600 dark:focus:bg-primary-600 prefers-contrast:ring-primary-800 dark:prefers-contrast:ring-primary-200 prefers-contrast:ring-1 prefers-contrast:ml-2">
               <span className="sr-only">Share this post</span>
               <ShareIcon
-                className="w-5 h-5 text-stone-400 prefers-contrast:text-stone-700 dark:prefers-contrast:text-stone-200"
+                className="w-5 h-5 text-primary-400 prefers-contrast:text-primary-700 dark:prefers-contrast:text-primary-200"
                 onClick={() => null}
               />
             </button>
-            <button className="p-2 rounded-full hover:bg-stone-200/50 focus:bg-stone-200/50 dark:hover:bg-stone-600 dark:focus:bg-stone-600 prefers-contrast:ring-stone-800 dark:prefers-contrast:ring-stone-200 prefers-contrast:ring-1 prefers-contrast:ml-2">
+            <button className="p-2 rounded-full hover:bg-primary-200/50 focus:bg-primary-200/50 dark:hover:bg-primary-600 dark:focus:bg-primary-600 prefers-contrast:ring-primary-800 dark:prefers-contrast:ring-primary-200 prefers-contrast:ring-1 prefers-contrast:ml-2">
               <span className="sr-only">Fav this post</span>
               <HeartIcon
-                className="w-5 h-5 text-stone-400 prefers-contrast:text-stone-700 dark:prefers-contrast:text-stone-200"
+                className="w-5 h-5 text-primary-400 prefers-contrast:text-primary-700 dark:prefers-contrast:text-primary-200"
                 onClick={() => null}
               />
             </button>

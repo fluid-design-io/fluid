@@ -28,7 +28,7 @@ function AppSegment({
           </Tab>
         ))}
       </Tab.List>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode='wait' >
         <Tab.Panels>
           {segments.map(({ value, component }) => (
             <Tab.Panel
