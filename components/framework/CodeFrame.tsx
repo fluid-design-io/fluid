@@ -197,19 +197,19 @@ export const CodeFrame = ({
         <div
           className={clsxm(
             props.className,
-            "code-block-wrap focus-ring not-prose relative my-6 min-h-[8rem] w-full translate-x-0 transform-gpu cursor-auto overflow-hidden rounded border border-primary-300/50 transition-colors contrast-more:border-primary-800 dark:border-primary-500/20 dark:bg-primary-900/90 dark:contrast-more:border-primary-100 sm:rounded-xl"
+            "code-block-wrap focus-ring not-prose relative my-6 min-h-[8rem] w-full translate-x-0 transform-gpu cursor-auto overflow-hidden border-y border-primary-300/50 transition-colors contrast-more:border-primary-800 dark:border-primary-500/20 dark:bg-primary-900/90 dark:contrast-more:border-primary-100 sm:rounded-xl sm:border"
           )}
         >
           <div
             className={clsxm(
-              "pointer-events-none fixed top-0 left-0 right-0 z-10 h-8 w-full bg-primary-100 [mask-image:linear-gradient(0deg,rgba(255,255,255,0),rgba(255,255,255,1)_85%)]",
-              isPrefDark && " dark:bg-primary-800"
+              "pointer-events-none absolute top-0 left-0 right-0 z-10 h-8 w-full [mask-image:linear-gradient(0deg,rgba(255,255,255,0),rgba(255,255,255,1)_85%)]",
+              isPrefDark ? " dark:bg-primary-800" : "bg-primary-100"
             )}
           />
           <div
             className={clsxm(
-              "pointer-events-none fixed bottom-0 left-0 right-0 z-10 h-8 w-full bg-primary-100 [mask-image:linear-gradient(0deg,rgba(255,255,255,1)_15%,rgba(255,255,255,0))]",
-              isPrefDark && " dark:bg-primary-800"
+              "pointer-events-none absolute bottom-0 left-0 right-0 z-10 h-8 w-full [mask-image:linear-gradient(0deg,rgba(255,255,255,1)_15%,rgba(255,255,255,0))]",
+              isPrefDark ? " dark:bg-primary-800" : "bg-primary-100"
             )}
           />
           <div

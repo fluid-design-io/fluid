@@ -73,9 +73,15 @@ const dataWithIcons = [
   }),
 ];
 
+const AccordionWrap = ({ children }) => (
+  <div className="component contrast-more:contrast-ring w-full max-w-xs overflow-hidden rounded-lg bg-primary-50 shadow-lg shadow-primary-900/10 contrast-more:bg-white dark:bg-primary-900 dark:shadow-primary-900/30 dark:contrast-more:bg-primary-900 md:!w-2/3">
+    {children}
+  </div>
+);
+
 const AccordionSimple = () => {
   return (
-    <div className="component contrast-more:contrast-ring w-full max-w-xs overflow-hidden rounded-lg bg-primary-50 shadow-lg shadow-primary-900/10 contrast-more:bg-white dark:bg-primary-900 dark:shadow-primary-900/30 dark:contrast-more:bg-primary-900 md:!w-2/3">
+    <AccordionWrap>
       <Accordion>
         {dataSimple.map((item, index) => (
           <AccordionPanel key={index} header={item.title} isOpen={item.isOpen}>
@@ -83,24 +89,26 @@ const AccordionSimple = () => {
           </AccordionPanel>
         ))}
       </Accordion>
-    </div>
+    </AccordionWrap>
   );
 };
 
 const AccordionWithIcons = () => {
   return (
-    <Accordion>
-      {dataWithIcons.map((item, index) => (
-        <AccordionPanel
-          key={index}
-          header={item.title}
-          isOpen={item.isOpen}
-          headerIcon={item.Icon}
-        >
-          {item.details}
-        </AccordionPanel>
-      ))}
-    </Accordion>
+    <AccordionWrap>
+      <Accordion>
+        {dataWithIcons.map((item, index) => (
+          <AccordionPanel
+            key={index}
+            header={item.title}
+            isOpen={item.isOpen}
+            headerIcon={item.Icon}
+          >
+            {item.details}
+          </AccordionPanel>
+        ))}
+      </Accordion>
+    </AccordionWrap>
   );
 };
 
