@@ -1,4 +1,4 @@
-import Page from "./Page";
+import { Page } from "./Page";
 import React from "react";
 import ScrollSpy from "../../lib/ScrollSpy";
 import DocSection from "./DocSection";
@@ -34,14 +34,12 @@ function Doc({ meta, title, description = "", sections, ...props }) {
       className="flex min-h-screen space-x-4"
       hasMain={true}
     >
-      <div
-        className="flex-grow max-w-5xl p-4 mx-auto md:!px-16 lg:px-8 xl:px-16"
-      >
+      <div className="mx-auto max-w-5xl flex-grow p-4 md:!px-16 lg:px-8 xl:px-16">
         <div className="!hidden md:!block lg:!hidden">{docNav}</div>
         <article title={t(`doc-for`, { title })}>
           <h1 className="capitalize md:!pt-12">{title}</h1>
           <p className="pb-6 text-lg md:!text-xl">{description}</p>
-          <div key="content" className="flex-grow w-full mx-auto">
+          <div key="content" className="mx-auto w-full flex-grow">
             <ScrollSpy offsetBottom={500}>
               {sections.map((props) => (
                 <DocSection
@@ -55,7 +53,7 @@ function Doc({ meta, title, description = "", sections, ...props }) {
       </div>
       <div
         key="sidenav"
-        className={`sticky top-0 z-20 !hidden h-screen lg:!block min-w-[12rem] xl:min-w-[14rem] pr-4 md:!pr-16 pt-[61px]`}
+        className={`sticky top-0 z-20 !hidden h-screen min-w-[12rem] pr-4 pt-[61px] md:!pr-16 lg:!block xl:min-w-[14rem]`}
       >
         {docNav}
       </div>
