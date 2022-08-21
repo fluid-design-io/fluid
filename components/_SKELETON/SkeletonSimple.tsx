@@ -1,4 +1,4 @@
-import CodeBlock from "../framework/CodeBlock";
+import { CodeBlock } from "../framework";
 
 import { useTranslation } from "next-i18next";
 //@ts-ignore
@@ -38,7 +38,7 @@ function SkeletonSimple() {
         raw={raw.withIcon}
         features={features.withIcon}
       >
-        <div className="grid w-full pt-20 pb-16 place-items-center">
+        <div className="grid w-full place-items-center pt-20 pb-16">
           <SkeletonSimpleComponent />
         </div>
       </CodeBlock>

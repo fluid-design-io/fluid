@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CodeBlockFeatureProps } from "../../interfaces/CodeBlock";
-import CodeBlock from "../framework/CodeBlock";
+import {CodeBlock} from "../framework";
 import CardCollageComponent from "./components/CardCollageComponent";
 //@ts-ignore
 import collage from "raw-loader!../../lib/code/CardCollage.code.txt";

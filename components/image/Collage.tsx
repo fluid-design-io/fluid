@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CodeBlockFeatureProps } from "../../interfaces/CodeBlock";
-import CodeBlock from "../framework/CodeBlock";
+import {CodeBlock} from "../framework";
 import ImageCollageComponent from "./components/ImageCollageComponent";
 
 function Collage() {

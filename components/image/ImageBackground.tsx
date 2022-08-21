@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { CodeBlockFeatureProps } from "../../interfaces/CodeBlock";
-import CodeBlock from "../framework/CodeBlock";
+import {CodeBlock} from "../framework";
 
 
 function ImageBackground() {

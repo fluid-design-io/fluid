@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CodeBlockFeatureProps } from "../../interfaces/CodeBlock";
-import CodeBlock from "../framework/CodeBlock";
+import {CodeBlock} from "../framework";
 import { useTranslation } from "next-i18next";
 //@ts-ignore
 import glass from "raw-loader!../../lib/code/GlassButton.code.txt";

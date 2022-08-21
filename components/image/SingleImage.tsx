@@ -1,5 +1,5 @@
 import { CodeBlockFeatureProps } from "../../interfaces/CodeBlock";
-import CodeBlock from "../framework/CodeBlock";
+import {CodeBlock} from "../framework";
 
 import { useTranslation } from "next-i18next";
 import { ImageOnlyComponent, ImageWithOverlayComponent } from ".";

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CodeBlockFeatureProps } from "../../interfaces/CodeBlock";
-import CodeBlock from "../framework/CodeBlock";
+import {CodeBlock} from "../framework";
 import { useTranslation } from "next-i18next";
 import CardStandardComponent from "./components/CardStandardComponent";
 //@ts-ignore
