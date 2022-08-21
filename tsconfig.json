@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "next-sitemap.js", "lib/code/CardStandardComponent.code.js"  ],
+, "next-sitemap.config.js", "lib/code/CardStandardComponent.code.js"  ],
   "exclude": [
     "node_modules"
   ]
