@@ -38,3 +38,5 @@ jobs:
         uses: cycjimmy/semantic-release-action@v3.0.0
         with:
           branch: main
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
