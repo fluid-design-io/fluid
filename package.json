@@ -1,6 +1,6 @@
 {
   "name": "fluid-design",
-  "version": "0.9.0",
+  "version": "0.11.0",
   "description": "A collection of beautifully designed components that are responsive, supports features like dark mode and a11y with elegant transitions.",
   "private": true,
   "scripts": {

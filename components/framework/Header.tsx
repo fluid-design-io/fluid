@@ -3,7 +3,10 @@ import { SiteMeta } from "../../interfaces/framwork";
 
 export const Header = (meta: SiteMeta) => (
   <Head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
+    />
     <meta charSet="utf-8" />
     <title>{meta?.title ?? "Fluid Design"}</title>
 
@@ -16,10 +19,7 @@ export const Header = (meta: SiteMeta) => (
         meta?.description ?? "A collection of beautifully designed components"
       }
     />
-    <meta
-      property="og:image"
-      content={meta?.imageUrl ?? "/assets/share.jpg"}
-    />
+    <meta property="og:image" content={meta?.imageUrl ?? "/assets/share.jpg"} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta

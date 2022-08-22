@@ -71,7 +71,7 @@ export const SidebarMenu = () => {
   const activeTab = pathname?.split("/")?.pop();
   const { t } = useTranslation();
   return (
-    <div className="top-0 left-0 z-40 flex max-h-screen min-h-screen w-64 overflow-y-auto overflow-x-hidden border-r border-primary-200 bg-primary-50 pb-4 contrast-more:border-primary-600 dark:border-primary-700 dark:bg-primary-900 dark:contrast-more:border-primary-200 dark:contrast-more:bg-[rgb(18,15,13)] md:w-56 2xl:w-64">
+    <div className="top-0 left-0 z-40 flex max-h-screen min-h-screen w-64 overflow-y-auto overflow-x-hidden border-r border-primary-200 bg-primary-50 pb-4 pl-[env(safe-area-inset-left)] contrast-more:border-primary-600 dark:border-primary-700 dark:bg-primary-900 dark:contrast-more:border-primary-200 dark:contrast-more:bg-[rgb(18,15,13)] md:w-56 2xl:w-64">
       <div className="flex w-full flex-1 flex-grow flex-col justify-between">
         <div className="sticky top-0 z-10 mx-2.5 mt-2 flex items-center justify-start space-x-2 bg-primary-50/80 pt-2 pb-3 backdrop-blur-md backdrop-filter dark:bg-primary-900/80 lg:mx-4">
           <span className="sr-only">Fluid Design</span>
@@ -87,7 +87,7 @@ export const SidebarMenu = () => {
           </UnstyledLink>
         </div>
         <nav
-          className="flex flex-1 flex-col gap-2 p-1 px-4 pb-8"
+          className="flex flex-1 flex-col gap-2 p-1 px-4 pb-[env(safe-area-inset-botton,1rem)]"
           aria-label="Sidebar"
         >
           {navigation.map(({ name, href, icon: ItemIcon }) => (
@@ -184,6 +184,7 @@ export const SidebarMenu = () => {
               </div>
             </div>
           ))}
+          <div className="flex-grow" />
           <Menu
             buttonClassName="hocus:contrast-bg hocus:contrast-text clickable group flex justify-start items-center rounded-md border border-transparent px-3 py-2 text-sm font-regular text-primary-700 transition-colors hocus:text-primary-800 contrast-more:text-primary-900 dark:text-primary-300/80 dark:hocus:text-primary-100 dark:contrast-more:text-primary-100 w-full"
             label={t(`Language`, { ns: "navbar" })}

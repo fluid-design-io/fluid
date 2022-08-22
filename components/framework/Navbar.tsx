@@ -45,7 +45,7 @@ export const Navbar = ({ sidebar, ...props }) => {
     >
       {({ open }) => (
         <Fragment>
-          <div className="flex items-center justify-between border-b border-b-primary-200 bg-primary-100/80 px-4 py-4 backdrop-blur-xl backdrop-filter transition-colors contrast-more:bg-primary-100/90 dark:border-b-primary-700 dark:bg-primary-800/60 dark:contrast-more:bg-black/80 sm:px-6 md:!justify-start md:!space-x-2.5 md:!py-2 lg:px-8">
+          <div className="flex items-center justify-between border-b border-b-primary-200 bg-primary-100/80 px-4 py-4 pr-[env(safe-area-inset-right,1rem)] backdrop-blur-xl backdrop-filter transition-colors contrast-more:bg-primary-100/90 dark:border-b-primary-700 dark:bg-primary-800/60 dark:contrast-more:bg-black/80 sm:px-6 sm:pr-[env(safe-area-inset-right,1.5rem)] md:!justify-start md:!space-x-2.5 md:!py-2 lg:px-8">
             <div
               className={`flex flex-grow items-center justify-between space-x-4 md:!justify-start`}
             >
