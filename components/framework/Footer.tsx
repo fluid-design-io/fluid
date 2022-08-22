@@ -1,15 +1,15 @@
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
-export default function Footer() {
+export const Footer = () => {
   const { t } = useTranslation("navbar");
   const navigation = [
     { name: t("Privacy", { ns: "navbar" }), href: "privacy" },
     { name: t("Contact", { ns: "navbar" }), href: "contact" },
   ];
   return (
-    <footer className="mt-8 relative z-[10]">
-      <div className="px-4 py-12 mx-auto text-xs max-w-7xl sm:px-6 md:!flex md:!items-center md:!justify-between lg:px-8">
+    <footer className="relative z-[10] mt-8">
+      <div className="mx-auto max-w-7xl px-4 py-12 text-xs sm:px-6 md:!flex md:!items-center md:!justify-between lg:px-8">
         <div className="flex justify-center space-x-6 md:!order-2">
           {navigation.map(({ name, href }) => (
             <Link href={`/${href}`} key={name}>
@@ -20,13 +20,13 @@ export default function Footer() {
             </Link>
           ))}
         </div>
-        <div className="mt-8 md:!mt-0 md:!order-1">
-          <p className="text-xs text-center text-primary-400">
-            &copy; 2022 ImageVision LLC. {" "}
+        <div className="mt-8 md:!order-1 md:!mt-0">
+          <p className="text-center text-xs text-primary-400">
+            &copy; 2022 ImageVision LLC.{" "}
             {t("All rights reserved", { ns: "navbar" })}
           </p>
         </div>
       </div>
     </footer>
   );
-}
+};

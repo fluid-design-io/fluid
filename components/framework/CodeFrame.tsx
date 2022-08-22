@@ -164,7 +164,7 @@ export const CodeFrame = ({
   ];
   const { t } = useTranslation("common");
   const [preferences, setPreferences] = useState(prefs);
-  const [mode, setMode] = useThemeMode(true);
+  const [mode] = useThemeMode(true);
   const touchStyle =
     "pointer-touch:opacity-100 pointer-touch:pointer-events-auto opacity-0 pointer-events-none code-block-touch";
   const buttonStyle =

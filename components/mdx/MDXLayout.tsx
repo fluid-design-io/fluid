@@ -2,7 +2,7 @@ import { MDXRemote } from "next-mdx-remote";
 
 import clsxm from "../../lib/clsxm";
 import { ActiveAnchorProvider } from "../contexts";
-import { Header, Navbar, Sidebar, SkipNavContent } from "../framework";
+import { Footer, Header, Navbar, Sidebar, SkipNavContent } from "../framework";
 import { TOC } from "./";
 
 const MDXLayout = ({
@@ -42,6 +42,7 @@ const MDXLayout = ({
                 </main>
                 <TOC />
               </div>
+              <Footer />
             </div>
           </div>
         </ActiveAnchorProvider>

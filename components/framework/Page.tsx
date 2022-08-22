@@ -1,11 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/dist/client/router";
-// import Navbar from "./Navbar";
-import { Header } from "./Header";
-import Footer from "./Footer";
+import { Header, Footer, Sidebar, Navbar } from "./";
 import { MotionPageProps, SiteMeta } from "../../interfaces/framwork";
-import { Navbar } from "./Navbar";
-import { Sidebar } from "./Sidebar";
 import { useEffect, useState } from "react";
 import { getBody, getBodyExcept } from "../../lib/getBody";
 
