@@ -192,6 +192,7 @@ export const SidebarMenu = () => {
             iconEndPosition="between"
             menuPositionY="top"
             iconClassName="w-4 h-4"
+            // @ts-ignore
             menus={languages.map(({ code, country_code, name }) => ({
               label: name,
               icon: <span className={`fi fi-${country_code} rounded-sm`} />,
