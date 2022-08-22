@@ -14,6 +14,8 @@ import { languages } from "../../lib/languages";
 import { ThemeSwitch } from "../ThemeSwitch";
 import AppLogo from "../ui/AppLogo";
 import { SidebarMenu } from "./Sidebar";
+import { IoLogoGithub } from "react-icons/io";
+import clsxm from "../../lib/clsxm";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -33,6 +35,8 @@ export const Navbar = ({ sidebar, ...props }) => {
   const handleModeChange = (mode: "light" | "dark") => {
     setMode(mode);
   };
+  const navBarLinkClassName =
+    "clickable text-primary-500 hover:text-primary-900 dark:text-primary-200 rounded";
   return (
     <Popover
       className={`sticky top-0 z-50 transition motion-safe:duration-300 motion-reduce:transition-opacity ${
@@ -53,7 +57,7 @@ export const Navbar = ({ sidebar, ...props }) => {
                 >
                   <Link href={"/"}>
                     <a className="flex">
-                      <div className="flex font-[Nunito] text-[1.175rem] font-bold text-primary-700 dark:text-primary-200">
+                      <div className="flex font-rounded text-[1.175rem] font-bold text-primary-700 dark:text-primary-200">
                         <p>Fluid Design</p>
                       </div>
                     </a>
@@ -61,8 +65,8 @@ export const Navbar = ({ sidebar, ...props }) => {
                 </div>
               )}
               <DocSearch
-                appId="K0KL3WHKQ9"
                 indexName="fluid-design"
+                appId={process.env.DOCSEARCH_APP_ID}
                 apiKey={process.env.DOCSEARCH_API_KEY}
               />
             </div>
@@ -75,110 +79,24 @@ export const Navbar = ({ sidebar, ...props }) => {
             <div className="hidden md:!flex">
               <div className="flex flex-shrink-0 items-center space-x-4 text-sm md:!ml-12 lg:space-x-6">
                 <Link href="/docs">
-                  <a className="font-medium text-primary-500 hover:text-primary-900 dark:text-primary-200 px-2 py-1 rounded clickable">
+                  <a
+                    className={clsxm(
+                      "px-2 py-1 font-medium",
+                      navBarLinkClassName
+                    )}
+                  >
                     {t("Docs")}
                   </a>
                 </Link>
                 <div className="h-3 w-0.5 bg-primary-400 dark:bg-primary-500" />
-                <Popover className="relative flex items-center">
-                  {({ open }) => (
-                    <>
-                      <Popover.Button
-                        className={classNames(
-                          open
-                            ? "text-primary-900 dark:text-primary-50"
-                            : "text-primary-600 dark:text-primary-100",
-                          "group inline-flex items-center rounded-md py-1.5 px-2 text-base font-medium clickable focus-ring"
-                        )}
-                      >
-                        <span>
-                          <TranslateIcon className="h-4 w-4 group-hover:text-primary-500 dark:text-primary-100 dark:group-hover:text-primary-300" />
-                        </span>
-                        <ChevronDownIcon
-                          className={classNames(
-                            open
-                              ? "text-primary-900 dark:text-primary-50"
-                              : "text-primary-600 dark:text-primary-100",
-                            "ml-2 h-4 w-4 group-hover:text-primary-500 dark:group-hover:text-primary-300"
-                          )}
-                          aria-hidden="true"
-                        />
-                      </Popover.Button>
-                      <AnimatePresence>
-                        {open && (
-                          <Transition
-                            show
-                            as={motion.div}
-                            initial={{
-                              opacity: 0,
-                              y: 30,
-                            }}
-                            animate={{
-                              opacity: 1,
-                              y: 20,
-                            }}
-                            exit={{
-                              opacity: 0,
-                              y: 30,
-                            }}
-                            transition={{
-                              type: "spring",
-                              bounce: 0.2,
-                            }}
-                          >
-                            <Popover.Panel
-                              static
-                              className="absolute right-0 z-10 w-screen max-w-xs transform overflow-hidden rounded-lg border border-primary-50 px-2 shadow-lg dark:border-primary-700/30 sm:px-0"
-                            >
-                              <div className="bg-primary-50 ring-1 ring-black ring-opacity-5 dark:bg-primary-900">
-                                <div className="relative bg-white px-4 py-4 font-semibold dark:bg-primary-800/50 dark:text-primary-50">
-                                  {t("Language")}
-                                </div>
-                                <div className="px-4 py-4">
-                                  <ul
-                                    role="list"
-                                    className="grid grid-cols-2 items-stretch gap-4"
-                                  >
-                                    {languages.map(
-                                      ({ code, country_code, name }) => (
-                                        <li
-                                          key={`lang.${code}`}
-                                          className="w-full text-base"
-                                        >
-                                          <button
-                                            className="flex w-full items-center rounded-md px-2 py-1.5 font-medium text-primary-900 hover:text-primary-700 disabled:opacity-50 dark:text-primary-200 clickable"
-                                            disabled={code === i18n?.language}
-                                            onClick={() =>
-                                              router.push(
-                                                { pathname, query },
-                                                asPath,
-                                                {
-                                                  locale: code,
-                                                }
-                                              )
-                                            }
-                                          >
-                                            <span className="sr-only">
-                                              {t("switch-language", { name })}
-                                            </span>
-                                            <span
-                                              className={`fi fi-${country_code} mr-2 rounded-sm`}
-                                            />
-                                            {name}
-                                          </button>
-                                        </li>
-                                      )
-                                    )}
-                                  </ul>
-                                </div>
-                              </div>
-                            </Popover.Panel>
-                          </Transition>
-                        )}
-                      </AnimatePresence>
-                    </>
-                  )}
-                </Popover>
+                <a
+                  className={clsxm("px-1.5 py-1.5", navBarLinkClassName)}
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://github.com/fluid-design-io/fluid"
+                >
+                  <IoLogoGithub className="h-4 w-4" aria-hidden="true" />
+                </a>
                 <ThemeSwitch
                   mode={mode as "light" | "dark"}
                   handleModeChange={handleModeChange}
@@ -203,7 +121,7 @@ export const Navbar = ({ sidebar, ...props }) => {
                   <Popover.Panel
                     focus
                     static
-                    className={`transition md:!relative md:!z-40 duration-300`}
+                    className={`transition duration-300 md:!relative md:!z-40`}
                   >
                     <SidebarMenu />
                   </Popover.Panel>
@@ -214,7 +132,7 @@ export const Navbar = ({ sidebar, ...props }) => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className={`bg-primary-900/30 fixed inset-0 z-[60] md:!hidden`}
+                  className={`fixed inset-0 z-[60] bg-primary-900/30 md:!hidden`}
                 />
               </Fragment>
             )}
@@ -223,4 +141,4 @@ export const Navbar = ({ sidebar, ...props }) => {
       )}
     </Popover>
   );
-}
+};
