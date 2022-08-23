@@ -124,22 +124,20 @@ export const Examples = () => {
         notification={notification}
         className="!fixed"
       />
-      <div className="mx-auto min-h-screen w-full flex-grow xl:max-w-[76rem]">
-        <div className="relative mx-auto grid max-w-xs grid-flow-row-dense grid-cols-1 grid-rows-[16] items-stretch md:!gap-6 lg:max-w-2xl lg:grid-cols-2 lg:gap-8 xl:max-w-none xl:grid-cols-3 xl:gap-12">
-          {exampleComponents.map(({ className, Component, ...props }) => (
-            <GridWrap key={`example.${props.title}`} router={router} {...props}>
-              <Component
-                {...{
-                  setNotification,
-                  className:
-                    className ||
-                    "max-w-md shadow-xl h-full aspect-[1/1.16] rounded-3xl",
-                  ...props,
-                }}
-              />
-            </GridWrap>
-          ))}
-        </div>
+      <div className="relative mx-auto grid max-w-xs grid-flow-row-dense grid-cols-1 items-stretch gap-6 lg:max-w-2xl lg:grid-cols-2 lg:gap-8 xl:max-w-none xl:grid-cols-3 xl:gap-12">
+        {exampleComponents.map(({ className, Component, ...props }) => (
+          <GridWrap key={`example.${props.title}`} router={router} {...props}>
+            <Component
+              {...{
+                setNotification,
+                className:
+                  className ||
+                  "max-w-md shadow-xl h-full aspect-[1/1.16] rounded-3xl",
+                ...props,
+              }}
+            />
+          </GridWrap>
+        ))}
       </div>
     </>
   );
