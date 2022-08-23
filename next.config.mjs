@@ -13,7 +13,7 @@ const nextConfig = {
     return [
       {
         source: "/docs",
-        destination: "/docs/examples",
+        destination: "/docs/dashboard",
         permanent: true,
       },
     ];
@@ -42,7 +42,6 @@ const withMDX = createMDX({
   options: {
     remarkPlugins: [[remarkGfm], [remarkCodeHike, { theme }]],
     rehypePlugins: [],
-    // If you use `MDXProvider`, uncomment the following line.
     providerImportSource: "next-mdx-remote",
   },
 })
