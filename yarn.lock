@@ -1138,10 +1138,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@code-hike/mdx@0.7.4-next.2":
-  version "0.7.4-next.2"
-  resolved "https://registry.yarnpkg.com/@code-hike/mdx/-/mdx-0.7.4-next.2.tgz#e16e639c24760e9ceba0037a583728bbfce21dfa"
-  integrity sha512-kIXNeQfH+b59/fJF3ZYy1oLTyjGHA9hO25zGdTPBCZE71bGzzUOE1YRuvieFI5PZ+O6DqU/bY2wJZlGAWNSggQ==
+"@code-hike/mdx@^0.7.4":
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/@code-hike/mdx/-/mdx-0.7.4.tgz#0a7446eb541a0667cbdf4557ecf9ec98d8920415"
+  integrity sha512-MHnoSJ7wxJ2LJfJ/x+18jh6JOBCPwk1EMQRgVINj3yyejqsYgOQx2ChE+/n+n3AdP7J5RLKfQ6qm/jiNxD8+Lg==
   dependencies:
     hast-util-to-estree "^1.4.0"
     is-plain-obj "^3.0.0"
