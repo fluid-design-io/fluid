@@ -8,6 +8,7 @@ import {
 import { i18n, useTranslation } from "next-i18next";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { MdMouse } from "react-icons/md";
 
 import clsxm from "../../lib/clsxm";
 import { languages } from "../../lib/languages";
@@ -16,7 +17,8 @@ import AppLogo from "../ui/AppLogo";
 import UnstyledLink from "./UnstyledLink";
 
 const navigation = [
-  { name: "Examples", href: "examples", icon: ViewGridIcon },
+  { name: "Dashboard", href: "dashboard", icon: ViewGridIcon },
+  { name: "Examples", href: "examples", icon: MdMouse },
   { name: "Usage", href: "usage", icon: BookOpenIcon },
 ];
 const secondaryNavigation = [
@@ -25,7 +27,6 @@ const secondaryNavigation = [
     groupList: [
       // { name: "Alert", href: "alert", isDone: false },
       { name: "Accordion", href: "accordion", isDone: true },
-      { name: "Avatar", href: "avatar", isDone: false },
       // { name: "Badge", href: "badge", isDone: false },
       // { name: "Breadcrumbs", href: "breadcrumbs", isDone: false },
       { name: "Button", href: "button", isDone: true },
@@ -59,6 +60,7 @@ const secondaryNavigation = [
   {
     groupName: "Forms",
     groupList: [
+      { name: "Combobox", href: "combobox", isDone: false },
       { name: "Checkbox", href: "form-Checkbox", isDone: false },
       { name: "Input", href: "form-Input", isDone: false },
     ],
@@ -105,7 +107,7 @@ export const SidebarMenu = () => {
                     className={`flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md border 
                   ${
                     activeTab === href
-                      ? `border-teal-400 text-teal-400 shadow shadow-teal-400/40`
+                      ? `border-secondary-400 text-secondary-400 shadow shadow-secondary-400/40`
                       : `border-primary-500 text-primary-600 dark:border-primary-200/80 dark:text-primary-300`
                   }`}
                   >

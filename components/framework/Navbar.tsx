@@ -1,37 +1,23 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { DocSearch } from "@docsearch/react";
-import { Popover, Transition } from "@headlessui/react";
-import { ChartBarIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
-import { ChevronDownIcon, TranslateIcon } from "@heroicons/react/solid";
+import { Popover } from "@headlessui/react";
+import { ChartBarIcon, MenuIcon } from "@heroicons/react/outline";
 import { AnimatePresence, motion } from "framer-motion";
-import { i18n, useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
 
 import { useThemeMode } from "../../lib/ThemeContext";
-import { languages } from "../../lib/languages";
 import { ThemeSwitch } from "../ThemeSwitch";
 import AppLogo from "../ui/AppLogo";
 import { SidebarMenu } from "./Sidebar";
 import { IoLogoGithub } from "react-icons/io";
 import clsxm from "../../lib/clsxm";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
 export const Navbar = ({ sidebar, ...props }) => {
   const { t } = useTranslation("navbar");
   const [mode, setMode] = useThemeMode(true);
-  const router = useRouter();
-  const { pathname, asPath, query } = router;
-  const navItems = [
-    {
-      name: "Docs",
-      href: "/docs",
-      icon: ChartBarIcon,
-    },
-  ];
   const handleModeChange = (mode: "light" | "dark") => {
     setMode(mode);
   };
@@ -70,7 +56,7 @@ export const Navbar = ({ sidebar, ...props }) => {
                 apiKey={process.env.DOCSEARCH_API_KEY}
               />
             </div>
-            <div className="-my-2 -mr-2 md:!hidden">
+            <div className="-my-2 md:!hidden pr-1.5">
               <Popover.Button className="inline-flex items-center justify-center rounded-md p-2 text-primary-400 hover:bg-primary-100 hover:text-primary-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary-500 contrast-more:text-primary-900 dark:hover:bg-primary-800 dark:contrast-more:text-primary-50">
                 <span className="sr-only">{t("Open menu")}</span>
                 <MenuIcon className="h-6 w-6" aria-hidden="true" />

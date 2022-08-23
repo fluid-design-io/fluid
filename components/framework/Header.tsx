@@ -5,7 +5,7 @@ export const Header = (meta: SiteMeta) => (
   <Head>
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1.0, user-scalable=no"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
     <meta charSet="utf-8" />
     <title>{meta?.title ?? "Fluid Design"}</title>

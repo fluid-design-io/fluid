@@ -4,15 +4,19 @@ import { useTranslation } from "next-i18next";
 export const Footer = () => {
   const { t } = useTranslation("navbar");
   const navigation = [
-    { name: t("Privacy", { ns: "navbar" }), href: "privacy" },
-    { name: t("Contact", { ns: "navbar" }), href: "contact" },
+    { name: t("Privacy", { ns: "navbar" }), href: "/privacy" },
+    { name: t("Contact", { ns: "navbar" }), href: "/contact" },
+    {
+      name: t("Github", { ns: "navbar" }),
+      href: "https://github.com/fluid-design-io/fluid.git",
+    },
   ];
   return (
     <footer className="relative z-[10] mt-8">
       <div className="mx-auto max-w-7xl px-4 py-12 text-xs sm:px-6 md:!flex md:!items-center md:!justify-between lg:px-8">
         <div className="flex justify-center space-x-6 md:!order-2">
           {navigation.map(({ name, href }) => (
-            <Link href={`/${href}`} key={name}>
+            <Link href={href} key={name}>
               <a className="text-primary-400 hover:text-primary-500">
                 <span className="sr-only">{name}</span>
                 {name}
