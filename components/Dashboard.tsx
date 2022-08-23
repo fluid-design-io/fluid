@@ -85,7 +85,7 @@ const UI = () => {
     {
       name: t(`Card`),
       src: "card",
-      count: 4,
+      count: 3,
     },
   ];
   return (
