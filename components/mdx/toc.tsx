@@ -160,7 +160,7 @@ export function TOC(): ReactElement {
       >
         <Popover.Button
           role={`button`}
-          className="flex w-full items-center justify-between flex-shrink-0 text-sm mobile-doc-nav py-1.5 px-4 sm:px-6 focus-ring"
+          className="flex w-full items-center justify-between flex-shrink-0 text-sm mobile-doc-nav py-1.5 px-4 sm:px-6 [-webkit-tap-highlight-color:transparent] focus-ring"
           tabIndex={0}
           onClick={() => setShowMoblieDoc(!showMoblieDoc)}
         >

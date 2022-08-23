@@ -108,23 +108,23 @@ const createHeaderLink = (
       };
     }, []);
     return (
-      <Tag className="group relative pointer-events-none" {...props}>
+      <Tag className="group pointer-events-none relative" {...props}>
         <span
-          className="subheading-anchor -mt-28 md:-mt-24 pt-28 md:pt-24 block"
+          className="subheading-anchor -mt-28 block pt-28 md:-mt-24 md:pt-24"
           id={id}
           ref={obRef}
         />
-        <div className="pointer-events-auto">
+        <div className="pointer-events-auto flex items-center">
           <CopyToClipboard text={`${pathname}#${id}`}>
             <a
               href={`#${id}`}
-              className="absolute top-28 md:top-24 bottom-0 right-0 flex items-center ml-0 pr-4 mt-0.5 border-0 opacity-0 anchor anchor-link hash-link md:!right-auto md:!pr-auto md:!-ml-10 lg:-ml-7 xl:-ml-10 hash group-hover:opacity-100 focus:opacity-100"
+              className="anchor anchor-link hash-link md:!pr-auto hash absolute top-28 bottom-0 right-0 ml-0 sm:mt-0.5 flex items-center border-0 pr-4 opacity-0 focus:opacity-100 group-hover:opacity-100 md:top-24 md:!right-auto md:!-ml-10 lg:-ml-7 xl:-ml-10 pointer-touch:opacity-80"
               title={`Direct link to heading ${id}`}
               aria-live="assertive"
               aria-label={`${`Click to copy section hashtag`}`}
             >
               <div data-tooltip-top="Copy">
-                <HashtagIcon className="flex items-center justify-center w-6 h-6 p-1 text-primary-400 rounded-md shadow-sm ring-1 ring-primary-900/5 hover:ring-primary-900/10 hover:shadow hover:text-primary-700 dark:bg-primary-700 dark:text-primary-300 dark:hover:text-primary-50 dark:shadow-none dark:ring-0" />
+                <HashtagIcon className="flex h-6 w-6 items-center justify-center rounded-md p-1 text-primary-400 shadow-sm ring-1 ring-primary-900/5 hover:text-primary-700 hover:shadow hover:ring-primary-900/10 dark:bg-primary-700 dark:text-primary-300 dark:shadow-none dark:ring-0 dark:hover:text-primary-50" />
               </div>
             </a>
           </CopyToClipboard>
@@ -170,7 +170,7 @@ export const getComponents = ({
     li: (props: ComponentProps<"li">) => <li className="my-2" {...props} />,
     blockquote: (props: ComponentProps<"blockquote">) => (
       <blockquote
-        className="mt-6 first:mt-0 border-l-2 border-primary-300 pl-6 italic text-primary-700 dark:border-primary-700 dark:text-primary-400"
+        className="mt-6 border-l-2 border-primary-300 pl-6 italic text-primary-700 first:mt-0 dark:border-primary-700 dark:text-primary-400"
         {...props}
       />
     ),
@@ -180,9 +180,9 @@ export const getComponents = ({
     a: A,
     table: (props: ComponentProps<"table">) => (
       <div className="-mx-4 md:mx-0">
-        <div className="inline-block max-w-[100vw] md:max-w-[calc(100vw-14rem-4rem)] w-full overflow-x-auto md:mx-0">
+        <div className="inline-block w-full max-w-[100vw] overflow-x-auto md:mx-0 md:max-w-[calc(100vw-14rem-4rem)]">
           <table
-            className="mt-6 first:mt-0 p-0 w-full divide-y min-w-full px-4"
+            className="mt-6 w-full min-w-full divide-y p-0 px-4 first:mt-0"
             {...props}
           />
         </div>
@@ -201,18 +201,18 @@ export const getComponents = ({
     ),
     th: (props: ComponentProps<"th">) => (
       <th
-        className="py-3.5 px-3 text-left text-sm font-semibold text-primary-900 dark:text-primary-50 first:pl-4 first:pr-3 sm:first:pl-6 md:first:pl-0"
+        className="py-3.5 px-3 text-left text-sm font-semibold text-primary-900 first:pl-4 first:pr-3 dark:text-primary-50 sm:first:pl-6 md:first:pl-0"
         {...props}
       />
     ),
     td: (props: ComponentProps<"td">) => (
       <td
-        className="py-4 px-3 text-sm text-primary-500 dark:text-primary-300 pl-4 first:pr-3 sm:first:pl-6 md:first:pl-0 sm:last:pr-6 md:last:pr-0 last:pl-3 last:pr-4 prose prose-sm align-baseline"
+        className="prose prose-sm py-4 px-3 pl-4 align-baseline text-sm text-primary-500 first:pr-3 last:pl-3 last:pr-4 dark:text-primary-300 sm:first:pl-6 sm:last:pr-6 md:first:pl-0 md:last:pr-0"
         {...props}
       />
     ),
     code: (props: ComponentProps<"code">) => (
-      <code className="dark:text-primary-50 whitespace-nowrap" {...props} />
+      <code className="whitespace-nowrap dark:text-primary-50" {...props} />
     ),
     ...components,
   };
