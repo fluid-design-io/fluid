@@ -5,7 +5,7 @@ import { ActiveAnchorProvider } from "../contexts";
 import { Footer, Header, Navbar, Sidebar, SkipNavContent } from "../framework";
 import { TOC } from "./";
 
-const MDXLayout = ({
+export const MDXLayout = ({
   header = true,
   sidebar = true,
   components = {},
@@ -50,5 +50,3 @@ const MDXLayout = ({
     </>
   );
 };
-
-export default MDXLayout;
