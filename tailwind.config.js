@@ -26,6 +26,14 @@ module.exports = {
       screens: {
         'pointer-hover': { 'raw': '(hover: hover) and (pointer: fine)' },
         'pointer-touch': { 'raw': '(hover: none) and (pointer: coarse)' },
+        'sm': '767px',
+        'md': [
+          // Sidebar appears at 768px, so revert to `sm:` styles between 768px
+          // and 898px, after which the main content area is wide enough again to
+          // apply the `md:` styles.
+          { 'min': '668px', 'max': '767px' },
+          { 'min': '898px' }
+        ],
       },
       fontFamily: {
         primary: ['Inter', ...fontFamily.sans],
@@ -43,11 +51,11 @@ module.exports = {
           700: 'rgb(var(--tw-color-primary-700) / <alpha-value>)',
           800: 'rgb(var(--tw-color-primary-800) / <alpha-value>)',
           900: 'rgb(var(--tw-color-primary-900) / <alpha-value>)',
-        },  
+        },
         secondary: {
           50: '#ecfdf5',
           100: '#d1fae5',
-          200: '#a7f3d0', 
+          200: '#a7f3d0',
           300: '#6ee7b7',
           400: '#34d399',
           500: '#10b981',

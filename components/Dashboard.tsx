@@ -43,7 +43,7 @@ const ImageCard = ({ name, src, count = 0 }) => {
 
 const GridWrap = ({ children }) => {
   return (
-    <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:gap-8">
+    <div className="grid w-full grid-cols-1 gap-4 xs:grid-cols-2 md:grid-cols-3 md:gap-6 lg:gap-8">
       {children}
     </div>
   );

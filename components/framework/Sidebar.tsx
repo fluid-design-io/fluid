@@ -37,14 +37,14 @@ const secondaryNavigation = [
       // { name: "Footer", href: "footer", isDone: false },
       // { name: "Hero", href: "hero", isDone: false },
       // { name: "Indicator", href: "indicator", isDone: false },
-      { name: "List", href: "list", isDone: false },
+      // { name: "List", href: "list", isDone: false },
       // { name: "Mask", href: "mask", isDone: false },
       { name: "Menu", href: "menu", isDone: false },
       // { name: "Modal", href: "modal", isDone: false },
       // { name: "Navbar", href: "navbar", isDone: false },
       // { name: "Pagination", href: "pagination", isDone: false },
       // { name: "Progress", href: "progress", isDone: false },
-      { name: "Tab", href: "tab", isDone: false },
+      // { name: "Tab", href: "tab", isDone: false },
       // { name: "Table", href: "table", isDone: false },
       // { name: "Tooltip", href: "tooltip", isDone: false },
     ],
@@ -73,9 +73,9 @@ export const SidebarMenu = () => {
   const activeTab = pathname?.split("/")?.pop();
   const { t } = useTranslation();
   return (
-    <div className="top-0 left-0 z-40 flex max-h-screen min-h-screen w-64 overflow-y-auto overflow-x-hidden border-r border-primary-200 bg-primary-50 pl-[env(safe-area-inset-left)] contrast-more:border-primary-600 dark:border-primary-700 dark:bg-primary-900 dark:contrast-more:border-primary-200 dark:contrast-more:bg-[rgb(18,15,13)] md:w-56 2xl:w-64">
+    <div className="top-0 left-0 z-40 flex min-h-screen h-fit max-h-[100dvh] w-64 overflow-y-auto overflow-x-hidden border-r border-primary-200 bg-primary-50 pl-[calc(env(safe-area-inset-right)-1rem)] contrast-more:border-primary-600 dark:border-primary-700 dark:bg-primary-900 dark:contrast-more:border-primary-200 dark:contrast-more:bg-[rgb(18,15,13)] sm:w-56 2xl:w-64">
       <div className="flex w-full flex-1 flex-grow flex-col justify-between">
-        <div className="sticky top-0 z-10 mx-2.5 mt-2 flex items-center justify-start space-x-2 bg-primary-50/80 pt-2 pb-3 backdrop-blur-md backdrop-filter dark:bg-primary-900/80 lg:mx-4">
+        <div className="sticky top-0 z-10 mx-2.5 pt-4 flex items-center justify-start space-x-2 bg-primary-50/80 pb-3 backdrop-blur-md backdrop-filter dark:bg-primary-900/80 lg:mx-4">
           <span className="sr-only">Fluid Design</span>
           <AppLogo />
           <UnstyledLink
@@ -89,7 +89,7 @@ export const SidebarMenu = () => {
           </UnstyledLink>
         </div>
         <nav
-          className="flex flex-1 flex-col gap-2 p-1 px-4 pb-[env(safe-area-inset-botton,1rem)]"
+          className="flex flex-1 flex-col gap-2 p-1 px-4 pb-[calc(1rem+env(safe-area-inset-bottom))]"
           aria-label="Sidebar"
         >
           {navigation.map(({ name, href, icon: ItemIcon }) => (
@@ -218,7 +218,7 @@ export const Sidebar = ({ hideNav = false, docNav = undefined }) => {
   return (
     <>
       <div
-        className={`sticky top-0 z-[61] hidden self-start transition duration-300 md:!block`}
+        className={`sticky top-0 z-[61] hidden self-start transition duration-300 sm:block`}
       >
         <SidebarMenu />
       </div>
