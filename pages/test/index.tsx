@@ -1,6 +1,6 @@
 import React from "react";
 
-import MDXLayout from "../../components/mdx/MDXLayout";
+import { MDXLayout } from "../../components";
 import AccordionSimpleComponent from "../../components/accordion/components/AccordionSimpleComponent";
 import { getPageProps } from "../../lib/getPageProps";
 
