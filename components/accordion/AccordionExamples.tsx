@@ -7,53 +7,44 @@ import {
 
 const dataSimple = [
   {
-    title: "Section 1",
+    title: "Shop",
     details: (
       <p
         className={`my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50`}
       >
-        Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-        ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-        amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo
-        ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque
-        vulputate.
+        Our shop contains all the tools you need to build a great design system.
+        We have a wide range of tools and resources to help you get started.
       </p>
     ),
     isOpen: true,
   },
   {
-    title: "Section 2",
+    title: "Service",
     details: (
       <p
         className={`my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50`}
       >
-        Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-        purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis
-        porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non
-        quam. In suscipit faucibus urna.
+        We offer a wide range of services to help you get started.
       </p>
     ),
     isOpen: false,
   },
   {
-    title: "Section 3",
+    title: "About",
     details: (
       <>
         <p
           className={`my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50`}
         >
-          Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque
-          lobortis. Phasellus pellentesque purus in massa. Aenean in pede.
-          Phasellus ac libero ac tellus pellentesque semper. Sed ac felis. Sed
-          commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu iaculis
-          leo purus venenatis dui.
+          We are a small team of designers and developers who create
+          high-quality design systems.
         </p>
         <ul
           className={`mb-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-400 dark:contrast-more:text-primary-50`}
         >
-          <li>List item one</li>
-          <li>List item two</li>
-          <li>List item three</li>
+          <li>Beautiful designs</li>
+          <li>A11y</li>
+          <li>Responsive</li>
         </ul>
       </>
     ),
@@ -63,10 +54,10 @@ const dataSimple = [
 
 const dataWithIcons = [
   Object.assign({}, dataSimple[0], {
-    Icon: CogIcon,
+    Icon: ShoppingCartIcon,
   }),
   Object.assign({}, dataSimple[1], {
-    Icon: ShoppingCartIcon,
+    Icon: CogIcon,
   }),
   Object.assign({}, dataSimple[2], {
     Icon: InformationCircleIcon,
