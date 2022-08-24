@@ -11,5 +11,5 @@ function TestPage(props) {
 export default TestPage;
 
 export async function getStaticProps({ locale }) {
-  return await getPageProps({ page: "usage", folder: "/docs/usage", locale });
+  return await getPageProps({ page: "usage", locale });
 }

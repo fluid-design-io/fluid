@@ -17,5 +17,5 @@ function ButtonPage(props) {
 export default ButtonPage;
 
 export async function getStaticProps({ locale }) {
-  return await getPageProps({ page: "button", folder: "/docs/button", locale });
+  return await getPageProps({ page: "button", locale });
 }

@@ -15,7 +15,6 @@ export default AccordionPage;
 export async function getStaticProps({ locale }) {
   return await getPageProps({
     page: "accordion",
-    folder: "/docs/accordion",
     locale,
   });
 }

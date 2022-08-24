@@ -16,7 +16,6 @@ export default TestPage;
 export async function getStaticProps({ locale }) {
   return await getPageProps({
     page: "examples",
-    folder: "/docs/examples",
     locale,
   });
 }
