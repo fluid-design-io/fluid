@@ -1,28 +1,21 @@
 import Image from "next/image";
 
-const ImageCollageComponent = ({
-  setNotification,
-  srcs = undefined,
-  ...props
-}) => {
-  const handleClick = (name) => {
-    setNotification({ enabled: true, message: name });
-  };
+const ImageCollageComponent = ({ srcs = undefined, ...props }) => {
   return (
     <div
-      className={`w-full max-w-xs mx-auto component grid aspect-square grid-cols-3 overflow-hidden shadow component card-bg rounded-xl gap-x-0.5 focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 cursor-pointer motion-safe:hover:scale-[0.992] motion-safe:active:scale-[0.98] motion-safe:transition contrast-more:hover:ring-2 contrast-more:hover:ring-primary-800 dark:contrast-more:hover:ring-primary-50 contrast-more:hover:ring-offset-2 select-none  ${
+      className={`component component card-bg mx-auto grid aspect-square w-full max-w-xs cursor-pointer select-none grid-cols-3 gap-x-0.5 overflow-hidden rounded-xl shadow focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 motion-safe:transition motion-safe:hover:scale-[0.992] motion-safe:active:scale-[0.98] contrast-more:hover:ring-2 contrast-more:hover:ring-primary-800 contrast-more:hover:ring-offset-2 dark:contrast-more:hover:ring-primary-50  ${
         props.className ? props.className : ``
       }`}
       tabIndex={0}
       aria-label={`Collage related to Forest, by John Doe`}
-      onClick={
-        () =>
-          handleClick(
-            "Image collage"
-          ) /* You can use router() to push to a new href once the component is clicked, it is better than wrapping it with an <a /> tag, which is not recommended. */
-      }
+      // onClick={
+      //   () =>
+      //     handleClick(
+      //       "Image collage"
+      //     ) /* You can use router() to push to a new href once the component is clicked, it is better than wrapping it with an <a /> tag, which is not recommended. */
+      // }
     >
-      <div className="relative w-full h-full col-span-2 select-none pointer-events-none">
+      <div className="pointer-events-none relative col-span-2 h-full w-full select-none">
         <Image
           src={
             srcs
@@ -34,8 +27,8 @@ const ImageCollageComponent = ({
           objectFit="cover"
         />
       </div>
-      <div className="grid grid-flow-col grid-rows-2 gap-0.5 select-none pointer-events-none">
-        <div className="relative w-full h-full">
+      <div className="pointer-events-none grid select-none grid-flow-col grid-rows-2 gap-0.5">
+        <div className="relative h-full w-full">
           <Image
             src={
               srcs
@@ -47,7 +40,7 @@ const ImageCollageComponent = ({
             objectFit="cover"
           />
         </div>
-        <div className="relative w-full h-full select-none pointer-events-none">
+        <div className="pointer-events-none relative h-full w-full select-none">
           <Image
             src={
               srcs

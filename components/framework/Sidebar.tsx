@@ -52,7 +52,7 @@ const secondaryNavigation = [
   {
     groupName: "UI",
     groupList: [
-      { name: "Card", href: "card", isDone: false },
+      { name: "Card", href: "card", isDone: true },
       { name: "Empty State", href: "empty-state", isDone: false },
       { name: "Image", href: "image", isDone: false },
     ],
