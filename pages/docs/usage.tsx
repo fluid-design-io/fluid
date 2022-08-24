@@ -1,6 +1,6 @@
 import React from "react";
 
-import MDXLayout from "../../components/mdx/MDXLayout";
+import { MDXLayout } from "../../components";
 import { getPageProps } from "../../lib/getPageProps";
 
 function TestPage(props) {

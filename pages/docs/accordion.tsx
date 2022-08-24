@@ -1,7 +1,6 @@
 import React from "react";
 
-import { AccordionExamples } from "../../components/accordion";
-import MDXLayout from "../../components/mdx/MDXLayout";
+import { AccordionExamples, MDXLayout } from "../../components";
 import { getPageProps } from "../../lib/getPageProps";
 
 function AccordionPage(props) {

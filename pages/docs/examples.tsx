@@ -1,5 +1,6 @@
-import MDXLayout from "../../components/mdx/MDXLayout";
 import React from "react";
+
+import { MDXLayout } from "../../components";
 import { getPageProps } from "../../lib/getPageProps";
 import { Examples } from "../../components/Examples";
 
@@ -13,5 +14,9 @@ function TestPage(props) {
 export default TestPage;
 
 export async function getStaticProps({ locale }) {
-  return await getPageProps({ page: "examples", folder: "/docs/examples", locale });
+  return await getPageProps({
+    page: "examples",
+    folder: "/docs/examples",
+    locale,
+  });
 }
