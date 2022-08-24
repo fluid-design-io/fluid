@@ -6,7 +6,11 @@ import theme from "shiki/themes/dark-plus.json";
 
 import getDocBySlug from "../lib/getDocBySlug";
 
-export const getPageProps = async ({ page = "test", folder = "/", locale }) => {
+export const getPageProps = async ({
+  page = "test",
+  folder = `/docs/${page}`,
+  locale,
+}) => {
   const { content, meta, slug } = getDocBySlug(page, folder, locale);
   const mdxSource = await serialize(content, {
     mdxOptions: {
