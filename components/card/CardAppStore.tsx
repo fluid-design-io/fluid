@@ -1,7 +1,7 @@
+import { useTranslation } from "next-i18next";
 import { useState } from "react";
 import { CodeBlockFeatureProps } from "../../interfaces/CodeBlock";
-import {CodeBlock} from "../framework";
-import { useTranslation } from "next-i18next";
+import { CodeBlock } from "../framework";
 import CardASLargeImageComponent from "./components/CardASLargeImageComponent";
 //@ts-ignore
 import largeImage from "raw-loader!../../lib/code/CardASLargeImage.code.txt";
@@ -44,7 +44,7 @@ function CardAppStore() {
         onDismiss={() => setNotification(undefined)}
         features={features.standard}
       >
-        <div className="grid items-stretch w-full pt-20 pb-16 place-items-center">
+        <div className="grid w-full place-items-center items-stretch pt-20 pb-16">
           <CardASLargeImageComponent setNotification={setNotification} />
         </div>
       </CodeBlock>
