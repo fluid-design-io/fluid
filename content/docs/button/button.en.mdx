@@ -18,32 +18,22 @@ tags:
 
 Using the TailwindCSS Fluid UI plugin, you can easily use button component with all built-in support for:
 
-```jsx
-import { Button } from "@fluid-design/fluid-ui";
-
-<Button weight="normal"
-  size="md"
-  shape="round"
-  isLoading={false}
-  gradient={undefined}
-  loadingOptions={
-    animation: "spin",
-    text: ""
-  }>
-  Text
-</Button>
-```
-
-```jsx
-// mark[9:19]
-<Button color="red">Red</Button>
-```
-
 <CodeFrame title="Color options">
   <div className="flex flex-wrap justify-center gap-6">
     <ButtonExamples.Colors />
   </div>
 </CodeFrame>
+
+```jsx
+import { Button } from "@fluid-design/fluid-ui";
+
+function Example() {
+  return (
+    // mark[13:23]
+    <Button color="red">Red</Button>
+  );
+}
+```
 
 ## Weight
 
@@ -67,6 +57,12 @@ Button weight defines the boldness of the button.
 
 Button size defines the size of the button.
 
+<CodeFrame title="Size options">
+  <div className="flex flex-wrap justify-center gap-6">
+    <ButtonExamples.Sizes />
+  </div>
+</CodeFrame>
+
 ```jsx
 <Button color="indigo" size="xs">Extra Small</Button>
 <Button color="indigo" size="sm">Small</Button>
@@ -75,25 +71,27 @@ Button size defines the size of the button.
 <Button color="indigo" size="xl">Extra Large</Button>
 ```
 
-<CodeFrame title="Size options">
-  <div className="flex flex-wrap justify-center gap-6">
-    <ButtonExamples.Sizes />
-  </div>
-</CodeFrame>
-
 ## States
 
 Button states defines the different states of the button.
 You can use the `isLoading` prop to show a loading state.
 And customize the loading state by passing the `loadingOptions` prop.
 
+<CodeFrame title="Size options">
+  <div className="flex flex-wrap justify-center gap-6">
+    <ButtonExamples.States />
+  </div>
+</CodeFrame>
+
 ```jsx
 <Button color="lime" disabled>
   Disabled
 </Button>
+
 <Button color="fuchsia" disabled isLoading>
   Loading
 </Button>
+
 <Button
   color="stone"
   disabled
@@ -104,6 +102,7 @@ And customize the loading state by passing the `loadingOptions` prop.
 >
   Text
 </Button>
+
 <Button
   color="blue"
   disabled
@@ -116,12 +115,6 @@ And customize the loading state by passing the `loadingOptions` prop.
   Text
 </Button>
 ```
-
-<CodeFrame title="Size options">
-  <div className="flex flex-wrap justify-center gap-6">
-    <ButtonExamples.States />
-  </div>
-</CodeFrame>
 
 ## Features
 
@@ -148,6 +141,22 @@ When loading is true, a spinner will be shown. Customizable loading animation.
 It is also possible to set `isLoading` to true to display a loading animation, and it can be grouped along with disabled to create a funtional loading button.
 
 ## Component API
+
+```jsx
+import { Button } from "@fluid-design/fluid-ui";
+
+<Button weight="normal"
+  size="md"
+  shape="round"
+  isLoading={false}
+  gradient={undefined}
+  loadingOptions={
+    animation: "spin",
+    text: ""
+  }>
+  Text
+</Button>
+```
 
 | Prop             | Default   | Description                                                                                                                                                                                                                         |
 | ---------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
