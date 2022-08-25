@@ -1299,10 +1299,10 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@fluid-design/fluid-ui@^1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@fluid-design/fluid-ui/-/fluid-ui-1.3.1.tgz#19d6df5fa86489679ee548645f82c0ea09dfb827"
-  integrity sha512-73+QxCnjDNRvj/q+Ot7N/qhOx+2GzOw6yWsxoNnwMrzw286ir6OnGlHgpZSWiEerA8MwfqOyUyNDb9XGWJY0+g==
+"@fluid-design/fluid-ui@^1.3.2":
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/@fluid-design/fluid-ui/-/fluid-ui-1.3.2.tgz#2788e91bbf33723e8263105daeefd070156f1fdf"
+  integrity sha512-nUvuUUgx51SozhluD1NTYNpFQ7GO/LIIWDiFHsOFFoGVROyuOl+NmlKegnmhmNACyBKUUGxm+2loNlZHIsMS+g==
   dependencies:
     "@headlessui/react" "^1.6.6"
     classnames "^2.3.1"
