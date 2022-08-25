@@ -48,6 +48,7 @@
         "light": "Light",
         "outline": "Outline",
         "normal": "Normal",
+        "clear": "Clear",
         "bold": "Bold",
         "none": "None"
     },

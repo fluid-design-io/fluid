@@ -44,17 +44,18 @@
         "stone": "石头"
     },
     "weights": {
-        "light": "",
-        "outline": "Outline",
-        "normal": "Normal",
-        "bold": "Bold",
-        "none": "None"
+        "light": "淡",
+        "outline": "轮廓",
+        "normal": "正常",
+        "clear": "清晰",
+        "bold": "粗体",
+        "none": "无"
     },
     "sizes": {
-        "xs": "Extra Small",
-        "sm": "Small",
-        "md": "Medium",
-        "lg": "Large",
-        "xl": "Extra Large"
+        "xs": "特小",
+        "sm": "小号",
+        "md": "中号",
+        "lg": "大号",
+        "xl": "特大"
     }
 }

@@ -91,7 +91,7 @@ const ButtonColors = ({
 const ButtonWeights = () => {
   const id = useId();
   const { t } = useTranslation("button");
-  const weights = ["light", "normal", "bold", "outline", "none"];
+  const weights = ["light", "normal", "bold", "outline", "clear", "none"];
   return (
     <ButtonWrap>
       {weights.map((weight) => (
