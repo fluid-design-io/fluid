@@ -118,7 +118,7 @@ const createHeaderLink = (
           <CopyToClipboard text={`${pathname}#${id}`}>
             <a
               href={`#${id}`}
-              className="anchor anchor-link hash-link md:!pr-auto hash absolute top-28 bottom-0 right-0 ml-0 lg:mt-0.5 flex items-center border-0 md:pr-4 opacity-0 focus:opacity-100 group-hover:opacity-100 md:top-24 md:!right-auto md:!-ml-7 lg:-ml-7 xl:-ml-10 pointer-touch:opacity-80"
+              className="anchor anchor-link hash-link hash absolute top-28 bottom-0 right-0 ml-0 lg:mt-0.5 flex items-center border-0 opacity-0 focus:opacity-100 group-hover:opacity-100 md:top-24 lg:right-auto lg:-ml-9 xl:-ml-10 pointer-touch:opacity-80"
               title={`Direct link to heading ${id}`}
               aria-live="assertive"
               aria-label={`${`Click to copy section hashtag`}`}

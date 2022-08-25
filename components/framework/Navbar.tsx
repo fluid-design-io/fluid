@@ -51,7 +51,7 @@ export const Navbar = ({ sidebar, ...props }) => {
           >
             <div
               ref={menuBarRef}
-              className="flex items-center justify-between border-b border-b-primary-800/5 dark:border-b-primary-50/10 px-4 py-4 pr-[calc(1rem+env(safe-area-inset-right))] sm:!justify-start sm:!space-x-2.5 sm:px-6 sm:!py-2 sm:pr-[calc(1.2rem+env(safe-area-inset-right))] lg:px-8"
+              className="flex items-center justify-between border-b border-b-primary-800/5 dark:border-b-primary-50/10 px-4 py-4 pr-[calc(1rem+env(safe-area-inset-right))] sm:!justify-start sm:!space-x-2.5 sm:px-6 sm:!py-2 sm:pr-[calc(1.2rem+env(safe-area-inset-right))] lg:px-[3.175rem]"
             >
               <div
                 className={`flex flex-grow items-center justify-between space-x-4 sm:!justify-start`}
@@ -95,7 +95,7 @@ export const Navbar = ({ sidebar, ...props }) => {
                       {t("Docs")}
                     </a>
                   </Link>
-                  <div className="h-3 w-0.5 bg-primary-400 dark:bg-primary-500" />
+                  <div className="h-3 w-0.5 bg-primary-400 dark:bg-primary-500 rounded-full" />
                   <a
                     className={clsxm("px-1.5 py-1.5", navBarLinkClassName)}
                     target="_blank"

@@ -180,6 +180,10 @@ const Mobile = () => {
     text: t("On this page"),
   };
 
+  if (headings.length === 0) {
+    return null;
+  }
+
   return (
     <Popover
       as={motion.div}
@@ -190,7 +194,7 @@ const Mobile = () => {
           <Popover.Button
             role={`button`}
             as={motion.button}
-            className="mobile-doc-nav focus-ring flex w-full flex-shrink-0 items-center justify-between px-4 text-sm [-webkit-tap-highlight-color:transparent] sm:px-6"
+            className="mobile-doc-nav focus-ring flex w-full flex-shrink-0 items-center justify-between px-4 text-sm [-webkit-tap-highlight-color:transparent] sm:px-6 lg:px-14"
             onClick={() => setShowMoblieDoc(!showMoblieDoc)}
             animate={{
               paddingTop: hasScrolled ? "1rem" : "0.375rem",
@@ -244,7 +248,7 @@ const Mobile = () => {
                   type: "spring",
                   bounce: 0.2,
                 }}
-                className="doc-nav-expand overflow-hidden px-4 contrast-more:font-semibold sm:px-6"
+                className="doc-nav-expand overflow-hidden px-4 contrast-more:font-semibold sm:px-6 lg:px-14"
               >
                 <div className="mt-1.5 pb-4">
                   {headings.map((heading) => {
