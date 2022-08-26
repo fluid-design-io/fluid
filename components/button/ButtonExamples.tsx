@@ -1,14 +1,17 @@
 import { Button, Form, Switch } from "@fluid-design/fluid-ui";
 import {
+  FluidButtonWeights,
   FluidButtonColorOptions,
   FluidButtonColors,
   FluidButtonShapes,
   FluidButtonSizes,
-  FluidButtonWeights,
   FulidButtonLoadingOptions,
 } from "@fluid-design/fluid-ui/dist/lib/components/FluidUI/FluidTheme";
+
 import { useTranslation } from "next-i18next";
 import { useId, useState } from "react";
+import { IoMdTrash } from "react-icons/io";
+import { MdAddCircle, MdInfo, MdPlusOne, MdSend } from "react-icons/md";
 
 const colors = [
   "red",
@@ -137,14 +140,14 @@ const ButtonStates = () => {
   const [isLoading, setIsLoading] = useState(true);
   return (
     <ButtonWrap>
-      <Button color="lime" disabled={disabled}>
+      <Button color="green" disabled={disabled}>
         {disabled ? "Disabled" : "Clickable"}
       </Button>
-      <Button color="fuchsia" disabled={disabled} isLoading={isLoading}>
+      <Button color="green" disabled={disabled} isLoading={isLoading}>
         Loading
       </Button>
       <Button
-        color="stone"
+        color="green"
         disabled={disabled}
         isLoading={isLoading}
         loadingOptions={{
@@ -154,7 +157,7 @@ const ButtonStates = () => {
         Text
       </Button>
       <Button
-        color="blue"
+        color="green"
         disabled={disabled}
         isLoading={isLoading}
         loadingOptions={{
@@ -188,17 +191,40 @@ const ButtonStates = () => {
   );
 };
 
+const ButtonIconOnly = () => {
+  const id = useId();
+  const { t } = useTranslation("button");
+  return (
+    <ButtonWrap>
+      <Button color="sky" iconOnly>
+        <MdSend />
+      </Button>
+      <Button color="green" iconOnly>
+        <MdAddCircle />
+      </Button>
+      <Button color="blue" shape="pill" weight="light" iconOnly>
+        <MdInfo />
+      </Button>
+      <Button color="rose" shape="pill" weight="clear" iconOnly>
+        <IoMdTrash />
+      </Button>
+    </ButtonWrap>
+  );
+};
+
 // export the const into an object  called ButtonExamples
 
 ButtonColors.displayName = "Colors";
 ButtonWeights.displayName = "Weights";
 ButtonSizes.displayName = "Sizes";
 ButtonStates.displayName = "States";
+ButtonIconOnly.displayName = "Icon Only";
 
 export const ButtonExamples = Object.assign(
   {},
   { Colors: ButtonColors },
   { Weights: ButtonWeights },
   { Sizes: ButtonSizes },
-  { States: ButtonStates }
+  { States: ButtonStates },
+  { IconOnly: ButtonIconOnly }
 );

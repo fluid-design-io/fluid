@@ -117,6 +117,31 @@ And customize the loading state by passing the `loadingOptions` prop.
 </Button>
 ```
 
+## Icon only
+
+The component also provides an `IconOnly` prop that will render the button paddings the same for all edges.
+
+<CodeFrame title="Icon only">
+  <div className="flex flex-wrap justify-center gap-6">
+    <ButtonExamples.IconOnly />
+  </div>
+</CodeFrame>
+
+```jsx
+<Button color="sky" iconOnly>
+  <MdSend />
+</Button>
+<Button color="green" iconOnly>
+  <MdAddCircle />
+</Button>
+<Button color="blue" shape="pill" weight="light" iconOnly>
+  <MdInfo />
+</Button>
+<Button color="rose" shape="pill" weight="clear" iconOnly>
+  <IoMdTrash />
+</Button>
+```
+
 ## Features
 
 ### Accessibility
@@ -129,7 +154,7 @@ You can also add a `div` element with className `sr-only` to customize the text 
 
 Based on contrast ratio, each button's foreground color is set to the opposite of the background color.
 
-### States
+### Button States
 
 Then button will only be hoverable or clickable when enabled. This is done by utilizing TailwindCSS's `:enabled` prop.
 For disabled situation: A cursor not-allowed will be displayed. As well as dimming the button brightness.
@@ -162,7 +187,7 @@ import { Button } from "@fluid-design/fluid-ui";
 | Prop             | Default   | Description                                                                                                                                                                                                                         |
 | ---------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `color`          | -         | `red`, `orange`, `amber`, `yellow`, `lime`, `green`, `emerald`, `teal`, `cyan`, `sky`, `blue`, `indigo`, `violet`, `purple`, `fuchsia`, `pink`, `rose`, `gray`, `slate`, `zinc`, `neutral`, `stone` <Table.D>Button color</Table.D> |
-| `weight`         | `normal`  | `light`, `normal`, `bold`, `outline`, `none` <Table.D>Button weight</Table.D>                                                                                                                                                       |
+| `weight`         | `normal`  | `light`, `normal`, `bold`, `outline`, `clear`, `link` <Table.D>Button weight</Table.D>                                                                                                                                              |
 | `size`           | `md`      | `xs`, `sm`, `md`, `lg`, `xl` <Table.D>Button size</Table.D>                                                                                                                                                                         |
 | `shape`          | `rounded` | `pill`, `rounded`, `square` <Table.D>Button shape</Table.D>                                                                                                                                                                         |
 | `isLoading`      | `false`   | `boolean` <Table.D>Whether the button is loading</Table.D>                                                                                                                                                                          |
