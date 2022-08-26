@@ -52,11 +52,23 @@ export const CardStandardComponent = ({ src = undefined, ...props }) => {
             {t(`Card Button`, { ns: "card" })}
           </Button>
           <div className="-mr-2 flex">
-            <Button weight="clear" color="sky" shape="pill" iconOnly>
+            <Button
+              weight="clear"
+              color="sky"
+              shape="pill"
+              className="text-gray-500 hocus:text-inherit dark:text-gray-400"
+              iconOnly
+            >
               <span className="sr-only">Share this post</span>
               <ShareIcon className="h-5 w-5" />
             </Button>
-            <Button weight="clear" color="rose" shape="pill" iconOnly>
+            <Button
+              weight="clear"
+              color="rose"
+              shape="pill"
+              className="text-gray-500 hocus:text-inherit dark:text-gray-400"
+              iconOnly
+            >
               <span className="sr-only">Fav this post</span>
               <HeartIcon className="h-5 w-5" />
             </Button>
