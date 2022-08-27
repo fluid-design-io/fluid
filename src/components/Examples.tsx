@@ -1,12 +1,5 @@
 import clsxm from '../lib/clsxm';
 import { CardASLargeImageComponent, CardStandardComponent } from './card';
-import {
-  ImageBGResponsiveComponent,
-  ImageCollageComponent,
-  ImageGridComponent,
-  ImageOnlyComponent,
-  ImageWithOverlayComponent,
-} from './image';
 import { ListDetailComponent } from './list';
 import { ChevronRightIcon } from '@heroicons/react/solid';
 import { useTranslation } from 'next-i18next';
@@ -56,32 +49,6 @@ export const Examples = () => {
       src: 'https://images.unsplash.com/photo-1503924087716-07cbd5f49b21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
     },
     {
-      title: t('Collage', { ns: 'image' }),
-      href: '/image/#collage',
-      Component: ImageCollageComponent,
-      srcs: [
-        'https://images.unsplash.com/photo-1559770968-53924e9b32de?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
-        'https://images.unsplash.com/photo-1477696957384-3b1d731c4cff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
-        'https://images.unsplash.com/photo-1599940824399-b87987ceb72a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
-      ],
-    },
-    {
-      title: t('Single Image', { ns: 'image' }),
-      href: '/image/#single-image',
-      Component: ImageOnlyComponent,
-      rowSpan: 1,
-      className: 'max-w-md shadow-xl h-full aspect-[2.16/1] rounded-3xl',
-      src: 'https://images.unsplash.com/photo-1454123253751-1fe2b9e0c10d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
-    },
-    {
-      title: t('with-overlay.title', { ns: 'image' }),
-      href: '/image/#single-image',
-      Component: ImageWithOverlayComponent,
-      className: 'max-w-md shadow-xl h-full aspect-[2.16/1] rounded-3xl',
-      rowSpan: 1,
-      src: 'https://images.unsplash.com/photo-1620245605605-8ab2cdd2ba91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
-    },
-    {
       title: t('App Store.title', { ns: 'card' }),
       href: '/card/#app-store',
       Component: CardASLargeImageComponent,
@@ -90,20 +57,6 @@ export const Examples = () => {
         'https://images.unsplash.com/photo-1628432436663-9e588806592a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
         'https://images.unsplash.com/photo-1540760938999-077b8231d890?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80',
       ],
-    },
-    {
-      title: t('Background', { ns: 'image' }),
-      href: '/image/#background',
-      Component: ImageBGResponsiveComponent,
-      colSpan: 'col-span-1 lg:col-span-2',
-      className: 'shadow-xl h-full rounded-3xl overflow-hidden',
-    },
-    {
-      title: t('Grid', { ns: 'image' }),
-      href: '/image/#grid',
-      Component: ImageGridComponent,
-      rowSpan: 1,
-      className: 'max-w-md shadow-xl h-full aspect-[2.16/1] rounded-3xl',
     },
     {
       title: t('List', { ns: 'list' }),
