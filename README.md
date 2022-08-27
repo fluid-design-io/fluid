@@ -1,4 +1,3 @@
-
 <p align="center">
 
 <a href="#">
@@ -51,7 +50,7 @@ Fluid is based on <a href="https://reactjs.com/">React</a>, <a href="https://tai
 
 <br />
 
-###  Getting Started
+### Getting Started
 
 Start a new project by following our quick [Getting Started guide](http://fluid-design.io/docs/usage).
 
@@ -59,13 +58,12 @@ We would love to hear from you! If you have any feedback or run into issues usin
 
 an [issue](https://github.com/fluid-design-io/fluid/issues/new) on this repository.
 
-
-###  Examples
+### Examples
 
 The [Example Page](http://fluid-design.io/docs/examples) provides many possiple ways to group components into a nice-looking ui.
 
 It is the perfect starting point for learning and building your own app.
 
-###  Future Goals
+### Future Goals
 
 Fluid will keep adding new components and provide more customizations to exisiting ones.

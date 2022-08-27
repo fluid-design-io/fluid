@@ -8,6 +8,9 @@ import { remarkCodeHike } from "@code-hike/mdx";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  eslint: {
+    dirs: ['src'],
+  },
   i18n: i18n.i18n,
   async redirects() {
     return [

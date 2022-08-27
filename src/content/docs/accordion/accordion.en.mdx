@@ -1,0 +1,189 @@
+---
+title: 'Fluid Design Docs | Accordion'
+description: 'Accordion component for Fluid Design'
+date: '2022-08-11'
+author: 'Oliver Pan'
+tags:
+  - 'fluid ui'
+  - 'react'
+  - 'framer motion'
+  - 'headless ui'
+  - 'tailwindcss'
+  - 'Accordion'
+---
+
+# Accordion
+
+Accordions allow you to reduce vertical space by creating collapsible sections in your content while also organizing and grouping information.
+
+## Default
+
+<CodeFrame title=''>
+  <AccordionExamples.Simple />
+</CodeFrame>
+
+<CH.Code>
+
+```jsx main.tsx
+import { data } from './data';
+import { Accordion, AccordionPanel } from '@fluid-design/fluid-ui';
+
+function Example() {
+  return (
+    <Accordion>
+      {data.map((item, index) => (
+        <AccordionPanel key={index} header={item.title} isOpen={item.isOpen}>
+          {item.details}
+        </AccordionPanel>
+      ))}
+    </Accordion>
+  );
+}
+```
+
+```jsx data.tsx
+export const data = [
+  {
+    title: 'Shop',
+    details: (
+      <p
+        className={`my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50`}
+      >
+        Our shop contains all the tools you need to build a great design system.
+        We have a wide range of tools and resources to help you get started.
+      </p>
+    ),
+    isOpen: true,
+  },
+  {
+    title: 'Service',
+    details: (
+      <p
+        className={`my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50`}
+      >
+        We offer a wide range of services to help you get started.
+      </p>
+    ),
+    isOpen: false,
+  },
+  {
+    title: 'About',
+    details: (
+      <>
+        <p
+          className={`my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50`}
+        >
+          We are a small team of designers and developers who create
+          high-quality design systems.
+        </p>
+        <ul
+          className={`mb-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-400 dark:contrast-more:text-primary-50`}
+        >
+          <li>Beautiful designs</li>
+          <li>A11y</li>
+          <li>Responsive</li>
+        </ul>
+      </>
+    ),
+    isOpen: false,
+  },
+];
+```
+
+</CH.Code>
+## With Icons
+
+<CH.Section>
+
+You can use [`headerIcon`](focus://main.tsx#7) to add an icon to the header.
+The icon needs to be a function, you can import them from libraries such as [react-icons](https://react-icons.github.io/) or [heroicons](https://heroicons.com/).
+
+<CodeFrame title='Custom icons'>
+  <AccordionExamples.WithIcons />
+</CodeFrame>
+
+<CH.Code>
+
+```jsx main.tsx
+import { data } from './data';
+import { Accordion, AccordionPanel } from '@fluid-design/fluid-ui';
+
+function Example() {
+  return (
+    <Accordion>
+      {dataWithIcons.map((item, index) => (
+        <AccordionPanel
+          key={index}
+          header={item.title}
+          isOpen={item.isOpen}
+          // mark
+          headerIcon={item.Icon}
+        >
+          {item.details}
+        </AccordionPanel>
+      ))}
+    </Accordion>
+  );
+}
+```
+
+```jsx data.tsx
+import {
+  CogIcon,
+  InformationCircleIcon,
+  ShoppingCartIcon,
+} from '@heroicons/react/outline';
+
+const dataWithIcons = [
+  {
+    title: 'Shop',
+    details: (
+      <p
+        className={`my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50`}
+      >
+        Our shop contains all the tools you need to build a great design system.
+        We have a wide range of tools and resources to help you get started.
+      </p>
+    ),
+    isOpen: true,
+    Icon: ShoppingCartIcon,
+  },
+  {
+    title: 'Service',
+    details: (
+      <p
+        className={`my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50`}
+      >
+        We offer a wide range of services to help you get started.
+      </p>
+    ),
+    isOpen: false,
+    Icon: CogIcon,
+  },
+  {
+    title: 'About',
+    details: (
+      <>
+        <p
+          className={`my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50`}
+        >
+          We are a small team of designers and developers who create
+          high-quality design systems.
+        </p>
+        <ul
+          className={`mb-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-400 dark:contrast-more:text-primary-50`}
+        >
+          <li>Beautiful designs</li>
+          <li>A11y</li>
+          <li>Responsive</li>
+        </ul>
+      </>
+    ),
+    isOpen: false,
+    Icon: InformationCircleIcon,
+  },
+];
+```
+
+</CH.Code>
+</CH.Section>

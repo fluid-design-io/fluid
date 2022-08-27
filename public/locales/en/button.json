@@ -1,62 +1,62 @@
 {
-    "Button": "Button",
-    "Color": "Color",
-    "Type": "Type",
-    "Radius": "Radius",
-    "Icon": "Icon",
-    "Label": "Label",
-    "description": "Buttons provide a clickable element that can be used in forms or anywhere simple, standard button functionality is required. They can show text, icons, or both. Buttons can be styled with a variety of attributes to look a certain way.",
-    "Button Studio": {
-        "title": "Customizer",
-        "sub-title": "",
-        "description": "Button Customizer allows you to make your own style of buttons in a matter of minutes. <br /><br /> Each button is individually debugged and supports dark mode and high contrast mode. In addtion, the high contrast mode also supports both light and dark modes. They support full accessibility features.<br /><br /> By default, there will be 8 different buttons, they are small, default, medium and large. You can change their color, rounded corners, button icons and words. To sum up, Button Customizer can generate 1500+ different buttons.<br /><br />When you're done customizing, just copy the generated code and paste it into your app!",
-        "small": "Small",
-        "regular": "Regular",
-        "medium": "Medium",
-        "large": "Large"
-    },
-    "Glass Button": {
-        "title": "Glass Button",
-        "sub-title": "",
-        "description": "Glass button gives the button a glass feel, that blends in with the background. In most cases, it is used on top of complex elements or images. In this example, try dragging the buttons and see how the button material interacts with the background image."
-    },
-    "colors": {
-        "red": "red",
-        "orange": "orange",
-        "amber": "amber",
-        "yellow": "yellow",
-        "lime": "lime",
-        "green": "green",
-        "emerald": "emerald",
-        "teal": "teal",
-        "cyan": "cyan",
-        "sky": "sky",
-        "blue": "blue",
-        "indigo": "indigo",
-        "violet": "violet",
-        "purple": "purple",
-        "fuchsia": "fuchsia",
-        "pink": "pink",
-        "rose": "rose",
-        "gray": "gray",
-        "slate": "slate",
-        "zinc": "zinc",
-        "neutral": "neutral",
-        "stone": "stone"
-    },
-    "weights": {
-        "light": "Light",
-        "outline": "Outline",
-        "normal": "Normal",
-        "clear": "Clear",
-        "bold": "Bold",
-        "none": "None"
-    },
-    "sizes": {
-        "xs": "Extra Small",
-        "sm": "Small",
-        "md": "Medium",
-        "lg": "Large",
-        "xl": "Extra Large"
-    }
+  "Button": "Button",
+  "Color": "Color",
+  "Type": "Type",
+  "Radius": "Radius",
+  "Icon": "Icon",
+  "Label": "Label",
+  "description": "Buttons provide a clickable element that can be used in forms or anywhere simple, standard button functionality is required. They can show text, icons, or both. Buttons can be styled with a variety of attributes to look a certain way.",
+  "Button Studio": {
+    "title": "Customizer",
+    "sub-title": "",
+    "description": "Button Customizer allows you to make your own style of buttons in a matter of minutes. <br /><br /> Each button is individually debugged and supports dark mode and high contrast mode. In addtion, the high contrast mode also supports both light and dark modes. They support full accessibility features.<br /><br /> By default, there will be 8 different buttons, they are small, default, medium and large. You can change their color, rounded corners, button icons and words. To sum up, Button Customizer can generate 1500+ different buttons.<br /><br />When you're done customizing, just copy the generated code and paste it into your app!",
+    "small": "Small",
+    "regular": "Regular",
+    "medium": "Medium",
+    "large": "Large"
+  },
+  "Glass Button": {
+    "title": "Glass Button",
+    "sub-title": "",
+    "description": "Glass button gives the button a glass feel, that blends in with the background. In most cases, it is used on top of complex elements or images. In this example, try dragging the buttons and see how the button material interacts with the background image."
+  },
+  "colors": {
+    "red": "red",
+    "orange": "orange",
+    "amber": "amber",
+    "yellow": "yellow",
+    "lime": "lime",
+    "green": "green",
+    "emerald": "emerald",
+    "teal": "teal",
+    "cyan": "cyan",
+    "sky": "sky",
+    "blue": "blue",
+    "indigo": "indigo",
+    "violet": "violet",
+    "purple": "purple",
+    "fuchsia": "fuchsia",
+    "pink": "pink",
+    "rose": "rose",
+    "gray": "gray",
+    "slate": "slate",
+    "zinc": "zinc",
+    "neutral": "neutral",
+    "stone": "stone"
+  },
+  "weights": {
+    "light": "Light",
+    "outline": "Outline",
+    "normal": "Normal",
+    "clear": "Clear",
+    "bold": "Bold",
+    "link": "Link"
+  },
+  "sizes": {
+    "xs": "Extra Small",
+    "sm": "Small",
+    "md": "Medium",
+    "lg": "Large",
+    "xl": "Extra Large"
+  }
 }

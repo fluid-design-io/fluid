@@ -1,23 +1,23 @@
 {
-    "image-site-desc": "此页面的重点是提供突出显示图像作为用户可以与之交互的主要 UI 部分的示例。",
-    "Single Image": "单个图片",
-    "Background": "背景",
-    "Collage": "拼图",
-    "Grid": "格状图",
-    "collage-desc": "<p>这个组件的纵横比总是方形的。只需替换<span>`aspect-square`</span>来改变它的比例</p>",
-    "single-image": {
-        "title": "单个图片"
-    },
-    "with-overlay": {
-        "title": "带覆盖",
-        "hover": "在基于光标的设备上，当鼠标悬停在图像上时，描述将可见，在仅触摸设备上它始终可见。",
-        "reduce-motion": "在基于光标的设备上，当用户打开减少运动辅助功能时，显示段落的过渡将更改为不透明过渡。",
-        "contrast": "图像叠加和文本叠加将进一步变暗以提高文本可读性。",
-        "ocl": "海洋就是生命。",
-        "ocldesc": "这是纯粹的伟大，每个人都必须享受它。 安杰伊·克瑞斯皮纽克 (Andrzej Kryszpiniuk)拍摄。Unsplash 提供。"
-    },
-    "instagram-layout": {
-        "title": "Instagram 风格",
-        "message": "图片"
-    }
+  "image-site-desc": "此页面的重点是提供突出显示图像作为用户可以与之交互的主要 UI 部分的示例。",
+  "Single Image": "单个图片",
+  "Background": "背景",
+  "Collage": "拼图",
+  "Grid": "格状图",
+  "collage-desc": "<p>这个组件的纵横比总是方形的。只需替换<span>`aspect-square`</span>来改变它的比例</p>",
+  "single-image": {
+    "title": "单个图片"
+  },
+  "with-overlay": {
+    "title": "带覆盖",
+    "hover": "在基于光标的设备上，当鼠标悬停在图像上时，描述将可见，在仅触摸设备上它始终可见。",
+    "reduce-motion": "在基于光标的设备上，当用户打开减少运动辅助功能时，显示段落的过渡将更改为不透明过渡。",
+    "contrast": "图像叠加和文本叠加将进一步变暗以提高文本可读性。",
+    "ocl": "海洋就是生命。",
+    "ocldesc": "这是纯粹的伟大，每个人都必须享受它。 安杰伊·克瑞斯皮纽克 (Andrzej Kryszpiniuk)拍摄。Unsplash 提供。"
+  },
+  "instagram-layout": {
+    "title": "Instagram 风格",
+    "message": "图片"
+  }
 }

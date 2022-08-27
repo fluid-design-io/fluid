@@ -1,40 +1,40 @@
 {
-    "looks-right-isnt-enough": {
-        "title": "“看起来不错”是不够的",
-        "body": "许多 UI 库和组件设计往往只关注设计和表面的功能。它们涵盖了大部分用户的需求。但是，某些组件设计可能不适合依赖屏幕阅读器、高可用性等辅助功能的用户。对比和减少运动。流体设计旨在创建适用于所有用户的组件。"
-    },
-    "Dark Mode": {
-        "title": "黑暗模式",
-        "description": "根据您的操作系统偏好自动切换明暗模式。"
-    },
-    "Responsive": {
-        "title": "响应式",
-        "description": "适用于所有屏幕尺寸的组件在手机、平板电脑或台式机上看起来很优雅。"
-    },
-    "Multi-platform": {
-        "title": "多平台",
-        "description": "根据用户的主要指针调整样式，例如鼠标、触控板或手指。"
-    },
-    "Animation": {
-        "title": "动画",
-        "description": "每个组件都有自己的用途，所以它的动画和过渡也是独一无二的。"
-    },
-    "Keyboard Focus": {
-        "title": "键盘导航",
-        "description": "可点击元素只能使用键盘触发，具有漂亮的焦点突出显示。"
-    },
-    "Screen Reader": {
-        "title": "屏幕阅读器",
-        "description": "针对有视觉障碍的人进行了优化，以提示清晰而有意义的描述。"
-    },
-    "Contrast": {
-        "title": "高对比度",
-        "description": "针对有视觉障碍的人进行了优化，使内容更具差异化。"
-    },
-    "Reduce Motion": {
-        "title": "减少动画",
-        "description": "动画很棒，但对于喜欢较少动画的用户来说，回退是至关重要的。"
-    },
-    "see-it-live": "演示",
-    "powered-by": "基于开源库 <span>tailwindcss</span> 和 <span>framer-motion</span>。Fluid Design 合并了这些现代框架，以创建高度可定制的组件，由您决定。"
+  "looks-right-isnt-enough": {
+    "title": "“看起来不错”是不够的",
+    "body": "许多 UI 库和组件设计往往只关注设计和表面的功能。它们涵盖了大部分用户的需求。但是，某些组件设计可能不适合依赖屏幕阅读器、高可用性等辅助功能的用户。对比和减少运动。流体设计旨在创建适用于所有用户的组件。"
+  },
+  "Dark Mode": {
+    "title": "黑暗模式",
+    "description": "根据您的操作系统偏好自动切换明暗模式。"
+  },
+  "Responsive": {
+    "title": "响应式",
+    "description": "适用于所有屏幕尺寸的组件在手机、平板电脑或台式机上看起来很优雅。"
+  },
+  "Multi-platform": {
+    "title": "多平台",
+    "description": "根据用户的主要指针调整样式，例如鼠标、触控板或手指。"
+  },
+  "Animation": {
+    "title": "动画",
+    "description": "每个组件都有自己的用途，所以它的动画和过渡也是独一无二的。"
+  },
+  "Keyboard Focus": {
+    "title": "键盘导航",
+    "description": "可点击元素只能使用键盘触发，具有漂亮的焦点突出显示。"
+  },
+  "Screen Reader": {
+    "title": "屏幕阅读器",
+    "description": "针对有视觉障碍的人进行了优化，以提示清晰而有意义的描述。"
+  },
+  "Contrast": {
+    "title": "高对比度",
+    "description": "针对有视觉障碍的人进行了优化，使内容更具差异化。"
+  },
+  "Reduce Motion": {
+    "title": "减少动画",
+    "description": "动画很棒，但对于喜欢较少动画的用户来说，回退是至关重要的。"
+  },
+  "see-it-live": "演示",
+  "powered-by": "基于开源库 <span>tailwindcss</span> 和 <span>framer-motion</span>。Fluid Design 合并了这些现代框架，以创建高度可定制的组件，由您决定。"
 }

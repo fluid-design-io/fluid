@@ -1,0 +1,63 @@
+---
+title: 'Fluid Design 文档 | 使用与安装'
+description: '开源 Fluid Design 文档，提供使用与安装'
+date: '2022-08-11'
+author: 'Oliver Pan'
+tags:
+  - 'fluid ui'
+  - 'react'
+  - 'framer motion'
+  - 'headless ui'
+  - 'tailwindcss'
+  - “usage"
+---
+
+# 使用
+
+Fluid Design 由一套预先包装好的组件组成，可用于任何 React 应用程序。
+以及用于创建和定制您自己的组件的裸代码。
+
+## 组件
+
+要使用这些组件，首先要安装以下依赖项。
+
+<CH.Code>
+    
+```js npm 
+npm install @fluid-design/fluid-ui
+```
+
+```js yarn
+yarn add @fluid-design/fluid-ui
+```
+
+</CH.Code>
+
+然后，你需要导入你想使用的组件。
+
+```js tailwind.config.js
+module.exports = {
+  // Add the following to your tailwind.config.js file:
+  plugins: [require('@fluid-design/fluid-ui/src/plugin')],
+  // Rest of your tailwind.config.js file
+};
+```
+
+## UI
+
+Fluid UI set 是一套可以完全定制的组件，以满足您的需求。
+你可以单独使用它们，而不是把它们包装成一个单一的组件。
+
+<CH.Code>
+
+```js npm
+npm install -D tailwindcss
+npm install framer-motion @headlessui/react
+```
+
+```js yarn
+yarn add -D @tailwindcss
+yarn add @framer/framer-motion @headlessui/react
+```
+
+</CH.Code>

@@ -11,7 +11,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node: ['16.x'] #'14.x', 
+        node: ['16.x'] #'14.x',
         os: [ubuntu-latest, windows-latest, macOS-latest]
 
     steps:
@@ -31,10 +31,10 @@ jobs:
 
       - name: Build
         run: yarn build
-        
+
       - name: Action For Semantic Release
-      # You may pin to the exact commit or the version.
-      # uses: cycjimmy/semantic-release-action@3b88c82b34098e8b51e401c1082c9170b0a3ec3c
+        # You may pin to the exact commit or the version.
+        # uses: cycjimmy/semantic-release-action@3b88c82b34098e8b51e401c1082c9170b0a3ec3c
         uses: cycjimmy/semantic-release-action@v3.0.0
         with:
           branch: main

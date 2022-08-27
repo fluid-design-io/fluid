@@ -1,8 +1,8 @@
 {
   "name": "fluid-design",
-  "version": "1.1.0",
+  "version": "1.3.0",
   "description": "A collection of beautifully designed components that are responsive, supports features like dark mode and a11y with elegant transitions.",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,6 +10,8 @@
     "start": "next start",
     "commit": "git-cz",
     "lint": "next lint",
+    "lint:fix": "eslint src --fix && yarn format",
+    "format": "prettier -w .",
     "postbuild": "next-sitemap",
     "semantic-release": "semantic-release --branches main"
   },
@@ -17,7 +19,7 @@
     "@capacitor/storage": "^1.2.5",
     "@code-hike/mdx": "^0.7.4",
     "@docsearch/react": "^3.2.0",
-    "@fluid-design/fluid-ui": "^1.4.1",
+    "@fluid-design/fluid-ui": "^1.4.2",
     "@hcaptcha/react-hcaptcha": "^1.1.0",
     "@headlessui/react": "^1.6.6",
     "@heroicons/react": "^1.0.6",
@@ -42,6 +44,7 @@
     "react-cookie": "^4.1.1",
     "react-copy-to-clipboard": "^5.0.4",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.3.0",
     "react-icons": "^4.4.0",
     "react-multi-split-pane": "^0.3.3",
     "react-parallax-tilt": "^1.7.60",
@@ -58,8 +61,11 @@
     "@types/react": "^18.0.16",
     "autoprefixer": "^10.4.1",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "8.5.0",
-    "eslint-config-next": "12.0.7",
+    "eslint": "^8.22.0",
+    "eslint-config-next": "^12.2.5",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
     "flag-icons": "^6.6.6",
     "postcss": "^8.4.5",
     "prettier": "^2.7.1",
@@ -75,5 +81,14 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --max-warnings=0",
+      "prettier -w"
+    ],
+    "src/**/*.{json,css,scss,md}": [
+      "prettier -w"
+    ]
   }
 }

@@ -17,11 +17,5 @@
       "type": "image/png"
     }
   ],
-  "categories": [
-    "Design",
-    "UX",
-    "UI",
-    "React",
-    "Tailwind CSS"
-  ]
+  "categories": ["Design", "UX", "UI", "React", "Tailwind CSS"]
 }

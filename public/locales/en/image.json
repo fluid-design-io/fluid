@@ -1,23 +1,23 @@
 {
-    "image-site-desc": "This page is focused to provide examples that highlights images as the main piece of UI which users can interact with.",
-    "Single Image": "Single Image",
-    "Background": "Background",
-    "Collage": "Collage",
-    "Grid": "Grid",
-    "collage-desc": "<p>The aspect ratio of this component is always square. Simply replace<span> `aspect-square` </span>to change it's ratio</p>",
-    "single-image": {
-        "title": "Image Only"
-    },
-    "with-overlay": {
-        "title": "With Overlay",
-        "hover": "On cursor-based devices, the description will be visibile when mouse hovers on the image, it will always be visible on touch-only devices.",
-        "reduce-motion": "On cursor-based devices, when users turn on reduce motion accessibility feature, the transition revealing the paragraph will be changed to opacity transition.",
-        "contrast": "Image overlay and text overlay will be darkend even more to increase text readablilty.",
-        "ocl": "Ocean is life.",
-        "ocldesc": "It is pure greatness and everyone must enjoy it. Shot by Andrzej Kryszpiniuk. From Unsplash."
-    },
-    "instagram-layout": {
-        "title": "Instagram Layout",
-        "message": "Image"
-    }
+  "image-site-desc": "This page is focused to provide examples that highlights images as the main piece of UI which users can interact with.",
+  "Single Image": "Single Image",
+  "Background": "Background",
+  "Collage": "Collage",
+  "Grid": "Grid",
+  "collage-desc": "<p>The aspect ratio of this component is always square. Simply replace<span> `aspect-square` </span>to change it's ratio</p>",
+  "single-image": {
+    "title": "Image Only"
+  },
+  "with-overlay": {
+    "title": "With Overlay",
+    "hover": "On cursor-based devices, the description will be visibile when mouse hovers on the image, it will always be visible on touch-only devices.",
+    "reduce-motion": "On cursor-based devices, when users turn on reduce motion accessibility feature, the transition revealing the paragraph will be changed to opacity transition.",
+    "contrast": "Image overlay and text overlay will be darkend even more to increase text readablilty.",
+    "ocl": "Ocean is life.",
+    "ocldesc": "It is pure greatness and everyone must enjoy it. Shot by Andrzej Kryszpiniuk. From Unsplash."
+  },
+  "instagram-layout": {
+    "title": "Instagram Layout",
+    "message": "Image"
+  }
 }

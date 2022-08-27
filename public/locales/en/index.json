@@ -1,40 +1,40 @@
 {
-    "looks-right-isnt-enough": {
-        "title": "'Looks right' isn't enough.",
-        "body": "Many UI libraries and component designs often only focus on the design and bare functionalities. They cover the majority of users' needs. However, some component designs may not suit users who rely on accessibility features like screen reader, high-contrast, and reduce-motion. Fluid Design aims to create components that works for all users."
-    },
-    "Dark Mode": {
-        "title": "Dark Mode",
-        "description": "Automatically switch light and dark modes based on your operating system preference."
-    },
-    "Responsive": {
-        "title": "Responsive",
-        "description": "Components that work for all screen sizes look elegant on phones, tablets, or desktops."
-    },
-    "Multi-platform": {
-        "title": "Multi-platform",
-        "description": "Adjust styles based on users' primary pointer, for example, mouse, trackpad, or finger."
-    },
-    "Animation": {
-        "title": "Animation",
-        "description": "Every component has its own purpose, so its animations and transitions are unique as well."
-    },
-    "Keyboard Focus": {
-        "title": "Keyboard Focus",
-        "description": "Clickable elements can be triggered only using keyboard, with beautiful focus highlight."
-    },
-    "Screen Reader": {
-        "title": "Screen Reader",
-        "description": "Optimized for people who have visual disabilities to prompt clear and meaningful descriptions."
-    },
-    "Contrast": {
-        "title": "Contrast",
-        "description": "Optimized for people who have visual disabilities to make content more differentiable."
-    },
-    "Reduce Motion": {
-        "title": "Reduce Motion",
-        "description": "Animations are awesome, but having a fallback is crucial for users who prefer less motion."
-    },
-    "see-it-live": "See it live.",
-    "powered-by": "Powered by <span>tailwindcss</span> and <span>framer-motion</span>. Fluid Design merges these mordern framworks to create componentsthat are highly customizable, by you."
+  "looks-right-isnt-enough": {
+    "title": "'Looks right' isn't enough.",
+    "body": "Many UI libraries and component designs often only focus on the design and bare functionalities. They cover the majority of users' needs. However, some component designs may not suit users who rely on accessibility features like screen reader, high-contrast, and reduce-motion. Fluid Design aims to create components that works for all users."
+  },
+  "Dark Mode": {
+    "title": "Dark Mode",
+    "description": "Automatically switch light and dark modes based on your operating system preference."
+  },
+  "Responsive": {
+    "title": "Responsive",
+    "description": "Components that work for all screen sizes look elegant on phones, tablets, or desktops."
+  },
+  "Multi-platform": {
+    "title": "Multi-platform",
+    "description": "Adjust styles based on users' primary pointer, for example, mouse, trackpad, or finger."
+  },
+  "Animation": {
+    "title": "Animation",
+    "description": "Every component has its own purpose, so its animations and transitions are unique as well."
+  },
+  "Keyboard Focus": {
+    "title": "Keyboard Focus",
+    "description": "Clickable elements can be triggered only using keyboard, with beautiful focus highlight."
+  },
+  "Screen Reader": {
+    "title": "Screen Reader",
+    "description": "Optimized for people who have visual disabilities to prompt clear and meaningful descriptions."
+  },
+  "Contrast": {
+    "title": "Contrast",
+    "description": "Optimized for people who have visual disabilities to make content more differentiable."
+  },
+  "Reduce Motion": {
+    "title": "Reduce Motion",
+    "description": "Animations are awesome, but having a fallback is crucial for users who prefer less motion."
+  },
+  "see-it-live": "See it live.",
+  "powered-by": "Powered by <span>tailwindcss</span> and <span>framer-motion</span>. Fluid Design merges these mordern framworks to create componentsthat are highly customizable, by you."
 }

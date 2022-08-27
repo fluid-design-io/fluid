@@ -1,38 +1,38 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 const { fontFamily } = require('tailwindcss/defaultTheme');
 
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@fluid-design/fluid-ui/src/**/*.{js,ts,jsx,tsx}",
+    './src/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@fluid-design/fluid-ui/src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     screens: {
-      'xs': '475px',
+      xs: '475px',
       ...defaultTheme.screens,
     },
     extend: {
       boxShadow: {
-        'ring-light-sm': '0 0 0 4px white, 0px 4px 45px -1px rgba(0, 0, 0, 0.08)',
-        'ring-dark-sm': '0 0 0 4px #403b3a, 0px 4px 45px -1px rgba(0, 0, 0, 0.05)',
+        'ring-light-sm':
+          '0 0 0 4px white, 0px 4px 45px -1px rgba(0, 0, 0, 0.08)',
+        'ring-dark-sm':
+          '0 0 0 4px #403b3a, 0px 4px 45px -1px rgba(0, 0, 0, 0.05)',
         'ring-transparent': '0 0 0 8px white, 0px 0px 0px 0px rgba(0, 0, 0, 0)',
         'ring-light': '0 0 0 8px white, 0px 4px 45px -1px rgba(0, 0, 0, 0.08)',
         'ring-dark': '0 0 0 8px #403b3a, 0px 4px 45px -1px rgba(0, 0, 0, 0.05)',
       },
       screens: {
-        'pointer-hover': { 'raw': '(hover: hover) and (pointer: fine)' },
-        'pointer-touch': { 'raw': '(hover: none) and (pointer: coarse)' },
-        'sm': '767px',
-        'md': [
+        'pointer-hover': { raw: '(hover: hover) and (pointer: fine)' },
+        'pointer-touch': { raw: '(hover: none) and (pointer: coarse)' },
+        sm: '767px',
+        md: [
           // Sidebar appears at 768px, so revert to `sm:` styles between 768px
           // and 898px, after which the main content area is wide enough again to
           // apply the `md:` styles.
-          { 'min': '668px', 'max': '767px' },
-          { 'min': '898px' }
+          { min: '668px', max: '767px' },
+          { min: '898px' },
         ],
       },
       fontFamily: {
@@ -64,8 +64,12 @@ module.exports = {
           800: '#065f46',
           900: '#064e3b',
         },
-      }
-    }
+      },
+    },
   },
-  plugins: [require('@tailwindcss/line-clamp'), require('@tailwindcss/typography'), require('@fluid-design/fluid-ui/src/plugin')],
-}
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/typography'),
+    require('@fluid-design/fluid-ui/src/plugin'),
+  ],
+};
