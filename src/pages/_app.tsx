@@ -1,11 +1,8 @@
 import nextI18nextConfig from '../../next-i18next.config';
-import { Table } from '../components';
-import { CodeFrame } from '../components/framework';
-import { getComponents } from '../components/mdx/mdx-components';
-// import "@code-hike/mdx/dist/index.css";
-import '../styles/code-hike.css';
-import '../styles/globals.css';
-import '../styles/neumorphism.css';
+import { Table, CodeFrame, getComponents } from '@/components';
+import '@/styles/code-hike.css';
+import '@/styles/globals.css';
+import '@/styles/neumorphism.css';
 import { CH } from '@code-hike/mdx/components';
 import '@docsearch/css';
 import { MDXProvider } from '@mdx-js/react';
