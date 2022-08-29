@@ -1,5 +1,5 @@
-import { XIcon } from '@heroicons/react/24/outline';
-import { PencilAltIcon } from '@heroicons/react/24/solid';
+import { XMarkIcon } from '@heroicons/react/24/outline';
+import { PencilIcon } from '@heroicons/react/24/solid';
 import { motion } from 'framer-motion';
 import { useState, useId } from 'react';
 
@@ -23,7 +23,7 @@ function IndexSharedLayout() {
               className='absolute bottom-0 right-0 overflow-hidden shadow bg-primary-700 dark:bg-primary-100'
             >
               <motion.button onClick={() => setActive(true)} className='p-2 '>
-                <PencilAltIcon className='w-5 h-5 text-white dark:text-primary-700' />
+                <PencilIcon className='w-5 h-5 text-white dark:text-primary-700' />
               </motion.button>
             </motion.div>
           ) : (
@@ -45,7 +45,7 @@ function IndexSharedLayout() {
                   onClick={() => setActive(false)}
                   className='p-1 -mr-1 rounded-full dark:bg-primary-700/70 dark:hover:bg-primary-700'
                 >
-                  <XIcon className='w-4 h-4 md:!w-5 md:!h-5 text-primary-500 dark:text-primary-400' />
+                  <XMarkIcon className='w-4 h-4 md:!w-5 md:!h-5 text-primary-500 dark:text-primary-400' />
                 </button>
               </motion.div>
               <motion.div
