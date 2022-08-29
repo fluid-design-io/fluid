@@ -88,32 +88,43 @@ And customize the loading state by passing the `loadingOptions` prop.
 <Button color="lime" disabled>
   Disabled
 </Button>
-
-<Button color="fuchsia" disabled isLoading>
+<Button
+  color='green'
+  disabled={disabled}
+  isLoading={isLoading}
+>
   Loading
 </Button>
-
 <Button
-  color="stone"
-  disabled
-  isLoading
+  color='green'
+  disabled={disabled}
+  isLoading={isLoading}
   loadingOptions={{
-    animation: "pulse",
+    animation: 'spin-large',
   }}
 >
-  Text
+  Send
 </Button>
-
 <Button
-  color="blue"
-  disabled
-  isLoading
+  color='green'
+  disabled={disabled}
+  isLoading={isLoading}
   loadingOptions={{
-    animation: "ping",
-    text: "Loading",
+    animation: 'pulse',
   }}
 >
-  Text
+  Submit
+</Button>
+<Button
+  color='green'
+  disabled={disabled}
+  isLoading={isLoading}
+  loadingOptions={{
+    animation: 'ping',
+    text: 'Loading',
+  }}
+>
+  Confirm
 </Button>
 ```
 
@@ -186,6 +197,7 @@ import { Button } from "@fluid-design/fluid-ui";
 
 | Prop             | Default   | Description                                                                                                                                                                                                                         |
 | ---------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`             | `div`     | `String \| Component` <Table.D>The element or component the `Button` should render as.</Table.D>                                                                                                                                    |
 | `color`          | -         | `red`, `orange`, `amber`, `yellow`, `lime`, `green`, `emerald`, `teal`, `cyan`, `sky`, `blue`, `indigo`, `violet`, `purple`, `fuchsia`, `pink`, `rose`, `gray`, `slate`, `zinc`, `neutral`, `stone` <Table.D>Button color</Table.D> |
 | `weight`         | `normal`  | `light`, `normal`, `bold`, `outline`, `clear`, `link` <Table.D>Button weight</Table.D>                                                                                                                                              |
 | `size`           | `md`      | `xs`, `sm`, `md`, `lg`, `xl` <Table.D>Button size</Table.D>                                                                                                                                                                         |

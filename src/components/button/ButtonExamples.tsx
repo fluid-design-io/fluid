@@ -175,6 +175,17 @@ const ButtonStates = () => {
         disabled={disabled}
         isLoading={isLoading}
         loadingOptions={{
+          animation: 'spin-large',
+        }}
+        onClick={present}
+      >
+        Send
+      </Button>
+      <Button
+        color='green'
+        disabled={disabled}
+        isLoading={isLoading}
+        loadingOptions={{
           animation: 'pulse',
         }}
         onClick={present}
@@ -193,7 +204,7 @@ const ButtonStates = () => {
       >
         Confirm
       </Button>
-      <div className='mx-auto mt-8 w-full max-w-md rounded-lg bg-primary-50/75 p-4 shadow shadow-primary-300/20 dark:bg-primary-600/20 dark:shadow-primary-800/30'>
+      <div className='mx-auto mt-8 w-full max-w-md rounded-lg bg-primary-50/75 p-4 shadow shadow-primary-300/20 dark:bg-primary-600/20 dark:shadow-primary-800/30 backdrop-blur'>
         <Form
           initialValues={{
             disabled,
