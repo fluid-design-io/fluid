@@ -1,5 +1,5 @@
 import {
-  GlobeIcon,
+  GlobeAmericasIcon,
   UserIcon,
   CogIcon,
   HeartIcon,
@@ -12,7 +12,7 @@ function ListWithIconComponent({ setNotification, ...props }) {
   const list = [
     {
       name: t('WithIcon.list.explore', { ns: 'list' }),
-      Icon: GlobeIcon,
+      Icon: GlobeAmericasIcon,
     },
     {
       name: t('WithIcon.list.fav', { ns: 'list' }),

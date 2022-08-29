@@ -4,7 +4,6 @@ import {
   AnimatePresence,
   motion,
   useAnimation,
-  useMotionValue,
 } from 'framer-motion';
 import { useRef } from 'react';
 
