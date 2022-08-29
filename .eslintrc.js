@@ -23,6 +23,12 @@ module.exports = {
       { props: 'never', children: 'never' },
     ],
 
+
+    //#region  //*=========== Sort Props ===========
+    'react/jsx-sort-props': ['warn', {
+      multiline: 'last',
+    }],
+
     //#region  //*=========== Unused Import ===========
     '@typescript-eslint/no-unused-vars': 'off',
     'unused-imports/no-unused-imports': 'warn',

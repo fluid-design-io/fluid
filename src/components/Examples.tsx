@@ -1,7 +1,7 @@
 import clsxm from '../lib/clsxm';
 import { CardASLargeImageComponent, CardStandardComponent } from './card';
 import { ListDetailComponent } from './list';
-import { ChevronRightIcon } from '@heroicons/react/solid';
+import { ChevronRightIcon } from '@heroicons/react/24/solid';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { useState } from 'react';

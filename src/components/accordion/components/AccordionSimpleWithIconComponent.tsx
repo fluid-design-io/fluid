@@ -3,7 +3,7 @@ import {
   CogIcon,
   InformationCircleIcon,
   ShoppingCartIcon,
-} from '@heroicons/react/outline';
+} from '@heroicons/react/24/outline';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 
