@@ -1,4 +1,4 @@
-import { HeartIcon, ShareIcon } from '@heroicons/react/outline';
+import { HeartIcon, ShareIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 

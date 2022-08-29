@@ -6,7 +6,7 @@ import {
   ChartBarIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
-} from '@heroicons/react/outline';
+} from '@heroicons/react/24/outline';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 

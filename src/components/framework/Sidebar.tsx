@@ -6,17 +6,18 @@ import { languages } from '@/lib/languages';
 import { Menu } from '@fluid-design/fluid-ui';
 import {
   BookOpenIcon,
-  ViewGridIcon,
+  Squares2X2Icon,
   ChevronUpIcon,
-  GlobeIcon,
-} from '@heroicons/react/solid';
+  GlobeAmericasIcon,
+  GlobeAsiaAustraliaIcon,
+} from '@heroicons/react/24/solid';
 import { i18n, useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { MdMouse } from 'react-icons/md';
 
 const navigation = [
-  { name: 'Dashboard', href: 'dashboard', icon: ViewGridIcon },
+  { name: 'Dashboard', href: 'dashboard', icon: Squares2X2Icon },
   { name: 'Examples', href: 'examples', icon: MdMouse },
   { name: 'Usage', href: 'usage', icon: BookOpenIcon },
 ];
@@ -187,9 +188,14 @@ export const SidebarMenu = () => {
           ))}
           <div className='flex-grow' />
           <Menu
-            buttonClassName='hocus:contrast-bg hocus:contrast-text clickable group flex justify-start items-center rounded-md border border-transparent px-3 py-2 text-sm font-regular text-primary-700 transition-colors hocus:text-primary-800 contrast-more:text-primary-900 dark:text-primary-300/80 dark:hocus:text-primary-100 dark:contrast-more:text-primary-100 w-full'
+            size='sm'
+            buttonClassName='w-full btn-clear-primary'
             label={t(`Language`, { ns: 'navbar' })}
-            iconStart={GlobeIcon}
+            iconStart={
+              i18n?.language === 'en'
+                ? GlobeAmericasIcon
+                : GlobeAsiaAustraliaIcon
+            }
             iconEnd={ChevronUpIcon}
             iconEndPosition='between'
             menuPositionY='top'

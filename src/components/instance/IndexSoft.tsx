@@ -1,4 +1,4 @@
-import { HeartIcon, UserIcon } from '@heroicons/react/solid';
+import { HeartIcon, UserIcon } from '@heroicons/react/24/solid';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 

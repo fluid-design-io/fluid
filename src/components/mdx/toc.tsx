@@ -2,7 +2,7 @@ import { ActiveAnchor, useActiveAnchor } from '../contexts';
 import { useScrolled } from '@/lib';
 import clsxm from '@/lib/clsxm';
 import { Popover } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/solid';
+import { ChevronDownIcon } from '@heroicons/react/24/solid';
 import cn from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
@@ -139,7 +139,7 @@ const Desktop = () => {
       <div className='fluid-toc order-last hidden flex-shrink-0 pr-4 text-sm xl:block xl:w-44 2xl:w-64'>
         <div className='fluid-toc-content sticky top-16 -mr-4 max-h-[calc(100vh-4rem-env(safe-area-inset-bottom))] overflow-y-auto pr-4 pt-8'>
           {hasHeadings && (
-            <ul>
+            <ul className='space-y-2'>
               <p className='mb-4 font-semibold tracking-tight'>
                 {t(`On this page`)}
               </p>

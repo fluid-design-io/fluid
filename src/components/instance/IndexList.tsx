@@ -1,4 +1,4 @@
-import { StarIcon } from '@heroicons/react/solid';
+import { StarIcon } from '@heroicons/react/24/solid';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';

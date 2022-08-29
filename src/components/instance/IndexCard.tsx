@@ -1,4 +1,4 @@
-import { HeartIcon, ShareIcon } from '@heroicons/react/outline';
+import { HeartIcon, ShareIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import bg from '~/assets/index-card-bg.jpg';

@@ -2,7 +2,7 @@
 import { Anchor } from '.';
 import { useSetActiveAnchor } from '../contexts';
 import { IS_BROWSER } from '@/lib/constants';
-import { HashtagIcon } from '@heroicons/react/outline';
+import { HashtagIcon } from '@heroicons/react/24/outline';
 import cn from 'clsx';
 import Slugger from 'github-slugger';
 import 'intersection-observer';

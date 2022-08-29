@@ -7,8 +7,9 @@ import { useScrolled } from '@/lib';
 import { useThemeMode } from '@/lib/ThemeContext';
 import clsxm from '@/lib/clsxm';
 import { DocSearch } from '@docsearch/react';
+import { Button } from '@fluid-design/fluid-ui';
 import { Popover } from '@headlessui/react';
-import { MenuIcon } from '@heroicons/react/outline';
+import { Bars3Icon } from '@heroicons/react/24/outline';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
@@ -80,21 +81,19 @@ export const Navbar = ({ sidebar, ...props }) => {
               <div className='-my-2 sm:!hidden'>
                 <Popover.Button className='-mr-2 inline-flex items-center justify-center rounded-md p-2 text-primary-400 hover:bg-primary-100 hover:text-primary-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary-500 contrast-more:text-primary-900 dark:hover:bg-primary-800 dark:contrast-more:text-primary-50'>
                   <span className='sr-only'>{t('Open menu')}</span>
-                  <MenuIcon className='h-6 w-6' aria-hidden='true' />
+                  <Bars3Icon className='h-6 w-6' aria-hidden='true' />
                 </Popover.Button>
               </div>
               <div className='hidden sm:!flex'>
                 <div className='flex flex-shrink-0 items-center space-x-4 text-sm sm:!ml-12 lg:space-x-6'>
-                  <Link href='/docs'>
-                    <a
-                      className={clsxm(
-                        'px-2 py-1 font-medium',
-                        navBarLinkClassName
-                      )}
-                    >
-                      {t('Docs')}
-                    </a>
-                  </Link>
+                  <Button
+                    as={'a'}
+                    href='/docs'
+                    color='red'
+                    className={clsxm('px-2 py-1 font-medium btn-clear-primary')}
+                  >
+                    {t('Docs')}
+                  </Button>
                   <div className='h-3 w-0.5 bg-primary-400 dark:bg-primary-500 rounded-full' />
                   <a
                     className={clsxm('px-1.5 py-1.5', navBarLinkClassName)}

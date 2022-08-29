@@ -1,5 +1,5 @@
-import { StarIcon as StartIconOutline } from '@heroicons/react/outline';
-import { StarIcon } from '@heroicons/react/solid';
+import { StarIcon as StartIconOutline } from '@heroicons/react/24/outline';
+import { StarIcon } from '@heroicons/react/24/solid';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import { useState } from 'react';

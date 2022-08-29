@@ -1,5 +1,5 @@
-import { HeartIcon } from '@heroicons/react/outline';
-import { HeartIcon as HeartIconSolid, UserIcon } from '@heroicons/react/solid';
+import { HeartIcon } from '@heroicons/react/24/outline';
+import { HeartIcon as HeartIconSolid, UserIcon } from '@heroicons/react/24/solid';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 

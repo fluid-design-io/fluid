@@ -1,5 +1,5 @@
 import slug from '../../util/slug';
-import { HashtagIcon } from '@heroicons/react/outline';
+import { HashtagIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';

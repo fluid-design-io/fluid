@@ -1,5 +1,5 @@
-import { XIcon } from '@heroicons/react/outline';
-import { PencilAltIcon } from '@heroicons/react/solid';
+import { XIcon } from '@heroicons/react/24/outline';
+import { PencilAltIcon } from '@heroicons/react/24/solid';
 import { motion } from 'framer-motion';
 import { useState, useId } from 'react';
 
