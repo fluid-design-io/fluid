@@ -1,5 +1,5 @@
 import { Button } from '@fluid-design/fluid-ui';
-import { CursorClickIcon, XIcon } from '@heroicons/react/solid';
+import { CursorArrowRaysIcon, XMarkIcon } from '@heroicons/react/24/solid';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useId } from 'react';
 import toast, { Toast } from 'react-hot-toast';
@@ -18,7 +18,7 @@ const ToastBody = (
   }
 ) => {
   const { icon, image, title, message, onDismiss, t } = props;
-  const Icon = icon || CursorClickIcon;
+  const Icon = icon || CursorArrowRaysIcon;
   const id = useId();
   return (
     <AnimatePresence mode='sync'>
@@ -60,7 +60,7 @@ const ToastBody = (
               className='relative right-1 mr-2 flex-shrink-0 p-1.5'
               onClick={() => toast.dismiss(t.id)}
             >
-              <XIcon className='h-4 w-4 text-primary-600 dark:text-primary-400' />
+              <XMarkIcon className='h-4 w-4 text-primary-600 dark:text-primary-400' />
             </Button>
           </div>
         </motion.div>

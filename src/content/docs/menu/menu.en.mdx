@@ -14,6 +14,64 @@ tags:
 
 # Menu
 
+Menus are used to display a list of items using a dropdown components.
+Embeded with headless UI, they support a11y features such as keyboard navigation and screen reader support.
+
 <CodeFrame title='Menu'>
   <MenuExamples.Default />
 </CodeFrame>
+
+## Basic Example
+
+```jsx
+// @heroicons/react v2
+import { Menu } from '@fluid-design/fluid-ui';
+import {
+  BellIcon,
+  CogIcon,
+  ArrowRightOnRectangleIcon,
+  UserIcon,
+} from '@heroicons/react/24/outline';
+
+function Example() {
+  return (
+    <Menu
+      label={'Settings'}
+      color='gray'
+      weight='clear'
+      iconStart={CogIcon}
+      iconEndPosition='between'
+      menuPositionY='bottom'
+      header='Hi, User'
+      className='absolute right-4 top-4'
+      menus={[
+        {
+          label: 'Profile',
+          icon: UserIcon,
+        },
+        {
+          label: 'Notifications',
+          role: 'info',
+          icon: BellIcon,
+        },
+        {
+          role: 'separator',
+        },
+        {
+          label: 'Logout',
+          role: 'destructive',
+          icon: <ArrowRightOnRectangleIcon className='w-4 h-4' />,
+          isLoading: true,
+          disabled: true,
+          loadingOptions: {
+            animation: 'spin-large',
+          },
+          onClick: (e) => {
+            e.preventDefault();
+          },
+        },
+      ]}
+    />
+  );
+}
+```

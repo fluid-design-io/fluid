@@ -1,9 +1,9 @@
 
-import { MailIcon, PaperAirplaneIcon } from "@heroicons/react/outline";
+import { MailIcon, PaperAirplaneIcon } from "@heroicons/react/24/outline";
 import {
   MailIcon as MailIconSolid,
   PaperAirplaneIcon as PaperAirplaneIconSolid,
-} from "@heroicons/react/solid";
+} from "@heroicons/react/24/solid";
 
 function Example() {
   return (

@@ -11,7 +11,7 @@ import {
   CogIcon,
   HeartIcon,
   ShoppingCartIcon,
-} from "@heroicons/react/outline";
+} from "@heroicons/react/24/outline";
 function Example() {
   const { t } = useTranslation("list");
   const list = [

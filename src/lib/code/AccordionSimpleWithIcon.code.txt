@@ -10,7 +10,7 @@ import {
   CogIcon,
   InformationCircleIcon,
   ShoppingCartIcon,
-} from "@heroicons/react/outline";
+} from "@heroicons/react/24/outline";
 import { Accordion, AccordionPanel } from "@fluid-design/fluid-ui";
 
 const data = [

@@ -13,7 +13,7 @@ Github: https://github.com/tailwindlabs/heroicons
 */
 
 import Image from "next/image";
-import { HeartIcon, ShareIcon } from "@heroicons/react/outline";
+import { HeartIcon, ShareIcon } from "@heroicons/react/24/outline";
 
 function Example() {
   const contrastRing = `prefers-contrast:border prefers-contrast:border-primary-800 dark:prefers-contrast:border-primary-200`;

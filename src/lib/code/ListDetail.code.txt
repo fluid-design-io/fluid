@@ -5,7 +5,7 @@ Component by fluid-design.io
 Last updated: 1/20/21
 */
 
-import { StarIcon } from "@heroicons/react/solid";
+import { StarIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { useState } from "react";
 
