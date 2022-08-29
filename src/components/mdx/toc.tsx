@@ -35,6 +35,7 @@ function OrdedListItem({
 
   useEffect(() => {
     const el = ref.current;
+    // @ts-ignore
     const [toc] = document.getElementsByClassName('fluid-toc');
     if (state?.isActive && el && toc) {
       scrollIntoView(el, {

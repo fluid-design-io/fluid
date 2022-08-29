@@ -93,6 +93,7 @@ const DefaultMenu = () => {
             loadingOptions: {
               animation: 'spin-large',
             },
+            // @ts-ignore
             onClick: (e) => {
               e.preventDefault();
               toggleStateWithTimeout(setIsLoading);
