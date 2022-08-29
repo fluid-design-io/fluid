@@ -1,7 +1,7 @@
 import { CodeFrameProps } from '@/interfaces/CodeBlock';
 import { useThemeMode } from '@/lib/ThemeContext';
 import clsxm from '@/lib/clsxm';
-import { SunIcon } from '@heroicons/react/solid';
+import { SunIcon } from '@heroicons/react/24/solid';
 import { useTranslation } from 'next-i18next';
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
@@ -32,6 +32,12 @@ export const FunctionalIFrameComponent = ({
     cssLink.rel = 'stylesheet';
     cssLink.href = '/iframe/tw-iframe.css';
   }
+  const defaultBodyClasses = [
+    'bg-grid-gray-300/20',
+    'dark:bg-grid-gray-700/20',
+    '[background-position:top_left]',
+    '[background-attachment:fixed]',
+  ];
   const updateHtmlClasses = () => {
     if (typeof window !== 'undefined') {
       const html = contentRef?.contentWindow?.document?.documentElement;
@@ -40,9 +46,8 @@ export const FunctionalIFrameComponent = ({
         const activePreferenceClasses = preferences
           .map((p) => (p.isActive ? p.name : ''))
           .filter((p) => p !== 'rtl');
-        const htmlClasses = clsxm(activePreferenceClasses);
-        html.className = htmlClasses;
-        body.className = htmlClasses;
+        html.className = clsxm(activePreferenceClasses);
+        body.className = clsxm(defaultBodyClasses, activePreferenceClasses);
 
         // update rtl if isActive
         const rtlPreference = preferences.find((p) => p.name === 'rtl');
@@ -65,7 +70,8 @@ export const FunctionalIFrameComponent = ({
           contentRef?.contentWindow?.document?.body?.childNodes[0]
             ?.scrollHeight;
         setHeight(iframeHeight);
-      }, 750);
+        updateHtmlClasses();
+      }, 600);
     }
   }, [mountNode, contentRef, cssLink, mounded]);
   useEffect(() => {
@@ -201,13 +207,25 @@ export const CodeFrame = ({
         >
           <div
             className={clsxm(
-              'pointer-events-none absolute top-0 left-0 right-0 z-10 h-8 w-full [mask-image:linear-gradient(0deg,rgba(255,255,255,0),rgba(255,255,255,1)_85%)] pointer-events-none',
+              'pointer-events-none absolute top-0 left-0 right-0 z-10 h-8 w-full [mask-image:linear-gradient(0deg,rgba(255,255,255,0),rgba(255,255,255,1)_85%)]',
               isPrefDark ? ' dark:bg-primary-800' : 'bg-primary-100'
             )}
           />
           <div
             className={clsxm(
-              'pointer-events-none absolute bottom-0 left-0 right-0 z-10 h-8 w-full [mask-image:linear-gradient(0deg,rgba(255,255,255,1)_15%,rgba(255,255,255,0))] pointer-events-none',
+              'pointer-events-none absolute bottom-0 left-0 right-0 z-10 h-8 w-full [mask-image:linear-gradient(0deg,rgba(255,255,255,1)_15%,rgba(255,255,255,0))]',
+              isPrefDark ? ' dark:bg-primary-800' : 'bg-primary-100'
+            )}
+          />
+          <div
+            className={clsxm(
+              'pointer-events-none absolute top-0 left-0 bottom-0 z-10 h-full w-8 [mask-image:linear-gradient(270deg,rgba(255,255,255,0),rgba(255,255,255,1)_85%)]',
+              isPrefDark ? ' dark:bg-primary-800' : 'bg-primary-100'
+            )}
+          />
+          <div
+            className={clsxm(
+              'pointer-events-none absolute top-0 right-0 bottom-0 z-10 h-full w-8 [mask-image:linear-gradient(270deg,rgba(255,255,255,1)_15%,rgba(255,255,255,0))]',
               isPrefDark ? ' dark:bg-primary-800' : 'bg-primary-100'
             )}
           />
@@ -277,7 +295,9 @@ export const CodeFrame = ({
             </div>
           </div>
           <FunctionalIFrameComponent title={title} preferences={preferences}>
-            <div className='grid w-full place-items-center pt-20 pb-16'>
+            <div
+              className={clsxm('grid w-full place-items-center pt-20 pb-16')}
+            >
               {children}
             </div>
           </FunctionalIFrameComponent>
