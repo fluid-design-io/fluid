@@ -1,6 +1,6 @@
 {
   "name": "fluid-design",
-  "version": "1.3.1",
+  "version": "1.2.3",
   "description": "A collection of beautifully designed components that are responsive, supports features like dark mode and a11y with elegant transitions.",
   "private": false,
   "scripts": {
@@ -19,10 +19,10 @@
     "@capacitor/storage": "^1.2.5",
     "@code-hike/mdx": "^0.7.4",
     "@docsearch/react": "^3.2.0",
-    "@fluid-design/fluid-ui": "^1.4.2",
+    "@fluid-design/fluid-ui": "^1.5.4",
     "@hcaptcha/react-hcaptcha": "^1.1.0",
     "@headlessui/react": "^1.6.6",
-    "@heroicons/react": "^1.0.6",
+    "@heroicons/react": "^2.0.8",
     "@mdx-js/loader": "^2.1.2",
     "@mdx-js/react": "^2.1.2",
     "@next/mdx": "^12.2.5",
