@@ -17,6 +17,9 @@ module.exports = {
     'no-console': 'warn',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
 
+    '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/no-inferrable-types': 'off',
+
     'react/display-name': 'off',
     'react/jsx-curly-brace-presence': [
       'warn',
@@ -30,8 +33,6 @@ module.exports = {
       multiline: 'last',
     }],
 
-    '@typescript-eslint/ban-ts-comment': 'off',
-    '@typescript-eslint/no-inferrable-types': 'off',
     //#region  //*=========== Unused Import ===========
     '@typescript-eslint/no-unused-vars': 'off',
     'unused-imports/no-unused-imports': 'warn',
