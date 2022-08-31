@@ -1,6 +1,7 @@
 /* Source: https://github.com/shuding/nextra/blob/core/packages/nextra-theme-docs/src/mdx-components.tsx */
 import { Anchor } from '.';
 import { useSetActiveAnchor } from '../contexts';
+import clsxm from '@/lib/clsxm';
 import { IS_BROWSER } from '@/lib/constants';
 import { HashtagIcon } from '@heroicons/react/24/outline';
 import cn from 'clsx';
@@ -198,12 +199,21 @@ export const getComponents = ({
         {...props}
       />
     ),
-    th: (props: ComponentProps<'th'>) => (
-      <th
-        className='py-3.5 px-3 text-left text-sm font-semibold text-primary-900 first:pl-4 first:pr-3 dark:text-primary-50 sm:first:pl-6 md:first:pl-0'
-        {...props}
-      />
-    ),
+    th: (props: ComponentProps<'th'>) => {
+      const isDescription = props.children === 'Description';
+      const isPropOrDefault =
+        props.children === 'Prop' || props.children === 'Default';
+      return (
+        <th
+          className={clsxm(
+            isDescription && 'w-2/3',
+            isPropOrDefault && 'w-1/6',
+            'py-3.5 px-3 text-left text-sm font-semibold text-primary-900 first:pl-4 first:pr-3 dark:text-primary-50 sm:first:pl-6 md:first:pl-0'
+          )}
+          {...props}
+        />
+      );
+    },
     td: (props: ComponentProps<'td'>) => (
       <td
         className='prose prose-sm py-4 px-3 pl-4 align-baseline text-sm text-primary-500 first:pr-3 last:pl-3 last:pr-4 dark:text-primary-300 sm:first:pl-6 sm:last:pr-6 md:first:pl-0 md:last:pr-0'
