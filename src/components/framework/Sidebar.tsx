@@ -40,29 +40,31 @@ const secondaryNavigation = [
       // { name: "List", href: "list", isDone: false },
       // { name: "Mask", href: "mask", isDone: false },
       { name: 'Menu', href: 'menu', isDone: true },
+      { name: 'Popover', href: 'popover', isDone: false },
       // { name: "Modal", href: "modal", isDone: false },
       // { name: "Navbar", href: "navbar", isDone: false },
       // { name: "Pagination", href: "pagination", isDone: false },
       // { name: "Progress", href: "progress", isDone: false },
-      // { name: "Tab", href: "tab", isDone: false },
+      { name: 'Tab', href: 'tab', isDone: false },
       // { name: "Table", href: "table", isDone: false },
       // { name: "Tooltip", href: "tooltip", isDone: false },
+    ],
+  },
+  {
+    groupName: 'Forms',
+    groupList: [
+      { name: 'Validation', href: 'form/validation', isDone: false },
+      { name: 'Combobox', href: 'form/combobox', isDone: false },
+      { name: 'Switch', href: 'form/switch', isDone: false },
+      { name: 'Input', href: 'form/input', isDone: true },
     ],
   },
   {
     groupName: 'UI',
     groupList: [
       { name: 'Card', href: 'card', isDone: true },
-      { name: 'Empty State', href: 'empty-state', isDone: false },
+      // { name: 'Empty State', href: 'empty-state', isDone: false },
       { name: 'Image', href: 'image', isDone: false },
-    ],
-  },
-  {
-    groupName: 'Forms',
-    groupList: [
-      { name: 'Combobox', href: 'combobox', isDone: false },
-      { name: 'Checkbox', href: 'form-Checkbox', isDone: false },
-      { name: 'Input', href: 'form-Input', isDone: false },
     ],
   },
 ];
@@ -152,7 +154,6 @@ export const SidebarMenu = () => {
                   }`}
                     >
                       {t(name)}
-                      {}
                       {!isDone && (
                         <span className='pl-1 text-[0.65rem]'>
                           ({t('in-progress', { ns: 'navbar' })})
@@ -203,8 +204,9 @@ export const SidebarMenu = () => {
             // @ts-ignore
             menus={languages.map(({ code, country_code, name }) => ({
               label: name,
-              icon: <span className={`fi fi-${country_code} rounded-sm`} />,
-              role: 'default',
+              iconStart: (
+                <span className={`fi fi-${country_code} rounded-sm`} />
+              ),
               disabled: code === i18n?.language,
               sr: t('switch-language', { ns: 'navbar', name }),
               onClick: () =>

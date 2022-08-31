@@ -1,8 +1,8 @@
 import nextI18nextConfig from '../../next-i18next.config';
-import { Table, CodeFrame, getComponents } from '@/components';
-import '@/styles/code-hike.css';
-import '@/styles/globals.css';
-import '@/styles/neumorphism.css';
+import '../../styles/code-hike.css';
+import '../../styles/globals.css';
+import '../../styles/neumorphism.css';
+import { Table, CodeFrame, getComponents, ExternalLink } from '@/components';
 import { CH } from '@code-hike/mdx/components';
 import '@docsearch/css';
 import { MDXProvider } from '@mdx-js/react';
@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }) {
     <CookiesProvider>
       <MDXProvider
         components={getComponents({
-          components: { CH, CodeFrame, motion, Table },
+          components: { CH, CodeFrame, motion, Table, ExternalLink },
         })}
       >
         <Component {...pageProps} />
