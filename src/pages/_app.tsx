@@ -11,7 +11,7 @@ import '../../styles/globals.css';
 import '../../styles/neumorphism.css';
 import 'flag-icons/css/flag-icons.min.css';
 
-import { CodeFrame, ExternalLink,getComponents, Table } from '@/components';
+import { CodeFrame, ExternalLink, getComponents, Table } from '@/components';
 
 import nextI18nextConfig from '../../next-i18next.config';
 
@@ -35,7 +35,7 @@ function MyApp({ Component, pageProps }) {
     return () =>
       window
         .matchMedia('(prefers-color-scheme: dark)')
-        .removeEventListener('change', () => {});
+        .removeEventListener('change', () => null);
   }, []);
   return (
     <CookiesProvider>

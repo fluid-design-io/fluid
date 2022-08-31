@@ -12,7 +12,7 @@ export const CardASLargeImageComponent = ({ srcs = undefined, ...props }) => {
       <div
         aria-label={`${t('Card')}, Cool things to check out.`}
         className='relative flex-grow'
-        onClick={() => {}}
+        // onClick={() => {}}
         tabIndex={0}
       >
         {/* Light mode image */}
@@ -78,7 +78,7 @@ export const CardASLargeImageComponent = ({ srcs = undefined, ...props }) => {
         <div className='flex-shrink-0'>
           <button
             className='focus-within:ring-offset relative z-[5] min-w-[4.5rem] max-w-[5rem] select-none truncate text-ellipsis rounded-full border-0 bg-primary-50 px-3 py-1.5 text-sm font-bold uppercase text-sky-600 outline-none transition focus-within:ring focus-within:ring-sky-500 hover:bg-primary-300 contrast-more:text-sky-700 contrast-more:ring-2 contrast-more:ring-sky-700 contrast-more:ring-offset-0 dark:bg-primary-700 dark:text-sky-500/80 dark:hover:bg-primary-800 dark:contrast-more:text-sky-400 dark:contrast-more:ring-sky-500'
-            onClick={() => {}}
+            // onClick={() => {}}
           >
             <span className='sr-only'>Card action, get this item.</span>
             {t(`App Store.get`, { ns: 'card' })}

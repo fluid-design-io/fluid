@@ -39,7 +39,7 @@ export const CardCollageComponent = () => {
                 <button
                   aria-label={`Browse category related to ${name}`}
                   className='px-4 py-1 text-sm font-medium capitalize rounded-full focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 bg-primary-200 dark:bg-primary-700 contrast-more:hover:ring-2 contrast-more:hover:ring-primary-800 dark:contrast-more:hover:ring-primary-50 contrast-more:hover:ring-offset-2 hover:bg-primary-300 dark:hover:bg-primary-600 contrast-more:font-semibold contrast-more:border contrast-more:border-primary-700 dark:contrast-more:border-primary-200 dark:contrast-more:bg-primary-800 dark:contrast-more:text-primary-50 contrast-more:text-primary-800'
-                  onClick={() => {}}
+                  // onClick={() => {}}
                 >
                   <span className='sr-only'>{name}</span>
                   {name}

@@ -1,3 +1,6 @@
+import { CodeFrameProps } from '@/interfaces/CodeBlock';
+import { useThemeMode } from '@/lib/ThemeContext';
+import clsxm from '@/lib/clsxm';
 import { SunIcon } from '@heroicons/react/24/solid';
 import { useTranslation } from 'next-i18next';
 import React, { useEffect, useState } from 'react';
@@ -8,9 +11,6 @@ import {
   MdFormatTextdirectionLToR,
   MdFormatTextdirectionRToL,
 } from 'react-icons/md';
-
-import clsxm from '@/lib/clsxm';
-import { useThemeMode } from '@/lib/ThemeContext';
 
 export const FunctionalIFrameComponent = ({
   children,
@@ -262,18 +262,14 @@ export const CodeFrame = ({
                 ) => (
                   <React.Fragment key={`${title}.${name}`}>
                     {i !== 0 && (
-                      <div
-                        className="my-2 mx-1 w-[2px] flex-grow-0 bg-primary-400/30 dark:bg-white/10"
-                      />
+                      <div className='my-2 mx-1 w-[2px] flex-grow-0 bg-primary-400/30 dark:bg-white/10' />
                     )}
                     <button
                       onClick={() => handlePreferences(name)}
                       className={clsxm(
                         `clickable relative flex items-center rounded-md py-1.5 px-2 text-xs font-medium`,
-                        buttonStyle,
-                        true
-                          ? 'text-primary-800 motion-reduce:bg-primary-200/70 motion-reduce:backdrop-blur-md motion-reduce:backdrop-filter dark:text-primary-100 dark:motion-reduce:bg-primary-900/60'
-                          : 'hover:text-primary-800 dark:hover:text-primary-100'
+                        'text-primary-800 motion-reduce:bg-primary-200/70 motion-reduce:backdrop-blur-md motion-reduce:backdrop-filter dark:text-primary-100 dark:motion-reduce:bg-primary-900/60',
+                        buttonStyle
                       )}
                     >
                       <span className='sr-only'>{t(name)}</span>

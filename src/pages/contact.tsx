@@ -1,4 +1,3 @@
-import { SiteMeta } from '@/interfaces/framwork';
 import { Form, SubmitButton } from '@fluid-design/fluid-ui';
 import AppInput from '@fluid-design/fluid-ui/dist/lib/components/Form/AppInput';
 import { useTranslation } from 'next-i18next';
@@ -24,7 +23,7 @@ const validationSchema = Yup.object().shape({
 
 export default function ContactPage() {
   const { t } = useTranslation();
-  const meta: SiteMeta = {
+  const meta = {
     title: 'Fluid Design',
     description:
       'Beautiful React components that are responsive, supports features like dark mode and a11y with elegant transitions.',

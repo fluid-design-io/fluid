@@ -1,8 +1,8 @@
 import { Button } from '@fluid-design/fluid-ui';
 import { HeartIcon, ShareIcon } from '@heroicons/react/24/outline';
-import clsx from 'clsx';
-import Image from 'next/image';
+import clsx, { ClassValue } from 'clsx';
 import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 import { twMerge } from 'tailwind-merge';
 
 /** Merge classes with tailwind-merge with clsx full feature */

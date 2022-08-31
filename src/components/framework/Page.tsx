@@ -1,10 +1,9 @@
+import { Footer, Header, Navbar, Sidebar } from '.';
+import { MotionPageProps, SiteMeta } from '@/interfaces/framwork';
+import { getBody, getBodyExcept } from '@/lib/getBody';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/dist/client/router';
 import { useEffect, useState } from 'react';
-
-import { getBody, getBodyExcept } from '@/lib/getBody';
-
-import { Footer, Header, Navbar,Sidebar } from '.';
 
 export const Page = ({
   header = true,
@@ -63,7 +62,7 @@ export const Page = ({
       prevScroll = curScroll;
     };
 
-    var toggleHeader = function (direction, curScroll) {
+    const toggleHeader = function (direction, curScroll) {
       if (direction === 2 && curScroll > 120) {
         //replace 52 with the height of your header in px
         setHideNav(true);

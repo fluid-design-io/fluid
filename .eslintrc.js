@@ -23,12 +23,15 @@ module.exports = {
       { props: 'never', children: 'never' },
     ],
 
+    'react/no-unescaped-entities': 'off',
 
     //#region  //*=========== Sort Props ===========
     'react/jsx-sort-props': ['warn', {
       multiline: 'last',
     }],
 
+    '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/no-inferrable-types': 'off',
     //#region  //*=========== Unused Import ===========
     '@typescript-eslint/no-unused-vars': 'off',
     'unused-imports/no-unused-imports': 'warn',
@@ -86,4 +89,5 @@ module.exports = {
     React: true,
     JSX: true,
   },
+  ignorePatterns: ["ThemeContext.tsx"],
 };

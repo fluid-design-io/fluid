@@ -1,7 +1,6 @@
-import { AnimatePresence, motion } from 'framer-motion';
-import { MdDarkMode, MdOutlineLightMode } from 'react-icons/md';
-
 import clsxm from '../lib/clsxm';
+import { AnimatePresence, motion, Variants } from 'framer-motion';
+import { MdDarkMode, MdOutlineLightMode } from 'react-icons/md';
 
 export const ThemeSwitch = ({
   mode,
