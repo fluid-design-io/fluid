@@ -1248,10 +1248,10 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@fluid-design/fluid-ui@^1.5.4":
-  version "1.5.4"
-  resolved "https://registry.yarnpkg.com/@fluid-design/fluid-ui/-/fluid-ui-1.5.4.tgz#53422624559855f054deb1669af72fb8598a317f"
-  integrity sha512-dt4Gd5iF4jiqnwpNpnxOYtsp2INA6GsddE6C5D9ZT0fmyd5mgH5dsSzhKFZ+lGuHlEvsS4/6Tm0xdqKvjDafbQ==
+"@fluid-design/fluid-ui@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@fluid-design/fluid-ui/-/fluid-ui-1.6.0.tgz#8d85404cccc02f08f198d5e1cdef810aa62eee88"
+  integrity sha512-qDnREZPBGk/rTUyveB2jkOQc+SOffF1TQ34DGn3N/R+zce/8gnnwWn4Bfv7ADLTf/yCXDg1CSdMNPk7JitWzUw==
   dependencies:
     "@headlessui/react" "^1.6.6"
     classnames "^2.3.1"
@@ -1276,10 +1276,10 @@
   resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.6.6.tgz#3073c066b85535c9d28783da0a4d9288b5354d0c"
   integrity sha512-MFJtmj9Xh/hhBMhLccGbBoSk+sk61BlP6sJe4uQcVMtXZhCgGqd2GyIQzzmsdPdTEWGSF434CBi8mnhR6um46Q==
 
-"@heroicons/react@^2.0.8":
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-2.0.8.tgz#b87618a14d3fb237aa465d1a158517f92eccf7b2"
-  integrity sha512-nJNOMjXQH0Ngk6Y7QllYBH5VLB3+HMJyGBVQPZYUXGalYmN9kgEcVIxMjOiVjwuzee0GvZzmMRB0VQRJPHe8eg==
+"@heroicons/react@^2.0.10":
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-2.0.10.tgz#191a305aa2dc2271903f027c9f4700ca3dfa9e7b"
+  integrity sha512-Ufr+pgAElNiRCSklnHGOR10bXb02BLlosvbDK7sCRUMOcQ3R/HCXTfXs4BUkYZ4dKpx6l5dUD06VSW1dTpTEDw==
 
 "@humanwhocodes/config-array@^0.10.4":
   version "0.10.4"
