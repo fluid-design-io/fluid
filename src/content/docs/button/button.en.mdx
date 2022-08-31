@@ -31,6 +31,8 @@ function Example() {
   return (
     // mark[13:23]
     <Button color='red'>Red</Button>
+    // Use `label` prop for automatic screen reader support
+    <Button color='red' label='Red' />
   );
 }
 ```
@@ -128,9 +130,62 @@ And customize the loading state by passing the `loadingOptions` prop.
 </Button>
 ```
 
-## Icon only
+## Icon
+
+Fluid UI Button provides many ways to add and customize icons.
+
+For a text button, you can add icon using `icon`, `iconStart` and `iconEnd` props.
+For an icon-only button, you can use any of the props to add an icon.
+
+### Icon with text
+
+You can add icon as a function or a React Element,
+if you add it as a function, the styles will be applied to the icon matching the current button style.
+You can overwrite the default style by adding `iconClassName` prop.
+Or if you need more customization, you can add any React Element to the `icon` props.
+
+<CodeFrame title='Text icon example'>
+  <div className='flex flex-wrap justify-center gap-6'>
+    <ButtonExamples.IconWithText />
+  </div>
+</CodeFrame>
+
+```jsx
+<Button
+  color='green'
+  icon={MdAddCircle}
+  label='Create'
+/>
+<Button
+  color='sky'
+  shape='square'
+>
+  <MdSend />
+  <span>Send Email</span>
+</Button>
+<Button
+  color='blue'
+  shape='pill'
+  weight='light'
+  iconStart={MdInfo}
+  iconEnd={<MdChevronRight className='w-5 h-5 rtl:rotate-180' />}
+  iconEndPosition='between'
+  label='Info'
+/>
+<Button
+  color='rose'
+  shape='pill'
+  weight='clear'
+  iconStart={IoMdTrash}
+>
+  <span>Delete</span>
+</Button>
+```
+
+### Icon only
 
 The component also provides an `IconOnly` prop that will render the button paddings the same for all edges.
+If you provided `label` prop, the text will hide from HTML but still be accessible to screen readers.
 
 <CodeFrame title='Icon only'>
   <div className='flex flex-wrap justify-center gap-6'>
@@ -139,18 +194,37 @@ The component also provides an `IconOnly` prop that will render the button paddi
 </CodeFrame>
 
 ```jsx
-<Button color="green" iconOnly>
-  <MdAddCircle />
-</Button>
-<Button color="sky" shape="square" iconOnly>
+<Button
+  label='Create'
+  color='green'
+  icon={MdAddCircle}
+  iconOnly
+/>
+<Button
+  label='Send'
+  color='sky'
+  shape='square'
+  iconOnly
+>
   <MdSend />
 </Button>
-<Button color="blue" shape="pill" weight="light" iconOnly>
+<Button
+  label='Info'
+  color='blue'
+  shape='pill'
+  weight='light'
+  iconOnly
+>
   <MdInfo />
 </Button>
-<Button color="rose" shape="pill" weight="clear" iconOnly>
-  <IoMdTrash />
-</Button>
+<Button
+  label='Delete'
+  color='rose'
+  shape='pill'
+  weight='clear'
+  icon={<IoMdTrash />}
+  iconOnly
+/>
 ```
 
 ## Features
@@ -159,11 +233,19 @@ The component also provides an `IconOnly` prop that will render the button paddi
 
 The button can be keyboard focused with border color matches the color of the text.
 In high contrast mode, the button contrast and font weight will increase while preserving the original color scheme.
-You can also add a `div` element with className `sr-only` to customize the text for screen readers.
+To customize the screen reader text, you can use the `sr` prop.
+
+```jsx
+<Button
+  label='Create'
+  // mark
+  sr='Create a new post'
+/>
+```
 
 ### Forground Color
 
-Based on contrast ratio, each button's foreground color is set to the opposite of the background color.
+Based on contrast ratio, each button's foreground color is set to the opposite of the background color. Read more about accessible color contrast <ExternalLink href='https://www.w3.org/TR/WCAG20-TECHS/G18.html'>here</ExternalLink>.
 
 ### Button States
 
@@ -195,14 +277,26 @@ import { Button } from "@fluid-design/fluid-ui";
 </Button>
 ```
 
-| Prop             | Default   | Description                                                                                                                                                                                                                         |
-| ---------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `as`             | `div`     | `String \| Component` <Table.D>The element or component the `Button` should render as.</Table.D>                                                                                                                                    |
-| `color`          | -         | `red`, `orange`, `amber`, `yellow`, `lime`, `green`, `emerald`, `teal`, `cyan`, `sky`, `blue`, `indigo`, `violet`, `purple`, `fuchsia`, `pink`, `rose`, `gray`, `slate`, `zinc`, `neutral`, `stone` <Table.D>Button color</Table.D> |
-| `weight`         | `normal`  | `light`, `normal`, `bold`, `outline`, `clear`, `link` <Table.D>Button weight</Table.D>                                                                                                                                              |
-| `size`           | `md`      | `xs`, `sm`, `md`, `lg`, `xl` <Table.D>Button size</Table.D>                                                                                                                                                                         |
-| `shape`          | `rounded` | `pill`, `rounded`, `square` <Table.D>Button shape</Table.D>                                                                                                                                                                         |
-| `iconOnly`       | -         | `boolean` <Table.D>Adjust the padding to be the same for all edges</Table.D>                                                                                                                                                        |
-| `isLoading`      | `false`   | `boolean` <Table.D>Whether the button is loading</Table.D>                                                                                                                                                                          |
-| `loadingOptions` | -         | `object` <Table.D>Loading animation options</Table.D>                                                                                                                                                                               |
-| `gradient`       | -         | `string` <Table.D>Button gradient</Table.D>                                                                                                                                                                                         |
+| Prop                | Default     | Description                                                                                                                                                                                                                         |
+| ------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`                | `div`       | `String \| Component` <Table.D>The element or component the `Button` should render as.</Table.D>                                                                                                                                    |
+| `badgeClassName`    | `undefined` | `String` <Table.D>The class name of the badge.</Table.D>                                                                                                                                                                            |
+| `badge`             | `undefined` | `String \| React.ReactNode` <Table.D>The badge content.</Table.D>                                                                                                                                                                   |
+| `className`         | `undefined` | `String` <Table.D>The class name of the button.</Table.D>                                                                                                                                                                           |
+| `color`             |             | `red`, `orange`, `amber`, `yellow`, `lime`, `green`, `emerald`, `teal`, `cyan`, `sky`, `blue`, `indigo`, `violet`, `purple`, `fuchsia`, `pink`, `rose`, `gray`, `slate`, `zinc`, `neutral`, `stone` <Table.D>Button color</Table.D> |
+| `gradient`          |             | `string` <Table.D>Button gradient _beta_</Table.D>                                                                                                                                                                                  |
+| `iconClassName`     |             | `String` <Table.D>The class name of the icon.</Table.D>                                                                                                                                                                             |
+| `iconEndPosition`   | `flex`      | `flex \| between` <Table.D>The position alignment of the icon end.</Table.D>                                                                                                                                                        |
+| `iconEnd`           |             | `Function \| React.ReactNode` <Table.D>The icon end content.</Table.D>                                                                                                                                                              |
+| `iconOnly`          |             | `boolean` <Table.D>Adjust the padding to be the same for all edges</Table.D>                                                                                                                                                        |
+| `iconStartPosition` | `flex`      | `flex \| between` <Table.D>The position alignment of the icon start.</Table.D>                                                                                                                                                      |
+| `iconStart`         |             | `Function \| React.ReactNode` <Table.D>The icon start content.</Table.D>                                                                                                                                                            |
+| `icon`              |             | `Function \| React.ReactNode` <Table.D>The icon content. It will always comes after the text element, if any.</Table.D>                                                                                                             |
+| `isLoaded`          |             | `boolean` <Table.D>If true, it will trigger a loaded animation with default timeout. You'll need to manually set it back to `false` if you want to trigger it multiple times. </Table.D>                                            |
+| `loadedOptions`     |             | `Object` <Table.D>The options for the loaded animation.</Table.D> <pre>text?: string \| undefined;<br />icon?: React.ReactNode \| \{ \(props\): JSX.Element \};duration?: number; // default 1500ms<br />className?: string;</pre>  |
+| `isLoading`         | `false`     | `boolean` <Table.D>Whether the button is loading</Table.D>                                                                                                                                                                          |
+| `loadingOptions`    | -           | `object` <Table.D>Loading animation options</Table.D> <pre>animation?: 'spin'\| 'pulse'\| 'ping'\| 'spin-large' <br />text?: string;</pre>                                                                                          |
+| `shape`             | `rounded`   | `pill`, `rounded`, `square` <Table.D>Button shape</Table.D>                                                                                                                                                                         |
+| `size`              | `md`        | `xs`, `sm`, `md`, `lg`, `xl` <Table.D>Button size</Table.D>                                                                                                                                                                         |
+| `sr`                |             | `String` <Table.D>Screen reader text. This will be overwrite `label` prop if provided.</Table.D>                                                                                                                                    |
+| `weight`            | `normal`    | `light`, `normal`, `bold`, `outline`, `clear`, `link` <Table.D>Button weight</Table.D>                                                                                                                                              |

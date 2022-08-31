@@ -11,7 +11,7 @@ import {
 import { useTranslation } from 'next-i18next';
 import { useId, useState } from 'react';
 import { IoMdTrash } from 'react-icons/io';
-import { MdAddCircle, MdInfo, MdSend } from 'react-icons/md';
+import { MdAddCircle, MdChevronRight, MdInfo, MdSend } from 'react-icons/md';
 
 const colors = [
   'red',
@@ -156,16 +156,23 @@ const ButtonSizes = () => {
 const ButtonStates = () => {
   const [disabled, setDisabled] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(!isLoading);
   const [present] = useToast();
   return (
     <ButtonWrap>
-      <Button color='green' disabled={disabled} onClick={present}>
+      <Button
+        color='green'
+        disabled={disabled}
+        isLoaded={isLoaded}
+        onClick={present}
+      >
         {disabled ? 'Disabled' : 'Clickable'}
       </Button>
       <Button
         color='green'
         disabled={disabled}
         isLoading={isLoading}
+        isLoaded={isLoaded}
         onClick={present}
       >
         Loading
@@ -174,6 +181,7 @@ const ButtonStates = () => {
         color='green'
         disabled={disabled}
         isLoading={isLoading}
+        isLoaded={isLoaded}
         loadingOptions={{
           animation: 'spin-large',
         }}
@@ -185,6 +193,7 @@ const ButtonStates = () => {
         color='green'
         disabled={disabled}
         isLoading={isLoading}
+        isLoaded={isLoaded}
         loadingOptions={{
           animation: 'pulse',
         }}
@@ -196,6 +205,7 @@ const ButtonStates = () => {
         color='green'
         disabled={disabled}
         isLoading={isLoading}
+        isLoaded={isLoaded}
         loadingOptions={{
           animation: 'ping',
           text: 'Loading',
@@ -209,17 +219,16 @@ const ButtonStates = () => {
           initialValues={{
             disabled,
             isLoading,
+            isLoaded,
           }}
-          onSubmit={(values) => {
-            setDisabled(values.disabled);
-            setIsLoading(values.isLoading);
-          }}
+          onSubmit={() => {}}
         >
           <Switch name='disabled' onChange={setDisabled} />
+          <Switch name='isLoading' label='Is Loading' onChange={setIsLoading} />
           <Switch
-            name='isLoading'
-            label='Is Loading'
-            onChange={setIsLoading}
+            name='isLoaded'
+            label='Is Loaded'
+            onChange={setIsLoaded}
             className='mb-0'
           />
         </Form>
@@ -237,22 +246,25 @@ const ButtonIconOnly = () => {
         onClick={() =>
           present({
             icon: MdAddCircle,
+            title: 'Create',
           })
         }
         color='green'
         iconOnly
-      >
-        <MdAddCircle />
-      </Button>
+        icon={MdAddCircle}
+        label='Create'
+      />
       <Button
         onClick={() =>
           present({
             icon: MdSend,
+            title: 'Send',
           })
         }
         color='sky'
         shape='square'
         iconOnly
+        label='Send'
       >
         <MdSend />
       </Button>
@@ -260,12 +272,14 @@ const ButtonIconOnly = () => {
         onClick={() =>
           present({
             icon: MdInfo,
+            title: 'Info',
           })
         }
         color='blue'
         shape='pill'
         weight='light'
         iconOnly
+        label='Info'
       >
         <MdInfo />
       </Button>
@@ -273,14 +287,78 @@ const ButtonIconOnly = () => {
         onClick={() =>
           present({
             icon: IoMdTrash,
+            title: 'Delete',
           })
         }
         color='rose'
         shape='pill'
         weight='clear'
+        icon={<IoMdTrash />}
         iconOnly
+        label='Delete'
+      />
+    </ButtonWrap>
+  );
+};
+
+const IconWithText = () => {
+  const id = useId();
+  const [present] = useToast();
+  return (
+    <ButtonWrap>
+      <Button
+        onClick={() =>
+          present({
+            icon: MdAddCircle,
+            title: 'Create',
+          })
+        }
+        color='green'
+        icon={MdAddCircle}
+        label='Create'
+      />
+      <Button
+        onClick={() =>
+          present({
+            icon: MdSend,
+            title: 'Send',
+          })
+        }
+        color='sky'
+        shape='square'
       >
-        <IoMdTrash />
+        <MdSend />
+        <span>Send Email</span>
+      </Button>
+      <Button
+        onClick={() =>
+          present({
+            icon: MdInfo,
+            title: 'Info',
+          })
+        }
+        color='blue'
+        shape='pill'
+        weight='light'
+        className='w-40'
+        iconStart={MdInfo}
+        iconEnd={<MdChevronRight className='w-5 h-5 rtl:rotate-180' />}
+        iconEndPosition='between'
+        label='Info'
+      />
+      <Button
+        onClick={() =>
+          present({
+            icon: IoMdTrash,
+            title: 'Delete',
+          })
+        }
+        color='rose'
+        shape='pill'
+        weight='clear'
+        iconStart={IoMdTrash}
+      >
+        <span>Delete</span>
       </Button>
     </ButtonWrap>
   );
@@ -293,6 +371,7 @@ ButtonWeights.displayName = 'Weights';
 ButtonSizes.displayName = 'Sizes';
 ButtonStates.displayName = 'States';
 ButtonIconOnly.displayName = 'Icon Only';
+IconWithText.displayName = 'Icon With Text';
 
 export const ButtonExamples = Object.assign(
   {},
@@ -300,5 +379,6 @@ export const ButtonExamples = Object.assign(
   { Weights: ButtonWeights },
   { Sizes: ButtonSizes },
   { States: ButtonStates },
-  { IconOnly: ButtonIconOnly }
+  { IconOnly: ButtonIconOnly },
+  { IconWithText: IconWithText }
 );
