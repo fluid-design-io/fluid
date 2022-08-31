@@ -1,3 +1,4 @@
+import { StaticImageData } from "next/image";
 
 export interface FeatureCardProps {
   image: {

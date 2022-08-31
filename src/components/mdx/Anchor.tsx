@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-restricted-imports -- only in this file we determine either we include <a /> as child of <NextLink /> based of `newNextLinkBehavior` value
 import NextLink from 'next/link';
-import React, { forwardRef } from 'react';
+import React, { ComponentProps, forwardRef, ReactElement } from 'react';
 
 type AnchorProps = Omit<ComponentProps<'a'>, 'ref'> & {
   newWindow?: boolean;

@@ -4,6 +4,7 @@ import React from 'react';
 
 import Doc from '@/components/framework/Doc';
 import { ListDetail, ListNested, ListSimple } from '@/components/list';
+import { SiteMeta } from '@/interfaces/framwork';
 
 
 export async function getStaticProps({ locale }) {

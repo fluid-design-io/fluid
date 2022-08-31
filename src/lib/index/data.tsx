@@ -6,6 +6,7 @@ import IndexList from '@/components/instance/IndexList';
 import IndexSharedLayout from '@/components/instance/IndexSharedLayout';
 import IndexSimple from '@/components/instance/IndexSimple';
 import IndexSoft from '@/components/instance/IndexSoft';
+import { FeatureCardProps } from '@/interfaces/featureCard';
 
 import animationDark from '~/assets/index/animation-dark.png';
 import animationLight from '~/assets/index/animation-light.png';

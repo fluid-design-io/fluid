@@ -1,3 +1,4 @@
+import { CodeBlockFeatureProps } from '@/interfaces/CodeBlock';
 import { useTranslation } from 'next-i18next';
 //@ts-ignore
 import withstar from 'raw-loader!@/lib/code/ListDetail.code.txt';

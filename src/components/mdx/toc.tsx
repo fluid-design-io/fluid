@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 import React, {
   Fragment,
+  ReactElement,
   useEffect,
   useRef,
   useState,
@@ -14,7 +15,7 @@ import scrollIntoView from 'scroll-into-view-if-needed';
 import { useScrolled } from '@/lib';
 import clsxm from '@/lib/clsxm';
 
-import { useActiveAnchor } from '../contexts';
+import { ActiveAnchor, useActiveAnchor } from '../contexts';
 
 export function getHeadingText(heading: any) {
   return heading?.text ? heading.text : '';

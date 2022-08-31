@@ -1,5 +1,4 @@
-import { Form, SubmitButton } from '@fluid-design/fluid-ui';
-import AppInput from '@fluid-design/fluid-ui/dist/lib/components/Form/AppInput';
+import { Form, Input, SubmitButton } from '@fluid-design/fluid-ui';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as Yup from 'yup';
@@ -18,7 +17,7 @@ export async function getStaticProps({ locale }) {
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
   name: Yup.string().required().label('Name'),
-  message: Yup.string().required().label('Message'),
+  message: Yup.string().label('Message'),
 });
 
 export default function ContactPage() {
@@ -72,8 +71,8 @@ export default function ContactPage() {
                 message: '',
               }}
             >
-              <AppInput autoFocus name='email' type='text' />
-              <AppInput name='name' type='text' />
+              <Input autoFocus name='email' type='text' />
+              <Input name='name' type='text' />
               {/* <AppTextarea name='message' type='text' className='resize-none' /> */}
               <SubmitButton label='Submit' />
             </Form>

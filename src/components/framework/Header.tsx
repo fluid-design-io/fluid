@@ -1,3 +1,4 @@
+import { SiteMeta } from '@/interfaces/framwork';
 import Head from 'next/head';
 
 export const Header = (meta: SiteMeta) => (

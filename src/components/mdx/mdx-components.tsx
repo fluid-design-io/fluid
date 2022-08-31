@@ -3,7 +3,7 @@ import { HashtagIcon } from '@heroicons/react/24/outline';
 import cn from 'clsx';
 import Slugger from 'github-slugger';
 import { useRouter } from 'next/router';
-import React, { useEffect, useRef } from 'react';
+import React, { ComponentProps, ReactElement, useEffect, useRef } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import 'intersection-observer';
 

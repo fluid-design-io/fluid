@@ -2,7 +2,7 @@ import { Button } from '@fluid-design/fluid-ui';
 import { CursorArrowRaysIcon, XMarkIcon } from '@heroicons/react/24/solid';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useId } from 'react';
-import toast from 'react-hot-toast';
+import toast, { Toast } from 'react-hot-toast';
 
 export interface ToastProps {
   icon?: (props: React.ComponentProps<'svg'>) => React.ReactElement;

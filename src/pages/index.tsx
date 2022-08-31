@@ -16,6 +16,7 @@ import Code from '../util/Code';
 
 import bgDark from '~/assets/index-bg-dark.jpg';
 import bgLight from '~/assets/index-bg-light.jpg';
+import { SiteMeta } from '@/interfaces/framwork';
 
 export async function getStaticProps({ locale }) {
   return {
