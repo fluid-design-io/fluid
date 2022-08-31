@@ -1,3 +1,4 @@
+import { CodeFrameComponentWrap } from '../framework/CodeFrameComponentWrap';
 import clsxm from '@/lib/clsxm';
 import { useToast } from '@/lib/useToast';
 import { Menu } from '@fluid-design/fluid-ui';
@@ -10,27 +11,10 @@ import {
   PencilIcon,
   VideoCameraIcon,
   DocumentIcon,
+  TrashIcon,
 } from '@heroicons/react/24/outline';
 import { PlusCircleIcon } from '@heroicons/react/24/solid';
-import { useState } from 'react';
-
-const Wrap = ({ className = '', children }) => {
-  return (
-    <div
-      className={clsxm(
-        [
-          'flex h-full flex-wrap items-center justify-center gap-6 px-4 lg:px-6',
-          'bg-white/70 shaodw-lg shadow-primary-600/30 dark:bg-black/20',
-          'rounded-lg relative h-96 w-full sm:w-2/3 lg:w-1/2 min-w-[16rem]',
-          'backdrop-blur',
-        ],
-        className
-      )}
-    >
-      {children}
-    </div>
-  );
-};
+import { Fragment, useState } from 'react';
 
 /* 
   .clickable {
@@ -38,19 +22,26 @@ const Wrap = ({ className = '', children }) => {
   }
 */
 const avatarImage =
-  'https://images.unsplash.com/photo-1626544827763-d516dce335e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=80';
+  'https://images.unsplash.com/photo-1626544827763-d516dce335e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=80&q=80';
 const DefaultMenu = () => {
   const [present] = useToast();
   const [isLoading, setIsLoading] = useState(false);
-  const [isDuplicating, setIsDuplicating] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [isLoggedOut, setIsLoggedOut] = useState(false);
   const toggleStateWithTimeout = (setState: (state: boolean) => void) => {
     setState(true);
     setTimeout(() => {
       setState(false);
     }, 2300);
   };
+  const CustomIcon = () => (
+    <div className='relative'>
+      <div className='absolute -top-0.5 -right-0.5 w-1.5 h-1.5 bg-red-500 rounded-full' />
+      <BellIcon className='w-4 h-4' />
+    </div>
+  );
   return (
-    <Wrap>
+    <CodeFrameComponentWrap className='flex flex-col justify-between items-end h-96 w-full sm:w-2/3 lg:w-1/2 min-w-[16rem]'>
       <Menu
         label={'Settings'}
         color='gray'
@@ -59,11 +50,10 @@ const DefaultMenu = () => {
         iconEndPosition='between'
         menuPositionY='bottom'
         header='Hi, User'
-        className='absolute right-4 top-4'
         menus={[
           {
             label: 'Profile',
-            icon: UserIcon,
+            iconStart: UserIcon,
             onClick: () =>
               present({
                 title: 'Profile',
@@ -73,7 +63,9 @@ const DefaultMenu = () => {
           {
             label: 'Notifications',
             role: 'info',
-            icon: BellIcon,
+            iconStart: <CustomIcon />,
+            badge: 4,
+            iconEndPosition:'between',
             onClick: () => {
               present({
                 title: 'Notifications',
@@ -87,8 +79,12 @@ const DefaultMenu = () => {
           {
             label: 'Logout',
             role: 'destructive',
-            icon: <ArrowRightOnRectangleIcon className='w-4 h-4' />,
+            iconStart: ArrowRightOnRectangleIcon,
             isLoading,
+            isLoaded: isLoggedOut,
+            loadedOptions: {
+              text: 'Signed out',
+            },
             disabled: isLoading,
             loadingOptions: {
               animation: 'spin-large',
@@ -97,6 +93,9 @@ const DefaultMenu = () => {
             onClick: (e) => {
               e.preventDefault();
               toggleStateWithTimeout(setIsLoading);
+              setTimeout(() => {
+                toggleStateWithTimeout(setIsLoggedOut);
+              }, 2300);
               present({
                 title: 'Logout',
               });
@@ -104,61 +103,83 @@ const DefaultMenu = () => {
           },
         ]}
       />
-      <Menu
-        label={'Options'}
-        color='indigo'
-        weight='light'
-        iconEnd={ChevronRightIcon}
-        iconEndPosition='between'
-        menuPositionY='center'
-        menuPositionX='end'
-        menuClassName='w-40'
-        className='absolute bottom-4 left-4'
-      >
-        <>
-          <div className='px-3.5 py-2 flex justify-center items-center flex-col gap-2'>
-            <img
-              src={avatarImage}
-              alt='avatar'
-              className='w-12 h-12 rounded-full'
-            />
-            <p>Custom Menu</p>
-          </div>
-          <Menu.Item className='justify-between' role='info'>
-            <span>Edit</span>
-            <PencilIcon className='w-4 h-4' />
-          </Menu.Item>
-        </>
-      </Menu>
-      <Menu
-        iconStart={PlusCircleIcon}
-        color='green'
-        shape='pill'
-        size='lg'
-        horizontal
-        iconOnly
-        menuPositionY='center'
-        menuPositionX='start'
-        header='Create'
-        className='absolute bottom-4 right-4'
-        menus={[
-          {
-            icon: VideoCameraIcon,
-            onClick: () =>
-              present({
-                icon: VideoCameraIcon,
-              }),
-          },
-          {
-            icon: DocumentIcon,
-            onClick: () =>
-              present({
-                icon: DocumentIcon,
-              }),
-          },
-        ]}
-      />
-    </Wrap>
+      <div className='flex justify-between items-center w-full'>
+        <Menu
+          label={'Options'}
+          color='indigo'
+          weight='light'
+          iconEnd={ChevronRightIcon}
+          iconEndPosition='between'
+          menuPositionY='center'
+          menuPositionX='end'
+          menuClassName='w-40'
+          className='inline-block'
+        >
+          <Fragment>
+            <div className='px-3.5 py-2 flex justify-center items-center flex-col gap-2'>
+              <img
+                src={avatarImage}
+                alt='avatar'
+                className='w-12 h-12 rounded-full'
+              />
+              <p>Custom Menu</p>
+            </div>
+            <Menu.Item
+              className='justify-between'
+              role='info'
+              isLoading={isEditing}
+              disabled={isEditing}
+              // @ts-ignore
+              onClick={(e) => {
+                e.preventDefault();
+                toggleStateWithTimeout(setIsEditing);
+              }}
+              loadingOptions={{
+                animation: 'pulse',
+              }}
+            >
+              <span>Edit</span>
+              <PencilIcon className='w-4 h-4' />
+            </Menu.Item>
+            <Menu.Item
+              className='justify-between'
+              role='destructive'
+              disabled={true}
+            >
+              <span>Delete</span>
+              <TrashIcon className='w-4 h-4' />
+            </Menu.Item>
+          </Fragment>
+        </Menu>
+        <Menu
+          iconStart={PlusCircleIcon}
+          color='green'
+          shape='pill'
+          size='lg'
+          horizontal
+          iconOnly
+          menuPositionY='center'
+          menuPositionX='start'
+          header='Horizontal Menu'
+          menus={[
+            {
+              icon: VideoCameraIcon,
+              onClick: () =>
+                present({
+                  icon: VideoCameraIcon,
+                }),
+            },
+            {
+              icon: DocumentIcon,
+              onClick: () =>
+                present({
+                  icon: DocumentIcon,
+                }),
+            },
+          ]}
+        />
+      </div>
+    </CodeFrameComponentWrap>
   );
 };
 

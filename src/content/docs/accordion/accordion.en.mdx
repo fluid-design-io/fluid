@@ -26,15 +26,15 @@ Accordions allow you to reduce vertical space by creating collapsible sections i
 
 ```jsx main.tsx
 import { data } from './data';
-import { Accordion, AccordionPanel } from '@fluid-design/fluid-ui';
+import { Accordion } from '@fluid-design/fluid-ui';
 
 function Example() {
   return (
     <Accordion>
       {data.map((item, index) => (
-        <AccordionPanel key={index} header={item.title} isOpen={item.isOpen}>
+        <Accordion.Panel key={index} header={item.title} isOpen={item.isOpen}>
           {item.details}
-        </AccordionPanel>
+        </Accordion.Panel>
       ))}
     </Accordion>
   );
@@ -106,13 +106,13 @@ The icon needs to be a function, you can import them from libraries such as [rea
 
 ```jsx main.tsx
 import { data } from './data';
-import { Accordion, AccordionPanel } from '@fluid-design/fluid-ui';
+import { Accordion } from '@fluid-design/fluid-ui';
 
 function Example() {
   return (
     <Accordion>
       {dataWithIcons.map((item, index) => (
-        <AccordionPanel
+        <Accordion.Panel
           key={index}
           header={item.title}
           isOpen={item.isOpen}
@@ -120,7 +120,7 @@ function Example() {
           headerIcon={item.Icon}
         >
           {item.details}
-        </AccordionPanel>
+        </Accordion.Panel>
       ))}
     </Accordion>
   );
@@ -187,3 +187,22 @@ const dataWithIcons = [
 
 </CH.Code>
 </CH.Section>
+
+## Component API
+
+### Accordion
+
+The wrapper for the accordion panels.
+
+| Prop      | Default | Description                                                           |
+| --------- | ------- | --------------------------------------------------------------------- |
+| `divider` | `false` | `Boolean` <Table.D>Whether to show a divider between panels</Table.D> |
+
+### Accordion.Panel
+
+| Prop         | Default | Description                                                          |
+| ------------ | ------- | -------------------------------------------------------------------- |
+| `header`     |         | `String \| React.Element` <Table.D>The header of the panel</Table.D> |
+| `isOpen`     | `false` | `Boolean` <Table.D>Whether the panel is open</Table.D>               |
+| `headerIcon` |         | `Function` <Table.D>The icon to show in the header</Table.D>         |
+| `arrowIcon`  |         | `Function` <Table.D>The icon to show in the header</Table.D>         |

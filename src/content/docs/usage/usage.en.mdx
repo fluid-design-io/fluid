@@ -14,12 +14,7 @@ tags:
 
 # Usage
 
-Fluid Design consists of a pre-packaged set of components that can be used in any React application,
-as well as bare-bone code to create and customize your own components.
-
-## Components
-
-To use the components, first install the following dependencies:
+## Installation
 
 <CH.Code>
     
@@ -33,31 +28,68 @@ yarn add @fluid-design/fluid-ui
 
 </CH.Code>
 
-Then, you'll need to import the components you want to use:
+## Configure tailwind
+
+Add a primary color theme to your `tailwind.config.js` file:
 
 ```js tailwind.config.js
 module.exports = {
   // Add the following to your tailwind.config.js file:
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: 'rgb(var(--tw-color-primary-50) / <alpha-value>)',
+          100: 'rgb(var(--tw-color-primary-100) / <alpha-value>)',
+          200: 'rgb(var(--tw-color-primary-200) / <alpha-value>)',
+          300: 'rgb(var(--tw-color-primary-300) / <alpha-value>)',
+          400: 'rgb(var(--tw-color-primary-400) / <alpha-value>)',
+          500: 'rgb(var(--tw-color-primary-500) / <alpha-value>)',
+          600: 'rgb(var(--tw-color-primary-600) / <alpha-value>)',
+          700: 'rgb(var(--tw-color-primary-700) / <alpha-value>)',
+          800: 'rgb(var(--tw-color-primary-800) / <alpha-value>)',
+          900: 'rgb(var(--tw-color-primary-900) / <alpha-value>)',
+        },
+      },
+      // Other extended theme properties
+    },
+  },
   plugins: [require('@fluid-design/fluid-ui/src/plugin')],
-  // Rest of your tailwind.config.js file
 };
 ```
 
-## UI
+## Add primary colors
 
-Fluid UI set is a set of components that can be fully customized to fit your needs.
-Instead of wrapping them into a single component, you can use them individually.
+Lastly, in your `styles.css` file, add the rgb values of each primary variant:
+If you want to use predefined theme colors using TailwindCSS colors,
+you can go to <ExternalLink href='https://github.com/theodorusclarence/ts-nextjs-tailwind-starter/blob/main/src/styles/colors.css'>colors.css</ExternalLink>
+by <ExternalLink href="https://github.com/theodorusclarence">theodorusclarence</ExternalLink>
+and copy any of the color theme as the primary theme.
 
-<CH.Code>
+```css styles.css
+:root {
+  /* Primary theme values */
+  --tw-color-primary-50: 249 250 251;
+  --tw-color-primary-100: 243 244 246;
+  --tw-color-primary-200: 229 231 235;
+  --tw-color-primary-300: 209 213 219;
+  --tw-color-primary-400: 156 165 178;
+  --tw-color-primary-500: 107 113 122;
+  --tw-color-primary-600: 86 91 98;
+  --tw-color-primary-700: 52 56 60;
+  --tw-color-primary-800: 39 41 43;
+  --tw-color-primary-900: 17 18 19;
 
-```js npm
-npm install -D tailwindcss
-npm install framer-motion @headlessui/react
+  /* Static tailwind values */
+  --color-primary-50: rgb(var(--tw-color-primary-50)); /* #f9fafb */
+  --color-primary-100: rgb(var(--tw-color-primary-100)); /* #f3f4f6 */
+  --color-primary-200: rgb(var(--tw-color-primary-200)); /* #e5e7eb */
+  --color-primary-300: rgb(var(--tw-color-primary-300)); /* #d1d5db */
+  --color-primary-400: rgb(var(--tw-color-primary-400)); /* #9ca5b2 */
+  --color-primary-500: rgb(var(--tw-color-primary-500)); /* #6b717a */
+  --color-primary-600: rgb(var(--tw-color-primary-600)); /* #565b62 */
+  --color-primary-700: rgb(var(--tw-color-primary-700)); /* #34383c */
+  --color-primary-800: rgb(var(--tw-color-primary-800)); /* #27292b */
+  --color-primary-900: rgb(var(--tw-color-primary-900)); /* #111213 */
+}
 ```
-
-```js yarn
-yarn add -D @tailwindcss
-yarn add @framer/framer-motion @headlessui/react
-```
-
-</CH.Code>

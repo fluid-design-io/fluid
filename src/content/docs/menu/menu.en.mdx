@@ -17,7 +17,7 @@ tags:
 Menus are used to display a list of items using a dropdown components.
 Embeded with headless UI, they support a11y features such as keyboard navigation and screen reader support.
 
-<CodeFrame title='Menu'>
+<CodeFrame title='Menu Example'>
   <MenuExamples.Default />
 </CodeFrame>
 
@@ -75,3 +75,11 @@ function Example() {
   );
 }
 ```
+
+## Rendering additional content
+
+You can add custom content to the `<Menu />` component by passing a `children` prop.
+However, according to A11y standars and <a href='https:headlessui.com/react/menu#rendering-additional-content' target='_blank' referrerPolicy='no-referrer'>Headless UI</a>,
+it is recommended to use the `<Popover />` component instead.
+
+

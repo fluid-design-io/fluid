@@ -1,0 +1,115 @@
+---
+title: 'Fluid Design Docs | Form'
+description: 'Form component for Fluid Design'
+date: '2022-08-27'
+author: 'Oliver Pan'
+tags:
+  - 'fluid ui'
+  - 'react'
+  - 'framer motion'
+  - 'headless ui'
+  - 'tailwindcss'
+  - 'form'
+  - 'formik'
+  - 'input'
+  - 'textarea'
+  - 'checkbox'
+---
+
+## Input
+
+Fluid UI forms offers a simple and flexible way to build forms. It is built on top of <ExternalLink href="https://formik.org/">Formik</ExternalLink>.
+Input field is a basic input field that can be used to input text, numbers, and other types of data.
+It supports field validation through Formik's API or `Yup` schema.
+
+<CodeFrame title='Input Example'>
+  <FormExamples.Input />
+</CodeFrame>
+
+## Example
+
+```jsx
+import { Form, Input, SubmitButton } from '@fluid-design/fluid-ui';
+import { useState } from 'react';
+import * as Yup from 'yup';
+
+const InputExample = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required('Name is required'),
+    email: Yup.string().email('Email is invalid').required('Email is required'),
+    password: Yup.string()
+      .required('Password is required')
+      .min(8, 'Password must be at least 8 characters'),
+  });
+  return (
+    <div>
+      <Form
+        initialValues={{
+          name: '',
+          email: '',
+          password: '',
+        }}
+        validationSchema={validationSchema}
+        onSubmit={(values, { setSubmitting }) => {
+          setTimeout(() => {
+            setSubmitting(false);
+            setIsSubmitted(true);
+            setTimeout(() => {
+              setIsSubmitted(false);
+            }, 2000);
+          }, 2000);
+        }}
+      >
+        <Input name='name' label='Name' type='text' />
+        <Input name='email' label='Email' type='email' />
+        <Input name='password' label='Password' type='password' />
+        <SubmitButton
+          weight='outline'
+          className='w-full'
+          isLoaded={isSubmitted}
+          loadedOptions={{
+            className: 'text-green-500',
+          }}
+        >
+          Submit
+        </SubmitButton>
+      </Form>
+    </div>
+  );
+};
+```
+
+## State tracking
+
+Fluid UI forms tracks all of the fields inside without needing manual state management.
+To ensure the values are connected correctly, you'll need to set the `initialValues` keys the same as each of your input field `name` prop.
+
+<CH.Code>
+
+```jsx
+import { Form, Input, SubmitButton } from '@fluid-design/fluid-ui';
+
+<Form
+  initialValues={{
+    // mark[5:10]
+    age: 1,
+  }}
+  onSubmit={(values) => {
+    console.log(values);
+  }}
+>
+  {/* Make sure the name is the same as the initialValues key */}
+  // mark[10:19]
+  <Input name='age' label='Age' type='number' />
+  <SubmitButton>Submit</SubmitButton>
+</Form>;
+```
+
+</CH.Code>
+
+## Validation
+
+Fluid UI forms uses Formik under the hood, which means you can use <ExternalLink href='https://formik.org/docs/guides/validation#field-level-validation'>Formik's API</ExternalLink>
+and <ExternalLink href='https://github.com/jquense/yup'>Yup</ExternalLink> schema to validate your fields.
+You can read more about validation at the [Form Validation](https://formik.org/docs/validation) page.

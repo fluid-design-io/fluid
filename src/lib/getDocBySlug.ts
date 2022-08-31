@@ -2,7 +2,7 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 
-export default function getDocBySlug(slug, folder = '/', locale = 'us') {
+export default function getDocBySlug(slug, folder = '/', locale = 'en') {
   const docsDirectory = path.join(process.cwd(), `/src/content`, folder);
   const realSlug = slug.replace(/\.mdx$/, '');
   const fullPath = path.join(docsDirectory, `${realSlug}.${locale}.mdx`);
