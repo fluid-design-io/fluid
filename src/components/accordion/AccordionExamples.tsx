@@ -1,4 +1,4 @@
-import { Accordion, AccordionPanel } from '@fluid-design/fluid-ui';
+import { Accordion } from '@fluid-design/fluid-ui';
 import {
   CogIcon,
   InformationCircleIcon,
@@ -75,9 +75,9 @@ const AccordionSimple = () => {
     <AccordionWrap>
       <Accordion>
         {dataSimple.map((item, index) => (
-          <AccordionPanel key={index} header={item.title} isOpen={item.isOpen}>
+          <Accordion.Panel key={index} header={item.title} isOpen={item.isOpen}>
             {item.details}
-          </AccordionPanel>
+          </Accordion.Panel>
         ))}
       </Accordion>
     </AccordionWrap>
@@ -89,14 +89,14 @@ const AccordionWithIcons = () => {
     <AccordionWrap>
       <Accordion>
         {dataWithIcons.map((item, index) => (
-          <AccordionPanel
+          <Accordion.Panel
             key={index}
             header={item.title}
             isOpen={item.isOpen}
             headerIcon={item.Icon}
           >
             {item.details}
-          </AccordionPanel>
+          </Accordion.Panel>
         ))}
       </Accordion>
     </AccordionWrap>
