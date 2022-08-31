@@ -1,4 +1,4 @@
-import { Accordion, AccordionPanel } from '@fluid-design/fluid-ui';
+import { Accordion } from '@fluid-design/fluid-ui';
 
 const data = [
   {
@@ -61,9 +61,9 @@ function AccordionDividerComponent() {
     <div className='w-[calc(100%-2rem)] px-2 py-1 overflow-hidden divide-y rounded-lg divide-primary-300/75 dark:divide-primary-700 contrast-more:divide-primary-800 dark:contrast-more:divide-primary-50 contrast-more:contrast-ring component'>
       <Accordion divider className='contrast-more'>
         {data.map((item, index) => (
-          <AccordionPanel key={index} header={item.title} isOpen={item.isOpen}>
+          <Accordion.Panel key={index} header={item.title} isOpen={item.isOpen}>
             {item.details}
-          </AccordionPanel>
+          </Accordion.Panel>
         ))}
       </Accordion>
     </div>

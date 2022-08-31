@@ -1,4 +1,4 @@
-import { Accordion, AccordionPanel } from '@fluid-design/fluid-ui';
+import { Accordion } from '@fluid-design/fluid-ui';
 import {
   CogIcon,
   InformationCircleIcon,
@@ -99,14 +99,14 @@ function AccordionSimpleWithIconComponent() {
     <div className='w-full max-w-xs px-2 py-1 overflow-hidden rounded-lg shadow-lg md:!w-2/3 bg-primary-50 dark:bg-primary-900 shadow-primary-900/10 dark:shadow-primary-900/30 component contrast-more:bg-white dark:contrast-more:bg-primary-900 contrast-more:contrast-ring'>
       <Accordion>
         {data.map((item, index) => (
-          <AccordionPanel
+          <Accordion.Panel
             key={index}
             header={item.title}
             isOpen={item.isOpen}
             headerIcon={item.Icon}
           >
             {item.details}
-          </AccordionPanel>
+          </Accordion.Panel>
         ))}
       </Accordion>
     </div>

@@ -5,7 +5,7 @@ Component by fluid-design.io
 Last updated: 8/6/22
 */
 import React from "react";
-import { Accordion, AccordionPanel } from "@fluid-design/fluid-ui";
+import { Accordion } from "@fluid-design/fluid-ui";
 
 const data = [
   {
@@ -68,9 +68,9 @@ function Example() {
     <div className="w-[calc(100%-2rem)] px-2 py-1 overflow-hidden divide-y rounded-lg divide-primary-300/75 dark:divide-primary-700 prefers-contrast:divide-primary-800 dark:prefers-contrast:divide-primary-50 prefers-contrast:contrast-ring component">
       <Accordion divider>
         {data.map((item, index) => (
-          <AccordionPanel key={index} header={item.title} isOpen={item.isOpen}>
+          <Accordion.Panel key={index} header={item.title} isOpen={item.isOpen}>
             {item.details}
-          </AccordionPanel>
+          </Accordion.Panel>
         ))}
       </Accordion>
     </div>
