@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:css": "tailwindcss build styles/globals.css -o public/iframe/tw-iframe.css",
+    "build:css": "tailwindcss build styles/globals.css -o public/iframe/tw-iframe.css --minify",
     "start": "next start",
     "commit": "git-cz",
     "lint": "next lint",
