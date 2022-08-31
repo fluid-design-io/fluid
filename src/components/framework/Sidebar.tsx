@@ -1,20 +1,22 @@
-import packageInfo from '../../../package.json';
-import AppLogo from '../ui/AppLogo';
-import UnstyledLink from './UnstyledLink';
-import clsxm from '@/lib/clsxm';
-import { languages } from '@/lib/languages';
 import { Menu } from '@fluid-design/fluid-ui';
 import {
   BookOpenIcon,
-  Squares2X2Icon,
   ChevronUpIcon,
   GlobeAmericasIcon,
   GlobeAsiaAustraliaIcon,
+  Squares2X2Icon,
 } from '@heroicons/react/24/solid';
-import { i18n, useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { i18n, useTranslation } from 'next-i18next';
 import { MdMouse } from 'react-icons/md';
+
+import clsxm from '@/lib/clsxm';
+import { languages } from '@/lib/languages';
+
+import UnstyledLink from './UnstyledLink';
+import AppLogo from '../ui/AppLogo';
+import packageInfo from '../../../package.json';
 
 const navigation = [
   { name: 'Dashboard', href: 'dashboard', icon: Squares2X2Icon },
@@ -81,8 +83,8 @@ export const SidebarMenu = () => {
           <span className='sr-only'>Fluid Design</span>
           <AppLogo />
           <UnstyledLink
-            href='/'
             className='-mt-[0.125rem] font-rounded font-bold text-primary-700 dark:text-primary-200 md:!text-[1.175rem]'
+            href='/'
           >
             <div>Fluid Design</div>
             <div className='-mt-1.5 text-left font-sans text-[0.6rem] font-bold tracking-wide text-primary-500 contrast-more:text-primary-900 dark:text-primary-400 dark:contrast-more:text-primary-50'>
@@ -91,12 +93,12 @@ export const SidebarMenu = () => {
           </UnstyledLink>
         </div>
         <nav
-          className='flex flex-1 flex-col gap-2 p-1 px-4 pb-[calc(1rem+env(safe-area-inset-bottom))]'
           aria-label='Sidebar'
+          className='flex flex-1 flex-col gap-2 p-1 px-4 pb-[calc(1rem+env(safe-area-inset-bottom))]'
         >
           {navigation.map(({ name, href, icon: ItemIcon }) => (
-            <div key={`nav.${name}.${href}`} className='rounded-md'>
-              <Link key={name} href={`/docs/${href}`}>
+            <div className='rounded-md' key={`nav.${name}.${href}`}>
+              <Link href={`/docs/${href}`} key={name}>
                 <a
                   className={clsxm(
                     activeTab === href
@@ -113,7 +115,7 @@ export const SidebarMenu = () => {
                       : `border-primary-500 text-primary-600 dark:border-primary-200/80 dark:text-primary-300`
                   }`}
                   >
-                    <ItemIcon className='h-3.5 w-3.5' aria-hidden='true' />
+                    <ItemIcon aria-hidden='true' className='h-3.5 w-3.5' />
                   </div>
                   <div className='ml-2 text-base font-medium text-primary-900 dark:text-primary-200'>
                     {activeTab === href && (
@@ -126,7 +128,7 @@ export const SidebarMenu = () => {
             </div>
           ))}
           {secondaryNavigation.map(({ groupList, groupName }, i) => (
-            <div key={`${groupName}`} className='space-y-1 py-2'>
+            <div className='space-y-1 py-2' key={`${groupName}`}>
               {i !== 0 && (
                 <div className='mb-4 border-t border-primary-300/50 dark:border-primary-200/10'></div>
               )}
@@ -137,9 +139,9 @@ export const SidebarMenu = () => {
                 {t(groupName)}
               </h3>
               <div
+                aria-labelledby={`${groupName}-headline`}
                 className='space-y-1'
                 role='group'
-                aria-labelledby={`${groupName}-headline`}
               >
                 {groupList.map(({ name, href, isDone }) =>
                   !isDone ? (
@@ -161,7 +163,7 @@ export const SidebarMenu = () => {
                       )}
                     </p>
                   ) : (
-                    <Link key={`${groupName}.${name}`} href={`/docs/${href}`}>
+                    <Link href={`/docs/${href}`} key={`${groupName}.${name}`}>
                       <a
                         className={clsxm([
                           'hocus:contrast-bg hocus:contrast-text group flex items-center rounded-md border border-transparent px-3 py-2 text-sm font-medium',
@@ -189,17 +191,17 @@ export const SidebarMenu = () => {
           ))}
           <div className='flex-grow' />
           <Menu
-            size='sm'
             buttonClassName='w-full btn-clear-primary'
+            iconEnd={ChevronUpIcon}
+            iconEndPosition='between'
             label={t(`Language`, { ns: 'navbar' })}
+            menuPositionY='top'
+            size='sm'
             iconStart={
               i18n?.language === 'en'
                 ? GlobeAmericasIcon
                 : GlobeAsiaAustraliaIcon
             }
-            iconEnd={ChevronUpIcon}
-            iconEndPosition='between'
-            menuPositionY='top'
             iconClassName='w-4 h-4'
             // @ts-ignore
             menus={languages.map(({ code, country_code, name }) => ({
@@ -225,7 +227,7 @@ export const Sidebar = ({ hideNav = false, docNav = undefined }) => {
   return (
     <>
       <div
-        className={`sticky top-0 z-[61] hidden self-start transition duration-300 sm:block`}
+        className="sticky top-0 z-[61] hidden self-start transition duration-300 sm:block"
       >
         <SidebarMenu />
       </div>

@@ -1,6 +1,6 @@
 import { HeartIcon, ShareIcon } from '@heroicons/react/24/outline';
-import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 
 function CardStandardComponent({ setNotification, src = undefined, ...props }) {
   const { t } = useTranslation('image');
@@ -15,13 +15,13 @@ function CardStandardComponent({ setNotification, src = undefined, ...props }) {
         <div className='relative w-full h-full overflow-hidden select-none pointer-events-none'>
           <Image
             alt='Sunrise in the national park Gantrisch in Bern, Switzerland. By Alain from Unsplash.'
+            layout='fill'
+            objectFit='cover'
             src={
               src
                 ? src
                 : `https://images.unsplash.com/photo-1613125700782-8394bec3e89d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80`
             }
-            objectFit='cover'
-            layout='fill'
           />
         </div>
       </div>

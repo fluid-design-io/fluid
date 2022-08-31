@@ -12,7 +12,7 @@ const data = [
     title: 'Shop',
     details: (
       <p
-        className={`my-2 text-primary-600 dark:text-primary-300 contrast-more:text-primary-900 dark:contrast-more:text-primary-50`}
+        className="my-2 text-primary-600 dark:text-primary-300 contrast-more:text-primary-900 dark:contrast-more:text-primary-50"
       >
         Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
         ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
@@ -28,7 +28,7 @@ const data = [
     title: 'Service',
     details: (
       <p
-        className={`my-2 text-primary-600 dark:text-primary-300 contrast-more:text-primary-900 dark:contrast-more:text-primary-50`}
+        className="my-2 text-primary-600 dark:text-primary-300 contrast-more:text-primary-900 dark:contrast-more:text-primary-50"
       >
         Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
         purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis
@@ -44,7 +44,7 @@ const data = [
     details: (
       <>
         <p
-          className={`my-2 text-primary-600 dark:text-primary-300 contrast-more:text-primary-900 dark:contrast-more:text-primary-50`}
+          className="my-2 text-primary-600 dark:text-primary-300 contrast-more:text-primary-900 dark:contrast-more:text-primary-50"
         >
           Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque
           lobortis. Phasellus pellentesque purus in massa. Aenean in pede.
@@ -53,7 +53,7 @@ const data = [
           leo purus venenatis dui.
         </p>
         <ul
-          className={`mb-2 text-primary-600 dark:text-primary-400 contrast-more:text-primary-900 dark:contrast-more:text-primary-50`}
+          className="mb-2 text-primary-600 dark:text-primary-400 contrast-more:text-primary-900 dark:contrast-more:text-primary-50"
         >
           <li>List item one</li>
           <li>List item two</li>
@@ -74,10 +74,16 @@ function AccordionSimpleWithIconComponent() {
 
   const ListPanel = ({ children }) => (
     <motion.div
-      key={`${name}.content`}
-      initial='collapsed'
       animate='open'
+      className="overflow-hidden !mt-0 mx-4"
       exit='collapsed'
+      initial='collapsed'
+      key={`${name}.content`}
+      transition={{
+        type: 'spring',
+        bounce: 0,
+        duration: shouldReduceMotion ? 0.2 : 0.5,
+      }}
       variants={{
         open: { opacity: 1, height: 'auto' },
         collapsed: {
@@ -85,12 +91,6 @@ function AccordionSimpleWithIconComponent() {
           height: shouldReduceMotion ? 'auto' : 0,
         },
       }}
-      transition={{
-        type: 'spring',
-        bounce: 0,
-        duration: shouldReduceMotion ? 0.2 : 0.5,
-      }}
-      className={`overflow-hidden !mt-0 mx-4`}
     >
       {children}
     </motion.div>
@@ -100,10 +100,10 @@ function AccordionSimpleWithIconComponent() {
       <Accordion>
         {data.map((item, index) => (
           <Accordion.Panel
-            key={index}
             header={item.title}
-            isOpen={item.isOpen}
             headerIcon={item.Icon}
+            isOpen={item.isOpen}
+            key={index}
           >
             {item.details}
           </Accordion.Panel>

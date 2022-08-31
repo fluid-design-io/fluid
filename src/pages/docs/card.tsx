@@ -1,6 +1,8 @@
-import { MDXLayout, CardExamples } from '@/components';
-import { getPageProps } from '@/lib/getPageProps';
 import React from 'react';
+
+import { getPageProps } from '@/lib/getPageProps';
+
+import { CardExamples,MDXLayout } from '@/components';
 
 function ButtonPage(props) {
   const { source, meta, slug } = props;

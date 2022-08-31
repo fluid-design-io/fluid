@@ -1,7 +1,7 @@
-import { Page } from '../components/framework';
-import { SiteMeta } from '../interfaces/framwork';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
+import { Page } from '../components/framework';
 
 export async function getStaticProps({ locale }) {
   return {
@@ -20,9 +20,9 @@ export default function ContactPage() {
       'Beautiful React components that are responsive, supports features like dark mode and a11y with elegant transitions.',
   };
   return (
-    <Page meta={meta} sidebar={false} className=''>
+    <Page className='' meta={meta} sidebar={false}>
       <div /> {/* Placeholder */}
-      <section className={`prose mx-auto pt-16 dark:prose-invert`}>
+      <section className="prose mx-auto pt-16 dark:prose-invert">
         <h1>Privacy Policy</h1>
 
         <p>

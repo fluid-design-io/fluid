@@ -1,20 +1,21 @@
-import { CodeFrameComponentWrap } from '../framework/CodeFrameComponentWrap';
-import clsxm from '@/lib/clsxm';
-import { useToast } from '@/lib/useToast';
 import { Menu } from '@fluid-design/fluid-ui';
 import {
-  BellIcon,
-  CogIcon,
   ArrowRightOnRectangleIcon,
-  UserIcon,
+  BellIcon,
   ChevronRightIcon,
-  PencilIcon,
-  VideoCameraIcon,
+  CogIcon,
   DocumentIcon,
+  PencilIcon,
   TrashIcon,
+  UserIcon,
+  VideoCameraIcon,
 } from '@heroicons/react/24/outline';
 import { PlusCircleIcon } from '@heroicons/react/24/solid';
 import { Fragment, useState } from 'react';
+
+import { useToast } from '@/lib/useToast';
+
+import { CodeFrameComponentWrap } from '../framework/CodeFrameComponentWrap';
 
 /* 
   .clickable {
@@ -43,13 +44,13 @@ const DefaultMenu = () => {
   return (
     <CodeFrameComponentWrap className='flex flex-col justify-between items-end h-96 w-full sm:w-2/3 lg:w-1/2 min-w-[16rem]'>
       <Menu
-        label={'Settings'}
         color='gray'
-        weight='clear'
-        iconStart={CogIcon}
-        iconEndPosition='between'
-        menuPositionY='bottom'
         header='Hi, User'
+        iconEndPosition='between'
+        iconStart={CogIcon}
+        label="Settings"
+        menuPositionY='bottom'
+        weight='clear'
         menus={[
           {
             label: 'Profile',
@@ -105,37 +106,37 @@ const DefaultMenu = () => {
       />
       <div className='flex justify-between items-center w-full'>
         <Menu
-          label={'Options'}
+          className='inline-block'
           color='indigo'
-          weight='light'
           iconEnd={ChevronRightIcon}
           iconEndPosition='between'
-          menuPositionY='center'
-          menuPositionX='end'
+          label="Options"
           menuClassName='w-40'
-          className='inline-block'
+          menuPositionX='end'
+          menuPositionY='center'
+          weight='light'
         >
           <Fragment>
             <div className='px-3.5 py-2 flex justify-center items-center flex-col gap-2'>
               <img
-                src={avatarImage}
                 alt='avatar'
                 className='w-12 h-12 rounded-full'
+                src={avatarImage}
               />
               <p>Custom Menu</p>
             </div>
             <Menu.Item
               className='justify-between'
-              role='info'
               isLoading={isEditing}
+              role='info'
+              loadingOptions={{
+                animation: 'pulse',
+              }}
               disabled={isEditing}
               // @ts-ignore
               onClick={(e) => {
                 e.preventDefault();
                 toggleStateWithTimeout(setIsEditing);
-              }}
-              loadingOptions={{
-                animation: 'pulse',
               }}
             >
               <span>Edit</span>
@@ -143,8 +144,8 @@ const DefaultMenu = () => {
             </Menu.Item>
             <Menu.Item
               className='justify-between'
-              role='destructive'
               disabled={true}
+              role='destructive'
             >
               <span>Delete</span>
               <TrashIcon className='w-4 h-4' />
@@ -152,15 +153,15 @@ const DefaultMenu = () => {
           </Fragment>
         </Menu>
         <Menu
-          iconStart={PlusCircleIcon}
           color='green'
-          shape='pill'
-          size='lg'
+          header='Horizontal Menu'
           horizontal
           iconOnly
-          menuPositionY='center'
+          iconStart={PlusCircleIcon}
           menuPositionX='start'
-          header='Horizontal Menu'
+          menuPositionY='center'
+          shape='pill'
+          size='lg'
           menus={[
             {
               icon: VideoCameraIcon,

@@ -6,7 +6,7 @@ import IndexList from '@/components/instance/IndexList';
 import IndexSharedLayout from '@/components/instance/IndexSharedLayout';
 import IndexSimple from '@/components/instance/IndexSimple';
 import IndexSoft from '@/components/instance/IndexSoft';
-import { FeatureCardProps } from '@/interfaces/featureCard';
+
 import animationDark from '~/assets/index/animation-dark.png';
 import animationLight from '~/assets/index/animation-light.png';
 import contrastDark from '~/assets/index/contrast-dark.png';
@@ -30,19 +30,19 @@ export const indexElements = [
     lists: [
       {
         name: 'Elegant',
-        component: <IndexElegant key={`div.elegant`} />,
+        component: <IndexElegant key="div.elegant" />,
       },
       {
         name: 'Simple',
-        component: <IndexSimple key={`div.simple`} />,
+        component: <IndexSimple key="div.simple" />,
       },
       {
         name: 'Soft',
-        component: <IndexSoft key={`div.soft`} />,
+        component: <IndexSoft key="div.soft" />,
       },
       {
         name: 'Glass',
-        component: <IndexGlass key={`div.glass`} />,
+        component: <IndexGlass key="div.glass" />,
       },
     ],
   },
@@ -51,11 +51,11 @@ export const indexElements = [
     lists: [
       {
         name: 'Card',
-        component: <IndexCard key={`div.card`} />,
+        component: <IndexCard key="div.card" />,
       },
       {
         name: 'List',
-        component: <IndexList key={`div.list`} />,
+        component: <IndexList key="div.list" />,
       },
     ],
   },
@@ -64,11 +64,11 @@ export const indexElements = [
     lists: [
       {
         name: 'Enter & Exit',
-        component: <IndexEnterExit key={`div.enter`} />,
+        component: <IndexEnterExit key="div.enter" />,
       },
       {
         name: 'Shared Layout',
-        component: <IndexSharedLayout key={`div.sharedlayout`} />,
+        component: <IndexSharedLayout key="div.sharedlayout" />,
       },
     ],
   },

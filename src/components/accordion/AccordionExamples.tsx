@@ -10,7 +10,7 @@ const dataSimple = [
     title: 'Shop',
     details: (
       <p
-        className={`my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50`}
+        className="my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50"
       >
         Our shop contains all the tools you need to build a great design system.
         We have a wide range of tools and resources to help you get started.
@@ -22,7 +22,7 @@ const dataSimple = [
     title: 'Service',
     details: (
       <p
-        className={`my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50`}
+        className="my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50"
       >
         We offer a wide range of services to help you get started.
       </p>
@@ -34,13 +34,13 @@ const dataSimple = [
     details: (
       <>
         <p
-          className={`my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50`}
+          className="my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50"
         >
           We are a small team of designers and developers who create
           high-quality design systems.
         </p>
         <ul
-          className={`mb-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-400 dark:contrast-more:text-primary-50`}
+          className="mb-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-400 dark:contrast-more:text-primary-50"
         >
           <li>Beautiful designs</li>
           <li>A11y</li>
@@ -75,7 +75,7 @@ const AccordionSimple = () => {
     <AccordionWrap>
       <Accordion>
         {dataSimple.map((item, index) => (
-          <Accordion.Panel key={index} header={item.title} isOpen={item.isOpen}>
+          <Accordion.Panel header={item.title} isOpen={item.isOpen} key={index}>
             {item.details}
           </Accordion.Panel>
         ))}
@@ -90,10 +90,10 @@ const AccordionWithIcons = () => {
       <Accordion>
         {dataWithIcons.map((item, index) => (
           <Accordion.Panel
-            key={index}
             header={item.title}
-            isOpen={item.isOpen}
             headerIcon={item.Icon}
+            isOpen={item.isOpen}
+            key={index}
           >
             {item.details}
           </Accordion.Panel>

@@ -2,6 +2,7 @@ import { HeartIcon, ShareIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
+
 import bg from '~/assets/index/index-resp-card-bg.jpg';
 
 function IndexResponsiveCard() {
@@ -38,11 +39,11 @@ function IndexResponsiveCard() {
   };
   return (
     <motion.div
-      initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      exit={{ y: -10, opacity: 0 }}
-      transition={{ type: 'just' }}
       className={`overflow-hidden rounded-lg shadow-lg bg-primary-50 dark:bg-primary-900 shadow-primary-900/10 dark:shadow-primary-900/30 mx-auto ${cardWrapStyle}`}
+      exit={{ y: -10, opacity: 0 }}
+      initial={{ y: 10, opacity: 0 }}
+      transition={{ type: 'just' }}
     >
       <div className={`flex ${cardStyle}`}>
         <div className={`relative overflow-hidden ${cardImgStyle} `}>

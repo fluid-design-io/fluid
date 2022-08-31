@@ -1,9 +1,10 @@
-import Doc from '@/components/framework/Doc';
-import { ListDetail, ListNested, ListSimple } from '@/components/list';
-import { SiteMeta } from '@/interfaces/framwork';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
+
+import Doc from '@/components/framework/Doc';
+import { ListDetail, ListNested, ListSimple } from '@/components/list';
+
 
 export async function getStaticProps({ locale }) {
   return {
@@ -46,11 +47,11 @@ function ListPage() {
 
   return (
     <Doc
-      meta={meta}
-      title={t('List', { ns: 'list' })}
-      description={t('description', { ns: 'list' })}
       className='min-h-screen'
+      description={t('description', { ns: 'list' })}
+      meta={meta}
       sections={sections}
+      title={t('List', { ns: 'list' })}
     />
   );
 }

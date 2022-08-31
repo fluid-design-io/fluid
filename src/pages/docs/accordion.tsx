@@ -1,6 +1,8 @@
-import { AccordionExamples, MDXLayout } from '@/components';
-import { getPageProps } from '@/lib/getPageProps';
 import React from 'react';
+
+import { getPageProps } from '@/lib/getPageProps';
+
+import { AccordionExamples, MDXLayout } from '@/components';
 
 function AccordionPage(props) {
   const { source, meta, slug } = props;

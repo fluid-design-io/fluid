@@ -1,12 +1,12 @@
-import { ListWithIconComponent } from '.';
-import ListTextOnlyComponent from './components/ListTextOnlyComponent';
-import { CodeBlockFeatureProps } from '@/interfaces/CodeBlock';
 import { useTranslation } from 'next-i18next';
 //@ts-ignore
 import textOnly from 'raw-loader!@/lib/code/ListSimpleTextOnly.code.txt';
 //@ts-ignore
 import withIcon from 'raw-loader!@/lib/code/ListWithIcon.code.txt';
 import { useState } from 'react';
+
+import { ListWithIconComponent } from '.';
+import ListTextOnlyComponent from './components/ListTextOnlyComponent';
 
 function ListSimple() {
   const [notification, setNotification] = useState(undefined);

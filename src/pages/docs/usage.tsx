@@ -1,6 +1,8 @@
-import { MDXLayout } from '@/components';
-import { getPageProps } from '@/lib/getPageProps';
 import React from 'react';
+
+import { getPageProps } from '@/lib/getPageProps';
+
+import { MDXLayout } from '@/components';
 
 function TestPage(props) {
   const { source, meta, slug } = props;

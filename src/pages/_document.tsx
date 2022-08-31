@@ -1,52 +1,52 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang='en-US' dir='ltr'>
+      <Html dir='ltr' lang='en-US'>
         <Head>
           <link
+            href='/assets/favicon/apple-touch-icon.png'
             rel='apple-touch-icon'
             sizes='180x180'
-            href='/assets/favicon/apple-touch-icon.png'
           />
           <link
-            rel='icon'
-            type='image/png'
-            sizes='32x32'
             href='/assets/favicon/favicon-32x32.png'
-          />
-          <link
             rel='icon'
+            sizes='32x32'
             type='image/png'
-            sizes='16x16'
-            href='/assets/favicon/favicon-16x16.png'
           />
-          <link rel='manifest' href='/manifest.json' />
           <link
-            rel='mask-icon'
-            href='/assets/favicon/safari-pinned-tab.svg'
-            color='#44403c'
+            href='/assets/favicon/favicon-16x16.png'
+            rel='icon'
+            sizes='16x16'
+            type='image/png'
           />
-          <meta name='msapplication-TileColor' content='#2b5797' />
+          <link href='/manifest.json' rel='manifest' />
+          <link
+            color='#44403c'
+            href='/assets/favicon/safari-pinned-tab.svg'
+            rel='mask-icon'
+          />
+          <meta content='#2b5797' name='msapplication-TileColor' />
 
           <link
             href='https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Nunito:wght@700&display=swap'
             rel='stylesheet'
           />
           <link
-            rel='preload'
-            href='/fonts/inter-var-latin.woff2'
             as='font'
-            type='font/woff2'
             crossOrigin='anonymous'
+            href='/fonts/inter-var-latin.woff2'
+            rel='preload'
+            type='font/woff2'
           />
           <link
-            rel='preload'
-            href='/fonts/nunito-latin.woff2'
             as='font'
-            type='font/woff2'
             crossOrigin='anonymous'
+            href='/fonts/nunito-latin.woff2'
+            rel='preload'
+            type='font/woff2'
           />
         </Head>
         <body>

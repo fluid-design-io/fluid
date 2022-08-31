@@ -2,7 +2,7 @@ import { Button } from '@fluid-design/fluid-ui';
 import { CursorArrowRaysIcon, XMarkIcon } from '@heroicons/react/24/solid';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useId } from 'react';
-import toast, { Toast } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 export interface ToastProps {
   icon?: (props: React.ComponentProps<'svg'>) => React.ReactElement;
@@ -24,11 +24,11 @@ const ToastBody = (
     <AnimatePresence mode='sync'>
       {t.visible && (
         <motion.div
-          key={id}
-          className='pointer-events-auto relative mb-4 w-4/5 max-w-[240px] overflow-hidden rounded-full bg-primary-50/75 p-1 shadow-lg shadow-primary-700/10 backdrop-blur-2xl backdrop-filter dark:bg-primary-700/60 sm:w-3/5'
-          initial={{ opacity: 1, y: 80, filter: 'blur(0px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          className='pointer-events-auto relative mb-4 w-4/5 max-w-[240px] overflow-hidden rounded-full bg-primary-50/75 p-1 shadow-lg shadow-primary-700/10 backdrop-blur-2xl backdrop-filter dark:bg-primary-700/60 sm:w-3/5'
           exit={{ opacity: 0, filter: 'blur(10px)' }}
+          initial={{ opacity: 1, y: 80, filter: 'blur(0px)' }}
+          key={id}
           layoutId={id}
           transition={{ type: 'spring', bounce: 0.2 }}
         >
@@ -36,7 +36,7 @@ const ToastBody = (
             <div className='flex-shrink-0'>
               {image ? (
                 <div className='relative h-9 w-9 overflow-hidden rounded-full'>
-                  <img src={image} alt={`notification`} />
+                  <img alt="notification" src={image} />
                 </div>
               ) : (
                 <Icon className='ml-2 h-5 w-5 text-primary-800 dark:text-primary-200' />
@@ -52,13 +52,13 @@ const ToastBody = (
             </div>
 
             <Button
-              weight='clear'
+              className='relative right-1 mr-2 flex-shrink-0 p-1.5'
               color='stone'
+              iconOnly
+              onClick={() => toast.dismiss(t.id)}
               shape='pill'
               sr='Close Notification'
-              iconOnly
-              className='relative right-1 mr-2 flex-shrink-0 p-1.5'
-              onClick={() => toast.dismiss(t.id)}
+              weight='clear'
             >
               <XMarkIcon className='h-4 w-4 text-primary-600 dark:text-primary-400' />
             </Button>

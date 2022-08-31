@@ -1,15 +1,17 @@
 /* Source: https://github.com/shuding/nextra/blob/core/packages/nextra-theme-docs/src/mdx-components.tsx */
-import { Anchor } from '.';
-import { useSetActiveAnchor } from '../contexts';
-import clsxm from '@/lib/clsxm';
-import { IS_BROWSER } from '@/lib/constants';
 import { HashtagIcon } from '@heroicons/react/24/outline';
 import cn from 'clsx';
 import Slugger from 'github-slugger';
-import 'intersection-observer';
 import { useRouter } from 'next/router';
-import React, { ComponentProps, ReactElement, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import 'intersection-observer';
+
+import clsxm from '@/lib/clsxm';
+import { IS_BROWSER } from '@/lib/constants';
+
+import { Anchor } from '.';
+import { useSetActiveAnchor } from '../contexts';
 
 let observer: IntersectionObserver;
 let setActiveAnchor: ReturnType<typeof useSetActiveAnchor>;
@@ -41,7 +43,7 @@ if (IS_BROWSER) {
         let activeSlug = '';
         let smallestIndexInViewport = Infinity;
         let largestIndexAboveViewport = -1;
-        for (let s in ret) {
+        for (const s in ret) {
           ret[s].isActive = false;
           if (
             ret[s].insideHalfViewport &&
@@ -117,11 +119,11 @@ const createHeaderLink = (
         <div className='pointer-events-auto flex items-center'>
           <CopyToClipboard text={`${pathname}#${id}`}>
             <a
-              href={`#${id}`}
-              className='anchor anchor-link hash-link hash absolute top-28 bottom-0 right-0 ml-0 lg:mt-0.5 flex items-center border-0 opacity-0 focus:opacity-100 group-hover:opacity-100 md:top-16 lg:right-auto lg:-ml-9 xl:-ml-10 pointer-touch:opacity-80'
-              title={`Direct link to heading ${id}`}
-              aria-live='assertive'
               aria-label={`${`Click to copy section hashtag`}`}
+              aria-live='assertive'
+              className='anchor anchor-link hash-link hash absolute top-28 bottom-0 right-0 ml-0 lg:mt-0.5 flex items-center border-0 opacity-0 focus:opacity-100 group-hover:opacity-100 md:top-16 lg:right-auto lg:-ml-9 xl:-ml-10 pointer-touch:opacity-80'
+              href={`#${id}`}
+              title={`Direct link to heading ${id}`}
             >
               <div data-tooltip-top='Copy'>
                 <HashtagIcon className='flex h-6 w-6 items-center justify-center rounded-md p-1 text-primary-400 shadow-sm ring-1 ring-primary-900/5 hover:text-primary-700 hover:shadow hover:ring-primary-900/10 dark:bg-primary-700 dark:text-primary-300 dark:shadow-none dark:ring-0 dark:hover:text-primary-50' />
@@ -136,9 +138,9 @@ const createHeaderLink = (
 
 const A = ({ href = '', ...props }) => (
   <Anchor
+    className='ring-primary-500/30 focus:outline-none focus-visible:ring'
     href={href}
     newWindow={href.startsWith('https://')}
-    className='ring-primary-500/30 focus:outline-none focus-visible:ring'
     {...props}
   />
 );

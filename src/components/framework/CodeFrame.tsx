@@ -1,6 +1,3 @@
-import { CodeFrameProps } from '@/interfaces/CodeBlock';
-import { useThemeMode } from '@/lib/ThemeContext';
-import clsxm from '@/lib/clsxm';
 import { SunIcon } from '@heroicons/react/24/solid';
 import { useTranslation } from 'next-i18next';
 import React, { useEffect, useState } from 'react';
@@ -11,6 +8,9 @@ import {
   MdFormatTextdirectionLToR,
   MdFormatTextdirectionRToL,
 } from 'react-icons/md';
+
+import clsxm from '@/lib/clsxm';
+import { useThemeMode } from '@/lib/ThemeContext';
 
 export const FunctionalIFrameComponent = ({
   children,
@@ -99,14 +99,14 @@ export const FunctionalIFrameComponent = ({
 
   return (
     <iframe
-      title={title}
+      allowFullScreen
       ref={setContentRef}
+      style={{ height }}
+      title={title}
       className={clsxm(
         'box-content w-full transition delay-700',
         mountNode ? 'visible opacity-100' : 'invisible opacity-0'
       )}
-      allowFullScreen
-      style={{ height }}
       {...props}
     >
       {mountNode && createPortal(children, mountNode)}
@@ -263,10 +263,11 @@ export const CodeFrame = ({
                   <React.Fragment key={`${title}.${name}`}>
                     {i !== 0 && (
                       <div
-                        className={`my-2 mx-1 w-[2px] flex-grow-0 bg-primary-400/30 dark:bg-white/10`}
+                        className="my-2 mx-1 w-[2px] flex-grow-0 bg-primary-400/30 dark:bg-white/10"
                       />
                     )}
                     <button
+                      onClick={() => handlePreferences(name)}
                       className={clsxm(
                         `clickable relative flex items-center rounded-md py-1.5 px-2 text-xs font-medium`,
                         buttonStyle,
@@ -274,7 +275,6 @@ export const CodeFrame = ({
                           ? 'text-primary-800 motion-reduce:bg-primary-200/70 motion-reduce:backdrop-blur-md motion-reduce:backdrop-filter dark:text-primary-100 dark:motion-reduce:bg-primary-900/60'
                           : 'hover:text-primary-800 dark:hover:text-primary-100'
                       )}
-                      onClick={() => handlePreferences(name)}
                     >
                       <span className='sr-only'>{t(name)}</span>
                       <span className=''>
@@ -294,7 +294,7 @@ export const CodeFrame = ({
               )}
             </div>
           </div>
-          <FunctionalIFrameComponent title={title} preferences={preferences}>
+          <FunctionalIFrameComponent preferences={preferences} title={title}>
             <div
               className={clsxm('grid w-full place-items-center pt-20 pb-16')}
             >

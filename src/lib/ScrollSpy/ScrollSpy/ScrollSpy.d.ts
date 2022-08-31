@@ -1,4 +1,3 @@
-import { MutableRefObject, ReactNode } from 'react';
 
 interface ScrollSpyProps {
   children: ReactNode;

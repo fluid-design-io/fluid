@@ -4,7 +4,7 @@ import theme from 'prism-react-renderer/themes/nightOwl';
 function Code({ content, ...props }) {
   return (
     /* @ts-ignore */
-    <Highlight {...defaultProps} theme={theme} code={content} language='jsx'>
+    <Highlight {...defaultProps} code={content} language='jsx' theme={theme}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
           className={`px-4 overflow-x-auto ${

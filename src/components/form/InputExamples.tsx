@@ -1,8 +1,10 @@
-import { CodeFrameComponentWrap } from '../framework/CodeFrameComponentWrap';
-import { useToast } from '@/lib/useToast';
 import { Form, Input, SubmitButton } from '@fluid-design/fluid-ui';
 import { useState } from 'react';
 import * as Yup from 'yup';
+
+import { useToast } from '@/lib/useToast';
+
+import { CodeFrameComponentWrap } from '../framework/CodeFrameComponentWrap';
 
 const InputExample = () => {
   const [present] = useToast();
@@ -17,12 +19,12 @@ const InputExample = () => {
   return (
     <CodeFrameComponentWrap className='min-w-[calc(min(20rem,100%-2rem))] items-stretch'>
       <Form
+        validationSchema={validationSchema}
         initialValues={{
           name: '',
           email: '',
           password: '',
         }}
-        validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting }) => {
           present({
             title: 'Form submitted',
@@ -37,13 +39,13 @@ const InputExample = () => {
           }, 2000);
         }}
       >
-        <Input name='name' label='Name' type='text' />
-        <Input name='email' label='Email' type='email' />
-        <Input name='password' label='Password' type='password' />
+        <Input label='Name' name='name' type='text' />
+        <Input label='Email' name='email' type='email' />
+        <Input label='Password' name='password' type='password' />
         <SubmitButton
-          weight='outline'
           className='w-full'
           isLoaded={isSubmitted}
+          weight='outline'
           loadedOptions={{
             className: 'text-green-500',
           }}

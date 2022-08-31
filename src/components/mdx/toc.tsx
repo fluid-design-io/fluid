@@ -1,6 +1,3 @@
-import { ActiveAnchor, useActiveAnchor } from '../contexts';
-import { useScrolled } from '@/lib';
-import clsxm from '@/lib/clsxm';
 import { Popover } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/24/solid';
 import cn from 'clsx';
@@ -8,12 +5,16 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 import React, {
   Fragment,
-  ReactElement,
   useEffect,
   useRef,
   useState,
 } from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
+
+import { useScrolled } from '@/lib';
+import clsxm from '@/lib/clsxm';
+
+import { useActiveAnchor } from '../contexts';
 
 export function getHeadingText(heading: any) {
   return heading?.text ? heading.text : '';
@@ -49,6 +50,7 @@ function OrdedListItem({
   }, [state?.isActive]);
   return (
     <li
+      ref={ref}
       className={cn(
         'scroll-my-6 scroll-py-6',
         {
@@ -60,7 +62,6 @@ function OrdedListItem({
           6: 'ml-16',
         }[heading.depth || 1]
       )}
-      ref={ref}
     >
       <a
         href={`#${slug}`}
@@ -107,14 +108,14 @@ const ListItem = ({
       )}
     >
       <a
+        aria-selected={state?.isActive}
         href={`#${slug}`}
+        onClick={handleClose}
         className={clsxm(
           '-mx-2 -my-0.5 w-full rounded-md px-2 py-0.5 capitalize transition hocus:bg-primary-50/75 dark:hocus:bg-primary-900/75',
           state?.isActive &&
             'font-medium text-primary-800 dark:text-primary-100'
         )}
-        aria-selected={state?.isActive}
-        onClick={handleClose}
       >
         {text}
       </a>
@@ -147,11 +148,11 @@ const Desktop = () => {
               {headings.map((heading) => {
                 return (
                   <OrdedListItem
-                    heading={heading}
                     activeAnchor={anchors}
+                    heading={heading}
+                    key={heading.value}
                     slug={heading.value}
                     text={heading.text}
-                    key={heading.value}
                   />
                 );
               })}
@@ -198,10 +199,10 @@ const Mobile = () => {
       {({ open, close }) => (
         <Fragment>
           <Popover.Button
-            role={`button`}
             as={motion.button}
             className='mobile-doc-nav focus-ring flex w-full flex-shrink-0 items-center justify-between px-4 text-sm [-webkit-tap-highlight-color:transparent] sm:px-4 md:px-8 lg:px-14'
             onClick={() => setShowMoblieDoc(!showMoblieDoc)}
+            role="button"
             animate={{
               paddingTop: hasScrolled ? '1rem' : '0.375rem',
               paddingBottom: hasScrolled ? '1rem' : '0.375rem',
@@ -231,13 +232,13 @@ const Mobile = () => {
               </span>
             </p>
             <motion.span
-              initial={{ rotate: 0 }}
               animate={{ rotate: showMoblieDoc ? -180 : 0 }}
+              className='mr-[env(safe-area-inset-right)]'
+              initial={{ rotate: 0 }}
               transition={{
                 type: 'spring',
                 bounce: 0,
               }}
-              className='mr-[env(safe-area-inset-right)]'
             >
               <ChevronDownIcon className='h-5 w-5 text-primary-500 contrast-more:text-primary-800 dark:text-primary-300 dark:contrast-more:text-primary-200' />
             </motion.span>
@@ -245,27 +246,27 @@ const Mobile = () => {
           <AnimatePresence>
             {showMoblieDoc && (
               <Popover.Panel
-                static
-                as={motion.div}
-                initial={{ height: 0 }}
                 animate={{ height: 'auto' }}
+                as={motion.div}
+                className='doc-nav-expand overflow-hidden px-4 contrast-more:font-semibold sm:px-6 lg:px-14'
                 exit={{ height: 0 }}
+                initial={{ height: 0 }}
+                static
                 transition={{
                   type: 'spring',
                   bounce: 0.2,
                 }}
-                className='doc-nav-expand overflow-hidden px-4 contrast-more:font-semibold sm:px-6 lg:px-14'
               >
                 <div className='mt-1.5 pb-4'>
                   {headings.map((heading) => {
                     return (
                       <ListItem
-                        heading={heading}
                         activeAnchor={anchors}
+                        handleClose={() => setShowMoblieDoc(false)}
+                        heading={heading}
+                        key={`${heading.value}-mobile`}
                         slug={heading.value}
                         text={heading.text}
-                        handleClose={() => setShowMoblieDoc(false)}
-                        key={`${heading.value}-mobile`}
                       />
                     );
                   })}

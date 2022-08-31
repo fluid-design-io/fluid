@@ -57,13 +57,13 @@ function ListTextOnlyComponent() {
   return (
     <div className='w-full max-w-xs overflow-hidden rounded-lg shadow-lg md:!w-2/3 bg-primary-50 dark:bg-primary-900 shadow-primary-900/10 dark:shadow-primary-900/30 component contrast-more:bg-white dark:contrast-more:bg-primary-900 contrast-more:contrast-ring'>
       <ul
-        className='divide-y divide-primary-200/70 dark:divide-primary-700/70 contrast-more:divide-primary-600 dark:contrast-more:divide-primary-200'
         aria-label={t('TextOnly.ul', { ns: 'list' })}
+        className='divide-y divide-primary-200/70 dark:divide-primary-700/70 contrast-more:divide-primary-600 dark:contrast-more:divide-primary-200'
       >
         {names.map((name) => (
           <li
-            key={name}
             className='px-4 py-2 transition outline-none hover:bg-primary-200/30 focus-visible:bgstone-200/30 dark:hover:bg-primary-600/30 dark:focus-visible:bg-primary-600/30 hover:contrast-more:bg-amber-300 dark:hover:contrast-more:bg-amber-400 text-primary-700 dark:text-primary-200 contrast-more:text-primary-900 dark:contrast-more:text-primary-50 dark:contrast-more:focus-visible:text-primary-900 dark:contrast-more:hover:text-primary-900'
+            key={name}
             tabIndex={0}
           >
             {name}

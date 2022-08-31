@@ -1,23 +1,24 @@
 import { HeartIcon, ShareIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+
 import bg from '~/assets/index-card-bg.jpg';
 
 function IndexCard() {
   return (
     <motion.div
-      initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      exit={{ y: -10, opacity: 0 }}
-      transition={{ type: 'just' }}
       className='w-5/6 overflow-hidden rounded-lg shadow-lg md:!w-1/2 bg-primary-50 dark:bg-primary-800 shadow-primary-900/10 dark:shadow-primary-900/30 component'
+      exit={{ y: -10, opacity: 0 }}
+      initial={{ y: 10, opacity: 0 }}
+      transition={{ type: 'just' }}
     >
       <div>
         <div className='relative overflow-hidden aspect-video'>
           <Image
             alt='landscape of a mountain at the background with clear sky'
-            src={bg}
             layout='fill'
+            src={bg}
           />
         </div>
         <div className='p-2.5'>

@@ -1,9 +1,10 @@
-import { Header, Footer, Sidebar, Navbar } from '.';
-import { MotionPageProps, SiteMeta } from '@/interfaces/framwork';
-import { getBody, getBodyExcept } from '@/lib/getBody';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/dist/client/router';
 import { useEffect, useState } from 'react';
+
+import { getBody, getBodyExcept } from '@/lib/getBody';
+
+import { Footer, Header, Navbar,Sidebar } from '.';
 
 export const Page = ({
   header = true,
@@ -32,15 +33,15 @@ export const Page = ({
       : false;
 
   useEffect(() => {
-    var doc = document.documentElement;
-    var w = window;
+    const doc = document.documentElement;
+    const w = window;
 
-    var prevScroll = w.scrollY || doc.scrollTop;
-    var curScroll;
-    var direction = 0;
-    var prevDirection = 0;
+    let prevScroll = w.scrollY || doc.scrollTop;
+    let curScroll;
+    let direction = 0;
+    let prevDirection = 0;
 
-    var checkScroll = function () {
+    const checkScroll = function () {
       /*
        ** Find the direction of scroll
        ** 0 - initial, 1 - up, 2 - down
@@ -103,16 +104,16 @@ export const Page = ({
           />
         )}
         {sidebar && (
-          <Sidebar hideNav={hideNav} docNav={props?.docNav || undefined} />
+          <Sidebar docNav={props?.docNav || undefined} hideNav={hideNav} />
         )}
       </div>
       <div className='flex'>
         <AnimatePresence mode='wait'>
           <motion.main
-            key={`page-${asPath}`}
-            initial={enableMotion ? { opacity: 0 } : {}}
             animate={enableMotion ? { opacity: 1 } : {}}
             exit={enableMotion ? { opacity: 0 } : {}}
+            initial={enableMotion ? { opacity: 0 } : {}}
+            key={`page-${asPath}`}
             transition={enableMotion ? { duration: 0.65 } : {}}
             className={`w-full max-w-full overflow-x-hidden ${
               className ? className : ``

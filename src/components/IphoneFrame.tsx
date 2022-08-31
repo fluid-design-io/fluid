@@ -7,8 +7,8 @@ function IphoneFrame({ innerRef, children }) {
         </div>
         <div className='overflow-hidden'>
           <div
-            ref={innerRef}
             className='inner aspect-[1.125/2.236] rounded-[3rem] border-[0.825rem] border-primary-300 contrast-more:border-primary-600 dark:contrast-more:border-primary-200 dark:border-primary-700 pb-4 relative flex justify-center items-start overflow-hidden dark:bg-primary-700/50 transform'
+            ref={innerRef}
           >
             {children}
           </div>

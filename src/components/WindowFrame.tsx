@@ -10,8 +10,8 @@ export const WindowDots = (
 function WindowFrame({ sidebar = null, content, ...props }) {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
       className={`rounded-xl border border-primary-200/50 dark:border-primary-700 contrast-more:border-primary-400 dark:contrast-more:border-primary-500 bg-primary-100 dark:bg-primary-700/50 flex overflow-hidden shadow-lg ${
         props.className ? props.className : ``
       } `}

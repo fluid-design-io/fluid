@@ -1,11 +1,13 @@
-import IphoneFrame from '../IphoneFrame';
-import { indexElements } from '@/lib/index/data';
 import {
   AnimatePresence,
   motion,
   useAnimation,
 } from 'framer-motion';
 import { useRef } from 'react';
+
+import { indexElements } from '@/lib/index/data';
+
+import IphoneFrame from '../IphoneFrame';
 
 function IndexIphoneFrame({
   selected,
@@ -29,8 +31,8 @@ function IndexIphoneFrame({
   }
   const selectionBody = indexElements.map((item) => (
     <ul
-      key={item.category}
       className='px-2 py-1 space-y-1 text-sm border-t border-primary-50/60 dark:border-primary-500/30 md:!text-base'
+      key={item.category}
     >
       <li className='px-2 font-semibold pointer-events-none dark:text-primary-300 text-primary-600 contrast-more:text-primary-700 dark:contrast-more:text-primary-200'>
         {item.category}
@@ -38,14 +40,14 @@ function IndexIphoneFrame({
       {item.lists.map((list) => (
         <li key={`body.${list.name}`}>
           <button
-            onClick={() => {
-              controls.start('hidden');
-              setSelected(list.name);
-            }}
             onFocus={() => controls.start('visible')}
             className={`${selectedStyle(
               list.name
             )} px-2 py-1 transition w-full text-left rounded-md overflow-hidden focus:outline-none focus:ring-1 focus:ring-primary-200/50 dark:focus:ring-primary-50 `}
+            onClick={() => {
+              controls.start('hidden');
+              setSelected(list.name);
+            }}
           >
             {list.name}
           </button>
@@ -64,25 +66,28 @@ function IndexIphoneFrame({
         </AnimatePresence>
       </div>
       <motion.div
-        className='bg-primary-900/10 dark:bg-primary-900/30 absolute z-[9] w-full h-full inset-0 rounded-[2.15rem] !translate-y-0'
         animate={controls}
+        className='bg-primary-900/10 dark:bg-primary-900/30 absolute z-[9] w-full h-full inset-0 rounded-[2.15rem] !translate-y-0'
         initial='hidden'
+        onClick={() => controls.start('hidden')}
+        transition={{
+          delay: 0,
+        }}
         variants={{
           visible: { opacity: 1, pointerEvents: 'auto' },
           hidden: { opacity: 0, pointerEvents: 'none' },
         }}
-        transition={{
-          delay: 0,
-        }}
-        onClick={() => controls.start('hidden')}
       />
       <motion.div
+        animate={controls}
         className='bg-primary-50 contrast-more:bg-white dark:bg-primary-800 dark:contrast-more:bg-primary-900 rounded-t-xl w-full h-full absolute z-10 focus:outline-none'
         drag='y'
-        onDragEnd={onDragEnd}
-        onDrag={onDrag}
+        dragConstraints={constraintsRef}
+        dragElastic={0.4}
         initial='hidden'
-        animate={controls}
+        onDrag={onDrag}
+        onDragEnd={onDragEnd}
+        tabIndex={-1}
         transition={{
           type: 'spring',
           damping: 30,
@@ -93,13 +98,10 @@ function IndexIphoneFrame({
           visible: { translateY: '30%' },
           hidden: { translateY: '65%' },
         }}
-        dragConstraints={constraintsRef}
-        dragElastic={0.4}
-        tabIndex={-1}
       >
         <div
-          onClick={() => controls.start('visible')}
           className='w-8 h-1.5 bg-primary-300/60 dark:bg-primary-500 hover:bg-primary-300 dark:hover:bg-primary-600 rounded-full mx-auto my-2'
+          onClick={() => controls.start('visible')}
         />
         <div className='px-2'>{selectionBody}</div>
       </motion.div>

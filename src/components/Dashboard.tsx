@@ -1,13 +1,14 @@
-import UnstyledLink from './framework/UnstyledLink';
-import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
+
+import UnstyledLink from './framework/UnstyledLink';
 
 const ImageCard = ({ name, src, count = 0 }) => {
   const { t } = useTranslation(['navbar']);
   return (
     <UnstyledLink
-      href={`/docs/${src}`}
       className='clickable focus-ring relative overflow-hidden rounded-xl'
+      href={`/docs/${src}`}
     >
       <div className='absolute bottom-0 left-0 right-0 z-[2] flex w-full items-baseline justify-between px-4 pb-2 rtl:flex-row-reverse'>
         <span className='text-left text-lg font-medium text-primary-700 rtl:text-right dark:text-primary-200'>
@@ -21,20 +22,20 @@ const ImageCard = ({ name, src, count = 0 }) => {
       </div>
       <div className='block dark:hidden'>
         <Image
-          src={`/assets/dashboard/${src}-light.png`}
           alt={name}
-          layout='responsive'
-          width='350'
           height='200'
+          layout='responsive'
+          src={`/assets/dashboard/${src}-light.png`}
+          width='350'
         />
       </div>
       <div className='hidden dark:block'>
         <Image
-          src={`/assets/dashboard/${src}-dark.png`}
           alt={name}
-          layout='responsive'
-          width='350'
           height='200'
+          layout='responsive'
+          src={`/assets/dashboard/${src}-dark.png`}
+          width='350'
         />
       </div>
     </UnstyledLink>

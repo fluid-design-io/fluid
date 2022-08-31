@@ -1,11 +1,11 @@
 import { Disclosure } from '@headlessui/react';
 import {
-  HomeIcon,
-  UsersIcon,
-  FolderIcon,
   ChartBarIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
+  FolderIcon,
+  HomeIcon,
+  UsersIcon,
 } from '@heroicons/react/24/outline';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
@@ -51,10 +51,16 @@ function ListNestedAnimateComponent({ setNotification, ...props }) {
 
   const ListPanel = ({ children }) => (
     <motion.div
-      key={`${name}.content`}
-      initial='collapsed'
       animate='open'
+      className="overflow-hidden !mt-0"
       exit='collapsed'
+      initial='collapsed'
+      key={`${name}.content`}
+      transition={{
+        type: 'spring',
+        bounce: 0,
+        duration: shouldReduceMotion ? 0.2 : 0.5,
+      }}
       variants={{
         open: { opacity: 1, height: 'auto' },
         collapsed: {
@@ -62,12 +68,6 @@ function ListNestedAnimateComponent({ setNotification, ...props }) {
           height: shouldReduceMotion ? 'auto' : 0,
         },
       }}
-      transition={{
-        type: 'spring',
-        bounce: 0,
-        duration: shouldReduceMotion ? 0.2 : 0.5,
-      }}
-      className={`overflow-hidden !mt-0`}
     >
       {children}
     </motion.div>
@@ -80,14 +80,14 @@ function ListNestedAnimateComponent({ setNotification, ...props }) {
       }`}
     >
       <nav
-        className='flex-1 px-2 py-1 contrast-more:divide-y contrast-more:divide-primary-600 dark:contrast-more:divide-primary-200'
         aria-label='Sidebar'
+        className='flex-1 px-2 py-1 contrast-more:divide-y contrast-more:divide-primary-600 dark:contrast-more:divide-primary-200'
       >
         {navigation.map(({ children, name, Icon }) =>
           !children ? (
             <button
-              key={`nav.${name}`}
               className={`flex items-center justify-start w-full px-4 py-2 my-1 capitalize transition outline-none select-none rounded-md ${rowStyle}`}
+              key={`nav.${name}`}
               onClick={() =>
                 setNotification({
                   enabled: true,
@@ -97,40 +97,40 @@ function ListNestedAnimateComponent({ setNotification, ...props }) {
               }
             >
               <Icon
-                className={`w-4 h-4 ltr:mr-2 rtl:ml-2`}
                 aria-hidden='true'
+                className="w-4 h-4 ltr:mr-2 rtl:ml-2"
               />
               {name}
             </button>
           ) : (
-            <Disclosure as='div' key={name} className='space-y-1'>
+            <Disclosure as='div' className='space-y-1' key={name}>
               {({ open }) => (
                 <>
-                  <div className={`py-1`}>
+                  <div className="py-1">
                     <Disclosure.Button
+                      aria-live='assertive'
                       as='button'
                       className={`flex px-4 py-2 w-full justify-between items-center rounded-md ${rowStyle} ${
                         open
                           ? `bg-primary-200/50 hover:bg-primary-200/50 dark:bg-primary-600/50 dark:hover:bg-primary-600/50 contrast-more:bg-amber-300 dark:contrast-more:bg-amber-400 text-primary-700 dark:text-primary-200 contrast-more:text-primary-900 dark:contrast-more:text-primary-900`
                           : ``
                       }`}
-                      aria-live='assertive'
                     >
-                      <span className={`flex items-center`}>
+                      <span className="flex items-center">
                         <Icon
-                          className='flex-shrink-0 w-4 h-4 ltr:mr-2 rtl:ml-2'
                           aria-hidden='true'
+                          className='flex-shrink-0 w-4 h-4 ltr:mr-2 rtl:ml-2'
                         />
                         <p className='flex-1'>{name}</p>
                       </span>
-                      <span className={`rtl:!block hidden`}>
+                      <span className="rtl:!block hidden">
                         <ChevronLeftIcon
                           className={`w-4 h-4 transform transition ${
                             open ? `ltr:rotate-90 rtl:-rotate-90` : 'rotate-0'
                           }`}
                         />
                       </span>
-                      <span className={`rtl:hidden block`}>
+                      <span className="rtl:hidden block">
                         <ChevronRightIcon
                           className={`w-4 h-4 transform transition ${
                             open ? `rotate-90` : 'rotate-0'
@@ -144,8 +144,8 @@ function ListNestedAnimateComponent({ setNotification, ...props }) {
                       <Disclosure.Panel as={ListPanel} static>
                         {children.map((item, i) => (
                           <Disclosure.Button
-                            key={item.name}
                             className={`flex items-center w-full py-2 pr-2 ltr:pl-10 rtl:pr-10 select-none cursor-pointer rounded-md ${rowStyle}`}
+                            key={item.name}
                             onClick={() =>
                               setNotification({
                                 enabled: true,

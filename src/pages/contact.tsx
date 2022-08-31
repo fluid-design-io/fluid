@@ -1,10 +1,11 @@
-import { AppForm, AppInput, SubmitButton } from '../components/form';
-import AppTextarea from '../components/form/AppTextarea';
-import { Page } from '../components/framework';
-import { SiteMeta } from '../interfaces/framwork';
-import { useTranslation, Trans } from 'next-i18next';
+import { SiteMeta } from '@/interfaces/framwork';
+import { Form, SubmitButton } from '@fluid-design/fluid-ui';
+import AppInput from '@fluid-design/fluid-ui/dist/lib/components/Form/AppInput';
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as Yup from 'yup';
+
+import { Page } from '../components/framework';
 
 export async function getStaticProps({ locale }) {
   return {
@@ -55,28 +56,28 @@ export default function ContactPage() {
     //   setButtonText("Send");
   };
   return (
-    <Page meta={meta} sidebar={false} className='min-h-screen'>
+    <Page className='min-h-screen' meta={meta} sidebar={false}>
       <div />
-      <h1 className={`pt-16 px-4 text-center`}>
+      <h1 className="pt-16 px-4 text-center">
         {t(`Get in touch`, { ns: 'common' })}
       </h1>
-      <section className={`pt-4`}>
+      <section className="pt-4">
         <div className='relative flex justify-center'>
-          <div className={`w-full max-w-xs`}>
-            <AppForm
+          <div className="w-full max-w-xs">
+            <Form
+              onSubmit={handleSubmit}
+              validationSchema={validationSchema}
               initialValues={{
                 email: '',
                 name: '',
                 message: '',
               }}
-              onSubmit={handleSubmit}
-              validationSchema={validationSchema}
             >
               <AppInput autoFocus name='email' type='text' />
               <AppInput name='name' type='text' />
-              <AppTextarea name='message' type='text' className='resize-none' />
-              <SubmitButton title='Submit' slot='end' />
-            </AppForm>
+              {/* <AppTextarea name='message' type='text' className='resize-none' /> */}
+              <SubmitButton label='Submit' />
+            </Form>
           </div>
         </div>
       </section>

@@ -1,17 +1,10 @@
-import { useToast } from '@/lib/useToast';
 import { Button, Form, Switch } from '@fluid-design/fluid-ui';
-import {
-  FluidButtonWeights,
-  FluidButtonColorOptions,
-  FluidButtonColors,
-  FluidButtonShapes,
-  FluidButtonSizes,
-  FulidButtonLoadingOptions,
-} from '@fluid-design/fluid-ui/dist/lib/components/FluidUI/FluidTheme';
 import { useTranslation } from 'next-i18next';
 import { useId, useState } from 'react';
 import { IoMdTrash } from 'react-icons/io';
 import { MdAddCircle, MdChevronRight, MdInfo, MdSend } from 'react-icons/md';
+
+import { useToast } from '@/lib/useToast';
 
 const colors = [
   'red',
@@ -171,8 +164,8 @@ const ButtonStates = () => {
       <Button
         color='green'
         disabled={disabled}
-        isLoading={isLoading}
         isLoaded={isLoaded}
+        isLoading={isLoading}
         onClick={present}
       >
         Loading
@@ -180,56 +173,56 @@ const ButtonStates = () => {
       <Button
         color='green'
         disabled={disabled}
-        isLoading={isLoading}
         isLoaded={isLoaded}
+        isLoading={isLoading}
+        onClick={present}
         loadingOptions={{
           animation: 'spin-large',
         }}
-        onClick={present}
       >
         Send
       </Button>
       <Button
         color='green'
         disabled={disabled}
-        isLoading={isLoading}
         isLoaded={isLoaded}
+        isLoading={isLoading}
+        onClick={present}
         loadingOptions={{
           animation: 'pulse',
         }}
-        onClick={present}
       >
         Submit
       </Button>
       <Button
         color='green'
         disabled={disabled}
-        isLoading={isLoading}
         isLoaded={isLoaded}
+        isLoading={isLoading}
+        onClick={present}
         loadingOptions={{
           animation: 'ping',
           text: 'Loading',
         }}
-        onClick={present}
       >
         Confirm
       </Button>
       <div className='mx-auto mt-8 w-full max-w-md rounded-lg bg-primary-50/75 p-4 shadow shadow-primary-300/20 dark:bg-primary-600/20 dark:shadow-primary-800/30 backdrop-blur'>
         <Form
+          onSubmit={() => {}}
           initialValues={{
             disabled,
             isLoading,
             isLoaded,
           }}
-          onSubmit={() => {}}
         >
           <Switch name='disabled' onChange={setDisabled} />
-          <Switch name='isLoading' label='Is Loading' onChange={setIsLoading} />
+          <Switch label='Is Loading' name='isLoading' onChange={setIsLoading} />
           <Switch
-            name='isLoaded'
-            label='Is Loaded'
-            onChange={setIsLoaded}
             className='mb-0'
+            label='Is Loaded'
+            name='isLoaded'
+            onChange={setIsLoaded}
           />
         </Form>
       </div>
@@ -243,59 +236,59 @@ const ButtonIconOnly = () => {
   return (
     <ButtonWrap>
       <Button
+        color='green'
+        icon={MdAddCircle}
+        iconOnly
+        label='Create'
         onClick={() =>
           present({
             icon: MdAddCircle,
             title: 'Create',
           })
         }
-        color='green'
-        iconOnly
-        icon={MdAddCircle}
-        label='Create'
       />
       <Button
+        color='sky'
+        iconOnly
+        label='Send'
+        shape='square'
         onClick={() =>
           present({
             icon: MdSend,
             title: 'Send',
           })
         }
-        color='sky'
-        shape='square'
-        iconOnly
-        label='Send'
       >
         <MdSend />
       </Button>
       <Button
+        color='blue'
+        iconOnly
+        label='Info'
+        shape='pill'
+        weight='light'
         onClick={() =>
           present({
             icon: MdInfo,
             title: 'Info',
           })
         }
-        color='blue'
-        shape='pill'
-        weight='light'
-        iconOnly
-        label='Info'
       >
         <MdInfo />
       </Button>
       <Button
+        color='rose'
+        icon={<IoMdTrash />}
+        iconOnly
+        label='Delete'
+        shape='pill'
+        weight='clear'
         onClick={() =>
           present({
             icon: IoMdTrash,
             title: 'Delete',
           })
         }
-        color='rose'
-        shape='pill'
-        weight='clear'
-        icon={<IoMdTrash />}
-        iconOnly
-        label='Delete'
       />
     </ButtonWrap>
   );
@@ -307,56 +300,56 @@ const IconWithText = () => {
   return (
     <ButtonWrap>
       <Button
+        color='green'
+        icon={MdAddCircle}
+        label='Create'
         onClick={() =>
           present({
             icon: MdAddCircle,
             title: 'Create',
           })
         }
-        color='green'
-        icon={MdAddCircle}
-        label='Create'
       />
       <Button
+        color='sky'
+        shape='square'
         onClick={() =>
           present({
             icon: MdSend,
             title: 'Send',
           })
         }
-        color='sky'
-        shape='square'
       >
         <MdSend />
         <span>Send Email</span>
       </Button>
       <Button
+        className='w-40'
+        color='blue'
+        iconEnd={<MdChevronRight className='w-5 h-5 rtl:rotate-180' />}
+        iconEndPosition='between'
+        iconStart={MdInfo}
+        label='Info'
+        shape='pill'
+        weight='light'
         onClick={() =>
           present({
             icon: MdInfo,
             title: 'Info',
           })
         }
-        color='blue'
-        shape='pill'
-        weight='light'
-        className='w-40'
-        iconStart={MdInfo}
-        iconEnd={<MdChevronRight className='w-5 h-5 rtl:rotate-180' />}
-        iconEndPosition='between'
-        label='Info'
       />
       <Button
+        color='rose'
+        iconStart={IoMdTrash}
+        shape='pill'
+        weight='clear'
         onClick={() =>
           present({
             icon: IoMdTrash,
             title: 'Delete',
           })
         }
-        color='rose'
-        shape='pill'
-        weight='clear'
-        iconStart={IoMdTrash}
       >
         <span>Delete</span>
       </Button>

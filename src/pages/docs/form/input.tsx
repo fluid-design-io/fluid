@@ -1,7 +1,9 @@
+import React from 'react';
+
+import { getPageProps } from '@/lib/getPageProps';
+
 import { MDXLayout } from '@/components';
 import { FormExamples } from '@/components';
-import { getPageProps } from '@/lib/getPageProps';
-import React from 'react';
 
 function Page(props) {
   const { source, meta, slug } = props;

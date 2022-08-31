@@ -1,5 +1,5 @@
-import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 
 function CardASLargeImageComponent({
   setNotification,
@@ -14,9 +14,9 @@ function CardASLargeImageComponent({
       }`}
     >
       <div
+        aria-label={`${t('Card')}, Cool things to check out.`}
         className='relative flex-grow'
         tabIndex={0}
-        aria-label={`${t('Card')}, Cool things to check out.`}
         onClick={() =>
           setNotification({
             enabled: true,
@@ -27,27 +27,27 @@ function CardASLargeImageComponent({
         {/* Light mode image */}
         <div className='relative w-full h-full pointer-events-none select-none dark:hidden touch-none'>
           <Image
+            alt="Beautiful forest from bird's eye view. By Geran de Klerk from Unsplash."
+            layout='fill'
+            objectFit='cover'
             src={
               srcs
                 ? srcs[0]
                 : 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80'
             }
-            alt="Beautiful forest from bird's eye view. By Geran de Klerk from Unsplash."
-            layout='fill'
-            objectFit='cover'
           />
         </div>
         {/* Dark mode image */}
         <div className='relative hidden w-full h-full pointer-events-none select-none dark:block touch-none'>
           <Image
+            alt="Beautiful forest from bird's eye view. By Geran de Klerk from Unsplash."
+            layout='fill'
+            objectFit='cover'
             src={
               srcs
                 ? srcs[1]
                 : 'https://images.unsplash.com/photo-1617140237060-d09a58ba8edd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80'
             }
-            alt="Beautiful forest from bird's eye view. By Geran de Klerk from Unsplash."
-            layout='fill'
-            objectFit='cover'
           />
         </div>
       </div>
@@ -65,14 +65,14 @@ function CardASLargeImageComponent({
         <div className='flex-shrink-0 w-12 h-12 overflow-hidden rounded-lg'>
           <div className='relative w-full h-full'>
             <Image
+              alt="Beautiful forest from bird's eye view. By Geran de Klerk from Unsplash."
+              layout='fill'
+              objectFit='cover'
               src={
                 srcs
                   ? srcs[2]
                   : 'https://images.unsplash.com/photo-1538437616090-64c780652422?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80'
               }
-              alt="Beautiful forest from bird's eye view. By Geran de Klerk from Unsplash."
-              layout='fill'
-              objectFit='cover'
             />
           </div>
         </div>

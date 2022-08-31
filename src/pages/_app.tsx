@@ -1,16 +1,19 @@
-import nextI18nextConfig from '../../next-i18next.config';
-import '../../styles/code-hike.css';
-import '../../styles/globals.css';
-import '../../styles/neumorphism.css';
-import { Table, CodeFrame, getComponents, ExternalLink } from '@/components';
 import { CH } from '@code-hike/mdx/components';
-import '@docsearch/css';
 import { MDXProvider } from '@mdx-js/react';
-import 'flag-icons/css/flag-icons.min.css';
 import { motion } from 'framer-motion';
 import { appWithTranslation } from 'next-i18next';
 import { useEffect } from 'react';
 import { CookiesProvider } from 'react-cookie';
+import '@docsearch/css';
+
+import '../../styles/code-hike.css';
+import '../../styles/globals.css';
+import '../../styles/neumorphism.css';
+import 'flag-icons/css/flag-icons.min.css';
+
+import { CodeFrame, ExternalLink,getComponents, Table } from '@/components';
+
+import nextI18nextConfig from '../../next-i18next.config';
 
 function MyApp({ Component, pageProps }) {
   const activateDarkMode = () => {

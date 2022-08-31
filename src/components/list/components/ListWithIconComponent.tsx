@@ -1,9 +1,9 @@
 import {
-  GlobeAmericasIcon,
-  UserIcon,
   CogIcon,
+  GlobeAmericasIcon,
   HeartIcon,
   ShoppingCartIcon,
+  UserIcon,
 } from '@heroicons/react/24/outline';
 import { useTranslation } from 'next-i18next';
 
@@ -38,8 +38,8 @@ function ListWithIconComponent({ setNotification, ...props }) {
       }`}
     >
       <ul
-        className='divide-y divide-primary-200/70 dark:divide-primary-700/70 contrast-more:divide-primary-600 dark:contrast-more:divide-primary-200'
         aria-label={t('WithIcon.ul', { ns: 'list' })}
+        className='divide-y divide-primary-200/70 dark:divide-primary-700/70 contrast-more:divide-primary-600 dark:contrast-more:divide-primary-200'
       >
         {list.map(({ name, Icon }) => (
           <li key={name}>
@@ -53,7 +53,7 @@ function ListWithIconComponent({ setNotification, ...props }) {
                 })
               }
             >
-              <Icon className={'w-4 h-4 mr-2'} />
+              <Icon className="w-4 h-4 mr-2" />
               <span>{name}</span>
             </button>
           </li>

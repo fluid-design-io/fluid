@@ -7,11 +7,11 @@ function IndexSoft() {
   return (
     <>
       <motion.div
-        initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        exit={{ y: -10, opacity: 0 }}
-        transition={{ type: 'just' }}
         className='w-5/6 h-1/2 md:!w-2/3 md:!h-3/5 neumorphism'
+        exit={{ y: -10, opacity: 0 }}
+        initial={{ y: 10, opacity: 0 }}
+        transition={{ type: 'just' }}
       >
         <div className='relative w-full h-full overflow-hidden transition select-none dark:bg-primary-700 rounded-2xl material-shadow-md hover:material-shadow active:material-shadow-sm bg-gradient-to-tl from-primary-100 to-primary-200/75 dark:from-primary-700 dark:to-primary-800/75 touch-pan-y'>
           <div className='w-full h-full'>

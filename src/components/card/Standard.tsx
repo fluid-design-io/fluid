@@ -1,8 +1,8 @@
 import { Button } from '@fluid-design/fluid-ui';
 import { HeartIcon, ShareIcon } from '@heroicons/react/24/outline';
-import clsx, { ClassValue } from 'clsx';
-import { useTranslation } from 'next-i18next';
+import clsx from 'clsx';
 import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 import { twMerge } from 'tailwind-merge';
 
 /** Merge classes with tailwind-merge with clsx full feature */
@@ -25,13 +25,13 @@ export const CardStandardComponent = ({ src = undefined, ...props }) => {
         <div className='pointer-events-none relative h-full w-full select-none overflow-hidden'>
           <Image
             alt='Sunrise in the national park Gantrisch in Bern, Switzerland. By Alain from Unsplash.'
+            layout='fill'
+            objectFit='cover'
             src={
               src
                 ? src
                 : `https://images.unsplash.com/photo-1612993239130-c5e816a63d8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80`
             }
-            objectFit='cover'
-            layout='fill'
           />
         </div>
       </div>
@@ -48,26 +48,26 @@ export const CardStandardComponent = ({ src = undefined, ...props }) => {
           </p>
         </div>
         <div className='flex items-center justify-between pt-1'>
-          <Button size='xs' weight='light' color='blue'>
+          <Button color='blue' size='xs' weight='light'>
             {t(`Card Button`, { ns: 'card' })}
           </Button>
           <div className='-mr-2 flex'>
             <Button
-              weight='clear'
-              color='sky'
-              shape='pill'
               className='text-gray-500 hocus:text-inherit dark:text-gray-400'
+              color='sky'
               iconOnly
+              shape='pill'
+              weight='clear'
             >
               <span className='sr-only'>Share this post</span>
               <ShareIcon className='h-5 w-5' />
             </Button>
             <Button
-              weight='clear'
-              color='rose'
-              shape='pill'
               className='text-gray-500 hocus:text-inherit dark:text-gray-400'
+              color='rose'
               iconOnly
+              shape='pill'
+              weight='clear'
             >
               <span className='sr-only'>Fav this post</span>
               <HeartIcon className='h-5 w-5' />

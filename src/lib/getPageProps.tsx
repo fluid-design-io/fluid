@@ -1,9 +1,10 @@
-import getDocBySlug from '../lib/getDocBySlug';
 import { remarkCodeHike } from '@code-hike/mdx';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { serialize } from 'next-mdx-remote/serialize';
 import remarkGfm from 'remark-gfm';
 import theme from 'shiki/themes/dark-plus.json';
+
+import getDocBySlug from '../lib/getDocBySlug';
 
 export const getPageProps = async ({
   page = 'test',

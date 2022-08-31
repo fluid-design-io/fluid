@@ -1,5 +1,5 @@
-import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 
 function ImageGridComponent({ setNotification, ...props }) {
   const { t } = useTranslation('image');
@@ -47,10 +47,10 @@ function ImageGridComponent({ setNotification, ...props }) {
       <div className='grid grid-cols-3 gap-0.5 items-stretch h-full'>
         {images.map(({ large, author }) => (
           <div
-            key={large}
-            className='relative w-full h-full transition cursor-pointer hover:opacity-90 active:opacity-80'
-            tabIndex={0}
             aria-label={`Bird image shot by ${author} from Unsplash.`}
+            className='relative w-full h-full transition cursor-pointer hover:opacity-90 active:opacity-80'
+            key={large}
+            tabIndex={0}
             onClick={() =>
               setNotification({
                 enabled: true,
@@ -60,11 +60,11 @@ function ImageGridComponent({ setNotification, ...props }) {
             }
           >
             <Image
-              src={large}
               alt={`Bird image shot by ${author} from Unsplash.`}
+              className=' select-none pointer-events-none'
               layout='fill'
               objectFit='cover'
-              className=' select-none pointer-events-none'
+              src={large}
             />
           </div>
         ))}

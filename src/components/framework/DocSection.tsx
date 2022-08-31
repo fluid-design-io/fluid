@@ -1,8 +1,9 @@
-import slug from '../../util/slug';
 import { HashtagIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+
+import slug from '../../util/slug';
 
 function DocSection({
   title: { raw, transformed },
@@ -19,23 +20,23 @@ function DocSection({
     }, 3000);
   };
   return (
-    <section id={slug(raw)} className='pb-12'>
+    <section className='pb-12' id={slug(raw)}>
       <h2
         className={`w-full group flex items-center doc-section-header anchor ${
           description ? 'pb-4' : ''
         }`}
       >
         <CopyToClipboard
+          onCopy={handleCopy}
           text={`https://fluid-design.io/docs/${docTitle.toLowerCase()}/#${slug(
             raw
           )}`}
-          onCopy={handleCopy}
         >
           <a
-            href={`#${slug(raw)}`}
-            className='absolute right-0 flex items-center ml-0 mr-4 border-0 opacity-0 anchor anchor-link hash-link md:!right-auto md:!mr-auto md:!-ml-10 lg:-ml-7 xl:-ml-10 hash group-hover:opacity-100 focus:opacity-100'
-            title={`Direct link to heading ${transformed}`}
             aria-live='assertive'
+            className='absolute right-0 flex items-center ml-0 mr-4 border-0 opacity-0 anchor anchor-link hash-link md:!right-auto md:!mr-auto md:!-ml-10 lg:-ml-7 xl:-ml-10 hash group-hover:opacity-100 focus:opacity-100'
+            href={`#${slug(raw)}`}
+            title={`Direct link to heading ${transformed}`}
             aria-label={
               isCoping
                 ? t(`Section hashtag copied`)

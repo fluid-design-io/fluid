@@ -1,5 +1,6 @@
-import ImageBGResponsiveComponent from '@/components/image/components/ImageBGResponsiveComponent';
 import Head from 'next/head';
+
+import ImageBGResponsiveComponent from '@/components/image/components/ImageBGResponsiveComponent';
 
 function ResponsiveCard() {
   return (

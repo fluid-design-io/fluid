@@ -8,11 +8,11 @@ function IndexSimple() {
   return (
     <>
       <motion.div
-        initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        exit={{ y: -10, opacity: 0 }}
-        transition={{ type: 'just' }}
         className='w-5/6 h-1/2 md:!w-2/3 md:!h-3/5'
+        exit={{ y: -10, opacity: 0 }}
+        initial={{ y: 10, opacity: 0 }}
+        transition={{ type: 'just' }}
       >
         <div className='relative w-full h-full overflow-hidden transition rounded-md select-none bg-primary-200/75 dark:bg-primary-700 hover:shadow dark:hover:shadow-lg group touch-pan-y'>
           <div className='w-full h-full'>

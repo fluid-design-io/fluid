@@ -1,5 +1,4 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
-import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 
 function ListDetailLargeComponent({ ...props }) {
@@ -32,27 +31,27 @@ function ListDetailLargeComponent({ ...props }) {
       <ul className='divide-y select-none divide-primary-200/50 dark:divide-primary-700/30 contrast-more:divide-primary-600 dark:contrast-more:divide-primary-200'>
         {list.map(({ title, description, src, time }) => (
           <li
-            key={title}
             className='relative flex items-center px-4 py-2 space-x-3 transition outline-none hover:bg-primary-200/30 focus:bgstone-200/30 dark:hover:bg-primary-600/30 dark:focus:bg-primary-600/30 hover:contrast-more:bg-amber-300 dark:hover:contrast-more:bg-amber-400 group'
+            key={title}
             tabIndex={0}
           >
             <div className='relative overflow-hidden rounded-full w-11 h-11 rtl:ml-4'>
-              <Image alt={title} src={src} layout='fill' objectFit='cover' />
+              <Image alt={title} layout='fill' objectFit='cover' src={src} />
             </div>
             <div className='flex-1 select-none'>
-              <div className={`flex justify-between items-center`}>
+              <div className="flex justify-between items-center">
                 <h3 className='text-sm font-semibold md:!text-base text-primary-800 dark:text-primary-300 contrast-more:text-primary-900 dark:contrast-more:text-primary-50 dark:contrast-more:group-focus-visible:text-primary-900 dark:contrast-more:group-hover:text-primary-900 line-clamp-1 contrast-more:text-base'>
                   {title}
                 </h3>
                 <p
-                  className={`flex-shrink-0 text-primary-400 dark:text-primary-400/80 contrast-more:text-primary-900 dark:contrast-more:text-primary-50 flex items-center md:!text-sm text-xs`}
+                  className="flex-shrink-0 text-primary-400 dark:text-primary-400/80 contrast-more:text-primary-900 dark:contrast-more:text-primary-50 flex items-center md:!text-sm text-xs"
                 >
                   {time}
-                  <span className={`rtl:!block hidden`}>
-                    <ChevronLeftIcon className={`w-4 h-4 transition`} />
+                  <span className="rtl:!block hidden">
+                    <ChevronLeftIcon className="w-4 h-4 transition" />
                   </span>
-                  <span className={`rtl:hidden block`}>
-                    <ChevronRightIcon className={`w-4 h-4 transition`} />
+                  <span className="rtl:hidden block">
+                    <ChevronRightIcon className="w-4 h-4 transition" />
                   </span>
                 </p>
               </div>

@@ -1,10 +1,10 @@
-import { ListDetailLargeComponent } from '.';
-import ListDetailComponent from './components/ListDetailComponent';
-import { CodeBlockFeatureProps } from '@/interfaces/CodeBlock';
 import { useTranslation } from 'next-i18next';
 //@ts-ignore
 import withstar from 'raw-loader!@/lib/code/ListDetail.code.txt';
 import { useState } from 'react';
+
+import { ListDetailLargeComponent } from '.';
+import ListDetailComponent from './components/ListDetailComponent';
 
 function ListDetail() {
   const [notification, setNotification] = useState(undefined);

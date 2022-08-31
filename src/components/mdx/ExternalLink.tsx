@@ -6,7 +6,7 @@ export const ExternalLink = ({
   children: React.ReactNode;
 }) => {
   return (
-    <a href={href} target='_blank' rel='noopener noreferrer'>
+    <a href={href} rel='noopener noreferrer' target='_blank'>
       {children}
     </a>
   );

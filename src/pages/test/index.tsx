@@ -1,7 +1,9 @@
+import React from 'react';
+
+import { getPageProps } from '@/lib/getPageProps';
+
 import { MDXLayout } from '@/components';
 import AccordionSimpleComponent from '@/components/accordion/components/AccordionSimpleComponent';
-import { getPageProps } from '@/lib/getPageProps';
-import React from 'react';
 
 function TestPage(props) {
   const { source, meta, slug } = props;

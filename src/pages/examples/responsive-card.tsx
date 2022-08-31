@@ -2,6 +2,7 @@ import { HeartIcon, ShareIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import Head from 'next/head';
 import Image from 'next/image';
+
 import bg from '~/assets/index/index-resp-card-bg.jpg';
 
 function ResponsiveCard() {
@@ -20,19 +21,19 @@ function ResponsiveCard() {
         />
       </Head>
       <motion.div
-        initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        exit={{ y: -10, opacity: 0 }}
-        transition={{ type: 'just' }}
         className='flex items-center justify-center w-full h-screen overflow-hidden'
+        exit={{ y: -10, opacity: 0 }}
+        initial={{ y: 10, opacity: 0 }}
+        transition={{ type: 'just' }}
       >
         <div className='grid grid-cols-1 w-full max-w-[280px] xs:max-w-xs mx-auto overflow-hidden rounded-lg shadow-lg sm:max-w-2xl sm:w-5/6 card-bg sm:grid-cols-12 sm:justify-center items-stretch'>
           <div className='relative h-48 col-span-1 sm:h-auto sm:col-span-5 md:!col-span-6'>
             <Image
               alt='forest with fog cover part of the tree branches'
-              src={bg}
               layout='fill'
               objectFit='cover'
+              src={bg}
             />
           </div>
           <div className='flex flex-col col-span-1 p-3 sm:p-4 md:!p-6 sm:col-span-7 md:!col-span-6'>

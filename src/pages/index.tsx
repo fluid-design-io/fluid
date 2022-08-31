@@ -1,18 +1,19 @@
-import WindowFrame from '../components/WindowFrame';
+import { AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Trans,useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import React, { useState } from 'react';
+import { SplitPane } from 'react-multi-split-pane';
+
+import { rawResponsiveCard } from './examples/responsive-card';
 import { Page } from '../components/framework';
 import IndexIphoneFrame from '../components/instance/IndexIphoneFrame';
 import FeatureCard from '../components/ui/FeatureCard';
-import { SiteMeta } from '../interfaces/framwork';
+import WindowFrame from '../components/WindowFrame';
 import { featuresList, indexElements } from '../lib/index/data';
 import Code from '../util/Code';
-import { rawResponsiveCard } from './examples/responsive-card';
-import { AnimatePresence } from 'framer-motion';
-import { useTranslation, Trans } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { useState } from 'react';
-import { SplitPane } from 'react-multi-split-pane';
+
 import bgDark from '~/assets/index-bg-dark.jpg';
 import bgLight from '~/assets/index-bg-light.jpg';
 
@@ -46,8 +47,8 @@ export default function Home() {
   };
   const selectionBody = indexElements.map((item) => (
     <ul
-      key={item.category}
       className='space-y-1 border-t border-primary-50/60 px-2 py-1 text-sm dark:border-primary-500/30 md:!text-base'
+      key={item.category}
     >
       <li className='pointer-events-none px-2 font-semibold text-primary-600 dark:text-primary-300'>
         {t(item.category)}
@@ -55,12 +56,12 @@ export default function Home() {
       {item.lists.map((list) => (
         <li key={`body.${list.name}`}>
           <button
-            onClick={() => {
-              setSelected(list.name);
-            }}
             className={`${selectedStyle(
               list.name
             )} w-full overflow-hidden rounded-md px-2 py-1 text-left transition focus:outline-none focus:ring-1 focus:ring-primary-200/50 dark:focus:ring-primary-50`}
+            onClick={() => {
+              setSelected(list.name);
+            }}
           >
             {t(list.name)}
           </button>
@@ -76,22 +77,22 @@ export default function Home() {
   };
 
   return (
-    <Page meta={meta} sidebar={false} className=''>
+    <Page className='' meta={meta} sidebar={false}>
       <section className='relative pb-20 md:!pb-40'>
         <div className='pointer-events-none absolute inset-0 z-0 hidden w-full overflow-hidden blur-xl filter dark:!block'>
           <Image
             alt='background blur'
-            src={bgDark}
             className='w-full'
             layout='responsive'
+            src={bgDark}
           />
         </div>
         <div className='pointer-events-none absolute inset-0 z-0 block w-full overflow-hidden blur-xl filter dark:hidden'>
           <Image
             alt='background blur'
-            src={bgLight}
             className='w-full'
             layout='responsive'
+            src={bgLight}
           />
         </div>
         <div className='relative z-[1]'>
@@ -103,7 +104,7 @@ export default function Home() {
           </h1>
           <p className='mx-auto mt-6 max-w-2xl px-4 text-primary-500 dark:text-primary-300 md:!text-center md:!text-xl'>
             <Trans
-              i18nKey={`site-desc`}
+              i18nKey="site-desc"
               ns='common'
               components={{
                 span: (
@@ -113,9 +114,7 @@ export default function Home() {
             />
           </p>
           <WindowFrame
-            className={
-              'mx-auto mt-24 hidden w-[80%] max-w-[680px] justify-center md:!flex'
-            }
+            className="mx-auto mt-24 hidden w-[80%] max-w-[680px] justify-center md:!flex"
             sidebar={selectionBody}
             content={
               <AnimatePresence mode='wait'>
@@ -132,14 +131,14 @@ export default function Home() {
         </div>
       </section>
       <section
-        id='features'
         className='mx-auto mt-8 max-w-7xl text-center sm:px-8'
+        id='features'
       >
         <h1 className='not-prose legacy'>
           <Trans
-            i18nKey={'looks-right-isnt-enough.title'}
-            ns={'index'}
             components={{ br: <br className='block sm:!hidden' /> }}
+            i18nKey="looks-right-isnt-enough.title"
+            ns="index"
           />
         </h1>
         <blockquote className='px-4 sm:px-0'>
@@ -156,16 +155,16 @@ export default function Home() {
         </div>
       </section>
       <section
-        id='demo'
         className='mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-8 md:!mt-40'
+        id='demo'
       >
         <h1 className='text-left legacy'>
           {t('see-it-live', { ns: 'index' })}
         </h1>
         <p className='mt-4 max-w-2xl text-primary-500 dark:text-primary-300 lg:text-lg'>
           <Trans
+            i18nKey="powered-by"
             ns='index'
-            i18nKey={'powered-by'}
             components={{
               span: (
                 <span className='font-mono font-medium text-primary-900 dark:text-primary-50' />
@@ -178,8 +177,8 @@ export default function Home() {
         </Link>
         <div className='mt-8'>
           <SplitPane
-            split='vertical'
             onDragStarted={() => setIsDragging(true)}
+            split='vertical'
             onDragFinished={() => setIsDragging(false)}
             // defaultSizes={[1, 0]}
             minSize={[336, 24]}
@@ -187,7 +186,7 @@ export default function Home() {
             // maxSize={"calc(100% - 16px)"}
           >
             <WindowFrame
-              className={`mx-auto w-full shadow dark:!bg-[#353330]`}
+              className="mx-auto w-full shadow dark:!bg-[#353330]"
               content={
                 <iframe
                   src='/examples/responsive-card'
@@ -201,8 +200,8 @@ export default function Home() {
           </SplitPane>
 
           <Code
-            content={rawResponsiveCard}
             className='mt-4 h-[35vh] max-w-[calc(100vw-2rem)] overflow-x-auto rounded-xl bg-primary-800 pt-6 contrast-more:!bg-black dark:bg-primary-900 sm:mt-[-1rem] md:!ml-[-0.875rem] md:!h-[320px]'
+            content={rawResponsiveCard}
           />
         </div>
       </section>

@@ -1,7 +1,7 @@
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import { Page } from '../components/framework';
 import UnderConstruction from '../components/framework/UnderConstruction';
-import { SiteMeta } from '../interfaces/framwork';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 export async function getStaticProps({ locale }) {
   return {

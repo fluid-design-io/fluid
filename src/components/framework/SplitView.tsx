@@ -5,8 +5,8 @@ function SplitView({ iframe, ...props }) {
   const [isDragging, setIsDragging] = useState(false);
   return (
     <SplitPane
-      split='vertical'
       onDragStarted={() => setIsDragging(true)}
+      split='vertical'
       onDragFinished={() => setIsDragging(false)}
       // defaultSizes={[1, 0]}
       minSize={[336, 24]}

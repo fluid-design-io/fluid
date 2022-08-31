@@ -1,6 +1,8 @@
-import { MDXLayout, MenuExamples } from '@/components';
-import { getPageProps } from '@/lib/getPageProps';
 import React from 'react';
+
+import { getPageProps } from '@/lib/getPageProps';
+
+import { MDXLayout, MenuExamples } from '@/components';
 
 function ButtonPage(props) {
   const { source, meta, slug } = props;

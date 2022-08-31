@@ -1,6 +1,7 @@
-import clsxm from '../lib/clsxm';
-import { AnimatePresence, Variants, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { MdDarkMode, MdOutlineLightMode } from 'react-icons/md';
+
+import clsxm from '../lib/clsxm';
 
 export const ThemeSwitch = ({
   mode,
@@ -42,14 +43,14 @@ export const ThemeSwitch = ({
       <AnimatePresence initial={false}>
         {mode === 'light' && (
           <motion.button
-            key='dark-toggle'
-            className='focus-visible:borde-primary-400/80 rounded border border-transparent p-1.5 hocus:border-primary-400/30 hocus:bg-primary-400/10 focus-visible:border focus-visible:bg-primary-500/10 focus-ring'
-            onClick={() => handleModeChange('dark')}
-            initial='initial'
             animate='animate'
+            className='focus-visible:borde-primary-400/80 rounded border border-transparent p-1.5 hocus:border-primary-400/30 hocus:bg-primary-400/10 focus-visible:border focus-visible:bg-primary-500/10 focus-ring'
             exit='exit'
-            whileTap='tap'
+            initial='initial'
+            key='dark-toggle'
+            onClick={() => handleModeChange('dark')}
             variants={buttonVariants}
+            whileTap='tap'
           >
             <div className='sr-only'>Toggle dark mode</div>
             <motion.div
@@ -69,14 +70,14 @@ export const ThemeSwitch = ({
         )}
         {mode === 'dark' && (
           <motion.button
-            key='light-toggle'
-            className='focus-visible:borde-primary-400/80 absolute inset-0 rounded border border-transparent p-1.5 hocus:border-primary-400/30 hocus:bg-primary-400/10 focus-visible:border focus-visible:bg-primary-500/10 focus-ring'
-            onClick={() => handleModeChange('light')}
-            initial='initial'
             animate='animate'
+            className='focus-visible:borde-primary-400/80 absolute inset-0 rounded border border-transparent p-1.5 hocus:border-primary-400/30 hocus:bg-primary-400/10 focus-visible:border focus-visible:bg-primary-500/10 focus-ring'
             exit='exit'
-            whileTap='tap'
+            initial='initial'
+            key='light-toggle'
+            onClick={() => handleModeChange('light')}
             variants={buttonVariants}
+            whileTap='tap'
           >
             <div className='sr-only'>Toggle light mode</div>
             <motion.div

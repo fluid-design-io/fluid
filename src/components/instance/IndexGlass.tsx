@@ -8,17 +8,17 @@ function IndexGlass() {
   return (
     <>
       <motion.div
-        initial={{ y: 10, opacity: 1 }}
         animate={{ y: 0, opacity: 1 }}
-        exit={{ y: -10, opacity: 1 }}
-        transition={{ type: 'just' }}
         className='w-5/6 h-1/2 md:!w-2/3 md:!h-3/5 neumorphism relative z-[1]'
+        exit={{ y: -10, opacity: 1 }}
+        initial={{ y: 10, opacity: 1 }}
+        transition={{ type: 'just' }}
       >
         <Tilt
-          tiltEnable={false}
+          className='relative w-full h-full overflow-hidden transition border shadow-lg select-none glass-glare rounded-2xl bg-gradient-to-tl from-white/20 to-primary-200/5 border-white/20 dark:border-white/5 dark:from-primary-500/20 dark:to-primary-800/10 backdrop-filter backdrop-blur-xl shadow-sky-800/10 touch-pan-y'
           glareEnable={true}
           glareMaxOpacity={1}
-          className='relative w-full h-full overflow-hidden transition border shadow-lg select-none glass-glare rounded-2xl bg-gradient-to-tl from-white/20 to-primary-200/5 border-white/20 dark:border-white/5 dark:from-primary-500/20 dark:to-primary-800/10 backdrop-filter backdrop-blur-xl shadow-sky-800/10 touch-pan-y'
+          tiltEnable={false}
         >
           <div className='w-full h-full'>
             <div
@@ -46,10 +46,10 @@ function IndexGlass() {
         </Tilt>
       </motion.div>
       <motion.div
-        initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
         className='absolute inset-0 z-0 flex items-center justify-center w-full h-full overflow-hidden from-sky-200 to-indigo-100 dark:from-sky-900/20 dark:to-indigo-800/20 bg-gradient-to-br'
+        exit={{ opacity: 0 }}
+        initial={{ opacity: 0 }}
       >
         <div className='rounded-full w-32 h-32 bg-gradient-to-br to-sky-300 from-indigo-50/70 dark:to-sky-300/40 dark:from-indigo-50/20 -ml-[50%] -mt-[35%] absolute' />
         <div className='rounded-full w-32 h-32 bg-gradient-to-br from-indigo-300 to-sky-50/70 dark:from-indigo-300/40 dark:to-sky-50/20 ml-[50%] mt-[35%] absolute' />

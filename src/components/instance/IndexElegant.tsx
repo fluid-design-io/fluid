@@ -9,25 +9,25 @@ function IndexElegant() {
   return (
     <>
       <motion.div
-        initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        exit={{ y: -10, opacity: 0 }}
-        transition={{ type: 'just' }}
         className='w-5/6 h-1/2 md:!w-2/3 md:!h-3/5'
+        exit={{ y: -10, opacity: 0 }}
+        initial={{ y: 10, opacity: 0 }}
+        transition={{ type: 'just' }}
       >
         <div className='relative w-full h-full transition card-wrap'>
           <Tilt
+            className='h-full overflow-hidden transition border select-none bg-primary-200/75 elegant-glare dark:bg-primary-700 border-primary-50 dark:border-primary-600/50 rounded-xl ring-transparent pointer-touch:shadow-ring-light dark:pointer-touch:shadow-ring-dark hover:shadow-ring-light dark:hover:shadow-ring-dark touch-pan-y'
             glareEnable={true}
             glareMaxOpacity={1}
+            glarePosition='all'
             tiltMaxAngleX={onClick ? 0 : 4}
             tiltMaxAngleY={onClick ? 0 : 4}
-            glarePosition='all'
-            className='h-full overflow-hidden transition border select-none bg-primary-200/75 elegant-glare dark:bg-primary-700 border-primary-50 dark:border-primary-600/50 rounded-xl ring-transparent pointer-touch:shadow-ring-light dark:pointer-touch:shadow-ring-dark hover:shadow-ring-light dark:hover:shadow-ring-dark touch-pan-y'
           >
             <button
+              className='w-full h-full'
               onMouseDown={() => setOnClick(true)}
               onMouseUp={() => setOnClick(false)}
-              className='w-full h-full'
             >
               <span className='sr-only'>
                 {isFav ? 'UnFavorite' : 'Favorite'} current card

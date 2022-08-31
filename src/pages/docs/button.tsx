@@ -1,7 +1,9 @@
-import { MDXLayout, ButtonExamples } from '@/components';
-import { getPageProps } from '@/lib/getPageProps';
 import { Button, Form, Switch } from '@fluid-design/fluid-ui';
 import React from 'react';
+
+import { getPageProps } from '@/lib/getPageProps';
+
+import { ButtonExamples,MDXLayout } from '@/components';
 
 function ButtonPage(props) {
   const { source, meta, slug } = props;
