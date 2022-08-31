@@ -1,16 +1,12 @@
+import slugConverter from '../../util/slug';
+import { Page } from './Page';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
-
-import ScrollSpy from '@/lib/ScrollSpy';
-
-import DocSection from './DocSection';
-import { Page } from './Page';
-import slugConverter from '../../util/slug';
 
 function Doc({ meta, title, description = '', sections, ...props }) {
   const { t } = useTranslation('common');
   const docNav = (
-    <ul className='doc-nav-wrap' key="docNav">
+    <ul className='doc-nav-wrap' key='docNav'>
       <li className='doc-nav-header'>{t('On this page')}</li>
       {sections.map(({ title: { raw, transformed } }) => {
         const sectionSlug = slugConverter(raw);
@@ -40,20 +36,11 @@ function Doc({ meta, title, description = '', sections, ...props }) {
         <article title={t(`doc-for`, { title })}>
           <h1 className='capitalize md:!pt-12'>{title}</h1>
           <p className='pb-6 text-lg md:!text-xl'>{description}</p>
-          <div className='mx-auto w-full flex-grow' key='content'>
-            <ScrollSpy offsetBottom={500}>
-              {sections.map((props) => (
-                <DocSection
-                  key={`${props.title.raw}`}
-                  {...{ docTitle: title, ...props }}
-                />
-              ))}
-            </ScrollSpy>
-          </div>
+          <div className='mx-auto w-full flex-grow' key='content'></div>
         </article>
       </div>
       <div
-        className="sticky top-0 z-20 !hidden h-screen min-w-[12rem] pr-4 pt-[61px] md:!pr-16 lg:!block xl:min-w-[14rem]"
+        className='sticky top-0 z-20 !hidden h-screen min-w-[12rem] pr-4 pt-[61px] md:!pr-16 lg:!block xl:min-w-[14rem]'
         key='sidenav'
       >
         {docNav}
