@@ -9,9 +9,7 @@ const dataSimple = [
   {
     title: 'Shop',
     details: (
-      <p
-        className="my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50"
-      >
+      <p className='my-2 text-gray-600 contrast-more:text-gray-900 dark:text-gray-300 dark:contrast-more:text-gray-50'>
         Our shop contains all the tools you need to build a great design system.
         We have a wide range of tools and resources to help you get started.
       </p>
@@ -21,9 +19,7 @@ const dataSimple = [
   {
     title: 'Service',
     details: (
-      <p
-        className="my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50"
-      >
+      <p className='my-2 text-gray-600 contrast-more:text-gray-900 dark:text-gray-300 dark:contrast-more:text-gray-50'>
         We offer a wide range of services to help you get started.
       </p>
     ),
@@ -33,15 +29,11 @@ const dataSimple = [
     title: 'About',
     details: (
       <>
-        <p
-          className="my-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-50"
-        >
+        <p className='my-2 text-gray-600 contrast-more:text-gray-900 dark:text-gray-300 dark:contrast-more:text-gray-50'>
           We are a small team of designers and developers who create
           high-quality design systems.
         </p>
-        <ul
-          className="mb-2 text-primary-600 contrast-more:text-primary-900 dark:text-primary-400 dark:contrast-more:text-primary-50"
-        >
+        <ul className='mb-2 text-gray-600 contrast-more:text-gray-900 dark:text-gray-400 dark:contrast-more:text-gray-50'>
           <li>Beautiful designs</li>
           <li>A11y</li>
           <li>Responsive</li>
@@ -65,7 +57,7 @@ const dataWithIcons = [
 ];
 
 const AccordionWrap = ({ children }) => (
-  <div className='component contrast-more:contrast-ring w-full max-w-xs overflow-hidden rounded-lg bg-primary-50 shadow-lg shadow-primary-900/10 contrast-more:bg-white dark:bg-primary-900 dark:shadow-primary-900/30 dark:contrast-more:bg-primary-900 md:!w-2/3'>
+  <div className='component contrast-more:contrast-ring w-full max-w-xs overflow-hidden rounded-lg bg-gray-50 shadow-lg shadow-gray-900/10 contrast-more:bg-white dark:bg-gray-900 dark:shadow-gray-900/30 dark:contrast-more:bg-gray-900 md:!w-2/3'>
     {children}
   </div>
 );

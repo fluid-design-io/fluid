@@ -1,6 +1,6 @@
 import { Button } from '@fluid-design/fluid-ui';
 import { HeartIcon, ShareIcon } from '@heroicons/react/24/outline';
-import clsx, { ClassValue } from 'clsx';
+import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import { twMerge } from 'tailwind-merge';
@@ -12,11 +12,11 @@ function clsxm(...classes: ClassValue[]) {
 
 export const CardStandardComponent = ({ src = undefined, ...props }) => {
   const { t } = useTranslation('image');
-  const contrastRing = `contrast-more:border contrast-more:border-primary-800 dark:contrast-more:border-primary-200`;
+  const contrastRing = `contrast-more:border contrast-more:border-gray-800 dark:contrast-more:border-gray-200`;
   return (
     <div
       className={clsxm(
-        `component card-bg flex w-full max-w-xs translate-x-0 transform flex-col overflow-hidden rounded-xl bg-primary-50 shadow  dark:bg-primary-900 dark:contrast-more:bg-black`,
+        `component card-bg flex w-full max-w-xs translate-x-0 transform flex-col overflow-hidden rounded-xl bg-gray-50 shadow  dark:bg-gray-900 dark:contrast-more:bg-black`,
         contrastRing,
         props.className ? props.className : `aspect-[1/1.15]`
       )}
@@ -37,13 +37,13 @@ export const CardStandardComponent = ({ src = undefined, ...props }) => {
       </div>
       <div className='flex h-full flex-grow flex-col px-4 pt-4 pb-2'>
         <div className='flex-grow'>
-          <h2 className='text-xs text-primary-500 contrast-more:font-bold contrast-more:text-primary-700 dark:text-primary-500 dark:contrast-more:text-primary-300'>
+          <h2 className='text-xs text-gray-500 contrast-more:font-bold contrast-more:text-gray-700 dark:text-gray-500 dark:contrast-more:text-gray-300'>
             France
           </h2>
-          <h1 className='font-semibold contrast-more:font-bold dark:text-primary-100'>
+          <h1 className='font-semibold contrast-more:font-bold dark:text-gray-100'>
             Chamonix Centre-ville
           </h1>
-          <p className='pt-1.5 pb-2 text-sm leading-tight text-primary-600 contrast-more:font-medium contrast-more:text-primary-900 dark:text-primary-300 dark:contrast-more:text-primary-100'>
+          <p className='pt-1.5 pb-2 text-sm leading-tight text-gray-600 contrast-more:font-medium contrast-more:text-gray-900 dark:text-gray-300 dark:contrast-more:text-gray-100'>
             A photo shot by Guillaume Marques on Unsplash.
           </p>
         </div>

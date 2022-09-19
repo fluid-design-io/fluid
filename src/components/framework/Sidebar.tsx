@@ -6,17 +6,19 @@ import {
   GlobeAsiaAustraliaIcon,
   Squares2X2Icon,
 } from '@heroicons/react/24/solid';
+import { i18n, useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { i18n, useTranslation } from 'next-i18next';
 import { MdMouse } from 'react-icons/md';
 
+import { ThemeSwitch } from '@/components/ThemeSwitch';
+import { useThemeMode } from '@/lib/ThemeContext';
 import clsxm from '@/lib/clsxm';
 import { languages } from '@/lib/languages';
 
-import UnstyledLink from './UnstyledLink';
-import AppLogo from '../ui/AppLogo';
 import packageInfo from '../../../package.json';
+import AppLogo from '../ui/AppLogo';
+import UnstyledLink from './UnstyledLink';
 
 const navigation = [
   { name: 'Dashboard', href: 'dashboard', icon: Squares2X2Icon },
@@ -57,7 +59,7 @@ const secondaryNavigation = [
     groupList: [
       { name: 'Validation', href: 'form/validation', isDone: false },
       { name: 'Combobox', href: 'form/combobox', isDone: false },
-      { name: 'Switch', href: 'form/switch', isDone: false },
+      { name: 'Switch', href: 'form/switch', isDone: true },
       { name: 'Input', href: 'form/input', isDone: true },
     ],
   },
@@ -71,26 +73,40 @@ const secondaryNavigation = [
   },
 ];
 
-export const SidebarMenu = () => {
+export const SidebarMenu = ({ className = '' }) => {
   const router = useRouter();
+  const [mode, setMode] = useThemeMode(true);
   const { pathname, asPath, query } = router;
-  const activeTab = pathname?.split('/')?.pop();
+  const activeTab = pathname.split('docs/')[1];
   const { t } = useTranslation();
   return (
-    <div className='top-0 left-0 z-40 flex min-h-screen h-fit max-h-[100dvh] w-64 overflow-y-auto overflow-x-hidden border-r border-primary-200 bg-primary-50 pl-[calc(env(safe-area-inset-right)-1rem)] contrast-more:border-primary-600 dark:border-primary-700 dark:bg-primary-900 dark:contrast-more:border-primary-200 dark:contrast-more:bg-[rgb(18,15,13)] sm:w-56 2xl:w-64'>
+    <div
+      className={clsxm(
+        'top-0 left-0 z-40 flex min-h-screen h-fit max-h-[100dvh] w-64 overflow-y-auto overflow-x-hidden border-r border-gray-200 bg-gray-50 pl-[calc(env(safe-area-inset-right)-1rem)] contrast-more:border-gray-600 dark:border-gray-700 dark:bg-gray-900 dark:contrast-more:border-gray-200 dark:contrast-more:bg-[rgb(18,15,13)] sm:w-56 2xl:w-64',
+        className
+      )}
+    >
       <div className='flex w-full flex-1 flex-grow flex-col justify-between'>
-        <div className='sticky top-0 z-10 mx-2.5 pt-4 flex items-center justify-start space-x-2 bg-primary-50/80 pb-3 backdrop-blur-md backdrop-filter dark:bg-primary-900/80 lg:mx-4'>
-          <span className='sr-only'>Fluid Design</span>
-          <AppLogo />
-          <UnstyledLink
-            className='-mt-[0.125rem] font-rounded font-bold text-primary-700 dark:text-primary-200 md:!text-[1.175rem]'
-            href='/'
-          >
-            <div>Fluid Design</div>
-            <div className='-mt-1.5 text-left font-sans text-[0.6rem] font-bold tracking-wide text-primary-500 contrast-more:text-primary-900 dark:text-primary-400 dark:contrast-more:text-primary-50'>
-              V{packageInfo.version}
-            </div>
-          </UnstyledLink>
+        <div className='sticky top-0 z-10 mx-2.5 pl-3.5 pt-4 flex items-center justify-between space-x-2 bg-gray-50/80 pb-3 backdrop-blur-md backdrop-filter dark:bg-gray-900/80 lg:mx-4'>
+          <div className='flex justify-start items-center gap-2'>
+            <span className='sr-only'>Fluid Design</span>
+            <AppLogo />
+            <UnstyledLink
+              className='-mt-[0.125rem] font-rounded font-bold text-gray-700 dark:text-gray-200 md:!text-[1.175rem]'
+              href='/'
+            >
+              <div>Fluid Design</div>
+              <div className='-mt-1.5 text-left font-sans text-[0.6rem] font-bold tracking-wide text-gray-500 contrast-more:text-gray-900 dark:text-gray-400 dark:contrast-more:text-gray-50'>
+                V{packageInfo.version}
+              </div>
+            </UnstyledLink>
+          </div>
+          <div className='sm:hidden'>
+            <ThemeSwitch
+              handleModeChange={(m) => setMode(m)}
+              mode={mode as 'light' | 'dark'}
+            />
+          </div>
         </div>
         <nav
           aria-label='Sidebar'
@@ -102,8 +118,8 @@ export const SidebarMenu = () => {
                 <a
                   className={clsxm(
                     activeTab === href
-                      ? 'bg-primary-100 text-primary-900 contrast-more:border contrast-more:border-primary-700 dark:bg-primary-700 dark:text-primary-100 dark:contrast-more:border-primary-200'
-                      : 'hocus:bg-primary-50 hocus:text-primary-900 dark:hocus:bg-primary-700/80 dark:hocus:text-primary-300 ',
+                      ? 'bg-gray-100 text-gray-900 contrast-more:border contrast-more:border-gray-700 dark:bg-gray-700 dark:text-gray-100 dark:contrast-more:border-gray-200'
+                      : 'hocus:bg-gray-50 hocus:text-gray-900 dark:hocus:bg-gray-700/80 dark:hocus:text-gray-300 ',
                     'group flex w-full items-center rounded-md px-2 py-2 text-sm font-medium transition'
                   )}
                 >
@@ -112,12 +128,12 @@ export const SidebarMenu = () => {
                   ${
                     activeTab === href
                       ? `border-secondary-400 text-secondary-400 shadow shadow-secondary-400/40`
-                      : `border-primary-500 text-primary-600 dark:border-primary-200/80 dark:text-primary-300`
+                      : `border-gray-500 text-gray-600 dark:border-gray-200/80 dark:text-gray-300`
                   }`}
                   >
                     <ItemIcon aria-hidden='true' className='h-3.5 w-3.5' />
                   </div>
-                  <div className='ml-2 text-base font-medium text-primary-900 dark:text-primary-200'>
+                  <div className='ml-2 text-base font-medium text-gray-900 dark:text-gray-200'>
                     {activeTab === href && (
                       <span className='sr-only'>Currently selected.</span>
                     )}
@@ -130,10 +146,10 @@ export const SidebarMenu = () => {
           {secondaryNavigation.map(({ groupList, groupName }, i) => (
             <div className='space-y-1 py-2' key={`${groupName}`}>
               {i !== 0 && (
-                <div className='mb-4 border-t border-primary-300/50 dark:border-primary-200/10'></div>
+                <div className='mb-4 border-t border-gray-300/50 dark:border-gray-200/10'></div>
               )}
               <h3
-                className='select-none px-3 text-xs font-semibold uppercase tracking-wider text-primary-500 contrast-more:text-primary-700 dark:text-primary-400 dark:contrast-more:text-slate-100'
+                className='select-none px-3 text-xs font-semibold uppercase tracking-wider text-gray-500 contrast-more:text-gray-700 dark:text-gray-400 dark:contrast-more:text-slate-100'
                 id={`${groupName}-headline`}
               >
                 {t(groupName)}
@@ -151,8 +167,8 @@ export const SidebarMenu = () => {
                   ${!isDone ? 'opacity-50' : ''} 
                   ${
                     activeTab === href
-                      ? `bg-primary-100 text-primary-900 contrast-more:border contrast-more:border-primary-700 dark:bg-primary-700 dark:text-primary-100 dark:contrast-more:border-primary-200`
-                      : `text-primary-700 contrast-more:text-primary-900 dark:text-primary-300/80 dark:contrast-more:text-primary-100`
+                      ? `bg-gray-100 text-gray-900 contrast-more:border contrast-more:border-gray-700 dark:bg-gray-700 dark:text-gray-100 dark:contrast-more:border-gray-200`
+                      : `text-gray-700 contrast-more:text-gray-900 dark:text-gray-300/80 dark:contrast-more:text-gray-100`
                   }`}
                     >
                       {t(name)}
@@ -169,9 +185,9 @@ export const SidebarMenu = () => {
                           'hocus:contrast-bg hocus:contrast-text group flex items-center rounded-md border border-transparent px-3 py-2 text-sm font-medium',
                           !isDone && 'opacity-50',
                           activeTab === href &&
-                            `bg-primary-100 text-primary-900 contrast-more:border contrast-more:border-primary-700 dark:bg-primary-700 dark:text-primary-100 dark:contrast-more:border-primary-200`,
+                            `bg-gray-100 text-gray-900 contrast-more:border contrast-more:border-gray-700 dark:bg-gray-700 dark:text-gray-100 dark:contrast-more:border-gray-200`,
                           activeTab !== href &&
-                            `clickable text-primary-700 transition-colors hocus:text-primary-800 contrast-more:text-primary-900 dark:text-primary-300/80 dark:hocus:text-primary-100 dark:contrast-more:text-primary-100`,
+                            `clickable text-gray-700 transition-colors hocus:text-gray-800 contrast-more:text-gray-900 dark:text-gray-300/80 dark:hocus:text-gray-100 dark:contrast-more:text-gray-100`,
                         ])}
                       >
                         <span className='flex items-center truncate'>
@@ -191,7 +207,7 @@ export const SidebarMenu = () => {
           ))}
           <div className='flex-grow' />
           <Menu
-            buttonClassName='w-full btn-clear-primary'
+            buttonClassName='w-full btn-clear-gray'
             iconEnd={ChevronUpIcon}
             iconEndPosition='between'
             label={t(`Language`, { ns: 'navbar' })}
@@ -203,7 +219,6 @@ export const SidebarMenu = () => {
                 : GlobeAsiaAustraliaIcon
             }
             iconClassName='w-4 h-4'
-            // @ts-ignore
             menus={languages.map(({ code, country_code, name }) => ({
               label: name,
               iconStart: (
@@ -226,9 +241,7 @@ export const SidebarMenu = () => {
 export const Sidebar = ({ hideNav = false, docNav = undefined }) => {
   return (
     <>
-      <div
-        className="sticky top-0 z-[61] hidden self-start transition duration-300 sm:block"
-      >
+      <div className='sticky top-0 z-[61] hidden self-start transition duration-300 sm:block'>
         <SidebarMenu />
       </div>
     </>

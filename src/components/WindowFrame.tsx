@@ -2,9 +2,9 @@ import { motion } from 'framer-motion';
 
 export const WindowDots = (
   <div className='flex items-center h-8 space-x-1.5 px-3'>
-    <div className='w-2.5 h-2.5 bg-primary-300 dark:bg-primary-600 contrast-more:bg-primary-400 dark:contrast-more:bg-primary-300 rounded-full' />
-    <div className='w-2.5 h-2.5 bg-primary-300 dark:bg-primary-600 contrast-more:bg-primary-400 dark:contrast-more:bg-primary-300 rounded-full' />
-    <div className='w-2.5 h-2.5 bg-primary-300 dark:bg-primary-600 contrast-more:bg-primary-400 dark:contrast-more:bg-primary-300 rounded-full' />
+    <div className='w-2.5 h-2.5 bg-gray-300 dark:bg-gray-600 contrast-more:bg-gray-400 dark:contrast-more:bg-gray-300 rounded-full' />
+    <div className='w-2.5 h-2.5 bg-gray-300 dark:bg-gray-600 contrast-more:bg-gray-400 dark:contrast-more:bg-gray-300 rounded-full' />
+    <div className='w-2.5 h-2.5 bg-gray-300 dark:bg-gray-600 contrast-more:bg-gray-400 dark:contrast-more:bg-gray-300 rounded-full' />
   </div>
 );
 function WindowFrame({ sidebar = null, content, ...props }) {
@@ -12,12 +12,12 @@ function WindowFrame({ sidebar = null, content, ...props }) {
     <motion.div
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
-      className={`rounded-xl border border-primary-200/50 dark:border-primary-700 contrast-more:border-primary-400 dark:contrast-more:border-primary-500 bg-primary-100 dark:bg-primary-700/50 flex overflow-hidden shadow-lg ${
+      className={`rounded-xl border border-gray-200/50 dark:border-gray-700 contrast-more:border-gray-400 dark:contrast-more:border-gray-500 bg-gray-100 dark:bg-gray-700/50 flex overflow-hidden shadow-lg ${
         props.className ? props.className : ``
       } `}
     >
       {sidebar && (
-        <div className='min-w-[180px] bg-primary-50 dark:bg-primary-700 flex-col relative pb-1'>
+        <div className='min-w-[180px] bg-gray-50 dark:bg-gray-700 flex-col relative pb-1'>
           {WindowDots}
           <div className='flex items-center justify-center flex-1'>
             <div className='w-full text-sm'>{sidebar}</div>

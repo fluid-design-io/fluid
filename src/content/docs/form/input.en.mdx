@@ -1,6 +1,6 @@
 ---
-title: 'Fluid Design Docs | Form'
-description: 'Form component for Fluid Design'
+title: 'Fluid Design Docs | Input'
+description: 'Input component for Fluid Design'
 date: '2022-08-27'
 author: 'Oliver Pan'
 tags:
@@ -12,21 +12,48 @@ tags:
   - 'form'
   - 'formik'
   - 'input'
-  - 'textarea'
-  - 'checkbox'
 ---
 
-## Input
+# Input
 
 Fluid UI forms offers a simple and flexible way to build forms. It is built on top of <ExternalLink href="https://formik.org/">Formik</ExternalLink>.
 Input field is a basic input field that can be used to input text, numbers, and other types of data.
 It supports field validation through Formik's API or `Yup` schema.
 
 <CodeFrame title='Input Example'>
-  <FormExamples.Input />
+  <FormExamples.Input.Demo />
 </CodeFrame>
 
-## Example
+## Basic Example
+
+<CodeFrame title='Basic Example'>
+  <FormExamples.Input.Basic />
+</CodeFrame>
+
+```jsx
+import { Input } from '@fluid-design/fluid-ui';
+
+const Example = () => {
+  return (
+    <Form
+      initialValues={{
+        name: '',
+      }}
+      onSubmit={(values) => {
+        console.log(values);
+      }}
+    >
+      <Input name='name' placeholder='Enter your name' type='text' />
+    </Form>
+  );
+};
+```
+
+## With validation
+
+Fluid UI forms uses Formik under the hood, which means you can use <ExternalLink href='https://formik.org/docs/guides/validation#field-level-validation'>Formik's API</ExternalLink>
+and <ExternalLink href='https://github.com/jquense/yup'>Yup</ExternalLink> schema to validate your fields.
+You can read more about validation at the [Form Validation](https://formik.org/docs/validation) page.
 
 ```jsx
 import { Form, Input, SubmitButton } from '@fluid-design/fluid-ui';
@@ -53,10 +80,10 @@ const InputExample = () => {
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            setSubmitting(false);
-            setIsSubmitted(true);
+            setSubmitting(false); // change Formik state to false after 2 seconds
+            setIsSubmitted(true); // Optional: change state to show form is submitted
             setTimeout(() => {
-              setIsSubmitted(false);
+              setIsSubmitted(false); // Optional: reset the isLoaded state to false after 2 seconds
             }, 2000);
           }, 2000);
         }}
@@ -108,8 +135,11 @@ import { Form, Input, SubmitButton } from '@fluid-design/fluid-ui';
 
 </CH.Code>
 
-## Validation
+## Component API
 
-Fluid UI forms uses Formik under the hood, which means you can use <ExternalLink href='https://formik.org/docs/guides/validation#field-level-validation'>Formik's API</ExternalLink>
-and <ExternalLink href='https://github.com/jquense/yup'>Yup</ExternalLink> schema to validate your fields.
-You can read more about validation at the [Form Validation](https://formik.org/docs/validation) page.
+| Prop          | Default | Description                                                                                                      |
+| ------------- | ------- | ---------------------------------------------------------------------------------------------------------------- |
+| `name`        | -       | `String` <Table.D>Input field name</Table.D>                                                                     |
+| `label`       |         | `String` <Table.D>Input field label, if not provided, the label will be the same as the name</Table.D>           |
+| `placeholder` |         | `String` <Table.D>Input field placeholder, if label is not provided, this will replace the label field</Table.D> |
+| `description` |         | `String` <Table.D>Input field description showing under this field</Table.D>                                     |

@@ -57,6 +57,27 @@ const InputExample = () => {
   );
 };
 
-InputExample.displayName = 'InputExample';
+const BasicExample = () => {
+  return (
+    <CodeFrameComponentWrap className='min-w-[calc(min(20rem,100%-2rem))] items-stretch'>
+      <Form
+        initialValues={{
+          name: '',
+        }}
+        onSubmit={(values) => {
+          console.log(values);
+        }}
+      >
+        <Input name='name' placeholder='Enter your name' type='text' />
+      </Form>
+    </CodeFrameComponentWrap>
+  );
+};
 
-export const FormExamples = Object.assign({}, { Input: InputExample });
+InputExample.displayName = 'InputExample';
+BasicExample.displayName = 'BasicExample';
+
+export const InputExamples = Object.assign(
+  {},
+  { Basic: BasicExample, Demo: InputExample }
+);

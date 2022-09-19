@@ -23,13 +23,17 @@ Embeded with headless UI, they support a11y features such as keyboard navigation
 
 ## Basic Example
 
+<CodeFrame title='Basic Example'>
+  <MenuExamples.Basic />
+</CodeFrame>
+
 ```jsx
 // @heroicons/react v2
 import { Menu } from '@fluid-design/fluid-ui';
 import {
+  ArrowRightOnRectangleIcon,
   BellIcon,
   CogIcon,
-  ArrowRightOnRectangleIcon,
   UserIcon,
 } from '@heroicons/react/24/outline';
 
@@ -47,16 +51,44 @@ function Example() {
       menus={[
         {
           label: 'Profile',
-          icon: UserIcon,
-        },
-        {
-          label: 'Notifications',
-          role: 'info',
-          icon: BellIcon,
+          iconStart: UserIcon,
         },
         {
           role: 'separator',
         },
+        {
+          label: 'Notifications',
+          iconStart: BellIcon,
+          role: 'info',
+        },
+      ]}
+    />
+  );
+}
+```
+
+```jsx
+// @heroicons/react v2
+import { Menu } from '@fluid-design/fluid-ui';
+import {
+  ArrowRightOnRectangleIcon,
+  BellIcon,
+  CogIcon,
+  UserIcon,
+} from '@heroicons/react/24/outline';
+
+function Example() {
+  return (
+    <Menu
+      label={'Settings'}
+      color='gray'
+      weight='clear'
+      iconStart={CogIcon}
+      iconEndPosition='between'
+      menuPositionY='bottom'
+      header='Hi, User'
+      className='absolute right-4 top-4'
+      menus={[
         {
           label: 'Logout',
           role: 'destructive',
@@ -81,5 +113,3 @@ function Example() {
 You can add custom content to the `<Menu />` component by passing a `children` prop.
 However, according to A11y standars and <a href='https:headlessui.com/react/menu#rendering-additional-content' target='_blank' referrerPolicy='no-referrer'>Headless UI</a>,
 it is recommended to use the `<Popover />` component instead.
-
-

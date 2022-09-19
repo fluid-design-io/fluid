@@ -11,9 +11,7 @@ const data = [
   {
     title: 'Shop',
     details: (
-      <p
-        className="my-2 text-primary-600 dark:text-primary-300 contrast-more:text-primary-900 dark:contrast-more:text-primary-50"
-      >
+      <p className='my-2 text-gray-600 dark:text-gray-300 contrast-more:text-gray-900 dark:contrast-more:text-gray-50'>
         Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
         ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
         amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo
@@ -27,9 +25,7 @@ const data = [
   {
     title: 'Service',
     details: (
-      <p
-        className="my-2 text-primary-600 dark:text-primary-300 contrast-more:text-primary-900 dark:contrast-more:text-primary-50"
-      >
+      <p className='my-2 text-gray-600 dark:text-gray-300 contrast-more:text-gray-900 dark:contrast-more:text-gray-50'>
         Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
         purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis
         porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non
@@ -43,18 +39,14 @@ const data = [
     title: 'About',
     details: (
       <>
-        <p
-          className="my-2 text-primary-600 dark:text-primary-300 contrast-more:text-primary-900 dark:contrast-more:text-primary-50"
-        >
+        <p className='my-2 text-gray-600 dark:text-gray-300 contrast-more:text-gray-900 dark:contrast-more:text-gray-50'>
           Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque
           lobortis. Phasellus pellentesque purus in massa. Aenean in pede.
           Phasellus ac libero ac tellus pellentesque semper. Sed ac felis. Sed
           commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu iaculis
           leo purus venenatis dui.
         </p>
-        <ul
-          className="mb-2 text-primary-600 dark:text-primary-400 contrast-more:text-primary-900 dark:contrast-more:text-primary-50"
-        >
+        <ul className='mb-2 text-gray-600 dark:text-gray-400 contrast-more:text-gray-900 dark:contrast-more:text-gray-50'>
           <li>List item one</li>
           <li>List item two</li>
           <li>List item three</li>
@@ -70,12 +62,12 @@ function AccordionSimpleWithIconComponent() {
   const { t } = useTranslation('accordion');
   const shouldReduceMotion = useReducedMotion();
   const rowStyle =
-    'hover:bg-primary-200/30 focus-visible:bg-primary-200/30 dark:hover:bg-primary-600/30 dark:focus-visible:bg-primary-600/30 hover:contrast-more:bg-amber-300 dark:hover:contrast-more:bg-amber-400 text-primary-700 dark:text-primary-200 contrast-more:text-primary-900 dark:contrast-more:text-primary-50 dark:contrast-more:focus-visible:text-primary-900 dark:contrast-more:hover:text-primary-900 focus-within:outline-none focus-within:ring-1 focus-within:ring-primary-400 dark:focus-within:ring-primary-500 contrast-more:focus-within:ring-primary-900 dark:contrast-more:focus-within:ring-primary-200 focus-within:ring-inset transition-colors [-webkit-tap-highlight-color:transparent]';
+    'hover:bg-gray-200/30 focus-visible:bg-gray-200/30 dark:hover:bg-gray-600/30 dark:focus-visible:bg-gray-600/30 hover:contrast-more:bg-amber-300 dark:hover:contrast-more:bg-amber-400 text-gray-700 dark:text-gray-200 contrast-more:text-gray-900 dark:contrast-more:text-gray-50 dark:contrast-more:focus-visible:text-gray-900 dark:contrast-more:hover:text-gray-900 focus-within:outline-none focus-within:ring-1 focus-within:ring-gray-400 dark:focus-within:ring-gray-500 contrast-more:focus-within:ring-gray-900 dark:contrast-more:focus-within:ring-gray-200 focus-within:ring-inset transition-colors [-webkit-tap-highlight-color:transparent]';
 
   const ListPanel = ({ children }) => (
     <motion.div
       animate='open'
-      className="overflow-hidden !mt-0 mx-4"
+      className='overflow-hidden !mt-0 mx-4'
       exit='collapsed'
       initial='collapsed'
       key={`${name}.content`}
@@ -96,7 +88,7 @@ function AccordionSimpleWithIconComponent() {
     </motion.div>
   );
   return (
-    <div className='w-full max-w-xs px-2 py-1 overflow-hidden rounded-lg shadow-lg md:!w-2/3 bg-primary-50 dark:bg-primary-900 shadow-primary-900/10 dark:shadow-primary-900/30 component contrast-more:bg-white dark:contrast-more:bg-primary-900 contrast-more:contrast-ring'>
+    <div className='w-full max-w-xs px-2 py-1 overflow-hidden rounded-lg shadow-lg md:!w-2/3 bg-gray-50 dark:bg-gray-900 shadow-gray-900/10 dark:shadow-gray-900/30 component contrast-more:bg-white dark:contrast-more:bg-gray-900 contrast-more:contrast-ring'>
       <Accordion>
         {data.map((item, index) => (
           <Accordion.Panel

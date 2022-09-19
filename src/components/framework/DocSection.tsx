@@ -43,7 +43,7 @@ function DocSection({
                 : `${transformed}. ${t(`Click to copy section hashtag`)}`
             }
           >
-            <HashtagIcon className='flex items-center justify-center w-6 h-6 p-1 text-primary-400 rounded-md shadow-sm ring-1 ring-primary-900/5 hover:ring-primary-900/10 hover:shadow hover:text-primary-700 dark:bg-primary-700 dark:text-primary-300 dark:shadow-none dark:ring-0' />
+            <HashtagIcon className='flex items-center justify-center w-6 h-6 p-1 text-gray-400 rounded-md shadow-sm ring-1 ring-gray-900/5 hover:ring-gray-900/10 hover:shadow hover:text-gray-700 dark:bg-gray-700 dark:text-gray-300 dark:shadow-none dark:ring-0' />
           </a>
         </CopyToClipboard>
         {transformed}

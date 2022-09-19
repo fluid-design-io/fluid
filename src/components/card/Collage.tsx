@@ -24,10 +24,10 @@ export const CardCollageComponent = () => {
             Forest
           </h3>
         </div>
-        <p className='pt-1 text-sm text-primary-600 dark:text-primary-400 contrast-more:text-primary-800 dark:contrast-more:text-primary-100 contrast-more:font-medium'>
+        <p className='pt-1 text-sm text-gray-600 dark:text-gray-400 contrast-more:text-gray-800 dark:contrast-more:text-gray-100 contrast-more:font-medium'>
           32 photos •{' '}
           <span className='cursor-pointer hover:opacity-80 hover:underline'>
-            <a aria-label="Browse more images by John Doe" href=''>
+            <a aria-label='Browse more images by John Doe' href=''>
               By John Doe
             </a>
           </span>
@@ -38,7 +38,7 @@ export const CardCollageComponent = () => {
               <li className='list-none' key={id}>
                 <button
                   aria-label={`Browse category related to ${name}`}
-                  className='px-4 py-1 text-sm font-medium capitalize rounded-full focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 bg-primary-200 dark:bg-primary-700 contrast-more:hover:ring-2 contrast-more:hover:ring-primary-800 dark:contrast-more:hover:ring-primary-50 contrast-more:hover:ring-offset-2 hover:bg-primary-300 dark:hover:bg-primary-600 contrast-more:font-semibold contrast-more:border contrast-more:border-primary-700 dark:contrast-more:border-primary-200 dark:contrast-more:bg-primary-800 dark:contrast-more:text-primary-50 contrast-more:text-primary-800'
+                  className='px-4 py-1 text-sm font-medium capitalize rounded-full focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 bg-gray-200 dark:bg-gray-700 contrast-more:hover:ring-2 contrast-more:hover:ring-gray-800 dark:contrast-more:hover:ring-gray-50 contrast-more:hover:ring-offset-2 hover:bg-gray-300 dark:hover:bg-gray-600 contrast-more:font-semibold contrast-more:border contrast-more:border-gray-700 dark:contrast-more:border-gray-200 dark:contrast-more:bg-gray-800 dark:contrast-more:text-gray-50 contrast-more:text-gray-800'
                   // onClick={() => {}}
                 >
                   <span className='sr-only'>{name}</span>

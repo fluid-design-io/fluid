@@ -19,7 +19,7 @@ import { CodeFrameComponentWrap } from '../framework/CodeFrameComponentWrap';
 
 /* 
   .clickable {
-      @apply border border-transparent hocus:border-primary-400/30 hocus:bg-primary-400/10 dark:hocus:border-primary-300/30 dark:hocus:bg-primary-500/10;
+      @apply border border-transparent hocus:border-gray-400/30 hocus:bg-gray-400/10 dark:hocus:border-gray-300/30 dark:hocus:bg-gray-500/10;
   }
 */
 const avatarImage =
@@ -48,7 +48,7 @@ const DefaultMenu = () => {
         header='Hi, User'
         iconEndPosition='between'
         iconStart={CogIcon}
-        label="Settings"
+        label='Settings'
         menuPositionY='bottom'
         weight='clear'
         menus={[
@@ -66,7 +66,7 @@ const DefaultMenu = () => {
             role: 'info',
             iconStart: <CustomIcon />,
             badge: 4,
-            iconEndPosition:'between',
+            iconEndPosition: 'between',
             onClick: () => {
               present({
                 title: 'Notifications',
@@ -110,7 +110,7 @@ const DefaultMenu = () => {
           color='indigo'
           iconEnd={ChevronRightIcon}
           iconEndPosition='between'
-          label="Options"
+          label='Options'
           menuClassName='w-40'
           menuPositionX='end'
           menuPositionY='center'
@@ -184,6 +184,53 @@ const DefaultMenu = () => {
   );
 };
 
-DefaultMenu.displayName = 'DefaultMenu';
+const BasicExample = () => {
+  const [present] = useToast();
+  return (
+    <div className='pb-64'>
+      <CodeFrameComponentWrap className='h-auto'>
+        <Menu
+          label='Settings'
+          color='gray'
+          weight='outline'
+          iconStart={CogIcon}
+          iconEndPosition='between'
+          menuPositionY='bottom'
+          header='Hi, User'
+          menus={[
+            {
+              label: 'Profile',
+              iconStart: UserIcon,
+              onClick: () =>
+                present({
+                  title: 'Profile',
+                  icon: UserIcon,
+                }),
+            },
+            {
+              role: 'separator',
+            },
+            {
+              label: 'Notifications',
+              role: 'info',
+              iconStart: BellIcon,
+              onClick: () =>
+                present({
+                  title: 'Notifications',
+                  icon: BellIcon,
+                }),
+            },
+          ]}
+        />
+      </CodeFrameComponentWrap>
+    </div>
+  );
+};
 
-export const MenuExamples = Object.assign({}, { Default: DefaultMenu });
+DefaultMenu.displayName = 'DefaultMenu';
+BasicExample.displayName = 'BasicExample';
+
+export const MenuExamples = Object.assign(
+  {},
+  { Default: DefaultMenu, Basic: BasicExample }
+);

@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 
 function ImageWithOverlayComponent({ src = undefined, ...props }) {
   const { t } = useTranslation('image');
@@ -10,7 +10,7 @@ function ImageWithOverlayComponent({ src = undefined, ...props }) {
         'with-overlay.ocldesc',
         { ns: 'image' }
       )}`}
-      className={`relative w-full max-w-xs overflow-hidden shadow component card-bg rounded-xl group focus-within:ring-2 focus-within:ring-primary-600 dark:focus-within:ring-primary-300 outline-none ${
+      className={`relative w-full max-w-xs overflow-hidden shadow component card-bg rounded-xl group focus-within:ring-2 focus-within:ring-gray-600 dark:focus-within:ring-gray-300 outline-none ${
         props.className ? props.className : `h-48`
       }`}
     >

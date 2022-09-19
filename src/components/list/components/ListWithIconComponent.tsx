@@ -33,18 +33,18 @@ function ListWithIconComponent({ setNotification, ...props }) {
   ];
   return (
     <div
-      className={`w-full max-w-xs overflow-hidden rounded-lg shadow-lg md:!w-2/3 bg-primary-50 dark:bg-primary-900 shadow-primary-900/10 dark:shadow-primary-900/30 component contrast-more:bg-white dark:contrast-more:bg-primary-900 contrast-more:contrast-ring  ${
+      className={`w-full max-w-xs overflow-hidden rounded-lg shadow-lg md:!w-2/3 bg-gray-50 dark:bg-gray-900 shadow-gray-900/10 dark:shadow-gray-900/30 component contrast-more:bg-white dark:contrast-more:bg-gray-900 contrast-more:contrast-ring  ${
         props.className ? props.className : ``
       }`}
     >
       <ul
         aria-label={t('WithIcon.ul', { ns: 'list' })}
-        className='divide-y divide-primary-200/70 dark:divide-primary-700/70 contrast-more:divide-primary-600 dark:contrast-more:divide-primary-200'
+        className='divide-y divide-gray-200/70 dark:divide-gray-700/70 contrast-more:divide-gray-600 dark:contrast-more:divide-gray-200'
       >
         {list.map(({ name, Icon }) => (
           <li key={name}>
             <button
-              className='flex items-center justify-start w-full px-4 py-2 capitalize transition outline-none select-none hover:bg-primary-200/30 focus-visible:bg-primary-200/30 dark:hover:bg-primary-600/30 dark:focus-visible:bg-primary-600/30 hover:contrast-more:bg-amber-300 dark:hover:contrast-more:bg-amber-400 text-primary-700 dark:text-primary-200 contrast-more:text-primary-900 dark:contrast-more:text-primary-50 dark:contrast-more:focus-visible:text-primary-900 dark:contrast-more:hover:text-primary-900'
+              className='flex items-center justify-start w-full px-4 py-2 capitalize transition outline-none select-none hover:bg-gray-200/30 focus-visible:bg-gray-200/30 dark:hover:bg-gray-600/30 dark:focus-visible:bg-gray-600/30 hover:contrast-more:bg-amber-300 dark:hover:contrast-more:bg-amber-400 text-gray-700 dark:text-gray-200 contrast-more:text-gray-900 dark:contrast-more:text-gray-50 dark:contrast-more:focus-visible:text-gray-900 dark:contrast-more:hover:text-gray-900'
               onClick={() =>
                 setNotification({
                   enabled: true,
@@ -53,7 +53,7 @@ function ListWithIconComponent({ setNotification, ...props }) {
                 })
               }
             >
-              <Icon className="w-4 h-4 mr-2" />
+              <Icon className='w-4 h-4 mr-2' />
               <span>{name}</span>
             </button>
           </li>

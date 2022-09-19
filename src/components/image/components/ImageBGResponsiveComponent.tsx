@@ -13,15 +13,15 @@ function ImageBGResponsiveComponent({ ...props }) {
             alt='Blue ocean and sand from birds eye view. By Ben Krygsman from Unsplash.'
             layout='fill'
             objectFit='cover'
-            objectPosition="bottom"
+            objectPosition='bottom'
             src='https://images.unsplash.com/photo-1532040675891-5991e7e3d0cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80'
           />
         </div>
       </div>
-      <div className='flex items-center justify-center col-span-1 p-4 bg-primary-50 dark:bg-primary-900'>
+      <div className='flex items-center justify-center col-span-1 p-4 bg-gray-50 dark:bg-gray-900'>
         <svg
           aria-hidden='true'
-          className='w-full h-64 border-2 border-dashed rounded text-primary-200 dark:text-primary-600 dark:border-primary-600 border-primary-300'
+          className='w-full h-64 border-2 border-dashed rounded text-gray-200 dark:text-gray-600 dark:border-gray-600 border-gray-300'
           fill='none'
           preserveAspectRatio='none'
           stroke='currentColor'

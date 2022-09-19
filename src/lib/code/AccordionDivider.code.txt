@@ -4,16 +4,14 @@ Accordion - With Divider
 Component by fluid-design.io
 Last updated: 8/6/22
 */
-import React from "react";
-import { Accordion } from "@fluid-design/fluid-ui";
+import { Accordion } from '@fluid-design/fluid-ui';
+import React from 'react';
 
 const data = [
   {
-    title: "Shop",
+    title: 'Shop',
     details: (
-      <p
-        className={`my-2 text-primary-600 dark:text-primary-300 prefers-contrast:text-primary-900 dark:prefers-contrast:text-primary-50`}
-      >
+      <p className='my-2 text-gray-600 dark:text-gray-300 prefers-contrast:text-gray-900 dark:prefers-contrast:text-gray-50'>
         Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
         ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
         amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo
@@ -24,11 +22,9 @@ const data = [
     isOpen: true,
   },
   {
-    title: "Service",
+    title: 'Service',
     details: (
-      <p
-        className={`my-2 text-primary-600 dark:text-primary-300 prefers-contrast:text-primary-900 dark:prefers-contrast:text-primary-50`}
-      >
+      <p className='my-2 text-gray-600 dark:text-gray-300 prefers-contrast:text-gray-900 dark:prefers-contrast:text-gray-50'>
         Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
         purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis
         porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non
@@ -38,21 +34,17 @@ const data = [
     isOpen: false,
   },
   {
-    title: "About",
+    title: 'About',
     details: (
       <>
-        <p
-          className={`my-2 text-primary-600 dark:text-primary-300 prefers-contrast:text-primary-900 dark:prefers-contrast:text-primary-50`}
-        >
+        <p className='my-2 text-gray-600 dark:text-gray-300 prefers-contrast:text-gray-900 dark:prefers-contrast:text-gray-50'>
           Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque
           lobortis. Phasellus pellentesque purus in massa. Aenean in pede.
           Phasellus ac libero ac tellus pellentesque semper. Sed ac felis. Sed
           commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu iaculis
           leo purus venenatis dui.
         </p>
-        <ul
-          className={`mb-2 text-primary-600 dark:text-primary-400 prefers-contrast:text-primary-900 dark:prefers-contrast:text-primary-50`}
-        >
+        <ul className='mb-2 text-gray-600 dark:text-gray-400 prefers-contrast:text-gray-900 dark:prefers-contrast:text-gray-50'>
           <li>List item one</li>
           <li>List item two</li>
           <li>List item three</li>
@@ -65,7 +57,7 @@ const data = [
 
 function Example() {
   return (
-    <div className="w-[calc(100%-2rem)] px-2 py-1 overflow-hidden divide-y rounded-lg divide-primary-300/75 dark:divide-primary-700 prefers-contrast:divide-primary-800 dark:prefers-contrast:divide-primary-50 prefers-contrast:contrast-ring component">
+    <div className='w-[calc(100%-2rem)] px-2 py-1 overflow-hidden divide-y rounded-lg divide-gray-300/75 dark:divide-gray-700 prefers-contrast:divide-gray-800 dark:prefers-contrast:divide-gray-50 prefers-contrast:contrast-ring component'>
       <Accordion divider>
         {data.map((item, index) => (
           <Accordion.Panel key={index} header={item.title} isOpen={item.isOpen}>

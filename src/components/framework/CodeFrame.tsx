@@ -1,6 +1,3 @@
-import { CodeFrameProps } from '@/interfaces/CodeBlock';
-import { useThemeMode } from '@/lib/ThemeContext';
-import clsxm from '@/lib/clsxm';
 import { SunIcon } from '@heroicons/react/24/solid';
 import { useTranslation } from 'next-i18next';
 import React, { useEffect, useState } from 'react';
@@ -11,6 +8,9 @@ import {
   MdFormatTextdirectionLToR,
   MdFormatTextdirectionRToL,
 } from 'react-icons/md';
+
+import { useThemeMode } from '@/lib/ThemeContext';
+import clsxm from '@/lib/clsxm';
 
 export const FunctionalIFrameComponent = ({
   children,
@@ -71,7 +71,7 @@ export const FunctionalIFrameComponent = ({
             ?.scrollHeight;
         setHeight(iframeHeight);
         updateHtmlClasses();
-      }, 600);
+      }, 850);
     }
   }, [mountNode, contentRef, cssLink, mounded]);
   useEffect(() => {
@@ -105,7 +105,7 @@ export const FunctionalIFrameComponent = ({
       title={title}
       className={clsxm(
         'box-content w-full transition delay-700',
-        mountNode ? 'visible opacity-100' : 'invisible opacity-0'
+        mountNode ? 'block' : 'hidden'
       )}
       {...props}
     >
@@ -127,11 +127,7 @@ interface PreferencesProps {
   isActive: boolean;
   className: string;
 }
-export const CodeFrame = ({
-  title = 'Example',
-  children = null,
-  ...props
-}: CodeFrameProps) => {
+export const CodeFrame = ({ title = 'Example', children = null, ...props }) => {
   const prefs = [
     {
       name: 'dark',
@@ -202,31 +198,31 @@ export const CodeFrame = ({
         <div
           className={clsxm(
             props.className,
-            'code-block-wrap focus-ring not-prose relative my-6 min-h-[8rem] w-full translate-x-0 transform-gpu cursor-auto overflow-hidden border-y border-primary-300/50 transition-colors contrast-more:border-primary-800 dark:border-primary-500/20 dark:bg-primary-900/90 dark:contrast-more:border-primary-100 sm:rounded-xl sm:border'
+            'code-block-wrap focus-ring not-prose relative my-6 min-h-[8rem] w-full translate-x-0 transform-gpu cursor-auto overflow-hidden border-y border-gray-300/50 transition-colors contrast-more:border-gray-800 dark:border-gray-500/20 dark:bg-gray-900/90 dark:contrast-more:border-gray-100 sm:rounded-xl sm:border'
           )}
         >
           <div
             className={clsxm(
               'pointer-events-none absolute top-0 left-0 right-0 z-10 h-8 w-full [mask-image:linear-gradient(0deg,rgba(255,255,255,0),rgba(255,255,255,1)_85%)]',
-              isPrefDark ? ' dark:bg-primary-800' : 'bg-primary-100'
+              isPrefDark ? ' dark:bg-gray-800' : 'bg-gray-100'
             )}
           />
           <div
             className={clsxm(
               'pointer-events-none absolute bottom-0 left-0 right-0 z-10 h-8 w-full [mask-image:linear-gradient(0deg,rgba(255,255,255,1)_15%,rgba(255,255,255,0))]',
-              isPrefDark ? ' dark:bg-primary-800' : 'bg-primary-100'
+              isPrefDark ? ' dark:bg-gray-800' : 'bg-gray-100'
             )}
           />
           <div
             className={clsxm(
               'pointer-events-none absolute top-0 left-0 bottom-0 z-10 h-full w-8 [mask-image:linear-gradient(270deg,rgba(255,255,255,0),rgba(255,255,255,1)_85%)]',
-              isPrefDark ? ' dark:bg-primary-800' : 'bg-primary-100'
+              isPrefDark ? ' dark:bg-gray-800' : 'bg-gray-100'
             )}
           />
           <div
             className={clsxm(
               'pointer-events-none absolute top-0 right-0 bottom-0 z-10 h-full w-8 [mask-image:linear-gradient(270deg,rgba(255,255,255,1)_15%,rgba(255,255,255,0))]',
-              isPrefDark ? ' dark:bg-primary-800' : 'bg-primary-100'
+              isPrefDark ? ' dark:bg-gray-800' : 'bg-gray-100'
             )}
           />
           <div
@@ -237,14 +233,14 @@ export const CodeFrame = ({
           >
             <h5
               className={clsxm(
-                isPrefDark ? 'text-white' : 'text-primary-500',
+                isPrefDark ? 'text-white' : 'text-gray-500',
                 'line-clamp-1'
               )}
             >
               {title}
             </h5>
             <div
-              className={`z-[4] flex flex-shrink-0 pointer-events-auto justify-center space-x-2 rounded-md bg-primary-50/75 py-1 px-1 backdrop-blur-md backdrop-brightness-90 backdrop-filter motion-safe:transition-opacity contrast-more:shadow-none dark:bg-primary-800/30 dark:shadow-primary-900/20 sm:shadow-md sm:shadow-primary-400/10 ${touchStyle}`}
+              className={`z-[4] flex flex-shrink-0 pointer-events-auto justify-center space-x-2 rounded-md bg-gray-50/75 py-1 px-1 backdrop-blur-md backdrop-brightness-90 backdrop-filter motion-safe:transition-opacity contrast-more:shadow-none dark:bg-gray-800/30 dark:shadow-gray-900/20 sm:shadow-md sm:shadow-gray-400/10 ${touchStyle}`}
             >
               {preferences.map(
                 (
@@ -262,13 +258,13 @@ export const CodeFrame = ({
                 ) => (
                   <React.Fragment key={`${title}.${name}`}>
                     {i !== 0 && (
-                      <div className='my-2 mx-1 w-[2px] flex-grow-0 bg-primary-400/30 dark:bg-white/10' />
+                      <div className='my-2 mx-1 w-[2px] flex-grow-0 bg-gray-400/30 dark:bg-white/10' />
                     )}
                     <button
                       onClick={() => handlePreferences(name)}
                       className={clsxm(
                         `clickable relative flex items-center rounded-md py-1.5 px-2 text-xs font-medium`,
-                        'text-primary-800 motion-reduce:bg-primary-200/70 motion-reduce:backdrop-blur-md motion-reduce:backdrop-filter dark:text-primary-100 dark:motion-reduce:bg-primary-900/60',
+                        'text-gray-800 motion-reduce:bg-gray-200/70 motion-reduce:backdrop-blur-md motion-reduce:backdrop-filter dark:text-gray-100 dark:motion-reduce:bg-gray-900/60',
                         buttonStyle
                       )}
                     >

@@ -8,7 +8,7 @@ function IndexCard() {
   return (
     <motion.div
       animate={{ y: 0, opacity: 1 }}
-      className='w-5/6 overflow-hidden rounded-lg shadow-lg md:!w-1/2 bg-primary-50 dark:bg-primary-800 shadow-primary-900/10 dark:shadow-primary-900/30 component'
+      className='w-5/6 overflow-hidden rounded-lg shadow-lg md:!w-1/2 bg-gray-50 dark:bg-gray-800 shadow-gray-900/10 dark:shadow-gray-900/30 component'
       exit={{ y: -10, opacity: 0 }}
       initial={{ y: 10, opacity: 0 }}
       transition={{ type: 'just' }}
@@ -23,22 +23,22 @@ function IndexCard() {
         </div>
         <div className='p-2.5'>
           <div className='flex-grow'>
-            <h2 className='text-xs text-primary-500 dark:text-primary-500 contrast-more:text-primary-700 dark:contrast-more:text-primary-300'>
+            <h2 className='text-xs text-gray-500 dark:text-gray-500 contrast-more:text-gray-700 dark:contrast-more:text-gray-300'>
               Subtitle
             </h2>
-            <h1 className='font-semibold dark:text-primary-100'>Card Title</h1>
-            <p className='pt-1.5 pb-2 text-sm text-primary-600 dark:text-primary-300 leading-tight'>
+            <h1 className='font-semibold dark:text-gray-100'>Card Title</h1>
+            <p className='pt-1.5 pb-2 text-sm text-gray-600 dark:text-gray-300 leading-tight'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor.
             </p>
           </div>
           <div className='flex items-center justify-between pt-1'>
-            <button className='px-2 py-1 text-xs font-semibold uppercase transition rounded bg-primary-200 text-primary-700 dark:bg-primary-800 dark:text-primary-200 hover:bg-primary-700 hover:text-primary-100 dark:hover:bg-primary-600 dark:active:bg-primary-500 dark:hover:text-primary-100 focus:bg-primary-700 focus:text-primary-100 dark:focus:bg-primary-600 dark:focus:text-primary-100 touch-pan-y'>
+            <button className='px-2 py-1 text-xs font-semibold uppercase transition rounded bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-gray-200 hover:bg-gray-700 hover:text-gray-100 dark:hover:bg-gray-600 dark:active:bg-gray-500 dark:hover:text-gray-100 focus:bg-gray-700 focus:text-gray-100 dark:focus:bg-gray-600 dark:focus:text-gray-100 touch-pan-y'>
               button
             </button>
             <div className='flex space-x-2'>
-              <ShareIcon className='w-4 h-4 text-primary-400' />
-              <HeartIcon className='w-4 h-4 text-primary-400' />
+              <ShareIcon className='w-4 h-4 text-gray-400' />
+              <HeartIcon className='w-4 h-4 text-gray-400' />
             </div>
           </div>
         </div>

@@ -1,13 +1,13 @@
 import { HeartIcon, ShareIcon } from '@heroicons/react/24/outline';
-import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 
 function CardStandardComponent({ setNotification, src = undefined, ...props }) {
   const { t } = useTranslation('image');
-  const contrastRing = `contrast-more:border contrast-more:border-primary-800 dark:contrast-more:border-primary-200`;
+  const contrastRing = `contrast-more:border contrast-more:border-gray-800 dark:contrast-more:border-gray-200`;
   return (
     <div
-      className={`w-full max-w-xs overflow-hidden transform translate-x-0 shadow component card-bg rounded-xl bg-primary-50 dark:bg-primary-900 dark:contrast-more:bg-black ${contrastRing} ${
+      className={`w-full max-w-xs overflow-hidden transform translate-x-0 shadow component card-bg rounded-xl bg-gray-50 dark:bg-gray-900 dark:contrast-more:bg-black ${contrastRing} ${
         props.className ? props.className : `aspect-[1/1.15]`
       } flex flex-col`}
     >
@@ -27,20 +27,20 @@ function CardStandardComponent({ setNotification, src = undefined, ...props }) {
       </div>
       <div className='flex flex-col flex-grow h-full px-4 pt-4 pb-2'>
         <div className='flex-grow'>
-          <h2 className='text-xs text-primary-500 dark:text-primary-500 contrast-more:text-primary-700 dark:contrast-more:text-primary-300 contrast-more:font-bold'>
+          <h2 className='text-xs text-gray-500 dark:text-gray-500 contrast-more:text-gray-700 dark:contrast-more:text-gray-300 contrast-more:font-bold'>
             {t('Subtitle', { ns: 'common' })}
           </h2>
-          <h1 className='font-semibold dark:text-primary-100 contrast-more:font-bold'>
+          <h1 className='font-semibold dark:text-gray-100 contrast-more:font-bold'>
             {t('Card Title', { ns: 'common' })}
           </h1>
-          <p className='pt-1.5 pb-2 text-sm text-primary-600 dark:text-primary-300 leading-tight contrast-more:text-primary-900 dark:contrast-more:text-primary-100 contrast-more:font-medium'>
+          <p className='pt-1.5 pb-2 text-sm text-gray-600 dark:text-gray-300 leading-tight contrast-more:text-gray-900 dark:contrast-more:text-gray-100 contrast-more:font-medium'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor.
           </p>
         </div>
         <div className='flex items-center justify-between pt-1'>
           <button
-            className={`px-2 py-1 text-xs font-semibold uppercase transition rounded bg-primary-200 text-primary-700 dark:bg-primary-800 dark:text-primary-200 hover:bg-primary-700 hover:text-primary-100 dark:hover:bg-primary-600 dark:active:bg-primary-500 dark:hover:text-primary-100 focus:bg-primary-700 focus:text-primary-100 dark:focus:bg-primary-600 dark:focus:text-primary-100 contrast-more:py-2 contrast-more:px-3 contrast-more:dark:bg-transparent contrast-more:font-bold ${contrastRing}`}
+            className={`px-2 py-1 text-xs font-semibold uppercase transition rounded bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-gray-200 hover:bg-gray-700 hover:text-gray-100 dark:hover:bg-gray-600 dark:active:bg-gray-500 dark:hover:text-gray-100 focus:bg-gray-700 focus:text-gray-100 dark:focus:bg-gray-600 dark:focus:text-gray-100 contrast-more:py-2 contrast-more:px-3 contrast-more:dark:bg-transparent contrast-more:font-bold ${contrastRing}`}
             onClick={() =>
               setNotification({
                 enabled: true,
@@ -51,10 +51,10 @@ function CardStandardComponent({ setNotification, src = undefined, ...props }) {
             {t(`Card Button`, { ns: 'card' })}
           </button>
           <div className='flex -mr-2'>
-            <button className='p-2 rounded-full hover:bg-primary-200/50 focus:bg-primary-200/50 dark:hover:bg-primary-600 dark:focus:bg-primary-600 contrast-more:ring-primary-800 dark:contrast-more:ring-primary-200 contrast-more:ring-1 contrast-more:ml-2'>
+            <button className='p-2 rounded-full hover:bg-gray-200/50 focus:bg-gray-200/50 dark:hover:bg-gray-600 dark:focus:bg-gray-600 contrast-more:ring-gray-800 dark:contrast-more:ring-gray-200 contrast-more:ring-1 contrast-more:ml-2'>
               <span className='sr-only'>Share this post</span>
               <ShareIcon
-                className='w-5 h-5 text-primary-400 contrast-more:text-primary-700 dark:contrast-more:text-primary-200'
+                className='w-5 h-5 text-gray-400 contrast-more:text-gray-700 dark:contrast-more:text-gray-200'
                 onClick={() =>
                   setNotification({
                     enabled: true,
@@ -64,10 +64,10 @@ function CardStandardComponent({ setNotification, src = undefined, ...props }) {
                 }
               />
             </button>
-            <button className='p-2 rounded-full hover:bg-primary-200/50 focus:bg-primary-200/50 dark:hover:bg-primary-600 dark:focus:bg-primary-600 contrast-more:ring-primary-800 dark:contrast-more:ring-primary-200 contrast-more:ring-1 contrast-more:ml-2'>
+            <button className='p-2 rounded-full hover:bg-gray-200/50 focus:bg-gray-200/50 dark:hover:bg-gray-600 dark:focus:bg-gray-600 contrast-more:ring-gray-800 dark:contrast-more:ring-gray-200 contrast-more:ring-1 contrast-more:ml-2'>
               <span className='sr-only'>Fav this post</span>
               <HeartIcon
-                className='w-5 h-5 text-primary-400 contrast-more:text-primary-700 dark:contrast-more:text-primary-200'
+                className='w-5 h-5 text-gray-400 contrast-more:text-gray-700 dark:contrast-more:text-gray-200'
                 onClick={() =>
                   setNotification({
                     enabled: true,

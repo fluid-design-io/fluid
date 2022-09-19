@@ -4,10 +4,10 @@ const ImageCollageComponent = ({ srcs = undefined, ...props }) => {
   return (
     <div
       tabIndex={0}
-      className={`component component card-bg mx-auto grid aspect-square w-full max-w-xs cursor-pointer select-none grid-cols-3 gap-x-0.5 overflow-hidden rounded-xl shadow focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 motion-safe:transition motion-safe:hover:scale-[0.992] motion-safe:active:scale-[0.98] contrast-more:hover:ring-2 contrast-more:hover:ring-primary-800 contrast-more:hover:ring-offset-2 dark:contrast-more:hover:ring-primary-50  ${
+      className={`component component card-bg mx-auto grid aspect-square w-full max-w-xs cursor-pointer select-none grid-cols-3 gap-x-0.5 overflow-hidden rounded-xl shadow focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 motion-safe:transition motion-safe:hover:scale-[0.992] motion-safe:active:scale-[0.98] contrast-more:hover:ring-2 contrast-more:hover:ring-gray-800 contrast-more:hover:ring-offset-2 dark:contrast-more:hover:ring-gray-50  ${
         props.className ? props.className : ``
       }`}
-      aria-label="Collage related to Forest, by John Doe"
+      aria-label='Collage related to Forest, by John Doe'
       // onClick={
       //   () =>
       //     handleClick(

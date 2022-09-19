@@ -1,11 +1,11 @@
 import { ChevronRightIcon } from '@heroicons/react/24/solid';
-import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 
+import clsxm from '../lib/clsxm';
 import { CardASLargeImageComponent, CardStandardComponent } from './card';
 import { ListDetailComponent } from './list';
-import clsxm from '../lib/clsxm';
 
 const GridWrap = ({
   title,
@@ -26,7 +26,7 @@ const GridWrap = ({
     >
       <button
         aria-label={`Navigate to this ${title} component.`}
-        className='dark:contrast-more:border-sonte-200 grid-title absolute -left-2 -top-1.5 z-10 flex items-center justify-start space-x-0 rounded-full border border-primary-50/50 bg-primary-100/60 px-2 py-1 font-semibold uppercase tracking-wide text-primary-900 shadow-md shadow-primary-900/5 backdrop-blur-md backdrop-brightness-110 backdrop-filter transition hover:bg-primary-100 contrast-more:top-0.5 contrast-more:border-primary-800 contrast-more:bg-primary-50/90 dark:border-primary-50/20 dark:bg-primary-900/30 dark:text-primary-200 dark:hover:bg-primary-900 dark:contrast-more:bg-primary-900/90'
+        className='dark:contrast-more:border-sonte-200 grid-title absolute -left-2 -top-1.5 z-10 flex items-center justify-start space-x-0 rounded-full border border-gray-50/50 bg-gray-100/60 px-2 py-1 font-semibold uppercase tracking-wide text-gray-900 shadow-md shadow-gray-900/5 backdrop-blur-md backdrop-brightness-110 backdrop-filter transition hover:bg-gray-100 contrast-more:top-0.5 contrast-more:border-gray-800 contrast-more:bg-gray-50/90 dark:border-gray-50/20 dark:bg-gray-900/30 dark:text-gray-200 dark:hover:bg-gray-900 dark:contrast-more:bg-gray-900/90'
         onClick={() => router.push(`/docs${href}`)}
       >
         <span className='text-xs contrast-more:text-sm'>{title}</span>

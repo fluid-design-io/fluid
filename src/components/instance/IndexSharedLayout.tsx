@@ -1,7 +1,7 @@
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { PencilIcon } from '@heroicons/react/24/solid';
 import { motion } from 'framer-motion';
-import { useId,useState } from 'react';
+import { useId, useState } from 'react';
 
 function IndexSharedLayout() {
   const [active, setActive] = useState(null);
@@ -10,7 +10,7 @@ function IndexSharedLayout() {
     <>
       <motion.div
         animate={{ opacity: 1 }}
-        className="border border-dashed border-primary-300 dark:border-primary-700 contrast-more:border-primary-600 dark:contrast-more:border-primary-400 rounded-xl w-5/6 md:!w-2/3 md:!h-3/5 h-1/2"
+        className='border border-dashed border-gray-300 dark:border-gray-700 contrast-more:border-gray-600 dark:contrast-more:border-gray-400 rounded-xl w-5/6 md:!w-2/3 md:!h-3/5 h-1/2'
         exit={{ opacity: 0 }}
         initial={false}
       >
@@ -18,34 +18,34 @@ function IndexSharedLayout() {
           {!active ? (
             <motion.div
               animate={{ borderRadius: 25 }}
-              className='absolute bottom-0 right-0 overflow-hidden shadow bg-primary-700 dark:bg-primary-100'
+              className='absolute bottom-0 right-0 overflow-hidden shadow bg-gray-700 dark:bg-gray-100'
               initial={{ borderRadius: 12 }}
               layoutId={`shape.1.${id}`}
             >
               <motion.button className='p-2 ' onClick={() => setActive(true)}>
-                <PencilIcon className='w-5 h-5 text-white dark:text-primary-700' />
+                <PencilIcon className='w-5 h-5 text-white dark:text-gray-700' />
               </motion.button>
             </motion.div>
           ) : (
             <motion.div
               animate={{ borderRadius: 12 }}
-              className='relative w-full h-full py-2 overflow-hidden shadow-sm rounded-xl bg-primary-50 dark:bg-primary-800'
+              className='relative w-full h-full py-2 overflow-hidden shadow-sm rounded-xl bg-gray-50 dark:bg-gray-800'
               exit={{ borderRadius: 25 }}
               initial={{ borderRadius: 25 }}
               layoutId={`shape.1.${id}`}
             >
               <motion.div
                 animate={{ opacity: 1, transition: { delay: 0.45 } }}
-                className='font-semibold text-lg md:!text-xl text-primary-700 dark:text-primary-200 pb-1.5 px-4 flex justify-between component'
+                className='font-semibold text-lg md:!text-xl text-gray-700 dark:text-gray-200 pb-1.5 px-4 flex justify-between component'
                 exit={{ opacity: 0 }}
                 initial={{ opacity: 0 }}
               >
                 <h1>New Note</h1>
                 <button
-                  className='p-1 -mr-1 rounded-full dark:bg-primary-700/70 dark:hover:bg-primary-700'
+                  className='p-1 -mr-1 rounded-full dark:bg-gray-700/70 dark:hover:bg-gray-700'
                   onClick={() => setActive(false)}
                 >
-                  <XMarkIcon className='w-4 h-4 md:!w-5 md:!h-5 text-primary-500 dark:text-primary-400' />
+                  <XMarkIcon className='w-4 h-4 md:!w-5 md:!h-5 text-gray-500 dark:text-gray-400' />
                 </button>
               </motion.div>
               <motion.div
@@ -53,8 +53,8 @@ function IndexSharedLayout() {
                 exit={{ opacity: 0 }}
                 initial={{ opacity: 0 }}
               >
-                <hr className='border border-dashed border-primary-300 dark:border-primary-700 contrast-more:border-primary-500 dark:contrast-more:border-primary-500' />
-                <p className='px-4 py-2 text-sm leading-tight text-primary-600 dark:text-primary-300/80 md:!text-base'>
+                <hr className='border border-dashed border-gray-300 dark:border-gray-700 contrast-more:border-gray-500 dark:contrast-more:border-gray-500' />
+                <p className='px-4 py-2 text-sm leading-tight text-gray-600 dark:text-gray-300/80 md:!text-base'>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod
                   <span className='hidden md:!inline'>
@@ -69,7 +69,7 @@ function IndexSharedLayout() {
         </div>
       </motion.div>
 
-      <p className='absolute w-full text-xs text-center bottom-2 text-primary-400 dark:text-primary-500'>
+      <p className='absolute w-full text-xs text-center bottom-2 text-gray-400 dark:text-gray-500'>
         Click the icon to toggle the transition
       </p>
     </>

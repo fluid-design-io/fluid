@@ -2,10 +2,10 @@
 import { HashtagIcon } from '@heroicons/react/24/outline';
 import cn from 'clsx';
 import Slugger from 'github-slugger';
-import { useRouter } from 'next/router';
-import React, { ComponentProps, ReactElement, useEffect, useRef } from 'react';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
 import 'intersection-observer';
+import { useRouter } from 'next/router';
+import React, { useEffect, useRef } from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import clsxm from '@/lib/clsxm';
 import { IS_BROWSER } from '@/lib/constants';
@@ -126,7 +126,7 @@ const createHeaderLink = (
               title={`Direct link to heading ${id}`}
             >
               <div data-tooltip-top='Copy'>
-                <HashtagIcon className='flex h-6 w-6 items-center justify-center rounded-md p-1 text-primary-400 shadow-sm ring-1 ring-primary-900/5 hover:text-primary-700 hover:shadow hover:ring-primary-900/10 dark:bg-primary-700 dark:text-primary-300 dark:shadow-none dark:ring-0 dark:hover:text-primary-50' />
+                <HashtagIcon className='flex h-6 w-6 items-center justify-center rounded-md p-1 text-gray-400 shadow-sm ring-1 ring-gray-900/5 hover:text-gray-700 hover:shadow hover:ring-gray-900/10 dark:bg-gray-700 dark:text-gray-300 dark:shadow-none dark:ring-0 dark:hover:text-gray-50' />
               </div>
             </a>
           </CopyToClipboard>
@@ -138,7 +138,7 @@ const createHeaderLink = (
 
 const A = ({ href = '', ...props }) => (
   <Anchor
-    className='ring-primary-500/30 focus:outline-none focus-visible:ring'
+    className='ring-gray-500/30 focus:outline-none focus-visible:ring'
     href={href}
     newWindow={href.startsWith('https://')}
     {...props}
@@ -172,19 +172,20 @@ export const getComponents = ({
     li: (props: ComponentProps<'li'>) => <li className='my-2' {...props} />,
     blockquote: (props: ComponentProps<'blockquote'>) => (
       <blockquote
-        className='mt-6 border-l-2 border-primary-300 pl-6 italic text-primary-700 first:mt-0 dark:border-primary-700 dark:text-primary-400'
+        className='mt-6 border-l-2 border-gray-300 pl-6 italic text-gray-700 first:mt-0 dark:border-gray-700 dark:text-gray-400'
         {...props}
       />
     ),
     hr: (props: ComponentProps<'hr'>) => (
-      <hr className='my-8 dark:border-primary-900' {...props} />
+      <hr className='my-8 dark:border-gray-900' {...props} />
     ),
     a: A,
     table: (props: ComponentProps<'table'>) => (
-      <div className='-mx-4 md:mx-0'>
-        <div className='inline-block w-full max-w-[100vw] overflow-x-auto md:mx-0 md:max-w-[calc(100vw-14rem-4rem)]'>
+      <div className='-mx-4 sm:mx-0'>
+        <div className='inline-block w-full max-w-[100vw] overflow-x-auto sm:mx-0 sm:max-w-[calc(100vw-14rem-4rem)]'>
           <table
             className='mt-6 w-full min-w-full divide-y p-0 px-4 first:mt-0'
+            style={{ borderSpacing: 0 }}
             {...props}
           />
         </div>
@@ -195,9 +196,9 @@ export const getComponents = ({
     ),
     tr: (props: ComponentProps<'tr'>) => (
       <tr
-        className={cn(
-          'm-0 border-t border-primary-300 p-0 dark:border-primary-600'
-        )}
+        className={cn()
+        // 'm-0 border-t border-gray-300 p-0 dark:border-gray-600'
+        }
         {...props}
       />
     ),
@@ -207,10 +208,12 @@ export const getComponents = ({
         props.children === 'Prop' || props.children === 'Default';
       return (
         <th
+          scope='col'
           className={clsxm(
             isDescription && 'w-2/3',
             isPropOrDefault && 'w-1/6',
-            'py-3.5 px-3 text-left text-sm font-semibold text-primary-900 first:pl-4 first:pr-3 dark:text-primary-50 sm:first:pl-6 md:first:pl-0'
+            'sticky top-0 z-10 border-b border-primar-400 dark:border-gray-500 bg-gray-100 dark:bg-gray-800 bg-opacity-75 backdrop-blur',
+            'py-3.5 px-3 text-left text-sm font-semibold text-gray-900 first:pl-4 first:pr-3 dark:text-gray-50 sm:first:pl-6 md:first:pl-0'
           )}
           {...props}
         />
@@ -218,12 +221,12 @@ export const getComponents = ({
     },
     td: (props: ComponentProps<'td'>) => (
       <td
-        className='prose prose-sm py-4 px-3 pl-4 align-baseline text-sm text-primary-500 first:pr-3 last:pl-3 last:pr-4 dark:text-primary-300 sm:first:pl-6 sm:last:pr-6 md:first:pl-0 md:last:pr-0'
+        className='prose prose-sm py-4 px-3 pl-4 align-baseline text-sm text-gray-500 first:pr-3 last:pl-3 last:pr-4 dark:text-gray-300 sm:first:pl-6 sm:last:pr-6 md:first:pl-0 md:last:pr-0'
         {...props}
       />
     ),
     code: (props: ComponentProps<'code'>) => (
-      <code className='whitespace-nowrap dark:text-primary-50' {...props} />
+      <code className='whitespace-nowrap dark:text-gray-50' {...props} />
     ),
     ...components,
   };

@@ -79,6 +79,8 @@ export const useThemeMode = (
         Date.now() - parseInt(userTime, 10) > 24 * 60 * 60 * 1000
       ) {
         savePreference(userPreference ? 'dark' : 'light');
+        saveTime();
+        setMode(userPreference ? 'dark' : 'light');
       } else {
         if (userMode) {
           setMode(userMode);

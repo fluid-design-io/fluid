@@ -14,7 +14,7 @@ function ListNestedAnimateComponent({ setNotification, ...props }) {
   const { t } = useTranslation('list');
   const shouldReduceMotion = useReducedMotion();
   const rowStyle =
-    'hover:bg-primary-200/30 focus-visible:bg-primary-200/30 dark:hover:bg-primary-600/30 dark:focus-visible:bg-primary-600/30 hover:contrast-more:bg-amber-300 dark:hover:contrast-more:bg-amber-400 text-primary-700 dark:text-primary-200 contrast-more:text-primary-900 dark:contrast-more:text-primary-50 dark:contrast-more:focus-visible:text-primary-900 dark:contrast-more:hover:text-primary-900 focus-within:outline-none focus-within:ring-1 focus-within:ring-primary-400 dark:focus-within:ring-primary-500 contrast-more:focus-within:ring-primary-900 dark:contrast-more:focus-within:ring-primary-200 focus-within:ring-inset transition-colors [-webkit-tap-highlight-color:transparent]';
+    'hover:bg-gray-200/30 focus-visible:bg-gray-200/30 dark:hover:bg-gray-600/30 dark:focus-visible:bg-gray-600/30 hover:contrast-more:bg-amber-300 dark:hover:contrast-more:bg-amber-400 text-gray-700 dark:text-gray-200 contrast-more:text-gray-900 dark:contrast-more:text-gray-50 dark:contrast-more:focus-visible:text-gray-900 dark:contrast-more:hover:text-gray-900 focus-within:outline-none focus-within:ring-1 focus-within:ring-gray-400 dark:focus-within:ring-gray-500 contrast-more:focus-within:ring-gray-900 dark:contrast-more:focus-within:ring-gray-200 focus-within:ring-inset transition-colors [-webkit-tap-highlight-color:transparent]';
   const navigation = [
     { name: 'Dashboard', Icon: HomeIcon, current: true, href: '#' },
     {
@@ -52,7 +52,7 @@ function ListNestedAnimateComponent({ setNotification, ...props }) {
   const ListPanel = ({ children }) => (
     <motion.div
       animate='open'
-      className="overflow-hidden !mt-0"
+      className='overflow-hidden !mt-0'
       exit='collapsed'
       initial='collapsed'
       key={`${name}.content`}
@@ -75,13 +75,13 @@ function ListNestedAnimateComponent({ setNotification, ...props }) {
 
   return (
     <div
-      className={`w-full max-w-xs overflow-hidden rounded-lg shadow-lg md:!w-2/3 bg-primary-50 dark:bg-primary-900 shadow-primary-900/10 dark:shadow-primary-900/30 component contrast-more:bg-white dark:contrast-more:bg-primary-900 contrast-more:contrast-ring  ${
+      className={`w-full max-w-xs overflow-hidden rounded-lg shadow-lg md:!w-2/3 bg-gray-50 dark:bg-gray-900 shadow-gray-900/10 dark:shadow-gray-900/30 component contrast-more:bg-white dark:contrast-more:bg-gray-900 contrast-more:contrast-ring  ${
         props.className ? props.className : ``
       }`}
     >
       <nav
         aria-label='Sidebar'
-        className='flex-1 px-2 py-1 contrast-more:divide-y contrast-more:divide-primary-600 dark:contrast-more:divide-primary-200'
+        className='flex-1 px-2 py-1 contrast-more:divide-y contrast-more:divide-gray-600 dark:contrast-more:divide-gray-200'
       >
         {navigation.map(({ children, name, Icon }) =>
           !children ? (
@@ -96,41 +96,38 @@ function ListNestedAnimateComponent({ setNotification, ...props }) {
                 })
               }
             >
-              <Icon
-                aria-hidden='true'
-                className="w-4 h-4 ltr:mr-2 rtl:ml-2"
-              />
+              <Icon aria-hidden='true' className='w-4 h-4 ltr:mr-2 rtl:ml-2' />
               {name}
             </button>
           ) : (
             <Disclosure as='div' className='space-y-1' key={name}>
               {({ open }) => (
                 <>
-                  <div className="py-1">
+                  <div className='py-1'>
                     <Disclosure.Button
                       aria-live='assertive'
                       as='button'
                       className={`flex px-4 py-2 w-full justify-between items-center rounded-md ${rowStyle} ${
                         open
-                          ? `bg-primary-200/50 hover:bg-primary-200/50 dark:bg-primary-600/50 dark:hover:bg-primary-600/50 contrast-more:bg-amber-300 dark:contrast-more:bg-amber-400 text-primary-700 dark:text-primary-200 contrast-more:text-primary-900 dark:contrast-more:text-primary-900`
+                          ? `bg-gray-200/50 hover:bg-gray-200/50 dark:bg-gray-600/50 dark:hover:bg-gray-600/50 contrast-more:bg-amber-300 dark:contrast-more:bg-amber-400 text-gray-700 dark:text-gray-200 contrast-more:text-gray-900 dark:contrast-more:text-gray-900`
                           : ``
                       }`}
                     >
-                      <span className="flex items-center">
+                      <span className='flex items-center'>
                         <Icon
                           aria-hidden='true'
                           className='flex-shrink-0 w-4 h-4 ltr:mr-2 rtl:ml-2'
                         />
                         <p className='flex-1'>{name}</p>
                       </span>
-                      <span className="rtl:!block hidden">
+                      <span className='rtl:!block hidden'>
                         <ChevronLeftIcon
                           className={`w-4 h-4 transform transition ${
                             open ? `ltr:rotate-90 rtl:-rotate-90` : 'rotate-0'
                           }`}
                         />
                       </span>
-                      <span className="rtl:hidden block">
+                      <span className='rtl:hidden block'>
                         <ChevronRightIcon
                           className={`w-4 h-4 transform transition ${
                             open ? `rotate-90` : 'rotate-0'

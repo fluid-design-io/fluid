@@ -21,26 +21,26 @@ function IndexResponsiveCard() {
         : screenSize === 'medium'
         ? 'text-base'
         : 'text-xs'
-    }  text-primary-500 dark:text-primary-500`,
+    }  text-gray-500 dark:text-gray-500`,
     title: `${
       screenSize === 'large'
         ? `text-xl`
         : screenSize === 'medium'
         ? 'text-lg'
         : 'text-base'
-    }  font-semibold dark:text-primary-100`,
+    }  font-semibold dark:text-gray-100`,
     p: `${
       screenSize === 'large'
         ? `text-base`
         : screenSize === 'medium'
         ? 'text-base leading-tight'
         : 'text-sm leading-tight'
-    } pt-1.5 pb-2 text-primary-600 dark:text-primary-300`,
+    } pt-1.5 pb-2 text-gray-600 dark:text-gray-300`,
   };
   return (
     <motion.div
       animate={{ y: 0, opacity: 1 }}
-      className={`overflow-hidden rounded-lg shadow-lg bg-primary-50 dark:bg-primary-900 shadow-primary-900/10 dark:shadow-primary-900/30 mx-auto ${cardWrapStyle}`}
+      className={`overflow-hidden rounded-lg shadow-lg bg-gray-50 dark:bg-gray-900 shadow-gray-900/10 dark:shadow-gray-900/30 mx-auto ${cardWrapStyle}`}
       exit={{ y: -10, opacity: 0 }}
       initial={{ y: 10, opacity: 0 }}
       transition={{ type: 'just' }}
@@ -58,12 +58,12 @@ function IndexResponsiveCard() {
               eiusmod tempor.
             </p>
             <div className='flex items-center justify-between pt-1'>
-              <button className='px-2 py-1 text-xs font-semibold uppercase transition rounded bg-primary-200 text-primary-700 dark:bg-primary-800 dark:text-primary-200 hover:bg-primary-700 hover:text-primary-100 dark:hover:bg-primary-600 dark:active:bg-primary-500 dark:hover:text-primary-100 focus:bg-primary-700 focus:text-primary-100 dark:focus:bg-primary-600 dark:focus:text-primary-100 touch-pan-y'>
+              <button className='px-2 py-1 text-xs font-semibold uppercase transition rounded bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-gray-200 hover:bg-gray-700 hover:text-gray-100 dark:hover:bg-gray-600 dark:active:bg-gray-500 dark:hover:text-gray-100 focus:bg-gray-700 focus:text-gray-100 dark:focus:bg-gray-600 dark:focus:text-gray-100 touch-pan-y'>
                 button
               </button>
               <div className='flex space-x-2'>
-                <ShareIcon className='w-4 h-4 text-primary-400' />
-                <HeartIcon className='w-4 h-4 text-primary-400' />
+                <ShareIcon className='w-4 h-4 text-gray-400' />
+                <HeartIcon className='w-4 h-4 text-gray-400' />
               </div>
             </div>
           </div>

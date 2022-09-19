@@ -1,22 +1,21 @@
 import { AnimatePresence } from 'framer-motion';
+import { Trans, useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Trans,useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React, { useState } from 'react';
 import { SplitPane } from 'react-multi-split-pane';
 
-import { rawResponsiveCard } from './examples/responsive-card';
+import bgDark from '~/assets/index-bg-dark.jpg';
+import bgLight from '~/assets/index-bg-light.jpg';
+
+import WindowFrame from '../components/WindowFrame';
 import { Page } from '../components/framework';
 import IndexIphoneFrame from '../components/instance/IndexIphoneFrame';
 import FeatureCard from '../components/ui/FeatureCard';
-import WindowFrame from '../components/WindowFrame';
 import { featuresList, indexElements } from '../lib/index/data';
 import Code from '../util/Code';
-
-import bgDark from '~/assets/index-bg-dark.jpg';
-import bgLight from '~/assets/index-bg-light.jpg';
-import { SiteMeta } from '@/interfaces/framwork';
+import { rawResponsiveCard } from './examples/responsive-card';
 
 export async function getStaticProps({ locale }) {
   return {
@@ -33,8 +32,8 @@ export default function Home() {
   const [isDragging, setIsDragging] = useState(false);
   const selectedStyle = (item) => {
     return selected === item
-      ? `text-primary-900 dark:text-primary-800 bg-white dark:bg-primary-300 shadow`
-      : `text-primary-500/80 dark:text-primary-400 contrast-more:text-primary-600 dark:contrast-more:text-primary-300 hover:text-primary-600 dark:hover:text-primary-100 hover:bg-primary-50/80 dark:hover:bg-primary-300/10 focus:text-primary-600 dark:focus:text-primary-100 focus:bg-primary-50/80 dark:focus:bg-primary-300/10`;
+      ? `text-gray-900 dark:text-gray-800 bg-white dark:bg-gray-300 shadow`
+      : `text-gray-500/80 dark:text-gray-400 contrast-more:text-gray-600 dark:contrast-more:text-gray-300 hover:text-gray-600 dark:hover:text-gray-100 hover:bg-gray-50/80 dark:hover:bg-gray-300/10 focus:text-gray-600 dark:focus:text-gray-100 focus:bg-gray-50/80 dark:focus:bg-gray-300/10`;
   };
   const selectedComponent = (selected) => {
     let match = [];
@@ -48,10 +47,10 @@ export default function Home() {
   };
   const selectionBody = indexElements.map((item) => (
     <ul
-      className='space-y-1 border-t border-primary-50/60 px-2 py-1 text-sm dark:border-primary-500/30 md:!text-base'
+      className='space-y-1 border-t border-gray-50/60 px-2 py-1 text-sm dark:border-gray-500/30 md:!text-base'
       key={item.category}
     >
-      <li className='pointer-events-none px-2 font-semibold text-primary-600 dark:text-primary-300'>
+      <li className='pointer-events-none px-2 font-semibold text-gray-600 dark:text-gray-300'>
         {t(item.category)}
       </li>
       {item.lists.map((list) => (
@@ -59,7 +58,7 @@ export default function Home() {
           <button
             className={`${selectedStyle(
               list.name
-            )} w-full overflow-hidden rounded-md px-2 py-1 text-left transition focus:outline-none focus:ring-1 focus:ring-primary-200/50 dark:focus:ring-primary-50`}
+            )} w-full overflow-hidden rounded-md px-2 py-1 text-left transition focus:outline-none focus:ring-1 focus:ring-gray-200/50 dark:focus:ring-gray-50`}
             onClick={() => {
               setSelected(list.name);
             }}
@@ -71,7 +70,7 @@ export default function Home() {
     </ul>
   ));
 
-  const meta: SiteMeta = {
+  const meta = {
     title: 'Fluid Design',
     description:
       'Beautiful React components that are responsive, supports features like dark mode and a11y with elegant transitions.',
@@ -97,25 +96,25 @@ export default function Home() {
           />
         </div>
         <div className='relative z-[1]'>
-          <h5 className='ml-0 mr-auto block px-4 pt-20 font-[Nunito] text-base font-semibold opacity-70 dark:text-primary-100 md:!hidden'>
+          <h5 className='ml-0 mr-auto block px-4 pt-20 font-[Nunito] text-base font-semibold opacity-70 dark:text-gray-100 md:!hidden'>
             Fluid Design
           </h5>
-          <h1 className='w-4/5 max-w-4xl px-4 pt-2 text-3xl font-bold dark:text-primary-100 md:!mx-auto md:!w-auto md:!pt-48 md:!text-center md:!text-6xl'>
+          <h1 className='w-4/5 max-w-4xl px-4 pt-2 text-3xl font-bold dark:text-gray-100 md:!mx-auto md:!w-auto md:!pt-48 md:!text-center md:!text-6xl'>
             {t('slogan')}
           </h1>
-          <p className='mx-auto mt-6 max-w-2xl px-4 text-primary-500 dark:text-primary-300 md:!text-center md:!text-xl'>
+          <p className='mx-auto mt-6 max-w-2xl px-4 text-gray-500 dark:text-gray-300 md:!text-center md:!text-xl'>
             <Trans
-              i18nKey="site-desc"
+              i18nKey='site-desc'
               ns='common'
               components={{
                 span: (
-                  <span className='font-mono font-medium text-primary-900 dark:text-primary-50' />
+                  <span className='font-mono font-medium text-gray-900 dark:text-gray-50' />
                 ),
               }}
             />
           </p>
           <WindowFrame
-            className="mx-auto mt-24 hidden w-[80%] max-w-[680px] justify-center md:!flex"
+            className='mx-auto mt-24 hidden w-[80%] max-w-[680px] justify-center md:!flex'
             sidebar={selectionBody}
             content={
               <AnimatePresence mode='wait'>
@@ -138,8 +137,8 @@ export default function Home() {
         <h1 className='not-prose legacy'>
           <Trans
             components={{ br: <br className='block sm:!hidden' /> }}
-            i18nKey="looks-right-isnt-enough.title"
-            ns="index"
+            i18nKey='looks-right-isnt-enough.title'
+            ns='index'
           />
         </h1>
         <blockquote className='px-4 sm:px-0'>
@@ -162,13 +161,13 @@ export default function Home() {
         <h1 className='text-left legacy'>
           {t('see-it-live', { ns: 'index' })}
         </h1>
-        <p className='mt-4 max-w-2xl text-primary-500 dark:text-primary-300 lg:text-lg'>
+        <p className='mt-4 max-w-2xl text-gray-500 dark:text-gray-300 lg:text-lg'>
           <Trans
-            i18nKey="powered-by"
+            i18nKey='powered-by'
             ns='index'
             components={{
               span: (
-                <span className='font-mono font-medium text-primary-900 dark:text-primary-50' />
+                <span className='font-mono font-medium text-gray-900 dark:text-gray-50' />
               ),
             }}
           />
@@ -187,7 +186,7 @@ export default function Home() {
             // maxSize={"calc(100% - 16px)"}
           >
             <WindowFrame
-              className="mx-auto w-full shadow dark:!bg-[#353330]"
+              className='mx-auto w-full shadow dark:!bg-[#353330]'
               content={
                 <iframe
                   src='/examples/responsive-card'
@@ -201,7 +200,7 @@ export default function Home() {
           </SplitPane>
 
           <Code
-            className='mt-4 h-[35vh] max-w-[calc(100vw-2rem)] overflow-x-auto rounded-xl bg-primary-800 pt-6 contrast-more:!bg-black dark:bg-primary-900 sm:mt-[-1rem] md:!ml-[-0.875rem] md:!h-[320px]'
+            className='mt-4 h-[35vh] max-w-[calc(100vw-2rem)] overflow-x-auto rounded-xl bg-gray-800 pt-6 contrast-more:!bg-black dark:bg-gray-900 sm:mt-[-1rem] md:!ml-[-0.875rem] md:!h-[320px]'
             content={rawResponsiveCard}
           />
         </div>

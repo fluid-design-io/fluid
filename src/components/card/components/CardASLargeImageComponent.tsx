@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 
 function CardASLargeImageComponent({
   setNotification,
@@ -9,7 +9,7 @@ function CardASLargeImageComponent({
   const { t } = useTranslation('card');
   return (
     <div
-      className={`w-full max-w-xs overflow-hidden shadow-lg shadow-primary-900/10 component card-bg rounded-xl h-full flex flex-col items-stretch relative motion-safe:hover:scale-[0.97] motion-safe:active:scale-95 motion-safe:transition ${
+      className={`w-full max-w-xs overflow-hidden shadow-lg shadow-gray-900/10 component card-bg rounded-xl h-full flex flex-col items-stretch relative motion-safe:hover:scale-[0.97] motion-safe:active:scale-95 motion-safe:transition ${
         props.className ? props.className : ` aspect-[1/1.15]`
       }`}
     >
@@ -53,15 +53,15 @@ function CardASLargeImageComponent({
       </div>
       {/* Top Content */}
       <div className='absolute top-0 left-0 p-5 z-[2] pointer-events-none dark:contrast-more:[text-shadow:0px_2px_7.5px_rgba(0,0,0,0.75)]'>
-        <p className='text-sm font-medium uppercase transition text-primary-800/60 dark:text-primary-200/75 contrast-more:font-bold contrast-more:text-primary-800 dark:contrast-more:text-primary-100'>
+        <p className='text-sm font-medium uppercase transition text-gray-800/60 dark:text-gray-200/75 contrast-more:font-bold contrast-more:text-gray-800 dark:contrast-more:text-gray-100'>
           {t('Subtitle', { ns: 'common' })}
         </p>
-        <h3 className='w-4/5 pt-1 text-3xl font-bold dark:text-primary-50 text-primary-800'>
+        <h3 className='w-4/5 pt-1 text-3xl font-bold dark:text-gray-50 text-gray-800'>
           {t('App Store.cool-things', { ns: 'card' })}
         </h3>
       </div>
       {/* Bottom Info Bar */}
-      <div className='absolute bottom-0 left-0 right-0 flex items-center justify-between flex-shrink-0 w-full px-4 py-4 space-x-4 bg-primary-50 bg-opacity-30 dark:bg-primary-800 dark:bg-opacity-40 backdrop-filter backdrop-blur-3xl backdrop-saturate-150 backdrop-brightness-105 dark:backdrop-brightness-95 z-[3] contrast-more:bg-opacity-80 dark:contrast-more:bg-opacity-80 transition'>
+      <div className='absolute bottom-0 left-0 right-0 flex items-center justify-between flex-shrink-0 w-full px-4 py-4 space-x-4 bg-gray-50 bg-opacity-30 dark:bg-gray-800 dark:bg-opacity-40 backdrop-filter backdrop-blur-3xl backdrop-saturate-150 backdrop-brightness-105 dark:backdrop-brightness-95 z-[3] contrast-more:bg-opacity-80 dark:contrast-more:bg-opacity-80 transition'>
         <div className='flex-shrink-0 w-12 h-12 overflow-hidden rounded-lg'>
           <div className='relative w-full h-full'>
             <Image
@@ -77,16 +77,16 @@ function CardASLargeImageComponent({
           </div>
         </div>
         <div>
-          <h2 className='font-medium leading-tight text-primary-800 dark:text-primary-50/90 contrast-more:text-primary-900 dark:contrast-more:text-primary-50 contrast-more:font-bold'>
+          <h2 className='font-medium leading-tight text-gray-800 dark:text-gray-50/90 contrast-more:text-gray-900 dark:contrast-more:text-gray-50 contrast-more:font-bold'>
             {t('Card Title', { ns: 'common' })}
           </h2>
-          <p className='text-sm leading-none text-primary-800/60 dark:text-primary-50/50 line-clamp-2 contrast-more:text-primary-800 dark:contrast-more:text-primary-200 contrast-more:font-semibold'>
+          <p className='text-sm leading-none text-gray-800/60 dark:text-gray-50/50 line-clamp-2 contrast-more:text-gray-800 dark:contrast-more:text-gray-200 contrast-more:font-semibold'>
             Lorem ipsum dolor sit amet.
           </p>
         </div>
         <div className='flex-shrink-0'>
           <button
-            className='px-3 py-1.5 font-bold rounded-full bg-primary-50 text-sky-600 min-w-[4.5rem] max-w-[5rem] text-ellipsis truncate hover:bg-primary-300 transition select-none text-sm relative z-[5] dark:bg-primary-700 dark:hover:bg-primary-800 dark:text-sky-500/80 contrast-more:ring-2 contrast-more:ring-sky-700 dark:contrast-more:ring-sky-500 contrast-more:ring-offset-0 outline-none contrast-more:text-sky-700 dark:contrast-more:text-sky-400 uppercase focus-within:ring focus-within:ring-sky-500 focus-within:ring-offset border-0'
+            className='px-3 py-1.5 font-bold rounded-full bg-gray-50 text-sky-600 min-w-[4.5rem] max-w-[5rem] text-ellipsis truncate hover:bg-gray-300 transition select-none text-sm relative z-[5] dark:bg-gray-700 dark:hover:bg-gray-800 dark:text-sky-500/80 contrast-more:ring-2 contrast-more:ring-sky-700 dark:contrast-more:ring-sky-500 contrast-more:ring-offset-0 outline-none contrast-more:text-sky-700 dark:contrast-more:text-sky-400 uppercase focus-within:ring focus-within:ring-sky-500 focus-within:ring-offset border-0'
             onClick={(e) => {
               e.preventDefault();
               setNotification({

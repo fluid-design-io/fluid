@@ -1,6 +1,7 @@
-import clsxm from '../lib/clsxm';
-import { AnimatePresence, motion, Variants } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { MdDarkMode, MdOutlineLightMode } from 'react-icons/md';
+
+import clsxm from '../lib/clsxm';
 
 export const ThemeSwitch = ({
   mode,
@@ -43,7 +44,7 @@ export const ThemeSwitch = ({
         {mode === 'light' && (
           <motion.button
             animate='animate'
-            className='focus-visible:borde-primary-400/80 rounded border border-transparent p-1.5 hocus:border-primary-400/30 hocus:bg-primary-400/10 focus-visible:border focus-visible:bg-primary-500/10 focus-ring'
+            className='focus-visible:borde-gray-400/80 rounded border border-transparent p-1.5 hocus:border-gray-400/30 hocus:bg-gray-400/10 focus-visible:border focus-visible:bg-gray-500/10 focus-ring'
             exit='exit'
             initial='initial'
             key='dark-toggle'
@@ -62,7 +63,7 @@ export const ThemeSwitch = ({
               }}
             >
               <MdDarkMode
-                className={clsxm('h-4 w-4 fill-primary-600 transition-colors')}
+                className={clsxm('h-4 w-4 fill-gray-600 transition-colors')}
               />
             </motion.div>
           </motion.button>
@@ -70,7 +71,7 @@ export const ThemeSwitch = ({
         {mode === 'dark' && (
           <motion.button
             animate='animate'
-            className='focus-visible:borde-primary-400/80 absolute inset-0 rounded border border-transparent p-1.5 hocus:border-primary-400/30 hocus:bg-primary-400/10 focus-visible:border focus-visible:bg-primary-500/10 focus-ring'
+            className='focus-visible:borde-gray-400/80 absolute inset-0 rounded border border-transparent p-1.5 hocus:border-gray-400/30 hocus:bg-gray-400/10 focus-visible:border focus-visible:bg-gray-500/10 focus-ring'
             exit='exit'
             initial='initial'
             key='light-toggle'
@@ -88,9 +89,7 @@ export const ThemeSwitch = ({
                 mass: 0.2,
               }}
             >
-              <MdOutlineLightMode
-                className={clsxm('h-4 w-4 fill-primary-100')}
-              />
+              <MdOutlineLightMode className={clsxm('h-4 w-4 fill-gray-100')} />
             </motion.div>
           </motion.button>
         )}
