@@ -1,6 +1,5 @@
 import {
   Button,
-  FluidButtonColorOptions,
   FluidButtonColors,
   FluidButtonShapes,
   FluidButtonSizes,
@@ -63,7 +62,7 @@ const ButtonColors = ({
   size?: keyof FluidButtonSizes;
   isLoading?: boolean;
   shape?: keyof FluidButtonShapes;
-  gradient?: keyof FluidButtonColorOptions['gradient'] | undefined;
+  gradient?: any;
   loadingOptions?: {
     animation?: keyof FulidButtonLoadingOptions['animation'];
     text?: string;
