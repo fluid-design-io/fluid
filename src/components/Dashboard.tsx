@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 
 import UnstyledLink from './framework/UnstyledLink';
 
@@ -11,11 +11,11 @@ const ImageCard = ({ name, src, count = 0 }) => {
       href={`/docs/${src}`}
     >
       <div className='absolute bottom-0 left-0 right-0 z-[2] flex w-full items-baseline justify-between px-4 pb-2 rtl:flex-row-reverse'>
-        <span className='text-left text-lg font-medium text-primary-700 rtl:text-right dark:text-primary-200'>
+        <span className='text-left text-lg font-medium text-gray-700 rtl:text-right dark:text-gray-200'>
           {name}
         </span>
         {count > 0 && (
-          <span className='text-right text-xs font-medium text-primary-500 rtl:text-left dark:text-primary-400'>
+          <span className='text-right text-xs font-medium text-gray-500 rtl:text-left dark:text-gray-400'>
             {count} {t(`Components`)}
           </span>
         )}
@@ -73,6 +73,10 @@ const Components = () => {
       name: t(`Button`),
       src: 'button',
     },
+    {
+      name: t(`Menu`),
+      src: 'menu',
+    },
   ];
   return (
     <GridWrap>
@@ -80,6 +84,25 @@ const Components = () => {
     </GridWrap>
   );
 };
+const Forms = () => {
+  const { t } = useTranslation(['navbar']);
+  const components = [
+    {
+      name: t(`Switch`),
+      src: 'form-switch',
+    },
+    {
+      name: t(`Input`),
+      src: 'form-input',
+    },
+  ];
+  return (
+    <GridWrap>
+      <GridItems list={components} />
+    </GridWrap>
+  );
+};
+
 const UI = () => {
   const { t } = useTranslation(['navbar']);
   const uis = [
@@ -97,12 +120,14 @@ const UI = () => {
 };
 
 Components.displayName = 'Components';
+Forms.displayName = 'Forms';
 UI.displayName = 'UI';
 
 export const Dashboard = Object.assign(
   {},
   {
     Components,
+    Forms,
     UI,
   }
 );
