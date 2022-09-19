@@ -4,7 +4,7 @@ import cn from 'clsx';
 import Slugger from 'github-slugger';
 import 'intersection-observer';
 import { useRouter } from 'next/router';
-import React, { useEffect, useRef } from 'react';
+import React, { ComponentProps, ReactElement, useEffect, useRef } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import clsxm from '@/lib/clsxm';
@@ -196,8 +196,9 @@ export const getComponents = ({
     ),
     tr: (props: ComponentProps<'tr'>) => (
       <tr
-        className={cn()
-        // 'm-0 border-t border-gray-300 p-0 dark:border-gray-600'
+        className={
+          cn()
+          // 'm-0 border-t border-gray-300 p-0 dark:border-gray-600'
         }
         {...props}
       />

@@ -1,4 +1,14 @@
-import { Button, Form, Switch } from '@fluid-design/fluid-ui';
+import {
+  Button,
+  FluidButtonColorOptions,
+  FluidButtonColors,
+  FluidButtonShapes,
+  FluidButtonSizes,
+  FluidButtonWeights,
+  Form,
+  FulidButtonLoadingOptions,
+  Switch,
+} from '@fluid-design/fluid-ui';
 import { useTranslation } from 'next-i18next';
 import { useId, useState } from 'react';
 import { IoMdTrash } from 'react-icons/io';

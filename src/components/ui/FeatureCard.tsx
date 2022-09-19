@@ -1,6 +1,8 @@
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 
+import { FeatureCardProps } from '@/interfaces/featureCard';
+
 function FeatureCard({
   image: { light, dark },
   title,
