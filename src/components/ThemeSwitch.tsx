@@ -10,7 +10,7 @@ export const ThemeSwitch = ({
   mode: 'light' | 'dark';
   handleModeChange: (mode: 'light' | 'dark') => void;
 }) => {
-  const buttonVariants: Variants = {
+  const buttonVariants = {
     initial: {},
     animate: {},
     exit: {},
@@ -18,7 +18,7 @@ export const ThemeSwitch = ({
       scale: 0.9,
     },
   };
-  const iconVariants: Variants = {
+  const iconVariants = {
     initial: {
       opacity: 0,
       scale: 0.3,

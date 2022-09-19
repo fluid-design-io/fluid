@@ -1,4 +1,3 @@
-import { SiteMeta } from '@/interfaces/framwork';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import { Page } from '../components/framework';
@@ -14,7 +13,7 @@ export async function getStaticProps({ locale }) {
 }
 
 function ErrorPage() {
-  const meta: SiteMeta = {
+  const meta = {
     title: 'Fluid Design | Error',
   };
   return (
