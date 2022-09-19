@@ -19,7 +19,7 @@
     "@capacitor/storage": "^1.2.5",
     "@code-hike/mdx": "^0.7.4",
     "@docsearch/react": "^3.2.0",
-    "@fluid-design/fluid-ui": "^1.6.0",
+    "@fluid-design/fluid-ui": "^1.8.0",
     "@hcaptcha/react-hcaptcha": "^1.1.0",
     "@headlessui/react": "^1.6.6",
     "@heroicons/react": "^2.0.10",
