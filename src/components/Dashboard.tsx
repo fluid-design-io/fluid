@@ -3,12 +3,12 @@ import Image from 'next/image';
 
 import UnstyledLink from './framework/UnstyledLink';
 
-const ImageCard = ({ name, src, count = 0 }) => {
+const ImageCard = ({ name, src, count = 0, ...props }) => {
   const { t } = useTranslation(['navbar']);
   return (
     <UnstyledLink
       className='clickable focus-ring relative overflow-hidden rounded-xl'
-      href={`/docs/${src}`}
+      href={`/docs/${props?.href ? props.href : src}`}
     >
       <div className='absolute bottom-0 left-0 right-0 z-[2] flex w-full items-baseline justify-between px-4 pb-2 rtl:flex-row-reverse'>
         <span className='text-left text-lg font-medium text-gray-700 rtl:text-right dark:text-gray-200'>
@@ -53,7 +53,7 @@ const GridWrap = ({ children }) => {
 const GridItems = ({
   list,
 }: {
-  list: { name: string; src: string; count?: number }[];
+  list: { name: string; src: string; count?: number; href?: string }[];
 }) => (
   <>
     {list.map(({ name, src, ...item }) => (
@@ -90,10 +90,12 @@ const Forms = () => {
     {
       name: t(`Switch`),
       src: 'form-switch',
+      href: 'form/switch',
     },
     {
       name: t(`Input`),
       src: 'form-input',
+      href: 'form/input',
     },
   ];
   return (
