@@ -6,8 +6,8 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { SplitPane } from 'react-multi-split-pane';
 
-import bgDark from '~/assets/index-bg-dark.jpg';
-import bgLight from '~/assets/index-bg-light.jpg';
+import bgDark from '~/assets/index-bg-dark.webp';
+import bgLight from '~/assets/index-bg-light.webp';
 
 import WindowFrame from '../components/WindowFrame';
 import { Page } from '../components/framework';
