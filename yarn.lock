@@ -1248,12 +1248,12 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@fluid-design/fluid-ui@^1.8.0":
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/@fluid-design/fluid-ui/-/fluid-ui-1.8.0.tgz#47df3a4defb9788e41207ac913e65a08b3cc3ce0"
-  integrity sha512-Jfw1seLn0kau/W1u952jrqpi5tSHmFdAqfCrJlbSJTyE+AerHO0v1psvJjE1ruOXleb4EoA3JXi6mHX9IRc5Tw==
+"@fluid-design/fluid-ui@^1.8.1":
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/@fluid-design/fluid-ui/-/fluid-ui-1.8.1.tgz#23d78356e6ad74014bff8f604eeb803a4a4a20c8"
+  integrity sha512-LFtXwGUD6BFmjGKYGKRq5Td3bF+RyAfFJ64QLW2fNDS+qf0Iw5FzEJLGJEK6aygMkU44he39U4ffWi33M41JEw==
   dependencies:
-    "@headlessui/react" "^1.6.6"
+    "@headlessui/react" "^1.7.0"
     classnames "^2.3.1"
     clsx "^1.2.1"
     formik "^2.2.9"
@@ -1271,10 +1271,10 @@
   dependencies:
     "@babel/runtime" "^7.17.9"
 
-"@headlessui/react@^1.6.6":
-  version "1.6.6"
-  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.6.6.tgz#3073c066b85535c9d28783da0a4d9288b5354d0c"
-  integrity sha512-MFJtmj9Xh/hhBMhLccGbBoSk+sk61BlP6sJe4uQcVMtXZhCgGqd2GyIQzzmsdPdTEWGSF434CBi8mnhR6um46Q==
+"@headlessui/react@^1.7.0", "@headlessui/react@^1.7.2":
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.2.tgz#e6a6a8d38342064a53182f1eb2bf6d9c1e53ba6a"
+  integrity sha512-snLv2lxwsf2HNTOBNgHYdvoYZ3ChJE8QszPi1d/hl9js8KrFrUulTaQBfSyPbJP5BybVreWh9DxCgz9S0Z6hKQ==
 
 "@heroicons/react@^2.0.10":
   version "2.0.10"
