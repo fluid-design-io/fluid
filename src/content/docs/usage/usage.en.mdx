@@ -30,7 +30,8 @@ yarn add @fluid-design/fluid-ui
 
 ## Configure tailwind
 
-Add a primary color theme to your `tailwind.config.js` file:
+Add a primary color theme to your `tailwind.config.js` file,
+you can go to [Color UI Generator](https://fluid-color.vercel.app/) to generate a color theme.
 
 ```js tailwind.config.js
 module.exports = {
@@ -44,16 +45,28 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          50: 'rgb(var(--tw-color-gray-50) / <alpha-value>)',
-          100: 'rgb(var(--tw-color-gray-100) / <alpha-value>)',
-          200: 'rgb(var(--tw-color-gray-200) / <alpha-value>)',
-          300: 'rgb(var(--tw-color-gray-300) / <alpha-value>)',
-          400: 'rgb(var(--tw-color-gray-400) / <alpha-value>)',
-          500: 'rgb(var(--tw-color-gray-500) / <alpha-value>)',
-          600: 'rgb(var(--tw-color-gray-600) / <alpha-value>)',
-          700: 'rgb(var(--tw-color-gray-700) / <alpha-value>)',
-          800: 'rgb(var(--tw-color-gray-800) / <alpha-value>)',
-          900: 'rgb(var(--tw-color-gray-900) / <alpha-value>)',
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          200: '#bae6fd',
+          300: '#7dd3fc',
+          400: '#38bdf8',
+          500: '#0ea5e9',
+          600: '#0284c7',
+          700: '#0369a1',
+          800: '#075985',
+          900: '#0c4a6e',
+        },
+        gray: {
+          50: '#f4f7fb',
+          100: '#d8dbdf',
+          200: '#bdc0c4',
+          300: '#a2a5a9',
+          400: '#888b8f',
+          500: '#6f7276',
+          600: '#575a5d',
+          700: '#404346',
+          800: '#2b2d30',
+          900: '#17191c',
         },
       },
       // Other extended theme properties
@@ -61,40 +74,4 @@ module.exports = {
   },
   plugins: [require('@fluid-design/fluid-ui/src/plugin')],
 };
-```
-
-## Add primary colors
-
-Lastly, in your `styles.css` file, add the rgb values of each primary variant:
-If you want to use predefined theme colors using TailwindCSS colors,
-you can go to <ExternalLink href='https://github.com/theodorusclarence/ts-nextjs-tailwind-starter/blob/main/src/styles/colors.css'>colors.css</ExternalLink>
-by <ExternalLink href="https://github.com/theodorusclarence">theodorusclarence</ExternalLink>
-and copy any of the color theme as the primary theme.
-
-```css styles.css
-:root {
-  /* Primary theme values */
-  --tw-color-gray-50: 249 250 251;
-  --tw-color-gray-100: 243 244 246;
-  --tw-color-gray-200: 229 231 235;
-  --tw-color-gray-300: 209 213 219;
-  --tw-color-gray-400: 156 165 178;
-  --tw-color-gray-500: 107 113 122;
-  --tw-color-gray-600: 86 91 98;
-  --tw-color-gray-700: 52 56 60;
-  --tw-color-gray-800: 39 41 43;
-  --tw-color-gray-900: 17 18 19;
-
-  /* Static tailwind values */
-  --color-gray-50: rgb(var(--tw-color-gray-50)); /* #f9fafb */
-  --color-gray-100: rgb(var(--tw-color-gray-100)); /* #f3f4f6 */
-  --color-gray-200: rgb(var(--tw-color-gray-200)); /* #e5e7eb */
-  --color-gray-300: rgb(var(--tw-color-gray-300)); /* #d1d5db */
-  --color-gray-400: rgb(var(--tw-color-gray-400)); /* #9ca5b2 */
-  --color-gray-500: rgb(var(--tw-color-gray-500)); /* #6b717a */
-  --color-gray-600: rgb(var(--tw-color-gray-600)); /* #565b62 */
-  --color-gray-700: rgb(var(--tw-color-gray-700)); /* #34383c */
-  --color-gray-800: rgb(var(--tw-color-gray-800)); /* #27292b */
-  --color-gray-900: rgb(var(--tw-color-gray-900)); /* #111213 */
-}
 ```
