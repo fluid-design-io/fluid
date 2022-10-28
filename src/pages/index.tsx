@@ -1,3 +1,5 @@
+import { Button } from '@fluid-design/fluid-ui';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import { AnimatePresence } from 'framer-motion';
 import { Trans, useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -5,6 +7,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { SplitPane } from 'react-multi-split-pane';
+
+import UnstyledLink from '@/components/framework/UnstyledLink';
 
 import bgDark from '~/assets/index-bg-dark.webp';
 import bgLight from '~/assets/index-bg-light.webp';
@@ -113,8 +117,17 @@ export default function Home() {
               }}
             />
           </p>
+          <div className='w-full flex justify-center mt-8'>
+            <Button
+              weight='outline'
+              label={t('get-started')}
+              iconEnd={ArrowRightIcon}
+              as={UnstyledLink}
+              href='/docs/'
+            />
+          </div>
           <WindowFrame
-            className='mx-auto mt-24 hidden w-[80%] max-w-[680px] justify-center md:!flex'
+            className='mx-auto mt-16 hidden w-[80%] max-w-[680px] justify-center md:!flex'
             sidebar={selectionBody}
             content={
               <AnimatePresence mode='wait'>
