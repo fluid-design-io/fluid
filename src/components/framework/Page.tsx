@@ -1,9 +1,12 @@
-import { Footer, Header, Navbar, Sidebar } from '.';
-import { MotionPageProps, SiteMeta } from '@/interfaces/framwork';
-import { getBody, getBodyExcept } from '@/lib/getBody';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/dist/client/router';
 import { useEffect, useState } from 'react';
+
+import { MotionPageProps, SiteMeta } from '@/interfaces/framwork';
+import clsxm from '@/lib/clsxm';
+import { getBody, getBodyExcept } from '@/lib/getBody';
+
+import { Footer, Header, Navbar, Sidebar, SkipNavContent } from '.';
 
 export const Page = ({
   header = true,
@@ -80,11 +83,7 @@ export const Page = ({
   return (
     <>
       <Header {...meta} />
-      {hasMain && (
-        <a className='skip-main' href='#main'>
-          Skip to main content
-        </a>
-      )}
+      {hasMain && <SkipNavContent />}
       <div className='sticky top-0 z-50 flex flex-col md:!flex-col-reverse'>
         {header && (
           <Navbar
@@ -114,13 +113,11 @@ export const Page = ({
             initial={enableMotion ? { opacity: 0 } : {}}
             key={`page-${asPath}`}
             transition={enableMotion ? { duration: 0.65 } : {}}
-            className={`w-full max-w-full overflow-x-hidden ${
-              className ? className : ``
-            }  ${
-              sidebar
-                ? `md:!ml-[15.625rem] lg:ml-[13.5rem] xl:ml-[15.625rem]`
-                : ``
-            }`}
+            className={clsxm(
+              `w-full max-w-full`,
+              sidebar && `md:!ml-[15.625rem] lg:ml-[13.5rem] xl:ml-[15.625rem]`,
+              className
+            )}
           >
             {getBodyExcept(children, 'sidenav')}
           </motion.main>

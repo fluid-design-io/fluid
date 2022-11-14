@@ -4,10 +4,12 @@ import { AnimatePresence } from 'framer-motion';
 import { Trans, useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Image from 'next/image';
-import Link from 'next/link';
 import React, { useState } from 'react';
-import { SplitPane } from 'react-multi-split-pane';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
+import { FluidDesign } from '@/components/FluidDesign';
 import UnstyledLink from '@/components/framework/UnstyledLink';
 
 import bgDark from '~/assets/index-bg-dark.webp';
@@ -18,8 +20,6 @@ import { Page } from '../components/framework';
 import IndexIphoneFrame from '../components/instance/IndexIphoneFrame';
 import FeatureCard from '../components/ui/FeatureCard';
 import { featuresList, indexElements } from '../lib/index/data';
-import Code from '../util/Code';
-import { rawResponsiveCard } from './examples/responsive-card';
 
 export async function getStaticProps({ locale }) {
   return {
@@ -33,7 +33,6 @@ export async function getStaticProps({ locale }) {
 export default function Home() {
   const { t } = useTranslation();
   const [selected, setSelected] = useState('Card');
-  const [isDragging, setIsDragging] = useState(false);
   const selectedStyle = (item) => {
     return selected === item
       ? `text-gray-900 dark:text-gray-800 bg-white dark:bg-gray-300 shadow`
@@ -144,7 +143,7 @@ export default function Home() {
         </div>
       </section>
       <section
-        className='mx-auto mt-8 max-w-7xl text-center sm:px-8'
+        className='mx-auto mt-16 max-w-7xl text-center sm:px-8 mb-8 lg:mb-24'
         id='features'
       >
         <h1 className='not-prose legacy'>
@@ -167,57 +166,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section
-        className='mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-8 md:!mt-40'
-        id='demo'
-      >
-        <h1 className='text-left legacy'>
-          {t('see-it-live', { ns: 'index' })}
-        </h1>
-        <p className='mt-4 max-w-2xl text-gray-500 dark:text-gray-300 lg:text-lg'>
-          <Trans
-            i18nKey='powered-by'
-            ns='index'
-            components={{
-              span: (
-                <span className='font-mono font-medium text-gray-900 dark:text-gray-50' />
-              ),
-            }}
-          />
-        </p>
-        <Link href='/docs'>
-          <button className='primary-button mt-6'>{t('browse-more')}</button>
-        </Link>
-        <div className='mt-8'>
-          <SplitPane
-            onDragStarted={() => setIsDragging(true)}
-            split='vertical'
-            onDragFinished={() => setIsDragging(false)}
-            // defaultSizes={[1, 0]}
-            minSize={[336, 24]}
-            className='!relative mx-auto !flex-col !overflow-visible sm:!flex-row'
-            // maxSize={"calc(100% - 16px)"}
-          >
-            <WindowFrame
-              className='mx-auto w-full shadow dark:!bg-[#353330]'
-              content={
-                <iframe
-                  src='/examples/responsive-card'
-                  className={`h-[496px] w-full ${
-                    isDragging ? 'pointer-events-none' : ''
-                  }`}
-                />
-              }
-            />
-            <div></div>
-          </SplitPane>
-
-          <Code
-            className='mt-4 h-[35vh] max-w-[calc(100vw-2rem)] overflow-x-auto rounded-xl bg-gray-800 pt-6 contrast-more:!bg-black dark:bg-gray-900 sm:mt-[-1rem] md:!ml-[-0.875rem] md:!h-[320px]'
-            content={rawResponsiveCard}
-          />
-        </div>
-      </section>
+      <FluidDesign />
     </Page>
   );
 }
