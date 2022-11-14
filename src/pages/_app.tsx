@@ -18,13 +18,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <CookiesProvider>
       <ThemeProvider>
-        <MDXProvider
-          components={getComponents({
-            components: { CH, CodeFrame, motion, Table, ExternalLink },
-          })}
-        >
-          <Component {...pageProps} />
-        </MDXProvider>
+        <Component {...pageProps} />
       </ThemeProvider>
     </CookiesProvider>
   );
