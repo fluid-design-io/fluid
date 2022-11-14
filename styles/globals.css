@@ -205,6 +205,20 @@ a {
   }
 }
 
+.layout {
+  @apply mx-auto max-w-7xl px-4 md:px-6 lg:px-8 xl:px-12;
+}
+.card-title {
+  @apply font-semibold text-primary-500 contrast:text-primary-800 dark:text-primary-400 dark:contrast:text-primary-300;
+}
+.card-padding {
+  @apply p-4 md:p-6 lg:p-8;
+}
+
+.contrast-border {
+  @apply contrast:border contrast:border-gray-700 dark:contrast:border-gray-200;
+}
+
 h1:not(:where([class~='component'] *)) {
   @apply pb-4 font-primary;
 }
@@ -577,6 +591,31 @@ a.skip-main:active {
   animation: glass-bg-two 60s linear 5s infinite alternate;
   -webkit-animation: glass-bg-two 60s linear 5s infinite alternate;
 }
+
+/* Start Swiper customizations */
+
+.project-slider .swiper-slide-shadow {
+  @apply !hidden;
+}
+.project-slider.swiper {
+  @apply !overflow-visible;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  @apply !bg-primary-400 dark:!bg-primary-500;
+}
+
+.swiper-navigation .swiper-button-next,
+.swiper-navigation .swiper-button-prev {
+  @apply !h-[22px] !w-[13.5px] !text-primary-500 hocus:text-primary-700 dark:hocus:text-primary-300;
+}
+
+.swiper-navigation .swiper-button-next::after,
+.swiper-navigation .swiper-button-prev::after {
+  @apply text-2xl;
+}
+
+/* End Swiper customizations */
 
 /*animations*/
 @-webkit-keyframes glass-bg-two {
