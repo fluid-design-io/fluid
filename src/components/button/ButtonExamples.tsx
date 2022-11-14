@@ -241,7 +241,6 @@ const ButtonStates = () => {
 };
 
 const ButtonIconOnly = () => {
-  const id = useId();
   const [present] = useToast();
   return (
     <ButtonWrap>
@@ -305,7 +304,6 @@ const ButtonIconOnly = () => {
 };
 
 const IconWithText = () => {
-  const id = useId();
   const [present] = useToast();
   return (
     <ButtonWrap>
@@ -367,6 +365,30 @@ const IconWithText = () => {
   );
 };
 
+const CustomColors = () => {
+  const [present] = useToast();
+  return (
+    <ButtonWrap>
+      <Button className='btn-[olive]' onClick={present} label='Olive' />
+      <Button
+        className='btn-light-[#556B2F]'
+        onClick={present}
+        label='#556B2F'
+      />
+      <Button
+        className='btn-outline-[#556B2F]/80'
+        onClick={present}
+        label='Opacity'
+      />
+      <Button
+        className='btn-clear-[rgb(85,107,47)]'
+        onClick={present}
+        label='RGB'
+      />
+    </ButtonWrap>
+  );
+};
+
 // export the const into an object  called ButtonExamples
 
 ButtonColors.displayName = 'Colors';
@@ -375,6 +397,7 @@ ButtonSizes.displayName = 'Sizes';
 ButtonStates.displayName = 'States';
 ButtonIconOnly.displayName = 'Icon Only';
 IconWithText.displayName = 'Icon With Text';
+CustomColors.displayName = 'Custom Button';
 
 export const ButtonExamples = Object.assign(
   {},
@@ -383,5 +406,6 @@ export const ButtonExamples = Object.assign(
   { Sizes: ButtonSizes },
   { States: ButtonStates },
   { IconOnly: ButtonIconOnly },
-  { IconWithText: IconWithText }
+  { IconWithText: IconWithText },
+  { CustomColors: CustomColors }
 );

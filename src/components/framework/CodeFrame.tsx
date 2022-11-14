@@ -1,3 +1,4 @@
+import { Button } from '@fluid-design/fluid-ui';
 import { SunIcon } from '@heroicons/react/24/solid';
 import { useTranslation } from 'next-i18next';
 import React, { useEffect, useState } from 'react';
@@ -168,8 +169,6 @@ export const CodeFrame = ({ title = 'Example', children = null, ...props }) => {
   const [mode] = useThemeMode(true);
   const touchStyle =
     'pointer-touch:opacity-100 pointer-touch:pointer-events-auto opacity-0 pointer-events-none code-block-touch';
-  const buttonStyle =
-    'rounded-md motion-safe:transition relative z-[5] focus-ring ';
   const handlePreferences = (value: PreferencesProps['name']) => {
     // Add class to previewRef based on Active preference
     const newPreferences = preferences.map((pref) => {
@@ -260,15 +259,13 @@ export const CodeFrame = ({ title = 'Example', children = null, ...props }) => {
                     {i !== 0 && (
                       <div className='my-2 mx-1 w-[2px] flex-grow-0 bg-gray-400/30 dark:bg-white/10' />
                     )}
-                    <button
+                    <Button
                       onClick={() => handlePreferences(name)}
-                      className={clsxm(
-                        `clickable relative flex items-center rounded-md py-1.5 px-2 text-xs font-medium`,
-                        'text-gray-800 motion-reduce:bg-gray-200/70 motion-reduce:backdrop-blur-md motion-reduce:backdrop-filter dark:text-gray-100 dark:motion-reduce:bg-gray-900/60',
-                        buttonStyle
-                      )}
+                      className={clsxm('z-[5] btn-clear-gray-700')}
+                      weight='clear'
+                      size='xs'
+                      sr={t(name)}
                     >
-                      <span className='sr-only'>{t(name)}</span>
                       <span className=''>
                         {isActive ? (
                           <ActiveIcon
@@ -280,7 +277,7 @@ export const CodeFrame = ({ title = 'Example', children = null, ...props }) => {
                           />
                         )}
                       </span>
-                    </button>
+                    </Button>
                   </React.Fragment>
                 )
               )}
@@ -288,7 +285,9 @@ export const CodeFrame = ({ title = 'Example', children = null, ...props }) => {
           </div>
           <FunctionalIFrameComponent preferences={preferences} title={title}>
             <div
-              className={clsxm('grid w-full place-items-center pt-20 pb-16')}
+              className={clsxm(
+                'grid w-[calc(100%-2rem)] mx-auto place-items-center pt-20 pb-16'
+              )}
             >
               {children}
             </div>

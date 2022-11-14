@@ -33,6 +33,9 @@ yarn add @fluid-design/fluid-ui
 Add a primary color theme to your `tailwind.config.js` file,
 you can go to [Color UI Generator](https://fluid-color.vercel.app/) to generate a color theme.
 
+We recommend using non var-based color theme, because the library is using and transforming based on the given colors.
+However, var-based color theme still works, but you might need to adjust the color theme manually.
+
 ```js tailwind.config.js
 module.exports = {
   // Add the following to your tailwind.config.js file:
@@ -72,6 +75,9 @@ module.exports = {
       // Other extended theme properties
     },
   },
-  plugins: [require('@fluid-design/fluid-ui/src/plugin')],
+  plugins: [
+    require('@fluid-design/fluid-ui/src/plugin/core'), // main plugin
+    require('@fluid-design/fluid-ui/src/plugin/button'), // for button component
+  ],
 };
 ```

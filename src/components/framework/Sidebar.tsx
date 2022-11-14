@@ -1,4 +1,4 @@
-import { Menu } from '@fluid-design/fluid-ui';
+import { Button, Menu } from '@fluid-design/fluid-ui';
 import {
   BookOpenIcon,
   ChevronUpIcon,
@@ -26,6 +26,13 @@ const navigation = [
   { name: 'Usage', href: 'usage', icon: BookOpenIcon },
 ];
 const secondaryNavigation = [
+  {
+    groupName: 'Plugins',
+    groupList: [
+      { name: 'Button', href: 'plugin/button', isDone: true },
+      { name: 'Tooltip', href: 'plugin/tooltip', isDone: false },
+    ],
+  },
   {
     groupName: 'Components',
     groupList: [
@@ -114,33 +121,32 @@ export const SidebarMenu = ({ className = '' }) => {
         >
           {navigation.map(({ name, href, icon: ItemIcon }) => (
             <div className='rounded-md' key={`nav.${name}.${href}`}>
-              <Link href={`/docs/${href}`} key={name}>
-                <a
-                  className={clsxm(
-                    activeTab === href
-                      ? 'bg-gray-100 text-gray-900 contrast-more:border contrast-more:border-gray-700 dark:bg-gray-700 dark:text-gray-100 dark:contrast-more:border-gray-200'
-                      : 'hocus:bg-gray-50 hocus:text-gray-900 dark:hocus:bg-gray-700/80 dark:hocus:text-gray-300 ',
-                    'group flex w-full items-center rounded-md px-2 py-2 text-sm font-medium transition'
-                  )}
-                >
-                  <div
-                    className={`flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md border 
+              <Button
+                as={UnstyledLink}
+                href={`/docs/${href}`}
+                className={clsxm(
+                  activeTab === href &&
+                    '!bg-gray-100 !text-gray-900 contrast-more:border contrast-more:border-gray-700 dark:!bg-gray-700 dark:!text-gray-100 dark:contrast-more:!border-gray-200',
+                  'btn-clear-gray-600 group flex text-sm font-medium transition justify-start'
+                )}
+              >
+                <div
+                  className={`flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md border 
                   ${
                     activeTab === href
                       ? `border-secondary-400 text-secondary-400 shadow shadow-secondary-400/40`
                       : `border-gray-500 text-gray-600 dark:border-gray-200/80 dark:text-gray-300`
                   }`}
-                  >
-                    <ItemIcon aria-hidden='true' className='h-3.5 w-3.5' />
-                  </div>
-                  <div className='ml-2 text-base font-medium text-gray-900 dark:text-gray-200'>
-                    {activeTab === href && (
-                      <span className='sr-only'>Currently selected.</span>
-                    )}
-                    {t(name)}
-                  </div>
-                </a>
-              </Link>
+                >
+                  <ItemIcon aria-hidden='true' className='h-3.5 w-3.5' />
+                </div>
+                <div className='ml-2 text-base font-medium text-gray-900 dark:text-gray-200'>
+                  {activeTab === href && (
+                    <span className='sr-only'>Currently selected.</span>
+                  )}
+                  {t(name)}
+                </div>
+              </Button>
             </div>
           ))}
           {secondaryNavigation.map(({ groupList, groupName }, i) => (
@@ -179,27 +185,25 @@ export const SidebarMenu = ({ className = '' }) => {
                       )}
                     </p>
                   ) : (
-                    <Link href={`/docs/${href}`} key={`${groupName}.${name}`}>
-                      <a
-                        className={clsxm([
-                          'hocus:contrast-bg hocus:contrast-text group flex items-center rounded-md border border-transparent px-3 py-2 text-sm font-medium',
-                          !isDone && 'opacity-50',
-                          activeTab === href &&
-                            `bg-gray-100 text-gray-900 contrast-more:border contrast-more:border-gray-700 dark:bg-gray-700 dark:text-gray-100 dark:contrast-more:border-gray-200`,
-                          activeTab !== href &&
-                            `clickable text-gray-700 transition-colors hocus:text-gray-800 contrast-more:text-gray-900 dark:text-gray-300/80 dark:hocus:text-gray-100 dark:contrast-more:text-gray-100`,
-                        ])}
-                      >
-                        <span className='flex items-center truncate'>
-                          {t(name, { ns: 'navbar' })}
-                          {!isDone && (
-                            <span className='pl-1 text-[0.65rem]'>
-                              ({t('in-progress')})
-                            </span>
-                          )}
-                        </span>
-                      </a>
-                    </Link>
+                    <Button
+                      as={UnstyledLink}
+                      href={`/docs/${href}`}
+                      key={`${groupName}.${name}`}
+                      className={clsxm([
+                        'btn-clear-gray-600 px-3 py-2 text-sm font-medium justify-start',
+                        activeTab === href &&
+                          `!bg-gray-100 !text-gray-900 contrast-more:border contrast-more:border-gray-700 dark:!bg-gray-700 dark:!text-gray-100 dark:contrast-more:!border-gray-200`,
+                      ])}
+                    >
+                      <span className='flex items-center truncate'>
+                        {t(name, { ns: 'navbar' })}
+                        {!isDone && (
+                          <span className='pl-1 text-[0.65rem]'>
+                            ({t('in-progress')})
+                          </span>
+                        )}
+                      </span>
+                    </Button>
                   )
                 )}
               </div>

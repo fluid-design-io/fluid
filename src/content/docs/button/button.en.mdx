@@ -37,9 +37,33 @@ function Example() {
 }
 ```
 
+### Custom Colors
+
+With the v2.0.0 update, you can now create custom colors using className combined with TailwindCSS variant conventions.
+The buttons will automatically be styled with the correct color and hover state, as well as a11y UI support.
+
+<CodeFrame title='Color options'>
+  <div className='flex flex-wrap justify-center gap-6'>
+    <ButtonExamples.CustomColors />
+  </div>
+</CodeFrame>
+
+```jsx
+<Button className='btn-[olive]' label='Olive' />
+<Button className='btn-light-[#556B2F]' label='#556B2F' />
+<Button className='btn-outline-[#556B2F]/80' label='Opacity' />
+<Button className='btn-clear-[rgb(85,107,47)]' label='RGB' />
+```
+
 ## Weight
 
 Button weight defines the boldness of the button.
+
+<CodeFrame title='Weight options'>
+  <div className='flex flex-wrap justify-center gap-6'>
+    <ButtonExamples.Weights />
+  </div>
+</CodeFrame>
 
 ```jsx
 <Button color="rose" weight="light">Light</Button>
@@ -49,12 +73,6 @@ Button weight defines the boldness of the button.
 <Button color="rose" weight="clear">Clear</Button>
 <Button color="rose" weight="link">Link</Button>
 ```
-
-<CodeFrame title='Weight options'>
-  <div className='flex flex-wrap justify-center gap-6'>
-    <ButtonExamples.Weights />
-  </div>
-</CodeFrame>
 
 ## Size
 
@@ -233,6 +251,7 @@ If you provided `label` prop, the text will hide from HTML but still be accessib
 
 The button can be keyboard focused with border color matches the color of the text.
 In high contrast mode, the button contrast and font weight will increase while preserving the original color scheme.
+If a label is provided, the button will be accessible to screen readers.
 To customize the screen reader text, you can use the `sr` prop.
 
 ```jsx
@@ -245,7 +264,10 @@ To customize the screen reader text, you can use the `sr` prop.
 
 ### Forground Color
 
-Based on contrast ratio, each button's foreground color is set to the opposite of the background color. Read more about accessible color contrast <ExternalLink href='https://www.w3.org/TR/WCAG20-TECHS/G18.html'>here</ExternalLink>.
+Based on contrast ratio, each button's foreground color is set to the opposite of the background color.
+In short, the text color will be > 4.5:1 contrast ratio with the background color.
+And in high contrast mode, the text color will be > 7:1 contrast ratio with the background color.
+Read more about accessible color contrast <ExternalLink href='https://www.w3.org/TR/WCAG20-TECHS/G18.html'>here</ExternalLink>.
 
 ### Button States
 
@@ -257,7 +279,8 @@ Active state will either lighten or darken the button color based on the button'
 ### Loading animation
 
 When loading is true, a spinner will be shown. Customizable loading animation.
-It is also possible to set `isLoading` to true to display a loading animation, and it can be grouped along with disabled to create a funtional loading button.
+It is also possible to set `isLoading` to true to display a loading animation,
+and it can be grouped along with disabled to create a funtional loading button.
 
 ## Component API
 
