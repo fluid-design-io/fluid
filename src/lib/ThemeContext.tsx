@@ -1,5 +1,6 @@
-/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint no-use-before-define: 0 */
 import React, {
+  Dispatch,
   FC,
   ReactNode,
   createContext,
@@ -8,12 +9,13 @@ import React, {
   useState,
 } from 'react';
 
-const windowExists = (): boolean => typeof window !== 'undefined';
+import windowExists from '@/helpers/window-exists';
+
 export type Mode = string | undefined | 'light' | 'dark';
 
 interface ThemeContextProps {
   mode?: Mode;
-  toggleMode?: () => void | null;
+  setMode?: Dispatch<React.SetStateAction<Mode>>;
 }
 
 export const ThemeContext = createContext<ThemeContextProps>({
@@ -22,12 +24,33 @@ export const ThemeContext = createContext<ThemeContextProps>({
 
 interface ThemeProviderProps {
   children: ReactNode;
-  value: ThemeContextProps;
 }
 
-export const ThemeProvider: FC<ThemeProviderProps> = ({ children, value }) => {
+export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
+  const [mode, setMode] = useState<Mode>(undefined);
+  useEffect(() => {
+    if (windowExists) {
+      const localMode = window.localStorage.getItem('theme');
+      if (localMode) {
+        setMode(localMode);
+      } else {
+        const systemMode = window.matchMedia('(prefers-color-scheme: dark)')
+          .matches
+          ? 'dark'
+          : 'light';
+        setMode(systemMode);
+      }
+    }
+  }, []);
   return (
-    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider
+      value={{
+        mode,
+        setMode,
+      }}
+    >
+      {children}
+    </ThemeContext.Provider>
   );
 };
 
@@ -42,8 +65,8 @@ export const useThemeMode = (
   React.Dispatch<React.SetStateAction<Mode>> | undefined,
   (() => void) | undefined
 ] => {
+  const { mode, setMode } = useTheme();
   if (!usePreferences) return [undefined, undefined, undefined];
-  const [mode, setMode] = useState<Mode>(undefined);
 
   const savePreference = (m: string) => localStorage.setItem('theme', m);
   // also save the time when the theme was last changed
@@ -79,8 +102,6 @@ export const useThemeMode = (
         Date.now() - parseInt(userTime, 10) > 24 * 60 * 60 * 1000
       ) {
         savePreference(userPreference ? 'dark' : 'light');
-        saveTime();
-        setMode(userPreference ? 'dark' : 'light');
       } else {
         if (userMode) {
           setMode(userMode);
@@ -94,6 +115,7 @@ export const useThemeMode = (
       }
 
       savePreference(mode);
+      saveTime();
 
       if (!windowExists()) {
         return;

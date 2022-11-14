@@ -1,51 +1,31 @@
 import { CH } from '@code-hike/mdx/components';
+import '@docsearch/css';
 import { MDXProvider } from '@mdx-js/react';
+import 'flag-icons/css/flag-icons.min.css';
 import { motion } from 'framer-motion';
 import { appWithTranslation } from 'next-i18next';
-import { useEffect } from 'react';
 import { CookiesProvider } from 'react-cookie';
-import '@docsearch/css';
 
+import { CodeFrame, ExternalLink, Table, getComponents } from '@/components';
+import { ThemeProvider } from '@/lib/ThemeContext';
+
+import nextI18nextConfig from '../../next-i18next.config';
 import '../../styles/code-hike.css';
 import '../../styles/globals.css';
 import '../../styles/neumorphism.css';
-import 'flag-icons/css/flag-icons.min.css';
-
-import { CodeFrame, ExternalLink, getComponents, Table } from '@/components';
-
-import nextI18nextConfig from '../../next-i18next.config';
 
 function MyApp({ Component, pageProps }) {
-  const activateDarkMode = () => {
-    if (
-      localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  };
-  useEffect(() => {
-    activateDarkMode();
-    window
-      .matchMedia('(prefers-color-scheme: dark)')
-      .addEventListener('change', () => activateDarkMode());
-    return () =>
-      window
-        .matchMedia('(prefers-color-scheme: dark)')
-        .removeEventListener('change', () => null);
-  }, []);
   return (
     <CookiesProvider>
-      <MDXProvider
-        components={getComponents({
-          components: { CH, CodeFrame, motion, Table, ExternalLink },
-        })}
-      >
-        <Component {...pageProps} />
-      </MDXProvider>
+      <ThemeProvider>
+        <MDXProvider
+          components={getComponents({
+            components: { CH, CodeFrame, motion, Table, ExternalLink },
+          })}
+        >
+          <Component {...pageProps} />
+        </MDXProvider>
+      </ThemeProvider>
     </CookiesProvider>
   );
 }
