@@ -42,10 +42,10 @@ const ImageCard = ({ name, src, count = 0, ...props }) => {
   );
 };
 
-const GridWrap = ({ children }) => {
+const GridWrap = ({ children = null, list = [] }) => {
   return (
     <div className='grid w-full grid-cols-1 gap-4 xs:grid-cols-2 md:grid-cols-3 md:gap-6 lg:gap-8'>
-      {children}
+      {list.length > 0 ? <GridItems list={list} /> : children}
     </div>
   );
 };
@@ -78,11 +78,7 @@ const Components = () => {
       src: 'menu',
     },
   ];
-  return (
-    <GridWrap>
-      <GridItems list={components} />
-    </GridWrap>
-  );
+  return <GridWrap list={components} />;
 };
 const Forms = () => {
   const { t } = useTranslation(['navbar']);
@@ -98,11 +94,7 @@ const Forms = () => {
       href: 'form/input',
     },
   ];
-  return (
-    <GridWrap>
-      <GridItems list={components} />
-    </GridWrap>
-  );
+  return <GridWrap list={components} />;
 };
 
 const UI = () => {
@@ -114,16 +106,30 @@ const UI = () => {
       count: 3,
     },
   ];
-  return (
-    <GridWrap>
-      <GridItems list={uis} />
-    </GridWrap>
-  );
+  return <GridWrap list={uis} />;
+};
+
+const Plugins = () => {
+  const { t } = useTranslation(['navbar']);
+  const plugins = [
+    {
+      name: t(`Button`),
+      src: 'plugin-button',
+      href: 'plugin/button',
+    },
+    /* {
+      name: t(`Tooltip`),
+      src: 'plugin-tooltip',
+      href: 'plugin/tooltip',
+    }, */
+  ];
+  return <GridWrap list={plugins} />;
 };
 
 Components.displayName = 'Components';
 Forms.displayName = 'Forms';
 UI.displayName = 'UI';
+Plugins.displayName = 'Plugins';
 
 export const Dashboard = Object.assign(
   {},
@@ -131,5 +137,6 @@ export const Dashboard = Object.assign(
     Components,
     Forms,
     UI,
+    Plugins,
   }
 );
