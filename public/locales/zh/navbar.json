@@ -24,11 +24,17 @@
   "switch-lanuage": "切换语言到{{name}}",
   "Language": "语言",
   "Terms": "服务条款",
+  "Contact": "联系我们",
   "About": "关于我们",
   "Privacy": "隐私条款",
   "License": "执照",
   "All rights reserved": "版权所有。",
   "in-progress": "建设中",
   "Color Generator": "颜色生成器",
-  "Switch": "开关"
+  "Switch": "开关",
+  "Menu": "菜单",
+  "Validation": "验证",
+  "Combobox": "组合框",
+  "Plugins": "插件",
+  "Dashboard": "主页",
 }

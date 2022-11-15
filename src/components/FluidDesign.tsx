@@ -17,6 +17,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import VideoPlayer from '@/components/VideoPlayer';
 import { Card } from '@/components/framework/Card';
 import { DynamicImage } from '@/components/framework/DynamicImage';
+import UnstyledLink from '@/components/framework/UnstyledLink';
 import { getNextItem, getPrevItem } from '@/lib/arrayHelpers';
 import clsxm from '@/lib/clsxm';
 
@@ -652,11 +653,10 @@ export const FluidDesign = () => {
             web forward with a11y.
           </p>
           <Button
-            as='a'
+            as={UnstyledLink}
             className='mt-8 inline-block btn-primary'
-            href='https://fluid-design.io'
-            iconEnd={HiExternalLink}
-            label='Visit website'
+            href='/docs'
+            label='Visit Docs'
           />
           <Button
             as='a'

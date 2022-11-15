@@ -7,7 +7,6 @@ import {
   Squares2X2Icon,
 } from '@heroicons/react/24/solid';
 import { i18n, useTranslation } from 'next-i18next';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { MdMouse } from 'react-icons/md';
 
@@ -86,10 +85,13 @@ export const SidebarMenu = ({ className = '' }) => {
   const { pathname, asPath, query } = router;
   const activeTab = pathname.split('docs/')[1];
   const { t } = useTranslation();
+  const bgClassName =
+    'dark:bg-gray-900 dark:contrast-more:border-gray-200 dark:contrast-more:bg-[rgb(18,15,13)] bg-gray-50';
   return (
     <div
       className={clsxm(
-        'top-0 left-0 z-40 flex min-h-screen h-fit max-h-[100dvh] w-64 overflow-y-auto overflow-x-hidden border-r border-gray-200 bg-gray-50 pl-[calc(env(safe-area-inset-right)-1rem)] contrast-more:border-gray-600 dark:border-gray-700 dark:bg-gray-900 dark:contrast-more:border-gray-200 dark:contrast-more:bg-[rgb(18,15,13)] sm:w-56 2xl:w-64',
+        'top-0 left-0 z-40 flex h-[100vh] max-h-[100svh] w-64 overflow-y-auto overflow-x-hidden border-r border-gray-200 bg-gray-50 pl-[calc(env(safe-area-inset-right)-1rem)] contrast-more:border-gray-600 dark:border-gray-700 sm:w-56 2xl:w-64',
+        bgClassName,
         className
       )}
     >
@@ -117,7 +119,7 @@ export const SidebarMenu = ({ className = '' }) => {
         </div>
         <nav
           aria-label='Sidebar'
-          className='flex flex-1 flex-col gap-2 p-1 px-4 pb-[calc(1rem+env(safe-area-inset-bottom))]'
+          className='flex flex-1 flex-col gap-2 p-1 px-4'
         >
           {navigation.map(({ name, href, icon: ItemIcon }) => (
             <div className='rounded-md' key={`nav.${name}.${href}`}>
@@ -144,7 +146,7 @@ export const SidebarMenu = ({ className = '' }) => {
                   {activeTab === href && (
                     <span className='sr-only'>Currently selected.</span>
                   )}
-                  {t(name)}
+                  {t(name, { ns: 'navbar' })}
                 </div>
               </Button>
             </div>
@@ -158,7 +160,7 @@ export const SidebarMenu = ({ className = '' }) => {
                 className='select-none px-3 text-xs font-semibold uppercase tracking-wider text-gray-500 contrast-more:text-gray-700 dark:text-gray-400 dark:contrast-more:text-slate-100'
                 id={`${groupName}-headline`}
               >
-                {t(groupName)}
+                {t(groupName, { ns: 'navbar' })}
               </h3>
               <div
                 aria-labelledby={`${groupName}-headline`}
@@ -210,8 +212,16 @@ export const SidebarMenu = ({ className = '' }) => {
             </div>
           ))}
           <div className='flex-grow' />
+        </nav>
+        <div
+          className={clsxm(
+            'sticky bottom-0 px-4 pb-[calc(1rem+env(safe-area-inset-bottom))] w-full flex justify-center',
+            bgClassName
+          )}
+        >
           <Menu
             buttonClassName='w-full btn-clear-gray'
+            className='w-full'
             iconEnd={ChevronUpIcon}
             iconEndPosition='between'
             label={t(`Language`, { ns: 'navbar' })}
@@ -236,7 +246,7 @@ export const SidebarMenu = ({ className = '' }) => {
                 }),
             }))}
           />
-        </nav>
+        </div>
       </div>
     </div>
   );
