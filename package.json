@@ -1,6 +1,6 @@
 {
   "name": "fluid-design",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "A collection of beautifully designed components that are responsive, supports features like dark mode and a11y with elegant transitions.",
   "private": false,
   "scripts": {
@@ -27,6 +27,7 @@
     "@mdx-js/react": "^2.1.5",
     "@next/mdx": "12.3.3",
     "@sendgrid/mail": "^7.6.0",
+    "@vercel/og": "^0.0.20",
     "add": "^2.0.6",
     "clsx": "^1.2.1",
     "formik": "^2.2.9",

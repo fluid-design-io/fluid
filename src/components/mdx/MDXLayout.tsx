@@ -6,11 +6,12 @@ import React from 'react';
 import { Toaster } from 'react-hot-toast';
 
 import { CodeFrame, ExternalLink, Table, getComponents } from '@/components';
+import Seo from '@/components/framework/Seo';
 import clsxm from '@/lib/clsxm';
 
 import { TOC } from '.';
 import { ActiveAnchorProvider } from '../contexts';
-import { Footer, Header, Navbar, Sidebar, SkipNavContent } from '../framework';
+import { Footer, Navbar, Sidebar, SkipNavContent } from '../framework';
 
 export const MDXLayout: (props) => React.ReactElement = ({
   header = true,
@@ -21,7 +22,7 @@ export const MDXLayout: (props) => React.ReactElement = ({
   const meta = props.meta || {};
   return (
     <>
-      <Header {...meta} />
+      <Seo {...meta} category='doc' />
       <SkipNavContent />
       <Toaster
         gutter={4}

@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/dist/client/router';
 import { useEffect, useState } from 'react';
 
+import Seo from '@/components/framework/Seo';
 import { MotionPageProps, SiteMeta } from '@/interfaces/framwork';
 import clsxm from '@/lib/clsxm';
 import { getBody, getBodyExcept } from '@/lib/getBody';
@@ -22,7 +23,7 @@ export const Page = ({
   sidebar?: boolean;
   children?: any;
   className?: string;
-  meta?: SiteMeta;
+  meta?: any;
   motionProps?: MotionPageProps;
   hasMain?: boolean;
   [x: string]: any;
@@ -82,7 +83,7 @@ export const Page = ({
   }, []);
   return (
     <>
-      <Header {...meta} />
+      <Seo {...meta} category='index' />
       {hasMain && <SkipNavContent />}
       <div className='sticky top-0 z-50 flex flex-col md:!flex-col-reverse'>
         {header && (

@@ -1,9 +1,7 @@
 import { Button, Tab } from '@fluid-design/fluid-ui';
 import {
   AnimatePresence,
-  MotionValue,
   motion,
-  motionValue,
   useInView,
   useReducedMotion,
   useScroll,
@@ -25,24 +23,14 @@ import clsxm from '@/lib/clsxm';
 export const FluidDesign = () => {
   const { t } = useTranslation(['index', 'common']);
   const shouldReduceMotion = useReducedMotion();
-  const introRef = useRef<HTMLDivElement>(null);
   const animationContainerRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
   const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
-  const [videoProgress, setVideoProgress] = useState<MotionValue<number>>(
-    motionValue(0)
-  );
   const [playAnimation, setPlayAnimation] = useState<boolean>(false);
   const [activeCompIndex, setActiveCompIndex] = useState<number>(0);
   const isAnimationInView = useInView(animationContainerRef);
   const overScrollRef = useRef<HTMLDivElement>(null);
   const { scrollX } = useScroll({ container: overScrollRef });
   const conceptOpacity = useTransform(scrollX, [20, 30], [0, 1]);
-  const introOpacity = useTransform(
-    videoProgress,
-    [0.85, 0.95],
-    [shouldReduceMotion ? 1 : 0, 1]
-  );
   const elegantDesignVideos = [
     {
       title: t(`fluid-design.accordionComponent.title`, { ns: 'index' }),
@@ -665,20 +653,17 @@ export const FluidDesign = () => {
           </p>
           <Button
             as='a'
-            className='mt-8 inline-block'
-            color='indigo'
+            className='mt-8 inline-block btn-primary'
             href='https://fluid-design.io'
             iconEnd={HiExternalLink}
             label='Visit website'
           />
           <Button
             as='a'
-            className='mx-4 mt-8 inline-block'
-            color='indigo'
+            className='mx-4 mt-8 inline-block btn-outline-primary'
             href='mailto:oliver@image-vision.co?subject=Fluid Design Collaboration'
             iconEnd={HiOutlineMail}
             label='Collaborate'
-            weight='outline'
           />
         </div>
         <div
