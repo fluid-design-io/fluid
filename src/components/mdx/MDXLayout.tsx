@@ -1,5 +1,4 @@
 import { CH } from '@code-hike/mdx/components';
-import { MDXProvider } from '@mdx-js/react';
 import { motion } from 'framer-motion';
 import { MDXRemote } from 'next-mdx-remote';
 import React from 'react';
@@ -50,6 +49,7 @@ export const MDXLayout: (props) => React.ReactElement = ({
                   <MDXRemote
                     {...props.source}
                     components={{
+                      ...getComponents({}),
                       CH,
                       CodeFrame,
                       motion,
