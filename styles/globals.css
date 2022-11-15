@@ -366,7 +366,7 @@ a.skip-main {
 }
 a.skip-main:focus,
 a.skip-main:active {
-  @apply rounded-xl border-4 border-primary-100 bg-primary-700 text-primary-200 shadow-xl dark:border-primary-700 dark:bg-primary-200 dark:text-slate-700;
+  @apply rounded-lg border-4 border-primary-700 bg-primary-100 font-semibold text-primary-800 shadow-lg shadow-primary-300/40 outline-none dark:border-primary-700 dark:bg-primary-200 dark:text-slate-700 dark:shadow-primary-800/30;
   left: auto;
   top: auto;
   width: 30%;
