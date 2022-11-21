@@ -90,7 +90,7 @@ export const SidebarMenu = ({ className = '' }) => {
   return (
     <div
       className={clsxm(
-        'top-0 left-0 z-40 flex h-[100vh] max-h-[100svh] w-64 overflow-y-auto overflow-x-hidden border-r border-gray-200 bg-gray-50 pl-[calc(env(safe-area-inset-right)-1rem)] contrast-more:border-gray-600 dark:border-gray-700 sm:w-56 2xl:w-64',
+        'top-0 left-0 z-40 flex h-[100vh] max-h-[100lvh] w-64 overflow-y-auto overflow-x-hidden border-r border-gray-200 bg-gray-50 pl-[calc(env(safe-area-inset-right)-1rem)] contrast-more:border-gray-600 dark:border-gray-700 sm:w-56 2xl:w-64',
         bgClassName,
         className
       )}

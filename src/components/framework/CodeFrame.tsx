@@ -261,7 +261,9 @@ export const CodeFrame = ({ title = 'Example', children = null, ...props }) => {
                     )}
                     <Button
                       onClick={() => handlePreferences(name)}
-                      className={clsxm('z-[5] btn-clear-gray-700')}
+                      className={clsxm(
+                        'z-[5] btn-clear-gray-700 dark:btn-clear-gray-200'
+                      )}
                       weight='clear'
                       size='xs'
                       sr={t(name)}
