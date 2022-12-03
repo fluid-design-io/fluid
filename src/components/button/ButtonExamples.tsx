@@ -53,7 +53,6 @@ const ButtonColors = ({
   size = 'md',
   shape = 'round',
   isLoading = false,
-  gradient = undefined,
   loadingOptions = {
     animation: 'spin',
     text: '',
@@ -63,7 +62,6 @@ const ButtonColors = ({
   size?: keyof FluidButtonSizes;
   isLoading?: boolean;
   shape?: keyof FluidButtonShapes;
-  gradient?: keyof FluidButtonColorOptions['gradient'] | undefined;
   loadingOptions?: {
     animation?: keyof FulidButtonLoadingOptions['animation'];
     text?: string;
@@ -83,7 +81,6 @@ const ButtonColors = ({
             shape,
             weight,
             isLoading,
-            gradient,
             loadingOptions,
           }}
           className='capitalize'
