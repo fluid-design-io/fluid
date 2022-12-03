@@ -129,7 +129,7 @@ export const SidebarMenu = ({ className = '' }) => {
                 className={clsxm(
                   activeTab === href &&
                     '!bg-gray-100 !text-gray-900 contrast-more:border contrast-more:border-gray-700 dark:!bg-gray-700 dark:!text-gray-100 dark:contrast-more:!border-gray-200',
-                  'btn-clear-gray-600 group flex text-sm font-medium transition justify-start'
+                  'btn-clear-gray-600 dark:btn-clear-gray-300 group flex text-sm font-medium transition justify-start'
                 )}
               >
                 <div
@@ -192,7 +192,7 @@ export const SidebarMenu = ({ className = '' }) => {
                       href={`/docs/${href}`}
                       key={`${groupName}.${name}`}
                       className={clsxm([
-                        'btn-clear-gray-600 px-3 py-2 text-sm font-medium justify-start',
+                        'btn-clear-gray-600 dark:btn-clear-gray-300 px-3 py-2 text-sm font-medium justify-start',
                         activeTab === href &&
                           `!bg-gray-100 !text-gray-900 contrast-more:border contrast-more:border-gray-700 dark:!bg-gray-700 dark:!text-gray-100 dark:contrast-more:!border-gray-200`,
                       ])}
@@ -220,7 +220,7 @@ export const SidebarMenu = ({ className = '' }) => {
           )}
         >
           <Menu
-            buttonClassName='w-full btn-clear-gray'
+            buttonClassName='w-full btn-clear-gray dark:btn-clear-gray-300'
             className='w-full'
             iconEnd={ChevronUpIcon}
             iconEndPosition='between'

@@ -1,3 +1,4 @@
+import { Button } from '@fluid-design/fluid-ui';
 import { HeartIcon, ShareIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -33,12 +34,33 @@ function IndexCard() {
             </p>
           </div>
           <div className='flex items-center justify-between pt-1'>
-            <button className='px-2 py-1 text-xs font-semibold uppercase transition rounded bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-gray-200 hover:bg-gray-700 hover:text-gray-100 dark:hover:bg-gray-600 dark:active:bg-gray-500 dark:hover:text-gray-100 focus:bg-gray-700 focus:text-gray-100 dark:focus:bg-gray-600 dark:focus:text-gray-100 touch-pan-y'>
-              button
-            </button>
+            <Button
+              size='xs'
+              weight='light'
+              color='cyan'
+              className='uppercase font-semibold'
+              label='button'
+            />
             <div className='flex space-x-2'>
-              <ShareIcon className='w-4 h-4 text-gray-400' />
-              <HeartIcon className='w-4 h-4 text-gray-400' />
+              <Button
+                color='blue'
+                size='xs'
+                shape='pill'
+                weight='clear'
+                iconOnly
+                icon={ShareIcon}
+                sr='Share this post'
+              />
+
+              <Button
+                color='rose'
+                size='xs'
+                shape='pill'
+                weight='clear'
+                iconOnly
+                icon={HeartIcon}
+                sr='Fav this post'
+              />
             </div>
           </div>
         </div>

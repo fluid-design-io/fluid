@@ -1,12 +1,15 @@
+import { motion } from 'framer-motion';
+
+import { AccordionExamples, ButtonExamples, MenuExamples } from '@/components';
+import { InputExamples } from '@/components/form/InputExamples';
+import { SwitchExamples } from '@/components/form/SwitchExamples';
 import IndexCard from '@/components/instance/IndexCard';
-import IndexElegant from '@/components/instance/IndexElegant';
 import IndexEnterExit from '@/components/instance/IndexEnterExit';
-import IndexGlass from '@/components/instance/IndexGlass';
 import IndexList from '@/components/instance/IndexList';
 import IndexSharedLayout from '@/components/instance/IndexSharedLayout';
-import IndexSimple from '@/components/instance/IndexSimple';
 import IndexSoft from '@/components/instance/IndexSoft';
 import { FeatureCardProps } from '@/interfaces/featureCard';
+import clsxm from '@/lib/clsxm';
 
 import animationDark from '~/assets/index/animation-dark.png';
 import animationLight from '~/assets/index/animation-light.png';
@@ -25,51 +28,83 @@ import responsiveLight from '~/assets/index/responsive-light.png';
 import screenReaderDark from '~/assets/index/screen-reader-dark.png';
 import screenReaderLight from '~/assets/index/screen-reader-light.png';
 
+const Wrap = ({ children, key, className = '' }) => (
+  <motion.div
+    key={key}
+    animate={{ y: 0, opacity: 1 }}
+    exit={{ y: -10, opacity: 0 }}
+    initial={{ y: 10, opacity: 0 }}
+    transition={{ type: 'spring', bounce: 0, duration: 0.3 }}
+    className={clsxm(
+      'w-full h-full flex-1 grid place-items-center p-4',
+      className
+    )}
+  >
+    {children}
+  </motion.div>
+);
+
 export const indexElements = [
-  {
-    category: 'Designs',
-    lists: [
-      {
-        name: 'Elegant',
-        component: <IndexElegant key="div.elegant" />,
-      },
-      {
-        name: 'Simple',
-        component: <IndexSimple key="div.simple" />,
-      },
-      {
-        name: 'Soft',
-        component: <IndexSoft key="div.soft" />,
-      },
-      {
-        name: 'Glass',
-        component: <IndexGlass key="div.glass" />,
-      },
-    ],
-  },
   {
     category: 'Components',
     lists: [
       {
-        name: 'Card',
-        component: <IndexCard key="div.card" />,
+        name: 'Accordion',
+        component: (
+          <Wrap key='index.components.accordion'>
+            <AccordionExamples.Simple />
+          </Wrap>
+        ),
       },
       {
-        name: 'List',
-        component: <IndexList key="div.list" />,
+        name: 'Button',
+        component: (
+          <Wrap key='index.components.button'>
+            <ButtonExamples.Showcase />
+          </Wrap>
+        ),
+      },
+      {
+        name: 'Menu',
+        component: (
+          <Wrap key='index.components.menu'>
+            <MenuExamples.Default className='h-4/5 !w-full sm:!w-4/5' />
+          </Wrap>
+        ),
       },
     ],
   },
   {
-    category: 'Transitions',
+    category: 'Forms',
     lists: [
       {
-        name: 'Enter & Exit',
-        component: <IndexEnterExit key="div.enter" />,
+        name: 'Input',
+        component: (
+          <Wrap key='index.forms.input'>
+            <InputExamples.Demo />
+          </Wrap>
+        ),
       },
       {
-        name: 'Shared Layout',
-        component: <IndexSharedLayout key="div.sharedlayout" />,
+        name: 'Switch',
+        component: (
+          <Wrap key='index.forms.switch'>
+            <SwitchExamples.Demo className='h-4/5 !w-full sm:!w-4/5' />
+          </Wrap>
+        ),
+      },
+    ],
+  },
+  {
+    category: 'UI',
+    lists: [
+      {
+        name: 'Card',
+        component: <IndexCard key='div.card' />,
+      },
+      {
+        name: 'List',
+        component: <IndexList key='div.list' />,
       },
     ],
   },

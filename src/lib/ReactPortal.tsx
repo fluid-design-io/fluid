@@ -1,19 +1,19 @@
 /* https://github.com/KRRISH96/react-portal-overlay/blob/main/src/components/ReactPortal.js */
-import { useState, useLayoutEffect } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 function createWrapperAndAppendToBody(wrapperId) {
   const wrapperElement = document.createElement('div');
-  wrapperElement.setAttribute("id", wrapperId);
+  wrapperElement.setAttribute('id', wrapperId);
   document.body.appendChild(wrapperElement);
   return wrapperElement;
 }
 
-
-function ReactPortal({ children, wrapperId = "react-portal-wrapper" }) {
+function ReactPortal({ children, wrapperId = 'react-portal-wrapper' }) {
   const [wrapperElement, setWrapperElement] = useState(null);
-  
-  useLayoutEffect(() => {
+  const useIsomorphicLayoutEffect =
+    typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+  useIsomorphicLayoutEffect(() => {
     let element = document.getElementById(wrapperId);
     let systemCreated = false;
     // if element is not found with wrapperId or wrapperId is not provided,
@@ -23,13 +23,13 @@ function ReactPortal({ children, wrapperId = "react-portal-wrapper" }) {
       element = createWrapperAndAppendToBody(wrapperId);
     }
     setWrapperElement(element);
-  
+
     return () => {
       // delete the programatically created element
       if (systemCreated && element.parentNode) {
         element.parentNode.removeChild(element);
       }
-    }
+    };
   }, [wrapperId]);
 
   // wrapperElement state will be null on very first render.

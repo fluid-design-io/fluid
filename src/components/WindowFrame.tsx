@@ -12,12 +12,12 @@ function WindowFrame({ sidebar = null, content, ...props }) {
     <motion.div
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
-      className={`rounded-xl border border-gray-200/50 dark:border-gray-700 contrast-more:border-gray-400 dark:contrast-more:border-gray-500 bg-gray-100 dark:bg-gray-700/50 flex overflow-hidden shadow-lg ${
+      className={`rounded-xl border border-gray-200/50 dark:border-gray-700 contrast-more:border-gray-400 dark:contrast-more:border-gray-500 bg-gray-100 dark:bg-gray-700/50 flex overflow-hidden shadow-2xl shadow-gray-600/20 dark:shadow-xl dark:shadow-black/20 ${
         props.className ? props.className : ``
       } `}
     >
       {sidebar && (
-        <div className='min-w-[180px] bg-gray-50 dark:bg-gray-700 flex-col relative pb-1'>
+        <div className='min-w-[180px] bg-gray-50/70 dark:bg-gray-800/30 flex-col relative pb-1 backdrop-brightness-110 dark:backdrop-brightness-90'>
           {WindowDots}
           <div className='flex items-center justify-center flex-1'>
             <div className='w-full text-sm'>{sidebar}</div>

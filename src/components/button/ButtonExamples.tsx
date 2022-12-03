@@ -389,6 +389,20 @@ const CustomColors = () => {
   );
 };
 
+const Showcase = () => {
+  const [present] = useToast();
+  return (
+    <div className='grid grid-cols-3 gap-6 justify-items-center'>
+      <Button color='cyan' label='Solid' onClick={present} />
+      <Button color='cyan' weight='light' label='Light' onClick={present} />
+      <Button color='cyan' weight='bold' label='Bold' onClick={present} />
+      <Button color='cyan' weight='outline' label='Outline' onClick={present} />
+      <Button color='cyan' weight='clear' label='Clear' onClick={present} />
+      <Button color='cyan' weight='link' label='Link' onClick={present} />
+    </div>
+  );
+};
+
 // export the const into an object  called ButtonExamples
 
 ButtonColors.displayName = 'Colors';
@@ -398,6 +412,7 @@ ButtonStates.displayName = 'States';
 ButtonIconOnly.displayName = 'Icon Only';
 IconWithText.displayName = 'Icon With Text';
 CustomColors.displayName = 'Custom Button';
+Showcase.displayName = 'Showcase';
 
 export const ButtonExamples = Object.assign(
   {},
@@ -407,5 +422,6 @@ export const ButtonExamples = Object.assign(
   { States: ButtonStates },
   { IconOnly: ButtonIconOnly },
   { IconWithText: IconWithText },
-  { CustomColors: CustomColors }
+  { CustomColors: CustomColors },
+  { Showcase: Showcase }
 );

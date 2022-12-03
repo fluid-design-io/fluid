@@ -6,11 +6,16 @@ import { CodeFrameComponentWrap } from '@/components/framework/CodeFrameComponen
 import clsxm from '@/lib/clsxm';
 import { useToast } from '@/lib/useToast';
 
-const SwitchDemo = () => {
+const SwitchDemo = ({ className = '' }) => {
   const [present] = useToast();
   const [isNotificationDisabled, setIsNotificationDisabled] = useState(false);
   return (
-    <CodeFrameComponentWrap className='w-full max-w-md flex flex-col items-stretch'>
+    <CodeFrameComponentWrap
+      className={clsxm(
+        'w-full max-w-md flex flex-col items-stretch',
+        className
+      )}
+    >
       <Form
         onSubmit={() => null}
         initialValues={{

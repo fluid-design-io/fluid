@@ -2,8 +2,8 @@ import { CardASLargeImageComponent } from './AppStore';
 import { CardCollageComponent } from './Collage';
 import { CardStandardComponent } from './Standard';
 
-const Standard = () => {
-  return <CardStandardComponent />;
+const Standard = ({ className = '' }) => {
+  return <CardStandardComponent className={className} />;
 };
 
 const AppleStore = () => {

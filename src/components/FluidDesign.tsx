@@ -336,7 +336,7 @@ export const FluidDesign = () => {
         <h1 className='mb-6 md:mb-8 legacy'>
           It all starts with <br /> a simple idea.
         </h1>
-        <p className='w-full max-w-4xl font-medium md:w-4/5'>
+        <p className='w-full max-w-4xl md:w-4/5 text-lg'>
           The web is a powerful medium for communication and data exchange.
           However, not every website is created equal for every user. Some
           websites are difficult to use, and some are inaccessible to users with
@@ -364,13 +364,13 @@ export const FluidDesign = () => {
               <div
                 className={clsxm(
                   'pointer-events-none absolute top-0 -right-0.5 bottom-0 z-[3] h-full w-8 [mask-image:linear-gradient(270deg,rgba(255,255,255,1)_15%,rgba(255,255,255,0))]',
-                  'bg-white dark:bg-[rgb(42,43,50)] contrast:dark:bg-[rgb(22,23,30)]'
+                  'bg-white dark:bg-gray-700 contrast:dark:bg-[rgb(22,23,30)]'
                 )}
               />
               <motion.div
                 className={clsxm(
                   'pointer-events-none absolute top-0 -left-0.5 bottom-0 z-[3] h-full w-8 [mask-image:linear-gradient(90deg,rgba(255,255,255,1)_15%,rgba(255,255,255,0))]',
-                  'bg-white dark:bg-[rgb(42,43,50)] contrast:dark:bg-[rgb(22,23,30)]',
+                  'bg-white dark:bg-gray-700 contrast:dark:bg-[rgb(22,23,30)]',
                   'transition-opacity duration-500'
                 )}
                 style={{
@@ -530,7 +530,7 @@ export const FluidDesign = () => {
             <div
               className={clsxm(
                 'pointer-events-none absolute top-0 right-0 bottom-0 z-[3] h-full w-16 [mask-image:linear-gradient(270deg,rgba(255,255,255,1)_25%,rgba(255,255,255,0))]',
-                'bg-white dark:bg-[rgb(42,43,50)] contrast:dark:bg-[rgb(22,23,30)]'
+                'bg-white dark:bg-gray-700 contrast:dark:bg-[rgb(22,23,30)]'
               )}
             />
             <code className='flex flex-1 flex-grow flex-col items-stretch justify-center whitespace-nowrap'>
@@ -676,6 +676,14 @@ export const FluidDesign = () => {
             'xl:h-[56rem] xl:[&_img]:!object-[left_center]'
           )}
         >
+          <div
+            className={clsxm([
+              'hidden 2xl:block',
+              'absolute z-[2] w-1/4 h-full right-0 inset-y-0',
+              '[mask-image:linear-gradient(270deg,rgba(255,255,255,1)_15%,rgba(255,255,255,0))]',
+              'bg-gray-100 dark:bg-gray-800 contrast:dark:bg-[rgb(22,23,30)]',
+            ])}
+          />
           <DynamicImage
             alt='Web forward'
             src={{

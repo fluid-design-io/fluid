@@ -88,16 +88,18 @@ export const Navbar = ({ sidebar, ...props }) => {
                 <div className='flex flex-shrink-0 items-center space-x-4 text-sm sm:!ml-12 lg:space-x-6'>
                   <Button
                     as='a'
-                    className={clsxm('px-2 py-1 font-medium btn-clear-gray')}
-                    color='red'
+                    className={clsxm('px-2 py-1 font-medium')}
+                    color='gray'
+                    weight='clear'
                     href='/docs'
                   >
                     {t('Docs')}
                   </Button>
                   <Button
                     as='a'
-                    className={clsxm('px-2 py-1 font-medium btn-clear-gray')}
-                    color='red'
+                    className={clsxm('px-2 py-1 font-medium')}
+                    color='gray'
+                    weight='clear'
                     href='https://fluid-color.vercel.app/'
                     target='_blank'
                     rel='noopener noreferrer'

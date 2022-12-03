@@ -7,8 +7,8 @@ function IndexSoft() {
   return (
     <>
       <motion.div
-        animate={{ y: 0, opacity: 1 }}
         className='w-5/6 h-1/2 md:!w-2/3 md:!h-3/5 neumorphism'
+        animate={{ y: 0, opacity: 1 }}
         exit={{ y: -10, opacity: 0 }}
         initial={{ y: 10, opacity: 0 }}
         transition={{ type: 'just' }}

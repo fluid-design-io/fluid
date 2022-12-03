@@ -53,7 +53,7 @@ function IndexIphoneFrame({
   ));
   return (
     <IphoneFrame innerRef={constraintsRef}>
-      <div className='absolute inset-x-0 top-0 w-full pt-6 pb-1 overflow-hidden text-xs font-semibold text-center border-b select-none border-b-gray-100 dark:border-b-gray-600/20 text-gray-500 dark:text-gray-200'>
+      <div className='absolute inset-x-0 top-0 w-full pt-9 pb-1 overflow-hidden text-xs font-semibold text-center border-b select-none border-b-gray-100 dark:border-b-gray-600/20 text-gray-500 dark:text-gray-200'>
         {selected}
       </div>
       <div className='w-full mt-11 h-[58%] flex justify-center items-center relative'>
@@ -78,8 +78,8 @@ function IndexIphoneFrame({
         animate={controls}
         className='bg-gray-50 contrast-more:bg-white dark:bg-gray-800 dark:contrast-more:bg-gray-900 rounded-t-xl w-full h-full absolute z-10 focus:outline-none'
         drag='y'
-        dragConstraints={constraintsRef}
-        dragElastic={0.4}
+        dragConstraints={{ bottom: 0, top: 0 }}
+        dragElastic={0.3}
         initial='hidden'
         onDrag={onDrag}
         onDragEnd={onDragEnd}

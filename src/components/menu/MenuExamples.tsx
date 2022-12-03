@@ -13,6 +13,7 @@ import {
 import { PlusCircleIcon } from '@heroicons/react/24/solid';
 import { Fragment, useState } from 'react';
 
+import clsxm from '@/lib/clsxm';
 import { useToast } from '@/lib/useToast';
 
 import { CodeFrameComponentWrap } from '../framework/CodeFrameComponentWrap';
@@ -24,7 +25,7 @@ import { CodeFrameComponentWrap } from '../framework/CodeFrameComponentWrap';
 */
 const avatarImage =
   'https://images.unsplash.com/photo-1626544827763-d516dce335e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=80&q=80';
-const DefaultMenu = () => {
+const DefaultMenu = ({ className = '' }) => {
   const [present] = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -42,7 +43,12 @@ const DefaultMenu = () => {
     </div>
   );
   return (
-    <CodeFrameComponentWrap className='flex flex-col justify-between items-end h-96 w-full sm:w-2/3 lg:w-1/2 min-w-[16rem]'>
+    <CodeFrameComponentWrap
+      className={clsxm(
+        'flex flex-col justify-between items-end h-96 w-full sm:w-2/3 lg:w-1/2 min-w-[16rem]',
+        className
+      )}
+    >
       <Menu
         color='gray'
         header='Hi, User'
