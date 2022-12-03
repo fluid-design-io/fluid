@@ -220,7 +220,8 @@ a {
 }
 
 h1:not(:where([class~='component'] *)) {
-  @apply pb-4 font-primary;
+  @apply bg-gradient-to-t from-stone-800 to-stone-600 bg-clip-text pb-4 font-primary dark:from-stone-400 dark:to-stone-100;
+  -webkit-text-fill-color: transparent;
 }
 h1.legacy {
   @apply pb-4 text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-6xl;
