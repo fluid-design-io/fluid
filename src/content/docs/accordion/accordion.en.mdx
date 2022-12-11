@@ -1,6 +1,6 @@
 ---
 title: 'Fluid Design Docs | Accordion'
-description: 'Accordion component for Fluid Design'
+description: 'Accordion component | Fluid Design'
 date: '2022-08-11'
 author: 'Oliver Pan'
 tags:
@@ -16,7 +16,7 @@ tags:
 
 Accordions allow you to reduce vertical space by creating collapsible sections in your content while also organizing and grouping information.
 
-## Default
+## Basic example
 
 <CodeFrame title=''>
   <AccordionExamples.Simple />
@@ -31,9 +31,9 @@ import { data } from './data';
 
 function Example() {
   return (
-    <Accordion>
+    <Accordion defaultIndex={1}>
       {data.map((item, index) => (
-        <Accordion.Panel key={index} header={item.title} isOpen={item.isOpen}>
+        <Accordion.Panel key={index} header={item.title}>
           {item.details}
         </Accordion.Panel>
       ))}
@@ -54,7 +54,6 @@ export const data = [
         We have a wide range of tools and resources to help you get started.
       </p>
     ),
-    isOpen: true,
   },
   {
     title: 'Service',
@@ -65,7 +64,6 @@ export const data = [
         We offer a wide range of services to help you get started.
       </p>
     ),
-    isOpen: false,
   },
   {
     title: 'About',
@@ -86,24 +84,21 @@ export const data = [
         </ul>
       </>
     ),
-    isOpen: false,
   },
 ];
 ```
 
 </CH.Code>
-## With Icons
 
-<CH.Section>
+## Multiple Panels
 
-You can use [`headerIcon`](focus://main.tsx#12) to add an icon to the header.
-The icon needs to be a function, you can import them from libraries such as [react-icons](https://react-icons.github.io/) or [heroicons](https://heroicons.com/).
+It's possible to have multiple panels open at the same time by adding the `multiple` prop.
+This will disable auto closing of panels when opening another one.
+You can pass an array of numbers to `defaultIndex` to open multiple panels by default.
 
-<CodeFrame title='Custom icons'>
-  <AccordionExamples.WithIcons />
+<CodeFrame title='Multiple panels'>
+  <AccordionExamples.Multiple />
 </CodeFrame>
-
-<CH.Code>
 
 ```jsx main.tsx
 import { Accordion } from '@fluid-design/fluid-ui';
@@ -112,14 +107,41 @@ import { data } from './data';
 
 function Example() {
   return (
-    <Accordion>
+    // mark
+    <Accordion defaultIndex={[0, 1]} multiple>
+      {data.map((item, index) => (
+        <Accordion.Panel key={index} header={item.title}>
+          {item.details}
+        </Accordion.Panel>
+      ))}
+    </Accordion>
+  );
+}
+```
+
+## With Icons
+
+You can use [`headerIcon`](focus://main.tsx#12) to add an icon to the header.
+The icon needs to be a function, you can import them from libraries such as [react-icons](https://react-icons.github.io/) or [heroicons](https://heroicons.com/).
+
+<CodeFrame title='Custom icons'>
+  <AccordionExamples.WithIcons />
+</CodeFrame>
+
+```jsx main.tsx
+import { Accordion } from '@fluid-design/fluid-ui';
+
+import { data } from './data';
+
+function Example() {
+  return (
+    <Accordion defaultIndex={1}>
       {dataWithIcons.map((item, index) => (
         <Accordion.Panel
           key={index}
           header={item.title}
-          isOpen={item.isOpen}
           // mark
-          headerIcon={item.Icon}
+          iconStart={item.Icon}
         >
           {item.details}
         </Accordion.Panel>
@@ -129,82 +151,22 @@ function Example() {
 }
 ```
 
-```jsx data.tsx
-import {
-  CogIcon,
-  InformationCircleIcon,
-  ShoppingCartIcon,
-} from '@heroicons/react/24/outline';
-
-const dataWithIcons = [
-  {
-    title: 'Shop',
-    details: (
-      <p
-        className={`my-2 text-gray-600 contrast-more:text-gray-900 dark:text-gray-300 dark:contrast-more:text-gray-50`}
-      >
-        Our shop contains all the tools you need to build a great design system.
-        We have a wide range of tools and resources to help you get started.
-      </p>
-    ),
-    isOpen: true,
-    Icon: ShoppingCartIcon,
-  },
-  {
-    title: 'Service',
-    details: (
-      <p
-        className={`my-2 text-gray-600 contrast-more:text-gray-900 dark:text-gray-300 dark:contrast-more:text-gray-50`}
-      >
-        We offer a wide range of services to help you get started.
-      </p>
-    ),
-    isOpen: false,
-    Icon: CogIcon,
-  },
-  {
-    title: 'About',
-    details: (
-      <>
-        <p
-          className={`my-2 text-gray-600 contrast-more:text-gray-900 dark:text-gray-300 dark:contrast-more:text-gray-50`}
-        >
-          We are a small team of designers and developers who create
-          high-quality design systems.
-        </p>
-        <ul
-          className={`mb-2 text-gray-600 contrast-more:text-gray-900 dark:text-gray-400 dark:contrast-more:text-gray-50`}
-        >
-          <li>Beautiful designs</li>
-          <li>A11y</li>
-          <li>Responsive</li>
-        </ul>
-      </>
-    ),
-    isOpen: false,
-    Icon: InformationCircleIcon,
-  },
-];
-```
-
-</CH.Code>
-</CH.Section>
-
 ## Component API
 
 ### Accordion
 
 The wrapper for the accordion panels.
 
-| Prop      | Default | Description                                                           |
-| --------- | ------- | --------------------------------------------------------------------- |
-| `divider` | `false` | `Boolean` <Table.D>Whether to show a divider between panels</Table.D> |
+| Prop           | Default     | Description                                                                                 |
+| -------------- | ----------- | ------------------------------------------------------------------------------------------- |
+| `defaultIndex` | `undefined` | `Number \| Array\<Number\>` <Table.D>The index of the panel to be open by default</Table.D> |
+| `multiple`     | `false`     | `Boolean` <Table.D>Whether to allow multiple panels to be open at the same time</Table.D>   |
+| `divider`      | `false`     | `Boolean` <Table.D>Whether to show a divider between panels</Table.D>                       |
 
 ### Accordion.Panel
 
 | Prop         | Default | Description                                                          |
 | ------------ | ------- | -------------------------------------------------------------------- |
 | `header`     |         | `String \| React.Element` <Table.D>The header of the panel</Table.D> |
-| `isOpen`     | `false` | `Boolean` <Table.D>Whether the panel is open</Table.D>               |
 | `headerIcon` |         | `Function` <Table.D>The icon to show in the header</Table.D>         |
 | `arrowIcon`  |         | `Function` <Table.D>The icon to show in the header</Table.D>         |
