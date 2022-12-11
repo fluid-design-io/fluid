@@ -53,7 +53,7 @@ function AccordionDividerComponent() {
     <div className='w-[calc(100%-2rem)] px-2 py-1 overflow-hidden divide-y rounded-lg divide-gray-300/75 dark:divide-gray-700 contrast-more:divide-gray-800 dark:contrast-more:divide-gray-50 contrast-more:contrast-ring component'>
       <Accordion className='contrast-more' divider>
         {data.map((item, index) => (
-          <Accordion.Panel header={item.title} isOpen={item.isOpen} key={index}>
+          <Accordion.Panel header={item.title} key={index}>
             {item.details}
           </Accordion.Panel>
         ))}
