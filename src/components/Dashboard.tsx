@@ -77,12 +77,21 @@ const Components = () => {
       name: t(`Menu`),
       src: 'menu',
     },
+    {
+      name: t(`Tab`),
+      src: 'tab',
+    },
   ];
   return <GridWrap list={components} />;
 };
 const Forms = () => {
   const { t } = useTranslation(['navbar']);
   const components = [
+    {
+      name: t(`Validation`),
+      src: 'form-validation',
+      href: 'form/validation',
+    },
     {
       name: t(`Switch`),
       src: 'form-switch',
@@ -92,6 +101,16 @@ const Forms = () => {
       name: t(`Input`),
       src: 'form-input',
       href: 'form/input',
+    },
+    {
+      name: t(`Select`),
+      src: 'form-select',
+      href: 'form/select',
+    },
+    {
+      name: t(`ComboBox`),
+      src: 'form-combobox',
+      href: 'form/combobox',
     },
   ];
   return <GridWrap list={components} />;
