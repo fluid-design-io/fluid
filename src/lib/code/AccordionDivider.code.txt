@@ -60,7 +60,7 @@ function Example() {
     <div className='w-[calc(100%-2rem)] px-2 py-1 overflow-hidden divide-y rounded-lg divide-gray-300/75 dark:divide-gray-700 prefers-contrast:divide-gray-800 dark:prefers-contrast:divide-gray-50 prefers-contrast:contrast-ring component'>
       <Accordion divider>
         {data.map((item, index) => (
-          <Accordion.Panel key={index} header={item.title} isOpen={item.isOpen}>
+          <Accordion.Panel key={index} header={item.title}>
             {item.details}
           </Accordion.Panel>
         ))}

@@ -39,12 +39,7 @@ const Demo = ({ className = '' }) => {
         }}
         validationSchema={validationSchema}
       >
-        <Select
-          itemKey='name'
-          list={states}
-          name='state'
-          autoComplete='state'
-        />
+        <Select itemKey='name' list={states} name='state' />
         <Select
           name='reservationTime'
           label='Reservation Time'
@@ -57,7 +52,7 @@ const Demo = ({ className = '' }) => {
           name='food'
           itemKey='name'
           disabledKey='unavailable'
-          list={food}
+          list={food as any}
           label="What's on the menu? (max 4 items)"
           placeholder='Select your favorites'
           multiple={4}
@@ -89,12 +84,12 @@ const CustomSelect = ({ className = '' }) => {
       >
         <Select
           name='food'
-          list={food}
+          list={food as any}
           itemKey='name'
           label="What's on the menu?"
           placeholder='Select as many as you like'
           multiple
-          selectedItemsClassName='flex flex-wrap p-2 gap-2'
+          // selectedItemsClassName='flex flex-wrap p-2 gap-2'
           rednerOptionItem={({ item, Option }) => (
             <Option
               value={item}

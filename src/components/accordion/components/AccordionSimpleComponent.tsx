@@ -53,7 +53,7 @@ function AccordionSimpleComponent() {
     <div className='w-full max-w-xs overflow-hidden rounded-lg shadow-lg md:!w-2/3 bg-gray-50 dark:bg-gray-900 shadow-gray-900/10 dark:shadow-gray-900/30 component contrast-more:bg-white dark:contrast-more:bg-gray-900 contrast-more:contrast-ring'>
       <Accordion>
         {data.map((item, index) => (
-          <Accordion.Panel header={item.title} isOpen={item.isOpen} key={index}>
+          <Accordion.Panel header={item.title} key={index}>
             {item.details}
           </Accordion.Panel>
         ))}

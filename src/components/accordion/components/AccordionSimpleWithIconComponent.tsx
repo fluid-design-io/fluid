@@ -93,8 +93,7 @@ function AccordionSimpleWithIconComponent() {
         {data.map((item, index) => (
           <Accordion.Panel
             header={item.title}
-            headerIcon={item.Icon}
-            isOpen={item.isOpen}
+            iconStart={item.Icon}
             key={index}
           >
             {item.details}

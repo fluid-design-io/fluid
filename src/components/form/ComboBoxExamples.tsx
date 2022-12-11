@@ -36,7 +36,8 @@ const Demo = ({ className = '' }) => {
           name='food'
           itemKey='name'
           disabledKey='unavailable'
-          list={food}
+          /* eslint-disable-next-line */
+          list={food as any}
           label="What's on the menu?"
           placeholder='Type to search for food'
           multiple

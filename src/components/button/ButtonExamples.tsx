@@ -164,7 +164,7 @@ const ButtonStates = () => {
         color='green'
         disabled={disabled}
         isLoaded={isLoaded}
-        onClick={present}
+        onClick={present as any}
       >
         {disabled ? 'Disabled' : 'Clickable'}
       </Button>
@@ -173,7 +173,7 @@ const ButtonStates = () => {
         disabled={disabled}
         isLoaded={isLoaded}
         isLoading={isLoading}
-        onClick={present}
+        onClick={present as any}
       >
         Loading
       </Button>
@@ -182,7 +182,7 @@ const ButtonStates = () => {
         disabled={disabled}
         isLoaded={isLoaded}
         isLoading={isLoading}
-        onClick={present}
+        onClick={present as any}
         loadingOptions={{
           animation: 'spin-large',
         }}
@@ -194,7 +194,7 @@ const ButtonStates = () => {
         disabled={disabled}
         isLoaded={isLoaded}
         isLoading={isLoading}
-        onClick={present}
+        onClick={present as any}
         loadingOptions={{
           animation: 'pulse',
         }}
@@ -206,7 +206,7 @@ const ButtonStates = () => {
         disabled={disabled}
         isLoaded={isLoaded}
         isLoading={isLoading}
-        onClick={present}
+        onClick={present as any}
         loadingOptions={{
           animation: 'ping',
           text: 'Loading',
@@ -366,20 +366,20 @@ const CustomColors = () => {
   const [present] = useToast();
   return (
     <ButtonWrap>
-      <Button className='btn-[olive]' onClick={present} label='Olive' />
+      <Button className='btn-[olive]' onClick={present as any} label='Olive' />
       <Button
         className='btn-light-[#556B2F]'
-        onClick={present}
+        onClick={present as any}
         label='#556B2F'
       />
       <Button
         className='btn-outline-[#556B2F]/80'
-        onClick={present}
+        onClick={present as any}
         label='Opacity'
       />
       <Button
         className='btn-clear-[rgb(85,107,47)]'
-        onClick={present}
+        onClick={present as any}
         label='RGB'
       />
     </ButtonWrap>
@@ -390,12 +390,37 @@ const Showcase = () => {
   const [present] = useToast();
   return (
     <div className='grid grid-cols-3 gap-6 justify-items-center'>
-      <Button color='cyan' label='Solid' onClick={present} />
-      <Button color='cyan' weight='light' label='Light' onClick={present} />
-      <Button color='cyan' weight='bold' label='Bold' onClick={present} />
-      <Button color='cyan' weight='outline' label='Outline' onClick={present} />
-      <Button color='cyan' weight='clear' label='Clear' onClick={present} />
-      <Button color='cyan' weight='link' label='Link' onClick={present} />
+      <Button color='cyan' label='Solid' onClick={present as any} />
+      <Button
+        color='cyan'
+        weight='light'
+        label='Light'
+        onClick={present as any}
+      />
+      <Button
+        color='cyan'
+        weight='bold'
+        label='Bold'
+        onClick={present as any}
+      />
+      <Button
+        color='cyan'
+        weight='outline'
+        label='Outline'
+        onClick={present as any}
+      />
+      <Button
+        color='cyan'
+        weight='clear'
+        label='Clear'
+        onClick={present as any}
+      />
+      <Button
+        color='cyan'
+        weight='link'
+        label='Link'
+        onClick={present as any}
+      />
     </div>
   );
 };

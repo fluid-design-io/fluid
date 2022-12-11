@@ -58,7 +58,7 @@ const ObjectValues = ({ className = '' }) => {
           name='food'
           itemKey='name'
           disabledKey='unavailable'
-          list={food}
+          list={food as any}
           label='Food'
           placeholder='Select food'
           //multiple={4} // max 4
