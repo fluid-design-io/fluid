@@ -82,6 +82,7 @@ module.exports = {
   plugins: [
     require('@tailwindcss/line-clamp'),
     require('@tailwindcss/typography'),
+    require('@headlessui/tailwindcss'),
     require('@fluid-design/fluid-ui/src/plugin/core'),
     require('@fluid-design/fluid-ui/src/plugin/button'),
   ],

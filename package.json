@@ -19,9 +19,9 @@
     "@capacitor/storage": "^1.2.5",
     "@code-hike/mdx": "^0.7.4",
     "@docsearch/react": "^3.3.0",
-    "@fluid-design/fluid-ui": "^2.2.0",
+    "@fluid-design/fluid-ui": "^2.3.0",
     "@hcaptcha/react-hcaptcha": "^1.1.0",
-    "@headlessui/react": "^1.7.4",
+    "@headlessui/react": "^1.7.5",
     "@heroicons/react": "^2.0.13",
     "@mdx-js/loader": "^2.1.5",
     "@mdx-js/react": "^2.1.5",
@@ -31,7 +31,7 @@
     "add": "^2.0.6",
     "clsx": "^1.2.1",
     "formik": "^2.2.9",
-    "framer-motion": "^7.6.18",
+    "framer-motion": "^7.6.19",
     "github-slugger": "1.5.0",
     "gray-matter": "^4.0.3",
     "intersection-observer": "^0.12.2",
@@ -54,6 +54,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@headlessui/tailwindcss": "^0.1.2",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.8",
     "@trivago/prettier-plugin-sort-imports": "^4.0.0",
