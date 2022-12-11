@@ -12,14 +12,10 @@ const fontRegular = fetch(
 const fontSemiBold = fetch(
   new URL('../../../assets/Inter-SemiBold.ttf', import.meta.url)
 ).then((res) => res.arrayBuffer());
-const fontBold = fetch(
-  new URL('../../../assets/Inter-Bold.ttf', import.meta.url)
-).then((res) => res.arrayBuffer());
 
 const handle = async (req: NextRequest) => {
   const InterRegular = await fontRegular;
   const InterSemiBold = await fontSemiBold;
-  const InterBold = await fontBold;
   const { searchParams, host, protocol } = new URL(req.url);
   const title = searchParams.get('title') || 'No post title';
   const author = searchParams.get('author') || 'Anonymous';
@@ -60,7 +56,7 @@ const handle = async (req: NextRequest) => {
             </div>
           </div>
           <div tw='flex flex-col text-white p-8 border-t-8'>
-            <div tw='text-5xl mb-6 font-bold'>{title}</div>
+            <div tw='text-5xl mb-6 font-semibold'>{title}</div>
             <div tw='flex flex-wrap mb-3'>
               {tags.length > 0 &&
                 tags[0] !== '' &&
@@ -94,11 +90,6 @@ const handle = async (req: NextRequest) => {
             name: 'Inter',
             data: InterSemiBold,
             weight: 600,
-          },
-          {
-            name: 'Inter',
-            data: InterBold,
-            weight: 700,
           },
         ],
       }
