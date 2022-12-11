@@ -55,7 +55,7 @@ const secondaryNavigation = [
       // { name: "Navbar", href: "navbar", isDone: false },
       // { name: "Pagination", href: "pagination", isDone: false },
       // { name: "Progress", href: "progress", isDone: false },
-      { name: 'Tab', href: 'tab', isDone: false },
+      { name: 'Tab', href: 'tab', isDone: true },
       // { name: "Table", href: "table", isDone: false },
       // { name: "Tooltip", href: "tooltip", isDone: false },
     ],
@@ -63,10 +63,12 @@ const secondaryNavigation = [
   {
     groupName: 'Forms',
     groupList: [
-      { name: 'Validation', href: 'form/validation', isDone: false },
-      { name: 'Combobox', href: 'form/combobox', isDone: false },
+      { name: 'Validation', href: 'form/validation', isDone: true },
+      { name: 'Select', href: 'form/select', isDone: true },
+      { name: 'Combobox', href: 'form/combobox', isDone: true },
       { name: 'Switch', href: 'form/switch', isDone: true },
       { name: 'Input', href: 'form/input', isDone: true },
+      { name: 'Textarea', href: 'form/textarea', isDone: true },
     ],
   },
   {

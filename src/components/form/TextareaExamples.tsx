@@ -1,4 +1,4 @@
-import { Form, Input, SubmitButton } from '@fluid-design/fluid-ui';
+import { Form, Input, SubmitButton, Textarea } from '@fluid-design/fluid-ui';
 import { useState } from 'react';
 import * as Yup from 'yup';
 
@@ -7,7 +7,7 @@ import { useToast } from '@/lib/useToast';
 
 import { CodeFrameComponentWrap } from '../framework/CodeFrameComponentWrap';
 
-const InputExample = () => {
+const BasicExample = () => {
   const [present] = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const validationSchema = Yup.object().shape({
@@ -22,9 +22,7 @@ const InputExample = () => {
       <Form
         validationSchema={validationSchema}
         initialValues={{
-          name: '',
-          email: '',
-          password: '',
+          message: '',
         }}
         onSubmit={(values, { setSubmitting }) => {
           present({
@@ -40,9 +38,7 @@ const InputExample = () => {
           }, 2000);
         }}
       >
-        <Input label='Name' name='name' type='text' />
-        <Input label='Email' name='email' type='email' />
-        <Input label='Password' name='password' type='password' />
+        <Textarea label='Message' name='message' maxRows={4} />
         <SubmitButton
           className='w-full'
           isLoaded={isSubmitted}
@@ -58,27 +54,6 @@ const InputExample = () => {
   );
 };
 
-const BasicExample = () => {
-  return (
-    <CodeFrameComponentWrap className={defaultFormClassName}>
-      <Form
-        initialValues={{
-          name: '',
-        }}
-        onSubmit={(values) => {
-          console.log(values);
-        }}
-      >
-        <Input name='name' placeholder='Enter your name' type='text' />
-      </Form>
-    </CodeFrameComponentWrap>
-  );
-};
-
-InputExample.displayName = 'InputExample';
 BasicExample.displayName = 'BasicExample';
 
-export const InputExamples = Object.assign(
-  {},
-  { Basic: BasicExample, Demo: InputExample }
-);
+export const TextareaExamples = Object.assign({}, { Basic: BasicExample });

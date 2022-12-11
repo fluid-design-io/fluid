@@ -5,7 +5,7 @@ export const CardASLargeImageComponent = ({ srcs = undefined, ...props }) => {
   const { t } = useTranslation('card');
   return (
     <div
-      className={`component card-bg relative flex h-full w-full max-w-xs flex-col items-stretch overflow-hidden rounded-xl shadow-lg shadow-gray-900/10 motion-safe:transition motion-safe:hover:scale-[0.97] motion-safe:active:scale-95 ${
+      className={`component card-bg relative flex h-full w-full max-w-xs flex-col items-stretch overflow-hidden rounded-xl shadow-lg shadow-gray-900/10 motion-safe:transition motion-safe:hover:scale-[0.99] motion-safe:active:scale-[0.985] ${
         props.className ? props.className : ` aspect-[1/1.15]`
       }`}
     >
@@ -52,7 +52,7 @@ export const CardASLargeImageComponent = ({ srcs = undefined, ...props }) => {
         </h3>
       </div>
       {/* Bottom Info Bar */}
-      <div className='absolute bottom-0 left-0 right-0 z-[3] flex w-full flex-shrink-0 items-center justify-between space-x-4 bg-gray-50 bg-opacity-30 px-4 py-4 backdrop-blur-3xl backdrop-brightness-105 backdrop-saturate-150 backdrop-filter transition contrast-more:bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-40 dark:backdrop-brightness-95 dark:contrast-more:bg-opacity-80'>
+      <div className='absolute bottom-0 left-0 right-0 z-[3] flex w-full flex-shrink-0 items-center justify-between space-x-4 bg-gray-50 bg-opacity-30 px-4 py-4 backdrop-blur-3xl backdrop-brightness-105 backdrop-saturate-150 backdrop-filter transition contrast-more:bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-40 dark:backdrop-brightness-95 dark:contrast-more:bg-opacity-80 transform-gpu rounded-b-xl'>
         <div className='h-12 w-12 flex-shrink-0 overflow-hidden rounded-lg'>
           <div className='relative h-full w-full'>
             <Image

@@ -6,3 +6,4 @@ export * from './form';
 export * from './framework';
 export * from './mdx';
 export * from './menu';
+export * from './tab';

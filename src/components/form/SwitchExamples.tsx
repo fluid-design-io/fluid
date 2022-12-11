@@ -2,6 +2,7 @@ import { Form, Switch } from '@fluid-design/fluid-ui';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
+import { defaultFormClassName } from '@/components/form';
 import { CodeFrameComponentWrap } from '@/components/framework/CodeFrameComponentWrap';
 import clsxm from '@/lib/clsxm';
 import { useToast } from '@/lib/useToast';
@@ -10,12 +11,7 @@ const SwitchDemo = ({ className = '' }) => {
   const [present] = useToast();
   const [isNotificationDisabled, setIsNotificationDisabled] = useState(false);
   return (
-    <CodeFrameComponentWrap
-      className={clsxm(
-        'w-full max-w-md flex flex-col items-stretch',
-        className
-      )}
-    >
+    <CodeFrameComponentWrap className={clsxm(defaultFormClassName, className)}>
       <Form
         onSubmit={() => null}
         initialValues={{
@@ -94,7 +90,7 @@ const SwitchDemo = ({ className = '' }) => {
 const CustomBG = () => {
   const [present] = useToast();
   return (
-    <CodeFrameComponentWrap className='w-full max-w-md flex flex-col items-stretch'>
+    <CodeFrameComponentWrap className={defaultFormClassName}>
       <Form
         onSubmit={() => null}
         initialValues={{
@@ -122,7 +118,7 @@ const Advanced = () => {
   const [present] = useToast();
 
   return (
-    <CodeFrameComponentWrap className='w-full max-w-md flex flex-col items-stretch'>
+    <CodeFrameComponentWrap className={defaultFormClassName}>
       <Form
         onSubmit={() => null}
         initialValues={{

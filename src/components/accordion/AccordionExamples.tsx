@@ -5,6 +5,8 @@ import {
   ShoppingCartIcon,
 } from '@heroicons/react/24/outline';
 
+import clsxm from '@/lib/clsxm';
+
 const dataSimple = [
   {
     title: 'Shop',
@@ -14,7 +16,6 @@ const dataSimple = [
         We have a wide range of tools and resources to help you get started.
       </p>
     ),
-    isOpen: true,
   },
   {
     title: 'Service',
@@ -23,7 +24,6 @@ const dataSimple = [
         We offer a wide range of services to help you get started.
       </p>
     ),
-    isOpen: false,
   },
   {
     title: 'About',
@@ -40,7 +40,6 @@ const dataSimple = [
         </ul>
       </>
     ),
-    isOpen: false,
   },
 ];
 
@@ -56,18 +55,37 @@ const dataWithIcons = [
   }),
 ];
 
-const AccordionWrap = ({ children }) => (
-  <div className='component contrast-more:contrast-ring w-full max-w-xs overflow-hidden rounded-lg bg-gray-50 shadow-lg shadow-gray-900/10 contrast-more:bg-white dark:bg-gray-900 dark:shadow-gray-900/30 dark:contrast-more:bg-gray-900 md:!w-2/3'>
+const AccordionWrap = ({ className = '', children }) => (
+  <div
+    className={clsxm(
+      'component contrast-more:contrast-ring w-full max-w-xs overflow-hidden rounded-lg bg-gray-50 shadow-lg shadow-gray-900/10 contrast-more:bg-white dark:bg-gray-900 dark:shadow-gray-900/30 dark:contrast-more:bg-gray-900 md:!w-2/3',
+      className
+    )}
+  >
     {children}
   </div>
 );
 
-const AccordionSimple = () => {
+const AccordionSimple = ({ className = '' }) => {
+  return (
+    <AccordionWrap className={className}>
+      <Accordion defaultIndex={1}>
+        {dataSimple.map((item, index) => (
+          <Accordion.Panel header={item.title} key={index}>
+            {item.details}
+          </Accordion.Panel>
+        ))}
+      </Accordion>
+    </AccordionWrap>
+  );
+};
+
+const AccordionMultiple = () => {
   return (
     <AccordionWrap>
-      <Accordion>
+      <Accordion defaultIndex={[0, 1]} multiple>
         {dataSimple.map((item, index) => (
-          <Accordion.Panel header={item.title} isOpen={item.isOpen} key={index}>
+          <Accordion.Panel header={item.title} key={index}>
             {item.details}
           </Accordion.Panel>
         ))}
@@ -79,12 +97,11 @@ const AccordionSimple = () => {
 const AccordionWithIcons = () => {
   return (
     <AccordionWrap>
-      <Accordion>
+      <Accordion defaultIndex={1}>
         {dataWithIcons.map((item, index) => (
           <Accordion.Panel
             header={item.title}
-            headerIcon={item.Icon}
-            isOpen={item.isOpen}
+            iconStart={item.Icon}
             key={index}
           >
             {item.details}
@@ -96,9 +113,14 @@ const AccordionWithIcons = () => {
 };
 
 AccordionSimple.displayName = 'AccordionSimple';
+AccordionMultiple.displayName = 'AccordionMultiple';
 AccordionWithIcons.displayName = 'AccordionWithIcons';
 
 export const AccordionExamples = Object.assign(
   {},
-  { Simple: AccordionSimple, WithIcons: AccordionWithIcons }
+  {
+    Simple: AccordionSimple,
+    WithIcons: AccordionWithIcons,
+    Multiple: AccordionMultiple,
+  }
 );

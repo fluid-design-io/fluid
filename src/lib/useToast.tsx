@@ -69,8 +69,12 @@ const ToastBody = (
   );
 };
 
-const presentToast = (props: ToastProps | any) => {
-  toast.custom((t) => <ToastBody {...{ ...props, t }} />);
+const presentToast = (props: ToastProps | string) => {
+  if (typeof props === 'string') {
+    toast.custom((t) => <ToastBody {...{ title: props, t }} />);
+  } else {
+    toast.custom((t) => <ToastBody {...{ ...props, t }} />);
+  }
 };
 
 export const useToast = () => [presentToast];

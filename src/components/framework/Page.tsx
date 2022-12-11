@@ -3,11 +3,11 @@ import { useRouter } from 'next/dist/client/router';
 import { useEffect, useState } from 'react';
 
 import Seo from '@/components/framework/Seo';
-import { MotionPageProps, SiteMeta } from '@/interfaces/framwork';
+import { MotionPageProps } from '@/interfaces/framwork';
 import clsxm from '@/lib/clsxm';
 import { getBody, getBodyExcept } from '@/lib/getBody';
 
-import { Footer, Header, Navbar, Sidebar, SkipNavContent } from '.';
+import { Footer, Navbar, Sidebar, SkipNavContent } from '.';
 
 export const Page = ({
   header = true,
