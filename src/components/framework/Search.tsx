@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 import { createAutocomplete } from '@algolia/autocomplete-core';
 import { getAlgoliaResults } from '@algolia/autocomplete-preset-algolia';
@@ -6,8 +8,8 @@ import algoliasearch from 'algoliasearch/lite';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import {
-  Fragment,
   forwardRef,
+  Fragment,
   useEffect,
   useId,
   useRef,

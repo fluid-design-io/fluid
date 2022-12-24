@@ -23,7 +23,7 @@ module.exports = {
       'warn',
       { props: 'never', children: 'never' },
     ],
-
+    "@typescript-eslint/ban-ts-comment": "off",
     //#region  //*=========== Import Sort ===========
     'simple-import-sort/exports': 'warn',
     'simple-import-sort/imports': [
@@ -67,5 +67,6 @@ module.exports = {
     React: true,
     JSX: true,
   },
-  ignorePatterns: ["ThemeContext.tsx", "./src/lib/useScrolled.tsx", "./**/Search.tsx"],
+  ignorePatterns: ["ThemeContext.tsx", "useScrolled.tsx", "./**/Search.tsx"],
+
 };

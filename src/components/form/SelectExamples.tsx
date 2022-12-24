@@ -89,6 +89,7 @@ const CustomSelect = ({ className = '' }) => {
           label="What's on the menu?"
           placeholder='Select as many as you like'
           multiple
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           /* @ts-ignore */
           selectedItemsClassName='flex flex-wrap p-2 gap-2'
           rednerOptionItem={({ item, Option }) => (
