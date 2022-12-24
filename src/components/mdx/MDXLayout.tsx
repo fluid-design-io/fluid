@@ -36,20 +36,18 @@ export const MDXLayout: (props) => React.ReactElement = ({
       <div className='flex flex-1 flex-col items-stretch'>
         <ActiveAnchorProvider>
           <div className={clsxm(`flex w-full max-w-full flex-1`)}>
-            {sidebar && (
-              <Sidebar docNav={props?.docNav || undefined} hideNav={false} />
-            )}
+            {sidebar && <Sidebar hideNav={false} />}
             <div className='flex-1'>
               {header && <Navbar sidebar={sidebar} />}
               <div className='flex w-full flex-1 flex-col xl:flex-row'>
                 <main
                   className={clsxm(
                     'prose prose-stone',
-                    'mx-auto mt-28 sm:mt-24 md:mt-[4.5rem] lg:mt-12 xl:mt-8',
+                    'mx-auto mt-28 sm:mt-24 md:mt-[6.5rem] lg:mt-12 xl:mt-8',
                     'w-full max-w-6xl flex-grow p-4 pr-[calc(1rem+env(safe-area-inset-right))]',
                     'prose-headings:font-primary sm:prose-h1:text-4xl lg:prose-h1:text-6xl',
                     'prose-p:font-primary prose-p:text-gray-800 dark:prose-invert dark:prose-p:text-gray-300',
-                    'md:p-8 md:pr-[calc(2rem+env(safe-area-inset-right))] lg:p-14 2xl:p-16'
+                    'md:px-4 md:pr-[calc(2rem+env(safe-area-inset-right))] lg:p-14 2xl:p-16'
                   )}
                   id='main'
                 >
