@@ -10,7 +10,7 @@ import {
   MdFormatTextdirectionRToL,
 } from 'react-icons/md';
 
-import { useThemeMode } from '@/lib/ThemeContext';
+import { useTheme } from '@/lib/ThemeContext';
 import clsxm from '@/lib/clsxm';
 
 export const FunctionalIFrameComponent = ({
@@ -166,7 +166,8 @@ export const CodeFrame = ({ title = 'Example', children = null, ...props }) => {
   ];
   const { t } = useTranslation('common');
   const [preferences, setPreferences] = useState(prefs);
-  const [mode] = useThemeMode(true);
+  const { mode } = useTheme();
+
   const touchStyle =
     'pointer-touch:opacity-100 pointer-touch:pointer-events-auto opacity-0 pointer-events-none code-block-touch';
   const handlePreferences = (value: PreferencesProps['name']) => {

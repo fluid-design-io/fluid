@@ -16,11 +16,12 @@ export const Footer = () => {
       <div className='mx-auto max-w-7xl px-4 md:px-8 lg:px-16 2xl:px-0 py-12 text-xs md:!flex md:!items-center md:!justify-between'>
         <div className='flex justify-center space-x-6 md:!order-2'>
           {navigation.map(({ name, href }) => (
-            <Link href={href} key={name}>
-              <a className='text-gray-400 hover:text-gray-500'>
-                <span className='sr-only'>{name}</span>
-                {name}
-              </a>
+            <Link
+              href={href}
+              key={name}
+              className='text-gray-400 hover:text-gray-500'
+            >
+              {name}
             </Link>
           ))}
         </div>

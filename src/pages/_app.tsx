@@ -1,22 +1,28 @@
 import '@docsearch/css';
 import 'flag-icons/css/flag-icons.min.css';
 import { appWithTranslation } from 'next-i18next';
-import { CookiesProvider } from 'react-cookie';
+import { Router } from 'next/router';
 
+import { useMobileNavigationStore } from '@/components/framework/MobileNavigation';
 import { ThemeProvider } from '@/lib/ThemeContext';
 
 import nextI18nextConfig from '../../next-i18next.config';
 import '../../styles/code-hike.css';
 import '../../styles/globals.css';
-import '../../styles/neumorphism.css';
+
+function onRouteChange() {
+  useMobileNavigationStore.getState().close();
+}
+
+Router.events.on('hashChangeStart', onRouteChange);
+Router.events.on('routeChangeComplete', onRouteChange);
+Router.events.on('routeChangeError', onRouteChange);
 
 function MyApp({ Component, pageProps }) {
   return (
-    <CookiesProvider>
-      <ThemeProvider>
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </CookiesProvider>
+    <ThemeProvider>
+      <Component {...pageProps} />
+    </ThemeProvider>
   );
 }
 

@@ -38,6 +38,9 @@ const nextConfig = {
     }
     return config
   },
+  experimental: {
+    scrollRestoration: true,
+  },
 };
 
 const withMDX = createMDX({

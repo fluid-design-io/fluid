@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react';
  *
  * `velocity` A motion value that represents the velocity of the element.
  */
-export const useScrolled = () => {
+export const useScrolled = (): UseScrolled => {
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
   const velocity = useVelocity(scrollY);
@@ -37,3 +37,9 @@ export const useScrolled = () => {
   });
   return [scrolled, scrollY, velocity];
 };
+
+export type UseScrolled = [
+  boolean,
+  ReturnType<typeof useScroll>['scrollY'],
+  ReturnType<typeof useVelocity>
+];

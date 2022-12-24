@@ -1,41 +1,37 @@
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 
+import { DynamicImage } from '@/components/framework/DynamicImage';
+
 import UnstyledLink from './framework/UnstyledLink';
 
 const ImageCard = ({ name, src, count = 0, ...props }) => {
   const { t } = useTranslation(['navbar']);
   return (
     <UnstyledLink
-      className='clickable focus-ring relative overflow-hidden rounded-xl'
+      className='clickable focus-ring overflow-hidden rounded-xl'
       href={`/docs/${props?.href ? props.href : src}`}
     >
-      <div className='absolute bottom-0 left-0 right-0 z-[2] flex w-full items-baseline justify-between px-4 pb-2 rtl:flex-row-reverse'>
-        <span className='text-left text-lg font-medium text-gray-700 rtl:text-right dark:text-gray-200'>
-          {name}
-        </span>
-        {count > 0 && (
-          <span className='text-right text-xs font-medium text-gray-500 rtl:text-left dark:text-gray-400'>
-            {count} {t(`Components`)}
+      <div className='relative'>
+        <div className='absolute bottom-0 left-0 right-0 z-[2] flex w-full items-baseline justify-between px-4 pb-2 rtl:flex-row-reverse'>
+          <span className='text-left text-lg font-medium text-gray-700 rtl:text-right dark:text-gray-200'>
+            {name}
           </span>
-        )}
-      </div>
-      <div className='block dark:hidden'>
-        <Image
+          {count > 0 && (
+            <span className='text-right text-xs font-medium text-gray-500 rtl:text-left dark:text-gray-400'>
+              {count} {t(`Components`)}
+            </span>
+          )}
+        </div>
+        <DynamicImage
           alt={name}
-          height='200'
-          layout='responsive'
-          src={`/assets/dashboard/${src}-light.png`}
-          width='350'
-        />
-      </div>
-      <div className='hidden dark:block'>
-        <Image
-          alt={name}
-          height='200'
-          layout='responsive'
-          src={`/assets/dashboard/${src}-dark.png`}
-          width='350'
+          src={{
+            light: `/assets/dashboard/${src}-light.png`,
+            dark: `/assets/dashboard/${src}-dark.png`,
+          }}
+          width={350}
+          height={200}
+          className='my-0'
         />
       </div>
     </UnstyledLink>

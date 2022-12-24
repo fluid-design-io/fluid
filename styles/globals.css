@@ -220,20 +220,16 @@ a {
 }
 
 h1:not(:where([class~='component'] *)) {
-  @apply bg-gradient-to-t from-stone-800 to-stone-600 bg-clip-text pb-4 font-primary dark:from-stone-400 dark:to-stone-100;
+  @apply bg-gradient-to-t from-stone-800 to-stone-600 bg-clip-text dark:from-stone-400 dark:to-stone-100;
   -webkit-text-fill-color: transparent;
 }
-h1.legacy {
-  @apply pb-4 text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-6xl;
-}
 h2:not(:where([class~='component'] *)) {
-  @apply font-primary contrast-more:font-semibold;
+  @apply bg-gradient-to-t from-stone-700 to-stone-500 bg-clip-text dark:from-stone-300 dark:to-stone-50;
+  -webkit-text-fill-color: transparent;
 }
 h3:not(:where([class~='component'] *)) {
-  @apply font-primary contrast-more:font-semibold;
-}
-h4:not(:where([class~='component'] *)) {
-  @apply font-primary contrast-more:font-semibold;
+  @apply bg-gradient-to-t from-stone-600 to-stone-500 bg-clip-text dark:from-stone-300 dark:to-stone-200;
+  -webkit-text-fill-color: transparent;
 }
 p:not(:where([class~='component'] *)) {
   @apply font-primary text-gray-600 contrast-more:font-medium contrast-more:text-gray-800 dark:text-gray-200 dark:contrast-more:text-gray-50;

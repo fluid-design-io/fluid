@@ -690,6 +690,7 @@ export const FluidDesign = () => {
               light: '/assets/index/web-forward-light.webp',
               dark: '/assets/index/web-forward-dark.webp',
             }}
+            fill
           />
         </div>
       </section>

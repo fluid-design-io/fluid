@@ -42,5 +42,5 @@ module.exports = {
     React: true,
     JSX: true,
   },
-  ignorePatterns: ["ThemeContext.tsx"],
+  ignorePatterns: ["ThemeContext.tsx", "/**/Search.tsx"],
 };
