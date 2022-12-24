@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useRef } from 'react';
 import { IoLogoGithub } from 'react-icons/io';
 
-import { Search } from '@/components/framework/Search';
+import { MobileSearch, Search } from '@/components/framework/Search';
 import { MobileSidebar } from '@/components/framework/Sidebar';
 import { useScrolled } from '@/lib';
 import clsxm from '@/lib/clsxm';
@@ -70,6 +70,9 @@ export const Navbar = ({ sidebar, ...props }) => {
                 </Link>
               </div>
             )}
+            <div className='flex-grow flex lg:hidden'>
+              <MobileSearch />
+            </div>
             <Search />
           </div>
           <div className='-my-2 sm:hidden'>
