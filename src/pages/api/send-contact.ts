@@ -62,10 +62,8 @@ async function sendEmail(req, res) {
   try {
     // console.log("REQ.BODY", req.body); ${req.body.subject}
     await sendgrid
-      // @ts-ignore
-      .send(toSender)
-      // @ts-ignore
-      .then(async () => await sendgrid.send(toAdmin))
+      .send(toSender as any)
+      .then(async () => await sendgrid.send(toAdmin as any))
       .catch((err) => console.log(err));
   } catch (error) {
     // console.log(error);

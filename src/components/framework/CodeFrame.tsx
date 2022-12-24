@@ -10,6 +10,7 @@ import {
   MdFormatTextdirectionRToL,
 } from 'react-icons/md';
 
+import windowExists from '@/helpers/window-exists';
 import { useTheme } from '@/lib/ThemeContext';
 import clsxm from '@/lib/clsxm';
 
@@ -182,7 +183,8 @@ export const CodeFrame = ({ title = 'Example', children = null, ...props }) => {
   };
   const isPrefDark = preferences.find((p) => p.name === 'dark')?.isActive;
   useEffect(() => {
-    if (mode === 'dark') {
+    if (!windowExists()) return;
+    if (mode === 'dark' || window.localStorage.isDarkMode === 'true') {
       const newPreferences = preferences.map((pref) => {
         if (pref.name === 'dark') {
           pref.isActive = true;

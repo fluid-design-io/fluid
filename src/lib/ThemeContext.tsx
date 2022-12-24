@@ -27,7 +27,11 @@ interface ThemeProviderProps {
 export const isSystemDarkMode = () => {
   if (!windowExists()) return false;
   const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-  return darkModeMediaQuery.matches && !window.localStorage.isDarkMode;
+  return (
+    darkModeMediaQuery.matches &&
+    (!window.localStorage.isDarkMode ||
+      window.localStorage.isDarkMode === 'true')
+  );
 };
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {

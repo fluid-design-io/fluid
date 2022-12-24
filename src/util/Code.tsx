@@ -3,7 +3,6 @@ import theme from 'prism-react-renderer/themes/nightOwl';
 
 function Code({ content, ...props }) {
   return (
-    /* @ts-ignore */
     <Highlight {...defaultProps} code={content} language='jsx' theme={theme}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre

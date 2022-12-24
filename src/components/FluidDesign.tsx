@@ -9,7 +9,7 @@ import {
 } from 'framer-motion';
 import { Trans, useTranslation } from 'next-i18next';
 import { useEffect, useRef, useState } from 'react';
-import { HiExternalLink, HiOutlineMail, HiPause, HiPlay } from 'react-icons/hi';
+import { HiOutlineMail, HiPause, HiPlay } from 'react-icons/hi';
 import { MdSend } from 'react-icons/md';
 import { A11y, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
