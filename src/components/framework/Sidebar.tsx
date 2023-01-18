@@ -54,7 +54,7 @@ const secondaryNavigation = [
       // { name: "List", href: "list", isDone: false },
       // { name: "Mask", href: "mask", isDone: false },
       { name: 'Menu', href: 'menu', isDone: true },
-      { name: 'Popover', href: 'popover', isDone: false },
+      // { name: 'Popover', href: 'popover', isDone: false },
       // { name: "Dialog (Modal)", href: "dialog", isDone: false },
       // { name: "Navbar", href: "navbar", isDone: false },
       // { name: "Pagination", href: "pagination", isDone: false },
