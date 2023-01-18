@@ -71,7 +71,7 @@ export default function Home() {
         className='mx-auto mt-16 max-w-7xl text-center sm:px-8 mb-8 lg:mb-24'
         id='features'
       >
-        <h1 className='not-prose legacy'>
+        <h1 className='not-prose'>
           <Trans
             components={{ br: <br className='block sm:!hidden' /> }}
             i18nKey='looks-right-isnt-enough.title'

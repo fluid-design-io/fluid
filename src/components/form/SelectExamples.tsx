@@ -1,5 +1,5 @@
 import { Form, Select, SubmitButton } from '@fluid-design/fluid-ui';
-import { ShoppingCartIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { ShoppingCartIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 import * as Yup from 'yup';
 

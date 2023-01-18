@@ -184,6 +184,14 @@ const Components = () => {
       name: t(`Tab`),
       src: 'tab',
     },
+    // {
+    //   name: t(`Toast`),
+    //   src: 'toast',
+    // },
+    // {
+    //   name: t(`Dialog (Modal)`),
+    //   src: 'dialog',
+    // },
   ];
   return <GridWrap list={components} />;
 };

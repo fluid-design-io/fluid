@@ -2,10 +2,10 @@
 import { HashtagIcon } from '@heroicons/react/24/outline';
 import cn from 'clsx';
 import Slugger from 'github-slugger';
-import 'intersection-observer';
 import { useRouter } from 'next/router';
 import React, { ComponentProps, ReactElement, useEffect, useRef } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import 'intersection-observer';
 
 import clsxm from '@/lib/clsxm';
 import { IS_BROWSER } from '@/lib/constants';
@@ -196,8 +196,7 @@ export const getComponents = ({
     ),
     tr: (props: ComponentProps<'tr'>) => (
       <tr
-        className={
-          cn()
+        className={''
           // 'm-0 border-t border-gray-300 p-0 dark:border-gray-600'
         }
         {...props}

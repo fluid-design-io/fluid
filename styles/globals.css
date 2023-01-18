@@ -220,7 +220,7 @@ a {
 }
 
 h1:not(:where([class~='component'] *)) {
-  @apply bg-gradient-to-t from-stone-800 to-stone-600 bg-clip-text dark:from-stone-400 dark:to-stone-100;
+  @apply bg-gradient-to-t from-stone-800 to-stone-600 bg-clip-text dark:from-stone-400 dark:to-stone-100 text-3xl md:text-4xl lg:text-5xl font-bold pb-4 -mb-4;
   -webkit-text-fill-color: transparent;
 }
 h2:not(:where([class~='component'] *)) {
