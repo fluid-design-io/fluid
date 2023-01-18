@@ -1,8 +1,9 @@
-import remarkGfm from "remark-gfm";
-import createMDX from "@next/mdx";
-import i18n from "./next-i18next.config.js";
-import theme from "shiki/themes/github-dark.json" assert {type: "json"};
 import { remarkCodeHike } from "@code-hike/mdx";
+import createMDX from "@next/mdx";
+import remarkGfm from "remark-gfm";
+import theme from "shiki/themes/github-dark.json" assert {type: "json"};
+
+import i18n from "./next-i18next.config.js";
 
 
 
