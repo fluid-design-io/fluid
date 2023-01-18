@@ -9,6 +9,18 @@ module.exports = {
     './node_modules/@fluid-design/fluid-ui/src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    keyframes: {
+      spin: {
+        '0%': {
+          transform: 'rotate(0deg)',
+          "-webkit-transform": "rotate(0deg)",
+        },
+        '100%': {
+          transform: 'rotate(360deg)',
+          "-webkit-transform": "rotate(360deg)",
+        },
+      }
+    },
     screens: {
       xs: '475px',
       ...defaultTheme.screens,
