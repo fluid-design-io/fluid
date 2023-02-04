@@ -18,7 +18,6 @@ function IndexCard() {
         <div className='relative aspect-video overflow-hidden'>
           <Image
             alt='landscape of a mountain at the background with clear sky'
-            fill
             src={bg}
             placeholder='blur'
           />

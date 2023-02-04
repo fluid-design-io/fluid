@@ -231,12 +231,12 @@ const UI = () => {
       href: 'ui/card',
       count: 3,
     },
-    {
+    /* {
       name: 'List',
       src: 'ui-card',
       href: 'ui/list',
       count: 3,
-    },
+    }, */
   ];
   return <GridWrap list={uis} />;
 };

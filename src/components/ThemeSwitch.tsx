@@ -42,21 +42,34 @@ export const ThemeSwitch = (props) => {
       className={clsxm('relative min-h-[30px] min-w-[30px]', props?.className)}
     >
       <AnimatePresence mode='popLayout' initial={false}>
-        {mode === 'light' && (
-          <Button
-            as={motion.button}
-            animate='animate'
-            exit='exit'
-            initial='initial'
-            key='dark-toggle'
-            onClick={toggleMode}
-            variants={buttonVariants}
-            aria-label='Toggle dark mode'
-            whileTap='tap'
-            color='gray'
-            weight='clear'
-            iconOnly
-          >
+        <Button
+          as={motion.button}
+          animate='animate'
+          exit='exit'
+          initial='initial'
+          key='light-toggle'
+          onClick={toggleMode}
+          variants={buttonVariants}
+          aria-label='Toggle dark mode'
+          whileTap='tap'
+          color='gray'
+          weight='clear'
+          iconOnly
+        >
+          {mode === 'dark' && (
+            <motion.div
+              variants={iconVariants}
+              transition={{
+                type: 'spring',
+                stiffness: 150,
+                damping: 15,
+                mass: 0.2,
+              }}
+            >
+              <MdOutlineLightMode className={clsxm('h-4 w-4 fill-gray-100')} />
+            </motion.div>
+          )}
+          {mode === 'light' && (
             <motion.div
               variants={iconVariants}
               transition={{
@@ -72,36 +85,8 @@ export const ThemeSwitch = (props) => {
                 )}
               />
             </motion.div>
-          </Button>
-        )}
-        {mode === 'dark' && (
-          <Button
-            as={motion.button}
-            animate='animate'
-            exit='exit'
-            initial='initial'
-            key='light-toggle'
-            onClick={toggleMode}
-            variants={buttonVariants}
-            aria-label='Toggle dark mode'
-            whileTap='tap'
-            color='gray'
-            weight='clear'
-            iconOnly
-          >
-            <motion.div
-              variants={iconVariants}
-              transition={{
-                type: 'spring',
-                stiffness: 150,
-                damping: 15,
-                mass: 0.2,
-              }}
-            >
-              <MdOutlineLightMode className={clsxm('h-4 w-4 fill-gray-100')} />
-            </motion.div>
-          </Button>
-        )}
+          )}
+        </Button>
       </AnimatePresence>
     </div>
   );

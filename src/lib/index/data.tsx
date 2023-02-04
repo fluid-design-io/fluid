@@ -27,9 +27,9 @@ import responsiveLight from '~/assets/index/responsive-light.png';
 import screenReaderDark from '~/assets/index/screen-reader-dark.png';
 import screenReaderLight from '~/assets/index/screen-reader-light.png';
 
-const Wrap = ({ children, key, className = '' }) => (
+const Wrap = ({ children, id, className = '' }) => (
   <motion.div
-    key={key}
+    key={id}
     animate={{ y: 0, opacity: 1 }}
     exit={{ y: -10, opacity: 0 }}
     initial={{ y: 10, opacity: 0 }}
@@ -50,7 +50,7 @@ export const indexElements = [
       {
         name: 'Accordion',
         component: (
-          <Wrap key='index.components.accordion'>
+          <Wrap id='index.components.accordion'>
             <AccordionExamples.Simple />
           </Wrap>
         ),
@@ -58,7 +58,7 @@ export const indexElements = [
       {
         name: 'Button',
         component: (
-          <Wrap key='index.components.button'>
+          <Wrap id='index.components.button'>
             <ButtonExamples.Showcase />
           </Wrap>
         ),
@@ -66,7 +66,7 @@ export const indexElements = [
       {
         name: 'Menu',
         component: (
-          <Wrap key='index.components.menu'>
+          <Wrap id='index.components.menu'>
             <MenuExamples.Default className='h-4/5 !w-full sm:!w-4/5' />
           </Wrap>
         ),
@@ -79,7 +79,7 @@ export const indexElements = [
       {
         name: 'Input',
         component: (
-          <Wrap key='index.forms.input'>
+          <Wrap id='index.forms.input'>
             <InputExamples.Demo />
           </Wrap>
         ),
@@ -87,7 +87,7 @@ export const indexElements = [
       {
         name: 'Switch',
         component: (
-          <Wrap key='index.forms.switch'>
+          <Wrap id='index.forms.switch'>
             <SwitchExamples.Demo className='h-4/5 !w-full sm:!w-4/5' />
           </Wrap>
         ),
@@ -100,7 +100,7 @@ export const indexElements = [
       {
         name: 'Card',
         component: (
-          <Wrap key='div.card'>
+          <Wrap id='div.card'>
             <IndexCard />
           </Wrap>
         ),
@@ -108,7 +108,7 @@ export const indexElements = [
       {
         name: 'List',
         component: (
-          <Wrap key='div.list'>
+          <Wrap id='div.list'>
             <IndexList />
           </Wrap>
         ),

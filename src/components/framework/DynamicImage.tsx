@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 import clsxm from '@/lib/clsxm';
 
@@ -10,6 +10,7 @@ export const DynamicImage = ({
 }: DynamicImageProps) => {
   const lightClass = 'dark:!hidden';
   const darkClass = '!hidden dark:!block';
+  const placeholder = typeof light === 'string' ? null : 'blur';
   return (
     <>
       {[light, dark].map((src, index) => (
@@ -22,6 +23,7 @@ export const DynamicImage = ({
             index === 0 ? lightClass : darkClass,
             'contrast:contrast-125'
           )}
+          placeholder={placeholder}
           {...props}
         />
       ))}
@@ -31,8 +33,8 @@ export const DynamicImage = ({
 
 export type DynamicImageProps = {
   src: {
-    light: string;
-    dark: string;
+    light: string | StaticImageData;
+    dark: string | StaticImageData;
   };
   alt: string;
   className?: string;

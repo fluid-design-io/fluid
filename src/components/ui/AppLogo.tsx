@@ -13,15 +13,15 @@ const AppLogo: React.FC<ButtonProps> = ({ ...props }) => {
       <Link
         href='/'
         aria-label='Navigate to home page'
-        className='flex flex-shrink-0 h-7 w-7'
+        className='flex h-7 w-7 flex-shrink-0'
       >
         <>
           <span className='sr-only'>Fluid Design</span>
-          <div className='w-auto h-7 dark:hidden'>
-            <Image alt='logo' height={28} src={logoDark} width={28} />
+          <div className='h-7 w-auto dark:hidden'>
+            <Image alt='logo' className='h-7 w-7' src={logoDark} />
           </div>
-          <div className='hidden w-auto h-7 dark:!block'>
-            <Image alt='logo' height={28} src={logoLight} width={28} />
+          <div className='hidden h-7 w-auto dark:!block'>
+            <Image alt='logo' className='h-7 w-7' src={logoLight} />
           </div>
         </>
       </Link>

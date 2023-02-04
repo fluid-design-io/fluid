@@ -21,6 +21,13 @@ import { DynamicImage } from '@/components/framework/DynamicImage';
 import UnstyledLink from '@/components/framework/UnstyledLink';
 import VideoPlayer from '@/components/VideoPlayer';
 
+import a11yDark from '~/assets/index/a11y-dark.webp';
+import a11yLight from '~/assets/index/a11y-light.webp';
+import designConceptDark from '~/assets/index/design-concept-dark.webp';
+import designConceptLight from '~/assets/index/design-concept-light.webp';
+import webMoveForwardDark from '~/assets/index/web-forward-dark.webp';
+import webMoveForwardLight from '~/assets/index/web-forward-light.webp';
+
 export const FluidDesign = () => {
   const shouldReduceMotion = useReducedMotion();
   const animationContainerRef = useRef<HTMLDivElement>(null);
@@ -162,12 +169,10 @@ export const FluidDesign = () => {
           </div>
           <DynamicImage
             alt='a11y icons'
-            layout='fill'
-            objectFit='cover'
-            objectPosition='center 65%'
+            className='absolute inset-0 z-0 h-full w-full object-cover [object-position:center_65%]'
             src={{
-              light: '/assets/index/a11y-light.webp',
-              dark: '/assets/index/a11y-dark.webp',
+              light: a11yLight,
+              dark: a11yDark,
             }}
           />
         </Card>
@@ -234,34 +239,6 @@ export const FluidDesign = () => {
             built with a11y in mind.
           </p>
           <code className='flex flex-1 flex-col justify-center'>
-            {/* <div style={{ display: "inline-block" }}>
-                <span style={{ opacity: "0.99" }}>
-                  <span className='text-purple-500 dark:text-purple-400'>
-                    import
-                  </span>
-                  <span className='text-gray-500 dark:text-gray-400'>
-                    {" "}
-                    {"{"}{" "}
-                  </span>
-                  <span className='text-blue-500 dark:text-blue-400'>
-                    Button
-                  </span>
-                  <span className='text-gray-500 dark:text-gray-400'>
-                    {" "}
-                    {"}"}{" "}
-                  </span>
-                  <span className='text-purple-500 dark:text-purple-400'>
-                    from
-                  </span>
-                  <span className='text-gray-500 dark:text-gray-400'> </span>
-                  <span className='text-orange-700 dark:text-amber-600'>
-                    '@fluid-design/fluid-ui'
-                  </span>
-                  <span className='text-gray-500 dark:text-gray-400'>;</span>
-                </span>
-                <br />
-                <br />
-              </div> */}
             <div style={{ display: 'inline-block' }}>
               <span style={{ opacity: '0.99' }}>
                 <span> </span>
@@ -300,17 +277,6 @@ export const FluidDesign = () => {
                   'light'
                 </span>
                 <br />
-                {/* Segment */}
-                {/* <span> </span>
-                  <span className='pl-2.5 text-blue-500 dark:text-blue-400'>
-                    sr
-                  </span>
-                  <span className='text-gray-500 dark:text-gray-400'>=</span>
-                  <span className='text-orange-700 dark:text-amber-600'>
-                    'Send Message'
-                  </span>
-                  <br /> */}
-                {/* Segment */}
                 <span> </span>
                 <span className='pl-2.5 text-blue-500 dark:text-blue-400'>
                   iconEnd
@@ -384,10 +350,9 @@ export const FluidDesign = () => {
                 <div className='relative aspect-[2/1.2] w-full min-w-[53rem] md:min-w-[42rem]'>
                   <DynamicImage
                     alt='Design Concept'
-                    layout='fill'
                     src={{
-                      light: '/assets/index/design-concept-light.webp',
-                      dark: '/assets/index/design-concept-dark.webp',
+                      light: designConceptLight,
+                      dark: designConceptDark,
                     }}
                   />
                 </div>
@@ -686,10 +651,9 @@ export const FluidDesign = () => {
           <DynamicImage
             alt='Web forward'
             src={{
-              light: '/assets/index/web-forward-light.webp',
-              dark: '/assets/index/web-forward-dark.webp',
+              light: webMoveForwardLight,
+              dark: webMoveForwardDark,
             }}
-            fill
           />
         </div>
       </section>

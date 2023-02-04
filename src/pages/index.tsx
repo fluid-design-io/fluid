@@ -43,7 +43,7 @@ export default function Home() {
               label='Get Started'
               iconEnd={ArrowRightIcon}
               as={UnstyledLink}
-              href='/docs/'
+              href='/docs/dashboard'
             />
           </div>
           <IndexDemoWindow />
