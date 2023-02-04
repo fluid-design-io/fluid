@@ -8,17 +8,24 @@ import algoliasearch from 'algoliasearch/lite';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import {
-  forwardRef,
   Fragment,
+  forwardRef,
   useEffect,
   useId,
   useRef,
   useState,
 } from 'react';
 
+import clsxm from '@/lib/clsxm';
+
 const searchClient = algoliasearch(
-  process.env.DOCSEARCH_APP_ID,
-  process.env.DOCSEARCH_API_KEY
+  process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID,
+  process.env.NEXT_PUBLIC_DOCSEARCH_API_KEY
+);
+
+console.log(
+  process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID,
+  process.env.NEXT_PUBLIC_DOCSEARCH_API_KEY
 );
 
 function useAutocomplete() {
@@ -52,8 +59,11 @@ function useAutocomplete() {
               return item.query;
             },
             getItemUrl({ item }) {
-              const url = new URL(item.url as URL);
-              return `${url.pathname}${url.hash}`;
+              if (item.url) {
+                const url = new URL(item.url as URL);
+                return `${url.pathname}${url.hash}`;
+              }
+              return '';
             },
             onSelect({ itemUrl }) {
               router.push(itemUrl);
@@ -211,7 +221,9 @@ function SearchResult({ result, resultIndex, autocomplete, collection }) {
 }
 
 function SearchResults({ autocomplete, query, collection }) {
-  if (collection.items.length === 0) {
+  if (!query) return null;
+  if (!collection) return null;
+  if (collection?.items?.length === 0) {
     return (
       <div className='p-6 text-center'>
         <NoResultsIcon className='mx-auto h-5 w-5 stroke-gray-900 dark:stroke-gray-600' />
@@ -474,7 +486,7 @@ function useSearchProps() {
   };
 }
 
-export function Search() {
+export function Search({ sidebar = true }: { sidebar?: boolean }) {
   const [modifierKey, setModifierKey] = useState();
   const { buttonProps, dialogProps } = useSearchProps();
 
@@ -485,7 +497,12 @@ export function Search() {
   }, []);
 
   return (
-    <div className='hidden lg:block lg:max-w-md lg:flex-auto'>
+    <div
+      className={clsxm(
+        'hidden lg:block lg:max-w-md lg:flex-auto',
+        sidebar && 'lg:!ml-0'
+      )}
+    >
       <button
         type='button'
         className='hidden h-8 w-full items-center gap-2 rounded-full bg-white pl-2 pr-3 text-sm text-gray-500 ring-1 ring-gray-900/10 transition hover:ring-gray-900/20 dark:bg-white/5 dark:text-gray-400 dark:ring-inset dark:ring-white/10 dark:hover:ring-white/20 lg:flex focus:[&:not(:focus-visible)]:outline-none'
