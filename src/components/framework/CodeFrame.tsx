@@ -1,8 +1,8 @@
 import { Button } from '@fluid-design/fluid-ui';
 import { SunIcon } from '@heroicons/react/24/solid';
-import { useTranslation } from 'next-i18next';
-import React, { useEffect, useState } from 'react';
-import { createPortal } from 'react-dom';
+import * as path from 'path';
+import React, { useEffect, useRef, useState } from 'react';
+import ReactDOM, { createPortal } from 'react-dom';
 import { IoIosContrast } from 'react-icons/io';
 import {
   MdDarkMode,
@@ -10,9 +10,11 @@ import {
   MdFormatTextdirectionRToL,
 } from 'react-icons/md';
 
-import windowExists from '@/helpers/window-exists';
-import { useTheme } from '@/lib/ThemeContext';
 import clsxm from '@/lib/clsxm';
+
+import { useTheme } from '@/store/useTheme';
+
+import windowExists from '@/helpers/window-exists';
 
 export const FunctionalIFrameComponent = ({
   children,
@@ -24,16 +26,8 @@ export const FunctionalIFrameComponent = ({
   title: string;
   preferences: PreferencesProps[];
 }) => {
-  const [contentRef, setContentRef] = useState(null);
-  const [mounded, setMounded] = useState(false);
-  const [height, setHeight] = useState(100);
-  const mountNode = contentRef?.contentWindow?.document?.body;
-  const cssLink =
-    typeof window !== 'undefined' ? document.createElement('link') : null;
-  if (cssLink) {
-    cssLink.rel = 'stylesheet';
-    cssLink.href = '/iframe/tw-iframe.css';
-  }
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [isIframeLoaded, setIsIframeLoaded] = useState(false);
   const defaultBodyClasses = [
     'bg-grid-gray-300/20',
     'dark:bg-grid-gray-700/20',
@@ -42,8 +36,8 @@ export const FunctionalIFrameComponent = ({
   ];
   const updateHtmlClasses = () => {
     if (typeof window !== 'undefined') {
-      const html = contentRef?.contentWindow?.document?.documentElement;
-      const body = contentRef?.contentWindow?.document?.body;
+      const html = iframeRef.current?.contentDocument?.documentElement;
+      const body = iframeRef.current?.contentDocument?.body;
       if (html && body) {
         const activePreferenceClasses = preferences
           .map((p) => (p.isActive ? p.name : ''))
@@ -61,33 +55,47 @@ export const FunctionalIFrameComponent = ({
       }
     }
   };
+  const setIframeHeight = ({ iframe, iframeDoc }) => {
+    iframe.height = iframeDoc.body.scrollHeight + 'px';
+  };
+  useEffect(() => {
+    if (!iframeRef.current) return;
+    const iframe = iframeRef.current;
+    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
 
-  useEffect(() => {
-    if (mountNode && contentRef && cssLink && !mounded) {
-      setMounded(true);
-      contentRef.contentWindow.document.head.appendChild(cssLink);
-      setTimeout(() => {
-        // .childNodes[0] refers to the first div in the body
-        const iframeHeight =
-          contentRef?.contentWindow?.document?.body?.childNodes[0]
-            ?.scrollHeight;
-        setHeight(iframeHeight);
-        updateHtmlClasses();
-      }, 850);
+    const cssLink = iframeDoc.createElement('link');
+    cssLink.rel = 'stylesheet';
+    cssLink.href = path.join(process.cwd(), '/iframe/tw-iframe.css');
+    // check for css already loaded, check if it contains 'tw-iframe.css'
+    if (iframeDoc.head.querySelector('link[href*="tw-iframe.css"]')) {
+      return;
+    } else {
+      iframeDoc.head.appendChild(cssLink);
     }
-  }, [mountNode, contentRef, cssLink, mounded]);
+    updateHtmlClasses();
+
+    if (
+      iframeDoc.readyState === 'complete' ||
+      iframeDoc.readyState === 'interactive'
+    ) {
+      setIsIframeLoaded(true);
+      setTimeout(() => {
+        setIframeHeight({ iframe, iframeDoc });
+      }, 1000);
+    }
+  }, [iframeRef]);
   useEffect(() => {
-    if (mountNode && contentRef) {
+    if (iframeRef.current) {
+      setIsIframeLoaded(true);
       updateHtmlClasses();
     }
-  }, [preferences]);
+  }, [preferences, iframeRef]);
+
   // Recalculate height on window resize
   const resizeListener = () => {
-    if (mountNode && contentRef) {
-      const iframeHeight =
-        contentRef?.contentWindow?.document?.body?.childNodes[0]?.scrollHeight;
-      setHeight(iframeHeight);
-    }
+    const iframe = iframeRef.current;
+    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+    setIframeHeight({ iframe, iframeDoc });
   };
   useEffect(() => {
     if (typeof window !== 'undefined')
@@ -97,21 +105,21 @@ export const FunctionalIFrameComponent = ({
       if (typeof window !== 'undefined')
         window.removeEventListener('resize', resizeListener);
     };
-  }, [contentRef]);
-
+  }, [iframeRef]);
+  if (!windowExists) return null;
   return (
     <iframe
       allowFullScreen
-      ref={setContentRef}
-      style={{ height }}
+      ref={iframeRef}
       title={title}
       className={clsxm(
         'box-content w-full transition delay-700',
-        mountNode ? 'block' : 'hidden'
+        isIframeLoaded ? 'opacity-100' : 'opacity-0'
       )}
       {...props}
     >
-      {mountNode && createPortal(children, mountNode)}
+      {isIframeLoaded &&
+        createPortal(children, iframeRef.current?.contentDocument?.body)}
     </iframe>
   );
 };
@@ -165,7 +173,6 @@ export const CodeFrame = ({ title = 'Example', children = null, ...props }) => {
       className: 'rtl',
     },
   ];
-  const { t } = useTranslation('common');
   const [preferences, setPreferences] = useState(prefs);
   const { mode } = useTheme();
 
@@ -184,15 +191,13 @@ export const CodeFrame = ({ title = 'Example', children = null, ...props }) => {
   const isPrefDark = preferences.find((p) => p.name === 'dark')?.isActive;
   useEffect(() => {
     if (!windowExists()) return;
-    if (mode === 'dark' || window.localStorage.isDarkMode === 'true') {
-      const newPreferences = preferences.map((pref) => {
-        if (pref.name === 'dark') {
-          pref.isActive = true;
-        }
-        return pref;
-      });
-      setPreferences(newPreferences);
-    }
+    const newPreferences = preferences.map((pref) => {
+      if (pref.name === 'dark') {
+        pref.isActive = mode === 'dark';
+      }
+      return pref;
+    });
+    setPreferences(newPreferences);
   }, [mode]);
   return (
     <>
@@ -229,7 +234,7 @@ export const CodeFrame = ({ title = 'Example', children = null, ...props }) => {
           />
           <div
             className={clsxm(
-              'absolute top-0 left-0 right-0 z-10 mt-2 flex w-full items-stretch justify-between space-x-4 px-4 pointer-events-none',
+              'pointer-events-none absolute top-0 left-0 right-0 z-10 mt-2 flex w-full items-stretch justify-between space-x-4 px-4',
               isPrefDark && 'dark'
             )}
           >
@@ -242,7 +247,7 @@ export const CodeFrame = ({ title = 'Example', children = null, ...props }) => {
               {title}
             </h5>
             <div
-              className={`z-[4] flex flex-shrink-0 pointer-events-auto justify-center space-x-2 rounded-md bg-gray-50/75 py-1 px-1 backdrop-blur-md backdrop-brightness-90 backdrop-filter motion-safe:transition-opacity contrast-more:shadow-none dark:bg-gray-800/30 dark:shadow-gray-900/20 sm:shadow-md sm:shadow-gray-400/10 ${touchStyle}`}
+              className={`pointer-events-auto z-[4] flex flex-shrink-0 justify-center space-x-2 rounded-md bg-gray-50/75 py-1 px-1 backdrop-blur-md backdrop-brightness-90 backdrop-filter motion-safe:transition-opacity contrast-more:shadow-none dark:bg-gray-800/30 dark:shadow-gray-900/20 sm:shadow-md sm:shadow-gray-400/10 ${touchStyle}`}
             >
               {preferences.map(
                 (
@@ -269,7 +274,7 @@ export const CodeFrame = ({ title = 'Example', children = null, ...props }) => {
                       )}
                       weight='clear'
                       size='xs'
-                      sr={t(name)}
+                      sr={name}
                     >
                       <span className=''>
                         {isActive ? (
@@ -291,7 +296,7 @@ export const CodeFrame = ({ title = 'Example', children = null, ...props }) => {
           <FunctionalIFrameComponent preferences={preferences} title={title}>
             <div
               className={clsxm(
-                'grid w-[calc(100%-2rem)] mx-auto place-items-center pt-20 pb-16'
+                'mx-auto grid w-[calc(100%-2rem)] place-items-center pt-20 pb-16'
               )}
             >
               {children}
