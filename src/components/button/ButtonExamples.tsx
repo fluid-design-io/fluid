@@ -9,7 +9,6 @@ import {
   FulidButtonLoadingOptions,
   Switch,
 } from '@fluid-design/fluid-ui';
-import { useTranslation } from 'next-i18next';
 import { useId, useState } from 'react';
 import { IoMdTrash } from 'react-icons/io';
 import { MdAddCircle, MdChevronRight, MdInfo, MdSend } from 'react-icons/md';
@@ -68,7 +67,6 @@ const ButtonColors = ({
   };
 }) => {
   const id = useId();
-  const { t } = useTranslation('button');
   const [present] = useToast();
   return (
     <ButtonWrap>
@@ -86,11 +84,11 @@ const ButtonColors = ({
           className='capitalize'
           onClick={() =>
             present({
-              title: t(`colors.${color}`),
+              title: color,
             })
           }
         >
-          {t(`colors.${color}`)}
+          {color}
         </Button>
       ))}
     </ButtonWrap>
@@ -99,7 +97,6 @@ const ButtonColors = ({
 
 const ButtonWeights = () => {
   const id = useId();
-  const { t } = useTranslation('button');
   const weights = ['light', 'normal', 'bold', 'outline', 'clear', 'link'];
   const [present] = useToast();
   return (
@@ -114,11 +111,11 @@ const ButtonWeights = () => {
           className='capitalize'
           onClick={() =>
             present({
-              title: t(`weights.${weight}`),
+              title: weight,
             })
           }
         >
-          {t(`weights.${weight}`)}
+          {weight}
         </Button>
       ))}
     </ButtonWrap>
@@ -127,7 +124,6 @@ const ButtonWeights = () => {
 
 const ButtonSizes = () => {
   const id = useId();
-  const { t } = useTranslation('button');
   const sizes = ['xs', 'sm', 'md', 'lg', 'xl'];
   const [present] = useToast();
   return (
@@ -142,11 +138,11 @@ const ButtonSizes = () => {
           className='capitalize'
           onClick={() =>
             present({
-              title: t(`sizes.${size}`),
+              title: size,
             })
           }
         >
-          {t(`sizes.${size}`)}
+          {size}
         </Button>
       ))}
     </ButtonWrap>
@@ -214,7 +210,7 @@ const ButtonStates = () => {
       >
         Confirm
       </Button>
-      <div className='mx-auto mt-8 w-full max-w-md rounded-lg bg-gray-50/75 p-4 shadow shadow-gray-300/20 dark:bg-gray-600/20 dark:shadow-gray-800/30 backdrop-blur'>
+      <div className='mx-auto mt-8 w-full max-w-md rounded-lg bg-gray-50/75 p-4 shadow shadow-gray-300/20 backdrop-blur dark:bg-gray-600/20 dark:shadow-gray-800/30'>
         <Form
           onSubmit={() => null}
           initialValues={{
@@ -331,7 +327,7 @@ const IconWithText = () => {
       <Button
         className='w-40'
         color='blue'
-        iconEnd={<MdChevronRight className='w-5 h-5 rtl:rotate-180' />}
+        iconEnd={<MdChevronRight className='h-5 w-5 rtl:rotate-180' />}
         iconEndPosition='between'
         iconStart={MdInfo}
         label='Info'
@@ -389,7 +385,7 @@ const CustomColors = () => {
 const Showcase = () => {
   const [present] = useToast();
   return (
-    <div className='grid grid-cols-3 gap-6 justify-items-center'>
+    <div className='grid grid-cols-3 justify-items-center gap-6'>
       <Button color='cyan' label='Solid' onClick={present as any} />
       <Button
         color='cyan'

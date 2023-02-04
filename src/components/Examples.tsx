@@ -1,5 +1,4 @@
 import { ChevronRightIcon } from '@heroicons/react/24/solid';
-import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
@@ -9,7 +8,6 @@ import { MenuExamples } from '@/components/menu';
 import { TabExamples } from '@/components/tab';
 
 import clsxm from '../lib/clsxm';
-import { ListDetailComponent } from './list';
 
 const GridWrap = ({ title, href, children, router, ...props }) => {
   return (
@@ -28,42 +26,40 @@ const GridWrap = ({ title, href, children, router, ...props }) => {
 };
 
 export const Examples = () => {
-  const { t } = useTranslation('common');
   const router = useRouter();
-  const title = t('Examples');
-  const [notification, setNotification] = useState(undefined);
+  const [_, setNotification] = useState(undefined);
   const exampleComponents = [
     {
-      title: t('Accordion'),
+      title: 'Accordion',
       href: '/accordion',
       Component: AccordionExamples.Simple,
       className: '!w-full md:!w-full',
     },
     {
-      title: t('Menu'),
+      title: 'Menu',
       href: '/menu',
       Component: MenuExamples.Default,
       className: '!w-full',
     },
     {
-      title: t('Tab'),
+      title: 'Tab',
       href: '/tab',
       Component: TabExamples.Default,
       className: '!w-full',
     },
     {
-      title: t('Card'),
+      title: 'Card',
       href: '/card/#standard',
       Component: CardExamples.Standard,
       className: 'h-96',
     },
     {
-      title: t('App Store.title', { ns: 'card' }),
+      title: 'App Store',
       href: '/card/#app-store',
       Component: CardExamples.AppleStore,
     },
     /* {
-      title: t('List', { ns: 'list' }),
+      title: 'List', { ns: 'list' },
       href: '/list/#detail',
       Component: ListDetailComponent,
       className: 'max-w-md shadow-xl h-full !rounded-3xl example',
@@ -71,7 +67,7 @@ export const Examples = () => {
   ];
   return (
     <>
-      <div className='relative gap-6 lg:gap-8 xl:gap-12 grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 place-items-stretch place-content-stretch'>
+      <div className='relative grid grid-cols-1 place-content-stretch place-items-stretch gap-6 sm:grid-cols-2 md:grid-cols-2 lg:gap-8 xl:grid-cols-3 xl:gap-12'>
         {exampleComponents.map(({ className, Component, ...props }) => (
           <GridWrap key={`example.${props.title}`} router={router} {...props}>
             <Component

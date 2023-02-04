@@ -7,22 +7,21 @@ import {
   useScroll,
   useTransform,
 } from 'framer-motion';
-import { Trans, useTranslation } from 'next-i18next';
 import { useEffect, useRef, useState } from 'react';
 import { HiOutlineMail, HiPause, HiPlay } from 'react-icons/hi';
 import { MdSend } from 'react-icons/md';
-import { A11y, Navigation, Pagination } from 'swiper';
+import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import VideoPlayer from '@/components/VideoPlayer';
-import { Card } from '@/components/framework/Card';
-import { DynamicImage } from '@/components/framework/DynamicImage';
-import UnstyledLink from '@/components/framework/UnstyledLink';
 import { getNextItem, getPrevItem } from '@/lib/arrayHelpers';
 import clsxm from '@/lib/clsxm';
 
+import { Card } from '@/components/framework/Card';
+import { DynamicImage } from '@/components/framework/DynamicImage';
+import UnstyledLink from '@/components/framework/UnstyledLink';
+import VideoPlayer from '@/components/VideoPlayer';
+
 export const FluidDesign = () => {
-  const { t } = useTranslation(['index', 'common']);
   const shouldReduceMotion = useReducedMotion();
   const animationContainerRef = useRef<HTMLDivElement>(null);
   const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
@@ -34,23 +33,19 @@ export const FluidDesign = () => {
   const conceptOpacity = useTransform(scrollX, [20, 30], [0, 1]);
   const elegantDesignVideos = [
     {
-      title: t(`fluid-design.accordionComponent.title`, { ns: 'index' }),
-      description: t(`fluid-design.accordionComponent.description`, {
-        ns: 'index',
-      }),
+      title: 'Fluid Design',
+      description:
+        'Beautiful UI that are responsive, supports features like dark mode and a11y with elegant transitions.',
       acitveClassName: 'aspect-square',
     },
     {
-      title: t(`fluid-design.inputComponent.title`, { ns: 'index' }),
-      description: t(`fluid-design.inputComponent.description`, {
-        ns: 'index',
-      }),
+      title: 'Input Component',
+      description: 'Clean input fields with validation and error states.',
     },
     {
-      title: t(`fluid-design.menuComponent.title`, { ns: 'index' }),
-      description: t(`fluid-design.menuComponent.description`, {
-        ns: 'index',
-      }),
+      title: 'Menu Component',
+      description:
+        'Menu component supports keyboard navigation and screen readers.',
     },
   ];
   const intergrateCompList = [
@@ -98,25 +93,24 @@ export const FluidDesign = () => {
 
   return (
     <>
-      <section className='mt-8 grid grid-cols-12 gap-4 md:col-span-2 md:gap-6 lg:mt-0 lg:gap-8 layout'>
+      <section className='layout mt-8 grid grid-cols-12 gap-4 md:col-span-2 md:gap-6 lg:mt-0 lg:gap-8'>
         <Card className='col-span-12 overflow-hidden lg:col-span-6'>
           <div className='p-4 md:p-6 lg:p-8'>
-            <h4 className='card-title mb-2'>
-              {t(`fluid-design.elegant.title`)}
-            </h4>
-            <p>{t(`fluid-design.elegant.description`)}</p>
+            <h4 className='card-title mb-2'>Elegant Design</h4>
+            <p>
+              Many UI libraries and component designs often only focus on the
+              looks. While they cover the majority of users' needs. Fluid Design
+              aims to create components that works for all users, making extra
+              effort to make beautiful design accessible.
+            </p>
           </div>
 
           <Swiper
             centeredSlides={true}
-            modules={[Pagination, Navigation, A11y]}
+            modules={[Pagination, Navigation]}
             navigation={true}
             slidesPerView='auto'
             spaceBetween={0}
-            a11y={{
-              prevSlideMessage: t(`Previous slide`, { ns: 'common' }),
-              nextSlideMessage: t(`Next slide`, { ns: 'common' }),
-            }}
             className={clsxm([
               'swiper-navigation relative',
               '[&_.swiper-button-next]:top-[40%] [&_.swiper-button-prev]:top-[40%]',
@@ -151,21 +145,19 @@ export const FluidDesign = () => {
         </Card>
         <Card className='relative col-span-12 overflow-hidden p-4 pb-[35vh] sm:col-span-7 sm:pb-40 md:p-6 lg:col-span-6 lg:p-8 lg:pb-0'>
           <div className='relative z-[2]'>
-            <h4 className='card-title mb-2'>{t(`fluid-design.a11y.title`)}</h4>
+            <h4 className='card-title mb-2'>Built with a11y in mind.</h4>
             <p>
-              <Trans
-                i18nKey='fluid-design.a11y.description'
-                ns='index'
-                components={{
-                  hi: (
-                    <a
-                      href='https://headlessui.dev/'
-                      rel='noopener noreferrer'
-                      target='_blank'
-                    />
-                  ),
-                }}
-              />
+              Utilizing libraries like{' '}
+              <a
+                href='https://headlessui.dev/'
+                rel='noopener noreferrer'
+                target='_blank'
+              >
+                headlessui
+              </a>{' '}
+              to provide a11y features like focus management, keyboard
+              navigation, and screen reader support. Fluid Design also adds
+              support to high-contrast mode, reduce-motion, and light/dark mode.
             </p>
           </div>
           <DynamicImage
@@ -181,10 +173,14 @@ export const FluidDesign = () => {
         </Card>
         <Card className='card-padding col-span-12 sm:col-span-5 lg:col-span-4'>
           <div className=''>
-            <h4 className='card-title mb-2'>
-              {t(`fluid-design.simple.title`)}
-            </h4>
-            <p>{t(`fluid-design.simple.description`)}</p>
+            <h4 className='card-title mb-2'>Simple. But not simplistic.</h4>
+            <p>
+              In order to transform more websites into accessible websites, it
+              is key to make the component intergration process as simple as
+              possible. So anyone can adapt to it, even if they are not familiar
+              with a11y. With no extra effort, you can create a beautiful and
+              accessible website.
+            </p>
           </div>
         </Card>
         <Card className='order-last col-span-12 py-4 md:col-span-7 md:py-6 lg:order-none lg:col-span-4 lg:py-8'>
@@ -194,9 +190,9 @@ export const FluidDesign = () => {
             tabClassName='w-full'
           >
             <Tab.List className='mx-4 justify-start overflow-x-auto md:mx-6 lg:mx-8'>
-              <Tab.ListItem>{t(`fluid-design.tab.normal`)}</Tab.ListItem>
-              <Tab.ListItem>{t(`fluid-design.tab.high-contrast`)}</Tab.ListItem>
-              <Tab.ListItem>{t(`fluid-design.tab.rtl`)}</Tab.ListItem>
+              <Tab.ListItem>Normal</Tab.ListItem>
+              <Tab.ListItem>High Contrast</Tab.ListItem>
+              <Tab.ListItem>RTL</Tab.ListItem>
             </Tab.List>
             <Tab.Panels className='mt-4 px-4 md:mt-6 md:px-6 lg:mt-8 lg:px-8'>
               <Tab.Panel tabPanelClassName='pb-[2px]'>
@@ -233,7 +229,10 @@ export const FluidDesign = () => {
           </Tab>
         </Card>
         <Card className='card-padding col-span-12 flex flex-col md:col-span-5 lg:col-span-4'>
-          <p>{t(`fluid-design.buttonComponent.description`)}</p>
+          <p>
+            The Button component is just one of the many components that are
+            built with a11y in mind.
+          </p>
           <code className='flex flex-1 flex-col justify-center'>
             {/* <div style={{ display: "inline-block" }}>
                 <span style={{ opacity: "0.99" }}>
@@ -332,11 +331,11 @@ export const FluidDesign = () => {
           </code>
         </Card>
       </section>
-      <section className='my-[calc(min(20vh,12rem))] layout'>
-        <h1 className='mb-6 md:mb-8 legacy'>
+      <section className='layout my-[calc(min(20vh,12rem))]'>
+        <h1 className='legacy mb-6 md:mb-8'>
           It all starts with <br /> a simple idea.
         </h1>
-        <p className='w-full max-w-4xl md:w-4/5 text-lg'>
+        <p className='w-full max-w-4xl text-lg md:w-4/5'>
           The web is a powerful medium for communication and data exchange.
           However, not every website is created equal for every user. Some
           websites are difficult to use, and some are inaccessible to users with
@@ -419,7 +418,7 @@ export const FluidDesign = () => {
               </Button>
               <div className='flex w-full flex-grow flex-col items-stretch justify-center'>
                 <div className='mb-4'>
-                  <h4 className='mb-1 font-rounded dark:text-gray-400 text-gray-700 text-xs font-semibold uppercase tracking-wide md:text-sm'>
+                  <h4 className='mb-1 font-rounded text-xs font-semibold uppercase tracking-wide text-gray-700 dark:text-gray-400 md:text-sm'>
                     Linear
                   </h4>
                   <div className='relative h-10 w-[calc(100%-2.5rem)]'>
@@ -454,7 +453,7 @@ export const FluidDesign = () => {
                   </div>
                 </div>
                 <div className='mb-4'>
-                  <h4 className='mb-1 font-rounded dark:text-gray-400 text-gray-700 text-xs font-semibold uppercase tracking-wide md:text-sm'>
+                  <h4 className='mb-1 font-rounded text-xs font-semibold uppercase tracking-wide text-gray-700 dark:text-gray-400 md:text-sm'>
                     Ease In Out
                   </h4>
                   <div className='relative h-10 w-[calc(100%-2.5rem)]'>
@@ -489,7 +488,7 @@ export const FluidDesign = () => {
                   </div>
                 </div>
                 <div>
-                  <h4 className='mb-1 font-rounded dark:text-gray-400 text-gray-700 text-xs font-semibold uppercase tracking-wide md:text-sm'>
+                  <h4 className='mb-1 font-rounded text-xs font-semibold uppercase tracking-wide text-gray-700 dark:text-gray-400 md:text-sm'>
                     Spring
                   </h4>
                   <div className='relative h-10 w-[calc(100%-2.5rem)]'>
@@ -643,7 +642,7 @@ export const FluidDesign = () => {
       </section>
       <section className='relative mx-auto w-full max-w-[1920px] py-[calc(min(20vh,12rem))] lg:aspect-[2.4/1]'>
         <div className='layout relative z-[2]'>
-          <h1 className='mb-6 legacy md:mb-8'>
+          <h1 className='legacy mb-6 md:mb-8'>
             Aims to move the web <br /> forward with a11y.
           </h1>
           <p className='w-full max-w-lg font-medium md:w-4/5'>
@@ -679,7 +678,7 @@ export const FluidDesign = () => {
           <div
             className={clsxm([
               'hidden 2xl:block',
-              'absolute z-[2] w-1/4 h-full right-0 inset-y-0',
+              'absolute inset-y-0 right-0 z-[2] h-full w-1/4',
               '[mask-image:linear-gradient(270deg,rgba(255,255,255,1)_15%,rgba(255,255,255,0))]',
               'bg-gray-100 dark:bg-gray-800 contrast:dark:bg-[rgb(22,23,30)]',
             ])}

@@ -1,7 +1,6 @@
 import { Button } from '@fluid-design/fluid-ui';
 import { HeartIcon, ShareIcon } from '@heroicons/react/24/outline';
 import clsx, { ClassValue } from 'clsx';
-import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import { twMerge } from 'tailwind-merge';
 
@@ -11,7 +10,6 @@ function clsxm(...classes: ClassValue[]) {
 }
 
 export const CardStandardComponent = ({ src = undefined, ...props }) => {
-  const { t } = useTranslation('image');
   const contrastRing = `contrast-more:border contrast-more:border-gray-800 dark:contrast-more:border-gray-200`;
   return (
     <div
@@ -49,7 +47,7 @@ export const CardStandardComponent = ({ src = undefined, ...props }) => {
         </div>
         <div className='flex items-center justify-between pt-1'>
           <Button color='blue' size='xs' weight='light'>
-            {t(`Card Button`, { ns: 'card' })}
+            Card Button
           </Button>
           <div className='-mr-2 flex'>
             <Button

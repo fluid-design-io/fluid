@@ -1,26 +1,25 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Button } from '@fluid-design/fluid-ui';
 import { motion, useTransform } from 'framer-motion';
-import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useRef } from 'react';
 import { IoLogoGithub } from 'react-icons/io';
 
-import { MobileSearch, Search } from '@/components/framework/Search';
-import { MobileSidebar } from '@/components/framework/Sidebar';
 import { useScrolled } from '@/lib';
 import clsxm from '@/lib/clsxm';
 
-import { ThemeSwitch } from '../ThemeSwitch';
+import { MobileSearch, Search } from '@/components/framework/Search';
+import { MobileSidebar } from '@/components/framework/Sidebar';
+
 import { TOC } from '../mdx';
+import { ThemeSwitch } from '../ThemeSwitch';
 import AppLogo from '../ui/AppLogo';
 
 export const Navbar = ({ sidebar, ...props }) => {
-  const { t } = useTranslation('navbar');
   const menuBarRef = useRef<HTMLDivElement>(null);
   const [hasScrolled, scrollY] = useScrolled();
-  const bgOpacityLight = useTransform(scrollY, [0, 72], [0.5, 0.9]);
-  const bgOpacityDark = useTransform(scrollY, [0, 72], [0, 0.8]);
+  const bgOpacityLight = useTransform(scrollY, [0, 128], [0.5, 0.9]);
+  const bgOpacityDark = useTransform(scrollY, [0, 128], [0, 0.8]);
   return (
     <nav
       className={clsxm(
@@ -31,7 +30,7 @@ export const Navbar = ({ sidebar, ...props }) => {
     >
       <motion.div
         className={clsxm(
-          'backdrop-blur-sm dark:backdrop-blur backdrop-filter transition-colors',
+          'backdrop-blur-sm backdrop-filter transition-colors dark:backdrop-blur',
           'contrast-more:bg-gray-100/90 dark:contrast-more:bg-black/80',
           'bg-gray-100/[var(--bg-opacity-light)] dark:bg-gray-900/[var(--bg-opacity-dark)]'
         )}
@@ -53,7 +52,7 @@ export const Navbar = ({ sidebar, ...props }) => {
         }
       >
         <div
-          className='flex items-center justify-between border-b border-b-gray-800/5 dark:border-b-gray-50/10 px-4 py-4 pr-[calc(1rem+env(safe-area-inset-right))] sm:!justify-start sm:!space-x-2.5 sm:px-6 sm:!py-2 sm:pr-[calc(1.2rem+env(safe-area-inset-right))] lg:px-[3.175rem]'
+          className='flex items-center justify-between border-b border-b-gray-800/5 px-4 py-4 pr-[calc(1rem+env(safe-area-inset-right))] dark:border-b-gray-50/10 sm:!justify-start sm:!space-x-2.5 sm:px-6 sm:!py-2 sm:pr-[calc(1.2rem+env(safe-area-inset-right))] lg:px-[3.175rem]'
           ref={menuBarRef}
         >
           <div className='flex flex-grow items-center justify-between space-x-4 sm:!justify-start'>
@@ -70,10 +69,10 @@ export const Navbar = ({ sidebar, ...props }) => {
                 </Link>
               </div>
             )}
-            <div className='flex-grow flex lg:hidden'>
+            <div className='flex flex-grow lg:hidden'>
               <MobileSearch />
             </div>
-            <Search />
+            <Search sidebar={sidebar} />
           </div>
           <div className='-my-2 sm:hidden'>
             <MobileSidebar />
@@ -87,7 +86,7 @@ export const Navbar = ({ sidebar, ...props }) => {
                 weight='clear'
                 href='/docs'
               >
-                {t('Docs')}
+                Docs
               </Button>
               <Button
                 as='a'
@@ -98,12 +97,11 @@ export const Navbar = ({ sidebar, ...props }) => {
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                {t('Color Generator')}
+                Color Generator
               </Button>
-              <div className='h-3 w-0.5 bg-gray-400 dark:bg-gray-500 rounded-full' />
+              <div className='h-3 w-0.5 rounded-full bg-gray-400 dark:bg-gray-500' />
               <Button
                 as='a'
-                className={clsxm('px-2 py-1 font-medium')}
                 color='gray'
                 weight='clear'
                 href='https://github.com/fluid-design-io/fluid'

@@ -35,9 +35,9 @@ export const Page = ({
           <Navbar
             sidebar={sidebar}
             className={clsxm(
-              'motion-safe:-translate-y-full motion-reduce:pointer-events-none motion-reduce:opacity-0',
+              'motion-reduce:pointer-events-none motion-reduce:opacity-0',
               sidebar
-                ? `md:!ml-[15.625rem] lg:ml-[13.5rem] xl:ml-[15.625rem]`
+                ? `md:!ml-[15.625rem] lg:ml-[13.5rem] xl:ml-[15.625rem] motion-safe:-translate-y-full`
                 : ``
             )}
           />

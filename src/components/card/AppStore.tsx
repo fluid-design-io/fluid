@@ -1,8 +1,6 @@
-import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 
 export const CardASLargeImageComponent = ({ srcs = undefined, ...props }) => {
-  const { t } = useTranslation('card');
   return (
     <div
       className={`component card-bg relative flex h-full w-full max-w-xs flex-col items-stretch overflow-hidden rounded-xl shadow-lg shadow-gray-900/10 motion-safe:transition motion-safe:hover:scale-[0.99] motion-safe:active:scale-[0.985] ${
@@ -10,7 +8,7 @@ export const CardASLargeImageComponent = ({ srcs = undefined, ...props }) => {
       }`}
     >
       <div
-        aria-label={`${t('Card')}, Cool things to check out.`}
+        aria-label='Card, Cool things to check out.'
         className='relative flex-grow'
         // onClick={() => {}}
         tabIndex={0}
@@ -19,8 +17,8 @@ export const CardASLargeImageComponent = ({ srcs = undefined, ...props }) => {
         <div className='pointer-events-none relative h-full w-full touch-none select-none dark:hidden'>
           <Image
             alt="Beautiful forest from bird's eye view. By Geran de Klerk from Unsplash."
-            layout='fill'
-            objectFit='cover'
+            fill
+            className='object-cover'
             src={
               srcs
                 ? srcs[0]
@@ -32,8 +30,8 @@ export const CardASLargeImageComponent = ({ srcs = undefined, ...props }) => {
         <div className='pointer-events-none relative hidden h-full w-full touch-none select-none dark:block'>
           <Image
             alt="Beautiful forest from bird's eye view. By Geran de Klerk from Unsplash."
-            layout='fill'
-            objectFit='cover'
+            fill
+            className='object-cover'
             src={
               srcs
                 ? srcs[1]
@@ -45,20 +43,20 @@ export const CardASLargeImageComponent = ({ srcs = undefined, ...props }) => {
       {/* Top Content */}
       <div className='pointer-events-none absolute top-0 left-0 z-[2] p-5 dark:contrast-more:[text-shadow:0px_2px_7.5px_rgba(0,0,0,0.75)]'>
         <p className='text-sm font-medium uppercase text-gray-800/60 transition contrast-more:font-bold contrast-more:text-gray-800 dark:text-gray-200/75 dark:contrast-more:text-gray-100'>
-          {t('Subtitle', { ns: 'common' })}
+          Subtitle
         </p>
         <h3 className='w-4/5 pt-1 text-3xl font-bold text-gray-800 dark:text-gray-50'>
-          {t('App Store.cool-things', { ns: 'card' })}
+          Cool things to checkout
         </h3>
       </div>
       {/* Bottom Info Bar */}
-      <div className='absolute bottom-0 left-0 right-0 z-[3] flex w-full flex-shrink-0 items-center justify-between space-x-4 bg-gray-50 bg-opacity-30 px-4 py-4 backdrop-blur-3xl backdrop-brightness-105 backdrop-saturate-150 backdrop-filter transition contrast-more:bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-40 dark:backdrop-brightness-95 dark:contrast-more:bg-opacity-80 transform-gpu rounded-b-xl'>
+      <div className='absolute bottom-0 left-0 right-0 z-[3] flex w-full flex-shrink-0 transform-gpu items-center justify-between space-x-4 rounded-b-xl bg-gray-50 bg-opacity-30 px-4 py-4 backdrop-blur-3xl backdrop-brightness-105 backdrop-saturate-150 backdrop-filter transition contrast-more:bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-40 dark:backdrop-brightness-95 dark:contrast-more:bg-opacity-80'>
         <div className='h-12 w-12 flex-shrink-0 overflow-hidden rounded-lg'>
           <div className='relative h-full w-full'>
             <Image
               alt="Beautiful forest from bird's eye view. By Geran de Klerk from Unsplash."
-              layout='fill'
-              objectFit='cover'
+              fill
+              className='object-cover'
               src={
                 srcs
                   ? srcs[2]
@@ -69,7 +67,7 @@ export const CardASLargeImageComponent = ({ srcs = undefined, ...props }) => {
         </div>
         <div>
           <h2 className='font-medium leading-tight text-gray-800 contrast-more:font-bold contrast-more:text-gray-900 dark:text-gray-50/90 dark:contrast-more:text-gray-50'>
-            {t('Card Title', { ns: 'common' })}
+            Card Title
           </h2>
           <p className='text-sm leading-none text-gray-800/60 line-clamp-2 contrast-more:font-semibold contrast-more:text-gray-800 dark:text-gray-50/50 dark:contrast-more:text-gray-200'>
             Lorem ipsum dolor sit amet.
@@ -81,7 +79,7 @@ export const CardASLargeImageComponent = ({ srcs = undefined, ...props }) => {
             // onClick={() => {}}
           >
             <span className='sr-only'>Card action, get this item.</span>
-            {t(`App Store.get`, { ns: 'card' })}
+            GET
           </button>
         </div>
       </div>

@@ -1,13 +1,12 @@
-import slugConverter from '../../util/slug';
-import { Page } from './Page';
-import { useTranslation } from 'next-i18next';
 import React from 'react';
 
+import { Page } from './Page';
+import slugConverter from '../../util/slug';
+
 function Doc({ meta, title, description = '', sections, ...props }) {
-  const { t } = useTranslation('common');
   const docNav = (
     <ul className='doc-nav-wrap' key='docNav'>
-      <li className='doc-nav-header'>{t('On this page')}</li>
+      <li className='doc-nav-header'>On this page</li>
       {sections.map(({ title: { raw, transformed } }) => {
         const sectionSlug = slugConverter(raw);
         return (
@@ -33,7 +32,7 @@ function Doc({ meta, title, description = '', sections, ...props }) {
     >
       <div className='mx-auto max-w-5xl flex-grow p-4 md:!px-16 lg:px-8 xl:px-16'>
         <div className='!hidden md:!block lg:!hidden'>{docNav}</div>
-        <article title={t(`doc-for`, { title })}>
+        <article title='Doc for'>
           <h1 className='capitalize md:!pt-12'>{title}</h1>
           <p className='pb-6 text-lg md:!text-xl'>{description}</p>
           <div className='mx-auto w-full flex-grow' key='content'></div>

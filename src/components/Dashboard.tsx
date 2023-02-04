@@ -1,10 +1,10 @@
 import { useMotionTemplate, useMotionValue } from 'framer-motion';
 import { motion } from 'framer-motion';
-import { useTranslation } from 'next-i18next';
+
+import clsxm from '@/lib/clsxm';
 
 import { DynamicImage } from '@/components/framework/DynamicImage';
 import { GridPattern } from '@/components/framework/GridPattern';
-import clsxm from '@/lib/clsxm';
 
 import UnstyledLink from './framework/UnstyledLink';
 
@@ -81,8 +81,6 @@ const patterns = [
 ];
 
 const ImageCard = ({ name, src, count = 0, patternIndex, ...props }) => {
-  const { t } = useTranslation(['navbar']);
-
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -100,8 +98,8 @@ const ImageCard = ({ name, src, count = 0, patternIndex, ...props }) => {
   return (
     <UnstyledLink
       className={clsxm(
-        'hover:ring-1 ring-inset ring-gray-900/7.5 hover:ring-gray-900/10 dark:ring-white/10 dark:hover:ring-white/20',
-        'focus-ring overflow-hidden rounded-xl group duration-150 bg-gray-50 dark:bg-gray-900/20'
+        'ring-gray-900/7.5 ring-inset hover:ring-1 hover:ring-gray-900/10 dark:ring-white/10 dark:hover:ring-white/20',
+        'focus-ring group overflow-hidden rounded-xl bg-gray-50 duration-150 dark:bg-gray-900/20'
       )}
       href={`/docs/${props?.href ? props.href : src}`}
     >
@@ -123,7 +121,7 @@ const ImageCard = ({ name, src, count = 0, patternIndex, ...props }) => {
           </span>
           {count > 0 && (
             <span className='text-right text-xs font-medium text-gray-500 rtl:text-left dark:text-gray-400'>
-              {count} {t(`Components`)}
+              {count} Components
             </span>
           )}
         </div>
@@ -136,7 +134,7 @@ const ImageCard = ({ name, src, count = 0, patternIndex, ...props }) => {
           width={350}
           height={200}
           className={clsxm(
-            'my-0 z-[1] relative',
+            'relative z-[1] my-0',
             '[mask-image:url("/assets/dashboard/mask.svg")] [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center] [mask-mode:alpha]'
           )}
         />
@@ -166,60 +164,58 @@ const GridItems = ({
 );
 
 const Components = () => {
-  const { t } = useTranslation(['navbar']);
   const components = [
     {
-      name: t(`Accordion`),
+      name: 'Accordion',
       src: 'accordion',
     },
     {
-      name: t(`Button`),
+      name: 'Button',
       src: 'button',
     },
     {
-      name: t(`Menu`),
+      name: 'Menu',
       src: 'menu',
     },
     {
-      name: t(`Tab`),
+      name: 'Tab',
       src: 'tab',
     },
-    // {
-    //   name: t(`Toast`),
-    //   src: 'toast',
-    // },
-    // {
-    //   name: t(`Dialog (Modal)`),
-    //   src: 'dialog',
-    // },
+    {
+      name: 'Toast',
+      src: 'toast',
+    },
+    {
+      name: 'Dialog (Modal)',
+      src: 'dialog',
+    },
   ];
   return <GridWrap list={components} />;
 };
 const Forms = () => {
-  const { t } = useTranslation(['navbar']);
   const components = [
     {
-      name: t(`Validation`),
+      name: 'Validation',
       src: 'form-validation',
       href: 'form/validation',
     },
     {
-      name: t(`Switch`),
+      name: 'Switch',
       src: 'form-switch',
       href: 'form/switch',
     },
     {
-      name: t(`Input`),
+      name: 'Input',
       src: 'form-input',
       href: 'form/input',
     },
     {
-      name: t(`Select`),
+      name: 'Select',
       src: 'form-select',
       href: 'form/select',
     },
     {
-      name: t(`ComboBox`),
+      name: 'ComboBox',
       src: 'form-combobox',
       href: 'form/combobox',
     },
@@ -228,11 +224,17 @@ const Forms = () => {
 };
 
 const UI = () => {
-  const { t } = useTranslation(['navbar']);
   const uis = [
     {
-      name: t(`Card`),
-      src: 'card',
+      name: 'Card',
+      src: 'ui-card',
+      href: 'ui/card',
+      count: 3,
+    },
+    {
+      name: 'List',
+      src: 'ui-card',
+      href: 'ui/list',
       count: 3,
     },
   ];
@@ -240,15 +242,14 @@ const UI = () => {
 };
 
 const Plugins = () => {
-  const { t } = useTranslation(['navbar']);
   const plugins = [
     {
-      name: t(`Button`),
+      name: 'Button',
       src: 'plugin-button',
       href: 'plugin/button',
     },
     /* {
-      name: t(`Tooltip`),
+      name: "Tooltip",
       src: 'plugin-tooltip',
       href: 'plugin/tooltip',
     }, */
