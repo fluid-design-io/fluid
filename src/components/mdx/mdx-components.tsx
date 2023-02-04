@@ -77,10 +77,12 @@ const createHeaderLink = (
   Tag: `h${2 | 3 | 4 | 5 | 6}`,
   context: { index: number }
 ) =>
-  function HeaderLink({
-    children,
-    ...props
-  }: ComponentProps<'h2'>): ReactElement {
+  (function HeaderLink(
+    {
+      children,
+      ...props
+    }: ComponentProps<'h2'>
+  ): ReactElement {
     setActiveAnchor = useSetActiveAnchor();
     const obRef = useRef<HTMLSpanElement>(null);
     const id = Slugger.slug(children);
@@ -133,7 +135,7 @@ const createHeaderLink = (
         </div>
       </Tag>
     );
-  };
+  });
 
 const A = ({ href = '', ...props }) => (
   <Anchor
