@@ -18,7 +18,7 @@ export default async function handler(req, res) {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
         },
-        body: `response=${captcha}&secret=${process.env.HCAPTCHA_SECRET_KEY}`,
+        body: `response=${captcha}&secret=${process.env.NEXT_PUBLIC_HCAPTCHA_SECRET_KEY}`,
         method: 'POST',
       });
       const captchaValidation = await response.json();

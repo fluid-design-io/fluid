@@ -1,6 +1,6 @@
 import sendgrid from '@sendgrid/mail';
 
-sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
+sendgrid.setApiKey(process.env.NEXT_PUBLIC_SENDGRID_API_KEY);
 /* template ID: d-3b17bc146fd44a87a0d402e7d1095dba */
 
 async function sendEmail(req, res) {
