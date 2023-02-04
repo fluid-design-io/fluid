@@ -63,7 +63,7 @@ const handle = async (req: NextRequest) => {
                 tags.map((tag) => (
                   <div
                     key={tag}
-                    tw='text-lg flex font-semibold bg-black/30 text-slate-100 px-4 py-1.5 rounded-full mr-4 mb-2'
+                    tw='text-xl flex font-semibold bg-black/30 text-slate-100 px-4 py-1.5 rounded-full mr-4 mb-2 capitalize'
                   >
                     {tag}
                   </div>

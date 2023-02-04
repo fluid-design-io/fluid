@@ -2,7 +2,6 @@ import { Popover } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/24/solid';
 import cn from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useTranslation } from 'next-i18next';
 import React, {
   Fragment,
   ReactElement,
@@ -124,7 +123,6 @@ const ListItem = ({
 };
 
 const Desktop = () => {
-  const { t } = useTranslation('common');
   const anchors = useActiveAnchor();
 
   const headings = Object.keys(anchors).map((anchor) => ({
@@ -141,10 +139,8 @@ const Desktop = () => {
       <div className='fluid-toc order-last hidden flex-shrink-0 pr-4 text-sm xl:block xl:w-44 2xl:w-64'>
         <div className='fluid-toc-content sticky top-16 -mr-4 max-h-[calc(100vh-4rem-env(safe-area-inset-bottom))] overflow-y-auto pr-4 pt-8'>
           {hasHeadings && (
-            <ul className='space-y-2 max-w-[11rem] overflow-x-auto'>
-              <p className='mb-4 font-semibold tracking-tight'>
-                {t(`On this page`)}
-              </p>
+            <ul className='max-w-[11rem] space-y-2 overflow-x-auto'>
+              <p className='mb-4 font-semibold tracking-tight'>On this page</p>
               {headings.map((heading) => {
                 return (
                   <OrdedListItem
@@ -165,7 +161,6 @@ const Desktop = () => {
 };
 
 const Mobile = () => {
-  const { t } = useTranslation('common');
   const anchors = useActiveAnchor();
   const [showMoblieDoc, setShowMoblieDoc] = useState(false);
   const [hasScrolled] = useScrolled();
@@ -185,7 +180,7 @@ const Mobile = () => {
     })) || {
     index: 0,
     depth: 1,
-    text: t('On this page'),
+    text: 'On this page',
   };
 
   if (headings.length === 0) {
@@ -212,7 +207,7 @@ const Mobile = () => {
               bounce: 0,
             }}
           >
-            <span className='sr-only'>{t(`Expand section list`)}</span>
+            <span className='sr-only'>Expand section list</span>
             <p className='relative min-w-[6rem] text-left rtl:text-right'>
               <span
                 className={clsxm(
@@ -228,7 +223,7 @@ const Mobile = () => {
                   'absolute left-0 top-0 bottom-0 w-full text-gray-800 transition-opacity delay-300 dark:text-gray-50'
                 )}
               >
-                {t(`On this page`)}
+                On this page
               </span>
             </p>
             <motion.span
@@ -248,7 +243,7 @@ const Mobile = () => {
               <Popover.Panel
                 animate={{ height: 'auto' }}
                 as={motion.div}
-                className='doc-nav-expand overflow-x-hidden overflow-y-auto max-h-[calc(100vh-6rem)] px-4 contrast-more:font-semibold sm:px-6 lg:px-14'
+                className='doc-nav-expand max-h-[calc(100vh-6rem)] overflow-y-auto overflow-x-hidden px-4 contrast-more:font-semibold sm:px-6 lg:px-14'
                 exit={{ height: 0 }}
                 initial={{ height: 0 }}
                 static

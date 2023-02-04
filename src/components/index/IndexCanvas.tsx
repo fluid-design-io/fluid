@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react';
 
-import { useTheme } from '@/lib/ThemeContext';
 import clsxm from '@/lib/clsxm';
+
+import { useTheme } from '@/store/useTheme';
 
 function IndexCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -60,19 +61,19 @@ function IndexCanvas() {
     return () => {
       window.cancelAnimationFrame(animationFrameId);
     };
-  }, [draw]);
+  }, [draw, mode]);
   return (
     <>
       <canvas
         id='canv'
         width='36'
         height='36'
-        className='absolute inset-x-0 top-0 w-full h-full'
+        className='absolute inset-x-0 top-0 h-full w-full'
         ref={canvasRef}
       />
       <div
         className={clsxm([
-          'absolute w-full h-1/4 bottom-0 inset-x-0',
+          'absolute inset-x-0 bottom-0 h-1/4 w-full',
           '[mask-image:linear-gradient(0deg,rgba(255,255,255,1)_15%,rgba(255,255,255,0))]',
           'bg-gray-100 dark:bg-gray-800 contrast:dark:bg-[rgb(22,23,30)]',
         ])}

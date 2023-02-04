@@ -1,11 +1,11 @@
 import { Button } from '@fluid-design/fluid-ui';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
-import { Trans, useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+
+import { featuresList } from '@/lib/index/data';
 
 import { FluidDesign } from '@/components/FluidDesign';
 import { Page } from '@/components/framework';
@@ -13,20 +13,8 @@ import UnstyledLink from '@/components/framework/UnstyledLink';
 import IndexCanvas from '@/components/index/IndexCanvas';
 import IndexDemoWindow from '@/components/index/IndexDemoWindow';
 import FeatureCard from '@/components/ui/FeatureCard';
-import { featuresList } from '@/lib/index/data';
-
-export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common', 'index', 'navbar'])),
-      // Will be passed to the page component as props
-    },
-  };
-}
 
 export default function Home() {
-  const { t } = useTranslation();
-
   const meta = {
     title: 'Fluid Design',
     description:
@@ -42,23 +30,17 @@ export default function Home() {
             Fluid Design
           </h5>
           <h1 className='w-4/5 max-w-4xl px-4 pt-2 text-3xl font-bold dark:text-gray-100 md:!mx-auto md:!w-auto md:!text-center md:!text-6xl'>
-            {t('slogan')}
+            Modern UI components with smooth transitions.
           </h1>
           <p className='mx-auto mt-6 max-w-2xl px-4 text-gray-500 dark:text-gray-300 md:!text-center md:!text-xl'>
-            <Trans
-              i18nKey='site-desc'
-              ns='common'
-              components={{
-                span: (
-                  <span className='font-mono font-medium text-gray-900 dark:text-gray-50' />
-                ),
-              }}
-            />
+            Beautiful React UI that are <span>responsive</span>, supports
+            features like <span>dark mode</span> and <span>a11y</span> with
+            elegant transitions.
           </p>
-          <div className='w-full flex justify-center mt-8'>
+          <div className='mt-8 flex w-full justify-center'>
             <Button
               weight='outline'
-              label={t('get-started')}
+              label='Get Started'
               iconEnd={ArrowRightIcon}
               as={UnstyledLink}
               href='/docs/'
@@ -68,19 +50,18 @@ export default function Home() {
         </div>
       </section>
       <section
-        className='mx-auto mt-16 max-w-7xl text-center sm:px-8 mb-8 lg:mb-24'
+        className='mx-auto mt-16 mb-8 max-w-7xl text-center sm:px-8 lg:mb-24'
         id='features'
       >
-        <h1 className='not-prose'>
-          <Trans
-            components={{ br: <br className='block sm:!hidden' /> }}
-            i18nKey='looks-right-isnt-enough.title'
-            ns='index'
-          />
-        </h1>
+        <h1 className='not-prose'>Looks right' isn't enough.</h1>
         <blockquote className='px-4 sm:px-0'>
           <p className='mx-auto mt-6 max-w-2xl px-4 lg:text-lg'>
-            {t('looks-right-isnt-enough.body', { ns: 'index' })}
+            Many UI libraries and component designs often only focus on the
+            design and bare functionalities. They cover the majority of users'
+            needs. However, some component designs may not suit users who rely
+            on accessibility features like screen reader, high-contrast, and
+            reduce-motion. Fluid Design aims to create components that works for
+            all users.
           </p>
         </blockquote>
         <div className='mt-12 sm:mt-16 lg:mt-20'>

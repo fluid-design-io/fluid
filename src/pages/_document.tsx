@@ -38,7 +38,7 @@ const modeScript = `
 class MyDocument extends Document {
   render() {
     return (
-      <Html dir='ltr' lang='en-US'>
+      <Html dir='ltr' lang='en'>
         <Head>
           <link
             as='font'

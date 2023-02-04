@@ -1,17 +1,6 @@
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-
 import { SiteMeta } from '@/interfaces/framwork';
 
 import { Page } from '../components/framework';
-
-export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common', 'index', 'navbar'])),
-      // Will be passed to the page component as props
-    },
-  };
-}
 
 export default function ContactPage() {
   const meta: SiteMeta = {

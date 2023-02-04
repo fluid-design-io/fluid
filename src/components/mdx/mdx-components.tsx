@@ -1,6 +1,5 @@
 /* Source: https://github.com/shuding/nextra/blob/core/packages/nextra-theme-docs/src/mdx-components.tsx */
 import { HashtagIcon } from '@heroicons/react/24/outline';
-import cn from 'clsx';
 import Slugger from 'github-slugger';
 import { useRouter } from 'next/router';
 import React, { ComponentProps, ReactElement, useEffect, useRef } from 'react';
@@ -121,7 +120,7 @@ const createHeaderLink = (
             <a
               aria-label={`${`Click to copy section hashtag`}`}
               aria-live='assertive'
-              className='anchor anchor-link hash-link hash absolute top-28 bottom-0 right-0 ml-0 lg:mt-0.5 flex items-center border-0 opacity-0 focus:opacity-100 group-hover:opacity-100 md:top-16 lg:right-auto lg:-ml-9 xl:-ml-10 pointer-touch:opacity-80'
+              className='anchor anchor-link hash-link hash absolute top-28 bottom-0 right-0 ml-0 flex items-center border-0 opacity-0 focus:opacity-100 group-hover:opacity-100 md:top-16 lg:right-auto lg:mt-0.5 lg:-ml-9 xl:-ml-10 pointer-touch:opacity-80'
               href={`#${id}`}
               title={`Direct link to heading ${id}`}
             >
@@ -144,13 +143,15 @@ const A = ({ href = '', ...props }) => (
     {...props}
   />
 );
-export const getComponents = ({
-  isRawLayout,
-  components,
-}: {
-  isRawLayout?: boolean;
-  components?: { [key: string]: any };
-}) => {
+export const getComponents = (
+  {
+    isRawLayout = false,
+  }: {
+    isRawLayout?: boolean;
+  } = {
+    isRawLayout: false,
+  }
+) => {
   if (isRawLayout) {
     return { a: A };
   }
@@ -196,7 +197,8 @@ export const getComponents = ({
     ),
     tr: (props: ComponentProps<'tr'>) => (
       <tr
-        className={''
+        className={
+          ''
           // 'm-0 border-t border-gray-300 p-0 dark:border-gray-600'
         }
         {...props}
@@ -212,7 +214,7 @@ export const getComponents = ({
           className={clsxm(
             isDescription && 'w-2/3',
             isPropOrDefault && 'w-1/6',
-            'sticky top-0 z-10 border-b border-primar-400 dark:border-gray-500 bg-gray-100 dark:bg-gray-800 bg-opacity-75 backdrop-blur',
+            'border-primar-400 sticky top-0 z-10 border-b bg-gray-100 bg-opacity-75 backdrop-blur dark:border-gray-500 dark:bg-gray-800',
             'py-3.5 px-3 text-left text-sm font-semibold text-gray-900 first:pl-4 first:pr-3 dark:text-gray-50 sm:first:pl-6 md:first:pl-0'
           )}
           {...props}
@@ -228,6 +230,5 @@ export const getComponents = ({
     code: (props: ComponentProps<'code'>) => (
       <code className='whitespace-nowrap dark:text-gray-50' {...props} />
     ),
-    ...components,
   };
 };

@@ -13,7 +13,7 @@ import React, {
   useState,
 } from 'react';
 
-import { useTheme } from '@/lib/ThemeContext';
+import { useTheme } from '@/store/useTheme';
 
 import clsxm from './clsxm';
 

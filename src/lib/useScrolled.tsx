@@ -18,12 +18,12 @@ export const useScrolled = (): UseScrolled => {
   const velocity = useVelocity(scrollY);
   /* https://johnchourajr.medium.com/show-hide-on-scroll-with-framer-motion-b6f937c2d662 */
   function update() {
-    // If the velocity is greater than 10801, it's considered a intentional scroll
+    // If the velocity is greater than 32000, it's considered a intentional scroll
     // Then we set the scrolled state based on direction of scroll
     const sy = scrollY.get();
     const syp = scrollY.getPrevious();
-    if (Math.abs(velocity.getVelocity()) > 10801) {
-      if (sy < syp) {
+    if (Math.abs(velocity.getVelocity()) > 32000) {
+      if ((sy < syp && sy < 100) || syp - sy > 20) {
         setScrolled(false);
       } else if (sy > 100 && sy > syp) {
         setScrolled(true);
@@ -33,7 +33,7 @@ export const useScrolled = (): UseScrolled => {
 
   /** update the onChange callback to call for `update()` **/
   useEffect(() => {
-    return scrollY.onChange(() => update());
+    return scrollY.on('change', update);
   });
   return [scrolled, scrollY, velocity];
 };
