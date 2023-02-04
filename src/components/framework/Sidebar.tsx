@@ -1,27 +1,20 @@
-import { Button, Menu } from '@fluid-design/fluid-ui';
+import { Button } from '@fluid-design/fluid-ui';
 import { Dialog, Transition } from '@headlessui/react';
 import { Bars2Icon } from '@heroicons/react/24/outline';
-import {
-  BookOpenIcon,
-  ChevronUpIcon,
-  GlobeAmericasIcon,
-  GlobeAsiaAustraliaIcon,
-  Squares2X2Icon,
-} from '@heroicons/react/24/solid';
+import { BookOpenIcon, Squares2X2Icon } from '@heroicons/react/24/solid';
 import { motion } from 'framer-motion';
-import { i18n, useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
-import { Fragment, createContext, useContext, useRef } from 'react';
+import { createContext, Fragment, useContext } from 'react';
 import { MdMouse } from 'react-icons/md';
 
-import { ThemeSwitch } from '@/components/ThemeSwitch';
-import { useMobileNavigationStore } from '@/components/framework/MobileNavigation';
 import clsxm from '@/lib/clsxm';
-import { languages } from '@/lib/languages';
 
-import packageInfo from '../../../package.json';
-import AppLogo from '../ui/AppLogo';
+import { useMobileNavigationStore } from '@/components/framework/MobileNavigation';
+import { ThemeSwitch } from '@/components/ThemeSwitch';
+
 import UnstyledLink from './UnstyledLink';
+import AppLogo from '../ui/AppLogo';
+import packageInfo from '../../../package.json';
 
 const navigation = [
   { name: 'Dashboard', href: 'dashboard', icon: Squares2X2Icon },
@@ -55,12 +48,12 @@ const secondaryNavigation = [
       // { name: "Mask", href: "mask", isDone: false },
       { name: 'Menu', href: 'menu', isDone: true },
       // { name: 'Popover', href: 'popover', isDone: false },
-      // { name: "Dialog (Modal)", href: "dialog", isDone: false },
+      { name: 'Dialog (Modal)', href: 'dialog', isDone: false },
       // { name: "Navbar", href: "navbar", isDone: false },
       // { name: "Pagination", href: "pagination", isDone: false },
       // { name: "Progress", href: "progress", isDone: false },
       { name: 'Tab', href: 'tab', isDone: true },
-      // { name: 'Toast', href: 'toast', isDone: false },
+      { name: 'Toast', href: 'toast', isDone: false },
       // { name: "Table", href: "table", isDone: false },
       // { name: "Tooltip", href: "tooltip", isDone: false },
     ],
@@ -79,9 +72,9 @@ const secondaryNavigation = [
   {
     groupName: 'UI',
     groupList: [
-      { name: 'Card', href: 'card', isDone: true },
+      { name: 'Card', href: 'ui/card', isDone: true },
       // { name: 'Empty State', href: 'empty-state', isDone: false },
-      { name: 'Image', href: 'image', isDone: false },
+      { name: 'List', href: 'ui/list', isDone: true },
     ],
   },
 ];
@@ -91,8 +84,8 @@ const bgClassName =
 
 export const SidebarHeader = () => {
   return (
-    <div className='sticky top-0 z-10 mx-2.5 pl-3.5 pt-4 flex items-center justify-between space-x-2 bg-gray-50/80 pb-3 backdrop-blur-md backdrop-filter dark:bg-gray-900/80 lg:mx-4'>
-      <div className='flex justify-start items-center gap-2'>
+    <div className='sticky top-0 z-10 mx-2.5 flex items-center justify-between space-x-2 bg-gray-50/80 pl-3.5 pt-4 pb-3 backdrop-blur-md backdrop-filter dark:bg-gray-900/80 lg:mx-4'>
+      <div className='flex items-center justify-start gap-2'>
         <AppLogo />
         <UnstyledLink
           className='-mt-[0.125rem] font-rounded font-bold text-gray-700 dark:text-gray-200 md:!text-[1.175rem]'
@@ -113,7 +106,6 @@ export const SidebarNavigation = ({ className = '' }) => {
   const router = useRouter();
   const { pathname, asPath, query } = router;
   const activeTab = pathname.split('docs/')[1];
-  const { t } = useTranslation();
 
   return (
     <Fragment>
@@ -126,7 +118,7 @@ export const SidebarNavigation = ({ className = '' }) => {
               className={clsxm(
                 activeTab === href &&
                   '!bg-gray-100 !text-gray-900 contrast-more:border contrast-more:border-gray-700 dark:!bg-gray-700 dark:!text-gray-100 dark:contrast-more:!border-gray-200',
-                'btn-clear-gray-600 dark:btn-clear-gray-300 group flex text-sm font-medium transition justify-start'
+                'group flex justify-start text-sm font-medium transition btn-clear-gray-600 dark:btn-clear-gray-300'
               )}
             >
               <div
@@ -143,7 +135,7 @@ export const SidebarNavigation = ({ className = '' }) => {
                 {activeTab === href && (
                   <span className='sr-only'>Currently selected.</span>
                 )}
-                {t(name, { ns: 'navbar' })}
+                {name}
               </div>
             </Button>
           </div>
@@ -157,7 +149,7 @@ export const SidebarNavigation = ({ className = '' }) => {
               className='select-none px-3 text-xs font-semibold uppercase tracking-wider text-gray-500 contrast-more:text-gray-700 dark:text-gray-400 dark:contrast-more:text-slate-100'
               id={`${groupName}-headline`}
             >
-              {t(groupName, { ns: 'navbar' })}
+              {groupName}
             </h3>
             <div
               aria-labelledby={`${groupName}-headline`}
@@ -176,11 +168,9 @@ export const SidebarNavigation = ({ className = '' }) => {
                       : `text-gray-700 contrast-more:text-gray-900 dark:text-gray-300/80 dark:contrast-more:text-gray-100`
                   }`}
                   >
-                    {t(name)}
+                    {name}
                     {!isDone && (
-                      <span className='pl-1 text-[0.65rem]'>
-                        ({t('in-progress', { ns: 'navbar' })})
-                      </span>
+                      <span className='pl-1 text-[0.65rem]'>In Progress</span>
                     )}
                   </p>
                 ) : (
@@ -189,17 +179,15 @@ export const SidebarNavigation = ({ className = '' }) => {
                     href={`/docs/${href}`}
                     key={`${groupName}.${name}`}
                     className={clsxm([
-                      'btn-clear-gray-600 dark:btn-clear-gray-300 px-3 py-2 text-sm font-medium justify-start',
+                      'justify-start px-3 py-2 text-sm font-medium btn-clear-gray-600 dark:btn-clear-gray-300',
                       activeTab === href &&
                         `!bg-gray-100 !text-gray-900 contrast-more:border contrast-more:border-gray-700 dark:!bg-gray-700 dark:!text-gray-100 dark:contrast-more:!border-gray-200`,
                     ])}
                   >
                     <span className='flex items-center truncate'>
-                      {t(name, { ns: 'navbar' })}
+                      {name}
                       {!isDone && (
-                        <span className='pl-1 text-[0.65rem]'>
-                          ({t('in-progress')})
-                        </span>
+                        <span className='pl-1 text-[0.65rem]'>In Progress</span>
                       )}
                     </span>
                   </Button>
@@ -210,36 +198,6 @@ export const SidebarNavigation = ({ className = '' }) => {
         ))}
         <div className='flex-grow' />
       </nav>
-      <div
-        className={clsxm(
-          'sticky bottom-0 px-4 pb-[calc(1rem+env(safe-area-inset-bottom))] w-full flex justify-center',
-          bgClassName
-        )}
-      >
-        <Menu
-          buttonClassName='w-full btn-clear-gray dark:btn-clear-gray-300'
-          className='w-full'
-          iconEnd={ChevronUpIcon}
-          iconEndPosition='between'
-          label={t(`Language`, { ns: 'navbar' })}
-          menuPositionY='top'
-          size='sm'
-          iconStart={
-            i18n?.language === 'en' ? GlobeAmericasIcon : GlobeAsiaAustraliaIcon
-          }
-          iconClassName='w-4 h-4'
-          menus={languages.map(({ code, country_code, name }) => ({
-            label: name,
-            iconStart: <span className={`fi fi-${country_code} rounded-sm`} />,
-            disabled: code === i18n?.language,
-            sr: t('switch-language', { ns: 'navbar', name }),
-            onClick: () =>
-              router.push({ pathname, query }, asPath, {
-                locale: code,
-              }),
-          }))}
-        />
-      </div>
     </Fragment>
   );
 };
@@ -280,7 +238,6 @@ export const useIsInsideMobileNavigation = () => {
 export const MobileSidebar = () => {
   const isInsideMobileNavigation = useIsInsideMobileNavigation();
   const { isOpen, toggle, close } = useMobileNavigationStore();
-  const { t } = useTranslation('navbar');
   return (
     <IsInsideMobileNavigationContext.Provider value={true}>
       <Button
@@ -289,9 +246,9 @@ export const MobileSidebar = () => {
         weight='clear'
         onClick={toggle}
         className='-mr-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gray-500 contrast-more:text-gray-900 dark:hover:bg-gray-800 dark:contrast-more:text-gray-50'
-        sr={t('Open Menu')}
+        sr='Open sidebar'
       >
-        <Bars2Icon aria-hidden='true' className='h-6 w-6 -mr-0.5' />
+        <Bars2Icon aria-hidden='true' className='-mr-0.5 h-6 w-6' />
       </Button>
       {!isInsideMobileNavigation && (
         <Transition show={isOpen} as={Fragment}>
