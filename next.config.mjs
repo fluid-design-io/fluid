@@ -3,16 +3,10 @@ import createMDX from "@next/mdx";
 import remarkGfm from "remark-gfm";
 import theme from "shiki/themes/github-dark.json" assert {type: "json"};
 
-import i18n from "./next-i18next.config.js";
-
 
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    dirs: ['src'],
-  },
-  i18n: i18n.i18n,
   async redirects() {
     return [
       {
@@ -28,17 +22,6 @@ const nextConfig = {
   reactStrictMode: false,
   trailingSlash: true,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  webpack: (config) => {
-    config.resolve = {
-      ...config.resolve,
-      fallback: {
-        "fs": false,
-        "path": false,
-        "os": false,
-      }
-    }
-    return config
-  },
   experimental: {
     scrollRestoration: true,
   },
@@ -47,9 +30,12 @@ const nextConfig = {
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [[remarkGfm], [remarkCodeHike, { theme }]],
+    remarkPlugins: [[remarkGfm], [remarkCodeHike, {
+      theme,
+      showCopyButton: true,
+    }]],
     rehypePlugins: [],
-    providerImportSource: "next-mdx-remote",
+    providerImportSource: "@mdx-js/react",
   },
 })
 
