@@ -6,7 +6,7 @@ module.exports = {
   darkMode: 'class',
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@fluid-design/fluid-ui/src/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@fluid-design/fluid-ui/dist/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     keyframes: {
@@ -95,7 +95,7 @@ module.exports = {
     require('@tailwindcss/line-clamp'),
     require('@tailwindcss/typography'),
     require('@headlessui/tailwindcss'),
-    require('@fluid-design/fluid-ui/src/plugin/core'),
-    require('@fluid-design/fluid-ui/src/plugin/button'),
+    require('@fluid-design/fluid-ui/dist/plugin/core'),
+    require('@fluid-design/fluid-ui/dist/plugin/button'),
   ],
 };

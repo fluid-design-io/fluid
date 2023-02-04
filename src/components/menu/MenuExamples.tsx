@@ -11,6 +11,7 @@ import {
   VideoCameraIcon,
 } from '@heroicons/react/24/outline';
 import { PlusCircleIcon } from '@heroicons/react/24/solid';
+import Image from 'next/image';
 import { Fragment, useState } from 'react';
 
 import clsxm from '@/lib/clsxm';
@@ -38,14 +39,14 @@ const DefaultMenu = ({ className = '' }) => {
   };
   const CustomIcon = () => (
     <div className='relative'>
-      <div className='absolute -top-0.5 -right-0.5 w-1.5 h-1.5 bg-red-500 rounded-full' />
-      <BellIcon className='w-4 h-4' />
+      <div className='absolute -top-0.5 -right-0.5 h-1.5 w-1.5 rounded-full bg-red-500' />
+      <BellIcon className='h-4 w-4' />
     </div>
   );
   return (
     <CodeFrameComponentWrap
       className={clsxm(
-        'flex flex-col justify-between items-end h-96 w-full sm:w-2/3 lg:w-1/2 min-w-[16rem]',
+        'flex h-96 w-full min-w-[16rem] flex-col items-end justify-between sm:w-2/3 lg:w-1/2',
         className
       )}
     >
@@ -109,7 +110,7 @@ const DefaultMenu = ({ className = '' }) => {
           },
         ]}
       />
-      <div className='flex justify-between items-center w-full'>
+      <div className='flex w-full items-center justify-between'>
         <Menu
           className='inline-block'
           color='indigo'
@@ -122,11 +123,13 @@ const DefaultMenu = ({ className = '' }) => {
           weight='light'
         >
           <Fragment>
-            <div className='px-3.5 py-2 flex justify-center items-center flex-col gap-2'>
-              <img
+            <div className='flex flex-col items-center justify-center gap-2 px-3.5 py-2'>
+              <Image
                 alt='avatar'
-                className='w-12 h-12 rounded-full'
+                className='h-12 w-12 rounded-full'
                 src={avatarImage}
+                width={48}
+                height={48}
               />
               <p>Custom Menu</p>
             </div>
@@ -145,7 +148,7 @@ const DefaultMenu = ({ className = '' }) => {
               }}
             >
               <span>Edit</span>
-              <PencilIcon className='w-4 h-4' />
+              <PencilIcon className='h-4 w-4' />
             </Menu.Item>
             <Menu.Item
               className='justify-between'
@@ -153,7 +156,7 @@ const DefaultMenu = ({ className = '' }) => {
               role='destructive'
             >
               <span>Delete</span>
-              <TrashIcon className='w-4 h-4' />
+              <TrashIcon className='h-4 w-4' />
             </Menu.Item>
           </Fragment>
         </Menu>

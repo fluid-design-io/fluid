@@ -396,7 +396,7 @@ function SearchDialog({ open, setOpen, className }) {
                   />
                   <div
                     ref={panelRef}
-                    className='dark:bg-white/2.5 border-t border-gray-200 bg-white empty:hidden dark:border-gray-100/5'
+                    className='dark:bg-white/2.5 border-t border-gray-200 bg-white empty:hidden dark:border-gray-100/5 dark:bg-gray-900'
                     {...autocomplete.getPanelProps({})}
                   >
                     {autocompleteState.isOpen && (
@@ -465,7 +465,7 @@ export function Search({ sidebar = true }: { sidebar?: boolean }) {
     >
       <button
         type='button'
-        className='hidden h-8 w-full items-center gap-2 rounded-full bg-white pl-2 pr-3 text-sm text-gray-500 ring-1 ring-gray-900/10 transition hover:ring-gray-900/20 dark:bg-transparent dark:text-gray-400 dark:ring-inset dark:ring-white/10 dark:hover:bg-white/5 dark:hover:ring-white/20 lg:flex focus:[&:not(:focus-visible)]:outline-none'
+        className='hidden h-8 w-full items-center gap-2 rounded-full bg-transparent pl-2 pr-3 text-sm text-gray-500 ring-1 ring-gray-900/10 transition hover:ring-gray-900/20 dark:bg-transparent dark:text-gray-400 dark:ring-inset dark:ring-white/10 dark:hover:bg-white/5 dark:hover:ring-white/20 lg:flex focus:[&:not(:focus-visible)]:outline-none'
         {...buttonProps}
       >
         <SearchIcon className='h-5 w-5 stroke-current' />
