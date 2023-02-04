@@ -32,7 +32,7 @@ function IndexDemoWindow() {
         {item.category}
       </li>
       {item.lists.map((list) => (
-        <li key={`body.${list.name}`}>
+        <li key={`body.window.${list.name}`}>
           <button
             className={`${selectedStyle(
               list.name

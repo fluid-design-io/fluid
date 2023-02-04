@@ -1,15 +1,14 @@
 import { motion } from 'framer-motion';
 
+import clsxm from '@/lib/clsxm';
+
 import { AccordionExamples, ButtonExamples, MenuExamples } from '@/components';
 import { InputExamples } from '@/components/form/InputExamples';
 import { SwitchExamples } from '@/components/form/SwitchExamples';
 import IndexCard from '@/components/instance/IndexCard';
-import IndexEnterExit from '@/components/instance/IndexEnterExit';
 import IndexList from '@/components/instance/IndexList';
-import IndexSharedLayout from '@/components/instance/IndexSharedLayout';
-import IndexSoft from '@/components/instance/IndexSoft';
+
 import { FeatureCardProps } from '@/interfaces/featureCard';
-import clsxm from '@/lib/clsxm';
 
 import animationDark from '~/assets/index/animation-dark.png';
 import animationLight from '~/assets/index/animation-light.png';
@@ -36,7 +35,7 @@ const Wrap = ({ children, key, className = '' }) => (
     initial={{ y: 10, opacity: 0 }}
     transition={{ type: 'spring', bounce: 0, duration: 0.3 }}
     className={clsxm(
-      'w-full h-full flex-1 grid place-items-center p-4',
+      'grid h-full w-full flex-1 place-items-center p-4',
       className
     )}
   >
@@ -100,11 +99,19 @@ export const indexElements = [
     lists: [
       {
         name: 'Card',
-        component: <IndexCard key='div.card' />,
+        component: (
+          <Wrap key='div.card'>
+            <IndexCard />
+          </Wrap>
+        ),
       },
       {
         name: 'List',
-        component: <IndexList key='div.list' />,
+        component: (
+          <Wrap key='div.list'>
+            <IndexList />
+          </Wrap>
+        ),
       },
     ],
   },

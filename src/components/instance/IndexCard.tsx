@@ -9,26 +9,27 @@ function IndexCard() {
   return (
     <motion.div
       animate={{ y: 0, opacity: 1 }}
-      className='w-5/6 overflow-hidden rounded-lg shadow-lg md:!w-1/2 bg-gray-50 dark:bg-gray-800 shadow-gray-900/10 dark:shadow-gray-900/30 component'
+      className='component w-5/6 overflow-hidden rounded-lg bg-gray-50 shadow-lg shadow-gray-900/10 dark:bg-gray-800 dark:shadow-gray-900/30 md:!w-1/2'
       exit={{ y: -10, opacity: 0 }}
       initial={{ y: 10, opacity: 0 }}
       transition={{ type: 'just' }}
     >
       <div>
-        <div className='relative overflow-hidden aspect-video'>
+        <div className='relative aspect-video overflow-hidden'>
           <Image
             alt='landscape of a mountain at the background with clear sky'
-            layout='fill'
+            fill
             src={bg}
+            placeholder='blur'
           />
         </div>
         <div className='p-2.5'>
           <div className='flex-grow'>
-            <h2 className='text-xs text-gray-500 dark:text-gray-500 contrast-more:text-gray-700 dark:contrast-more:text-gray-300'>
+            <h2 className='text-xs text-gray-500 contrast-more:text-gray-700 dark:text-gray-500 dark:contrast-more:text-gray-300'>
               Subtitle
             </h2>
             <h1 className='font-semibold dark:text-gray-100'>Card Title</h1>
-            <p className='pt-1.5 pb-2 text-sm text-gray-600 dark:text-gray-300 leading-tight'>
+            <p className='pt-1.5 pb-2 text-sm leading-tight text-gray-600 dark:text-gray-300'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor.
             </p>
@@ -38,7 +39,7 @@ function IndexCard() {
               size='xs'
               weight='light'
               color='cyan'
-              className='uppercase font-semibold'
+              className='font-semibold uppercase'
               label='button'
             />
             <div className='flex space-x-2'>

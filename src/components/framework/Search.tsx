@@ -8,8 +8,8 @@ import algoliasearch from 'algoliasearch/lite';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import {
-  Fragment,
   forwardRef,
+  Fragment,
   useEffect,
   useId,
   useRef,
@@ -19,11 +19,6 @@ import {
 import clsxm from '@/lib/clsxm';
 
 const searchClient = algoliasearch(
-  process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID,
-  process.env.NEXT_PUBLIC_DOCSEARCH_API_KEY
-);
-
-console.log(
   process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID,
   process.env.NEXT_PUBLIC_DOCSEARCH_API_KEY
 );
@@ -198,7 +193,7 @@ function SearchResult({ result, resultIndex, autocomplete, collection }) {
         <div
           id={`${id}-hierarchy`}
           aria-hidden='true'
-          className='mt-1 truncate whitespace-nowrap text-2xs text-gray-500'
+          className='text-2xs mt-1 truncate whitespace-nowrap text-gray-500'
         >
           {hierarchyHtml.map((item, itemIndex, items) => (
             <Fragment key={itemIndex}>
@@ -309,41 +304,6 @@ function AlgoliaLogo(props) {
   );
 }
 
-function SearchButton(props) {
-  const [modifierKey, setModifierKey] = useState();
-
-  useEffect(() => {
-    setModifierKey(
-      /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform) ? '⌘' : 'Ctrl '
-    );
-  }, []);
-
-  return (
-    <>
-      <button
-        type='button'
-        className='hidden h-8 w-full items-center gap-2 rounded-full bg-white pl-2 pr-3 text-sm text-gray-500 ring-1 ring-gray-900/10 transition hover:ring-gray-900/20 dark:bg-white/5 dark:text-gray-400 dark:ring-inset dark:ring-white/10 dark:hover:ring-white/20 lg:flex focus:[&:not(:focus-visible)]:outline-none'
-        {...props}
-      >
-        <SearchIcon className='h-5 w-5 stroke-current' />
-        Find something...
-        <kbd className='ml-auto text-2xs text-gray-400 dark:text-gray-500'>
-          <kbd className='font-sans'>{modifierKey}</kbd>
-          <kbd className='font-sans'>K</kbd>
-        </kbd>
-      </button>
-      <button
-        type='button'
-        className='flex h-6 w-6 items-center justify-center rounded-md transition hover:bg-gray-900/5 dark:hover:bg-white/5 lg:hidden focus:[&:not(:focus-visible)]:outline-none'
-        aria-label='Find something...'
-        {...props}
-      >
-        <SearchIcon className='h-5 w-5 stroke-gray-900 dark:stroke-white' />
-      </button>
-    </>
-  );
-}
-
 function SearchDialog({ open, setOpen, className }) {
   const router = useRouter();
   const formRef = useRef();
@@ -420,7 +380,7 @@ function SearchDialog({ open, setOpen, className }) {
             leaveFrom='opacity-100 scale-100'
             leaveTo='opacity-0 scale-95'
           >
-            <Dialog.Panel className='mx-auto overflow-hidden rounded-lg bg-gray-50 shadow-xl ring-1 ring-gray-900/7.5 dark:bg-gray-900 dark:ring-gray-800 sm:max-w-xl'>
+            <Dialog.Panel className='ring-gray-900/7.5 mx-auto overflow-hidden rounded-lg bg-gray-50 shadow-xl ring-1 dark:bg-gray-900 dark:ring-gray-800 sm:max-w-xl'>
               <div {...autocomplete.getRootProps({})}>
                 <form
                   ref={formRef}
@@ -436,7 +396,7 @@ function SearchDialog({ open, setOpen, className }) {
                   />
                   <div
                     ref={panelRef}
-                    className='border-t border-gray-200 bg-white empty:hidden dark:border-gray-100/5 dark:bg-white/2.5'
+                    className='dark:bg-white/2.5 border-t border-gray-200 bg-white empty:hidden dark:border-gray-100/5'
                     {...autocomplete.getPanelProps({})}
                   >
                     {autocompleteState.isOpen && (
@@ -505,12 +465,12 @@ export function Search({ sidebar = true }: { sidebar?: boolean }) {
     >
       <button
         type='button'
-        className='hidden h-8 w-full items-center gap-2 rounded-full bg-white pl-2 pr-3 text-sm text-gray-500 ring-1 ring-gray-900/10 transition hover:ring-gray-900/20 dark:bg-white/5 dark:text-gray-400 dark:ring-inset dark:ring-white/10 dark:hover:ring-white/20 lg:flex focus:[&:not(:focus-visible)]:outline-none'
+        className='hidden h-8 w-full items-center gap-2 rounded-full bg-white pl-2 pr-3 text-sm text-gray-500 ring-1 ring-gray-900/10 transition hover:ring-gray-900/20 dark:bg-transparent dark:text-gray-400 dark:ring-inset dark:ring-white/10 dark:hover:bg-white/5 dark:hover:ring-white/20 lg:flex focus:[&:not(:focus-visible)]:outline-none'
         {...buttonProps}
       >
         <SearchIcon className='h-5 w-5 stroke-current' />
         Find something...
-        <kbd className='ml-auto text-2xs text-gray-400 dark:text-gray-500'>
+        <kbd className='text-2xs ml-auto text-gray-400 dark:text-gray-500'>
           <kbd className='font-sans'>{modifierKey}</kbd>
           <kbd className='font-sans'>K</kbd>
         </kbd>

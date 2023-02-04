@@ -1,5 +1,3 @@
-//@ts-ignore
-import withstar from 'raw-loader!@/lib/code/ListDetail.code.txt';
 import { useState } from 'react';
 
 import { CodeBlockFeatureProps } from '@/interfaces/CodeBlock';
@@ -9,10 +7,6 @@ import ListDetailComponent from './components/ListDetailComponent';
 
 function ListDetail() {
   const [notification, setNotification] = useState(undefined);
-  const raw = {
-    withstar,
-    large: ``,
-  };
   const features: { [x: string]: CodeBlockFeatureProps } = {
     withstar: {
       interactions: {

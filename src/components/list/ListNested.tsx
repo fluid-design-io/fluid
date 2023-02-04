@@ -1,5 +1,3 @@
-//@ts-ignore
-import nested from 'raw-loader!@/lib/code/ListNestedAnimate.code.txt';
 import { useState } from 'react';
 
 import { CodeBlockFeatureProps } from '@/interfaces/CodeBlock';
@@ -8,9 +6,6 @@ import { ListNestedAnimateComponent } from '.';
 
 function ListNested() {
   const [notification, setNotification] = useState(undefined);
-  const raw = {
-    nested,
-  };
 
   const features: { [x: string]: CodeBlockFeatureProps } = {
     nested: {

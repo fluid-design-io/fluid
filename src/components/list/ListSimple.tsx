@@ -1,7 +1,3 @@
-//@ts-ignore
-import textOnly from 'raw-loader!@/lib/code/ListSimpleTextOnly.code.txt';
-//@ts-ignore
-import withIcon from 'raw-loader!@/lib/code/ListWithIcon.code.txt';
 import { useState } from 'react';
 
 import { CodeBlockFeatureProps } from '@/interfaces/CodeBlock';
@@ -11,10 +7,6 @@ import ListTextOnlyComponent from './components/ListTextOnlyComponent';
 
 function ListSimple() {
   const [notification, setNotification] = useState(undefined);
-  const raw = {
-    textOnly,
-    withIcon,
-  };
 
   const features: { [x: string]: CodeBlockFeatureProps } = {
     textOnly: {
