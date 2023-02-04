@@ -1,13 +1,12 @@
 import { AnimatePresence } from 'framer-motion';
-import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
 
-import WindowFrame from '@/components/WindowFrame';
-import IndexIphoneFrame from '@/components/instance/IndexIphoneFrame';
 import { indexElements } from '@/lib/index/data';
 
+import IndexIphoneFrame from '@/components/instance/IndexIphoneFrame';
+import WindowFrame from '@/components/WindowFrame';
+
 function IndexDemoWindow() {
-  const { t } = useTranslation();
   const [selected, setSelected] = useState('Card');
   const selectedStyle = (item) => {
     return selected === item
@@ -30,7 +29,7 @@ function IndexDemoWindow() {
       key={item.category}
     >
       <li className='pointer-events-none px-2 font-semibold text-gray-600 dark:text-gray-300'>
-        {t(item.category)}
+        {item.category}
       </li>
       {item.lists.map((list) => (
         <li key={`body.${list.name}`}>
@@ -42,7 +41,7 @@ function IndexDemoWindow() {
               setSelected(list.name);
             }}
           >
-            {t(list.name)}
+            {list.name}{' '}
           </button>
         </li>
       ))}

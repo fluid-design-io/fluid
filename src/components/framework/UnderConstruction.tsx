@@ -1,14 +1,12 @@
 import Image from 'next/image';
-import { useTranslation } from 'next-i18next';
 
 import icon from '/public/assets/under-construction.svg';
 
 function UnderConstruction({ message = 'under-construction' }) {
-  const { t } = useTranslation('common');
   return (
-    <div className='items-center justify-center min-h-[calc(100vh-61px)] relative flex z-0'>
+    <div className='relative z-0 flex min-h-[calc(100vh-61px)] items-center justify-center'>
       <div>
-        <div className='w-32 h-32 mx-auto overflow-hidden lg:w-64 lg:h-64'>
+        <div className='mx-auto h-32 w-32 overflow-hidden lg:h-64 lg:w-64'>
           <Image
             alt='construction'
             layout='responsive'
@@ -17,7 +15,7 @@ function UnderConstruction({ message = 'under-construction' }) {
             src={icon}
           />
         </div>
-        <p className='pt-4 text-center'>{t(message)}</p>
+        <p className='pt-4 text-center'>{message}</p>
       </div>
     </div>
   );

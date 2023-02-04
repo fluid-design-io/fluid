@@ -8,10 +8,8 @@ import {
   UsersIcon,
 } from '@heroicons/react/24/outline';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { useTranslation } from 'next-i18next';
 
 function ListNestedAnimateComponent({ setNotification, ...props }) {
-  const { t } = useTranslation('list');
   const shouldReduceMotion = useReducedMotion();
   const rowStyle =
     'hover:bg-gray-200/30 focus-visible:bg-gray-200/30 dark:hover:bg-gray-600/30 dark:focus-visible:bg-gray-600/30 hover:contrast-more:bg-amber-300 dark:hover:contrast-more:bg-amber-400 text-gray-700 dark:text-gray-200 contrast-more:text-gray-900 dark:contrast-more:text-gray-50 dark:contrast-more:focus-visible:text-gray-900 dark:contrast-more:hover:text-gray-900 focus-within:outline-none focus-within:ring-1 focus-within:ring-gray-400 dark:focus-within:ring-gray-500 contrast-more:focus-within:ring-gray-900 dark:contrast-more:focus-within:ring-gray-200 focus-within:ring-inset transition-colors [-webkit-tap-highlight-color:transparent]';
@@ -52,7 +50,7 @@ function ListNestedAnimateComponent({ setNotification, ...props }) {
   const ListPanel = ({ children }) => (
     <motion.div
       animate='open'
-      className='overflow-hidden !mt-0'
+      className='!mt-0 overflow-hidden'
       exit='collapsed'
       initial='collapsed'
       key={`${name}.content`}
@@ -75,7 +73,7 @@ function ListNestedAnimateComponent({ setNotification, ...props }) {
 
   return (
     <div
-      className={`w-full max-w-xs overflow-hidden rounded-lg shadow-lg md:!w-2/3 bg-gray-50 dark:bg-gray-900 shadow-gray-900/10 dark:shadow-gray-900/30 component contrast-more:bg-white dark:contrast-more:bg-gray-900 contrast-more:contrast-ring  ${
+      className={`component contrast-more:contrast-ring w-full max-w-xs overflow-hidden rounded-lg bg-gray-50 shadow-lg shadow-gray-900/10 contrast-more:bg-white dark:bg-gray-900 dark:shadow-gray-900/30 dark:contrast-more:bg-gray-900 md:!w-2/3  ${
         props.className ? props.className : ``
       }`}
     >
@@ -86,7 +84,7 @@ function ListNestedAnimateComponent({ setNotification, ...props }) {
         {navigation.map(({ children, name, Icon }) =>
           !children ? (
             <button
-              className={`flex items-center justify-start w-full px-4 py-2 my-1 capitalize transition outline-none select-none rounded-md ${rowStyle}`}
+              className={`my-1 flex w-full select-none items-center justify-start rounded-md px-4 py-2 capitalize outline-none transition ${rowStyle}`}
               key={`nav.${name}`}
               onClick={() =>
                 setNotification({
@@ -96,7 +94,7 @@ function ListNestedAnimateComponent({ setNotification, ...props }) {
                 })
               }
             >
-              <Icon aria-hidden='true' className='w-4 h-4 ltr:mr-2 rtl:ml-2' />
+              <Icon aria-hidden='true' className='h-4 w-4 ltr:mr-2 rtl:ml-2' />
               {name}
             </button>
           ) : (
@@ -107,29 +105,29 @@ function ListNestedAnimateComponent({ setNotification, ...props }) {
                     <Disclosure.Button
                       aria-live='assertive'
                       as='button'
-                      className={`flex px-4 py-2 w-full justify-between items-center rounded-md ${rowStyle} ${
+                      className={`flex w-full items-center justify-between rounded-md px-4 py-2 ${rowStyle} ${
                         open
-                          ? `bg-gray-200/50 hover:bg-gray-200/50 dark:bg-gray-600/50 dark:hover:bg-gray-600/50 contrast-more:bg-amber-300 dark:contrast-more:bg-amber-400 text-gray-700 dark:text-gray-200 contrast-more:text-gray-900 dark:contrast-more:text-gray-900`
+                          ? `bg-gray-200/50 text-gray-700 hover:bg-gray-200/50 contrast-more:bg-amber-300 contrast-more:text-gray-900 dark:bg-gray-600/50 dark:text-gray-200 dark:hover:bg-gray-600/50 dark:contrast-more:bg-amber-400 dark:contrast-more:text-gray-900`
                           : ``
                       }`}
                     >
                       <span className='flex items-center'>
                         <Icon
                           aria-hidden='true'
-                          className='flex-shrink-0 w-4 h-4 ltr:mr-2 rtl:ml-2'
+                          className='h-4 w-4 flex-shrink-0 ltr:mr-2 rtl:ml-2'
                         />
                         <p className='flex-1'>{name}</p>
                       </span>
-                      <span className='rtl:!block hidden'>
+                      <span className='hidden rtl:!block'>
                         <ChevronLeftIcon
-                          className={`w-4 h-4 transform transition ${
+                          className={`h-4 w-4 transform transition ${
                             open ? `ltr:rotate-90 rtl:-rotate-90` : 'rotate-0'
                           }`}
                         />
                       </span>
-                      <span className='rtl:hidden block'>
+                      <span className='block rtl:hidden'>
                         <ChevronRightIcon
-                          className={`w-4 h-4 transform transition ${
+                          className={`h-4 w-4 transform transition ${
                             open ? `rotate-90` : 'rotate-0'
                           }`}
                         />
@@ -141,7 +139,7 @@ function ListNestedAnimateComponent({ setNotification, ...props }) {
                       <Disclosure.Panel as={ListPanel} static>
                         {children.map((item, i) => (
                           <Disclosure.Button
-                            className={`flex items-center w-full py-2 pr-2 ltr:pl-10 rtl:pr-10 select-none cursor-pointer rounded-md ${rowStyle}`}
+                            className={`flex w-full cursor-pointer select-none items-center rounded-md py-2 pr-2 ltr:pl-10 rtl:pr-10 ${rowStyle}`}
                             key={item.name}
                             onClick={() =>
                               setNotification({

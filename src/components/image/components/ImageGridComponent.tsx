@@ -1,8 +1,6 @@
 import Image from 'next/image';
-import { useTranslation } from 'next-i18next';
 
 function ImageGridComponent({ setNotification, ...props }) {
-  const { t } = useTranslation('image');
   const images = [
     {
       large:
@@ -40,28 +38,28 @@ function ImageGridComponent({ setNotification, ...props }) {
   }
   return (
     <div
-      className={`w-full max-w-xs overflow-hidden transform translate-x-0 shadow component card-bg rounded-xl ${
+      className={`component card-bg w-full max-w-xs translate-x-0 transform overflow-hidden rounded-xl shadow ${
         props.className ? props.className : `aspect-[1.5/1]`
       }`}
     >
-      <div className='grid grid-cols-3 gap-0.5 items-stretch h-full'>
+      <div className='grid h-full grid-cols-3 items-stretch gap-0.5'>
         {images.map(({ large, author }) => (
           <div
             aria-label={`Bird image shot by ${author} from Unsplash.`}
-            className='relative w-full h-full transition cursor-pointer hover:opacity-90 active:opacity-80'
+            className='relative h-full w-full cursor-pointer transition hover:opacity-90 active:opacity-80'
             key={large}
             tabIndex={0}
             onClick={() =>
               setNotification({
                 enabled: true,
                 image: large,
-                message: t(`instagram-layout.message`, { ns: 'image' }),
+                message: 'Instagram Layout',
               })
             }
           >
             <Image
               alt={`Bird image shot by ${author} from Unsplash.`}
-              className=' select-none pointer-events-none'
+              className=' pointer-events-none select-none'
               layout='fill'
               objectFit='cover'
               src={large}

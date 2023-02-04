@@ -1,17 +1,16 @@
-import { CodeBlockFeatureProps } from '@/interfaces/CodeBlock';
-import { useTranslation } from 'next-i18next';
 //@ts-ignore
 import textOnly from 'raw-loader!@/lib/code/ListSimpleTextOnly.code.txt';
 //@ts-ignore
 import withIcon from 'raw-loader!@/lib/code/ListWithIcon.code.txt';
 import { useState } from 'react';
 
+import { CodeBlockFeatureProps } from '@/interfaces/CodeBlock';
+
 import { ListWithIconComponent } from '.';
 import ListTextOnlyComponent from './components/ListTextOnlyComponent';
 
 function ListSimple() {
   const [notification, setNotification] = useState(undefined);
-  const { t } = useTranslation('common');
   const raw = {
     textOnly,
     withIcon,
@@ -50,10 +49,10 @@ function ListSimple() {
   };
   return (
     <>
-      <div className='grid w-full pt-20 pb-16 place-items-center'>
+      <div className='grid w-full place-items-center pt-20 pb-16'>
         <ListTextOnlyComponent />
       </div>
-      <div className='grid w-full pt-20 pb-16 place-items-center'>
+      <div className='grid w-full place-items-center pt-20 pb-16'>
         <ListWithIconComponent setNotification={setNotification} />
       </div>
     </>

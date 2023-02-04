@@ -5,46 +5,44 @@ import {
   ShoppingCartIcon,
   UserIcon,
 } from '@heroicons/react/24/outline';
-import { useTranslation } from 'next-i18next';
 
 function ListWithIconComponent({ setNotification, ...props }) {
-  const { t } = useTranslation('list');
   const list = [
     {
-      name: t('WithIcon.list.explore', { ns: 'list' }),
+      name: 'explore',
       Icon: GlobeAmericasIcon,
     },
     {
-      name: t('WithIcon.list.fav', { ns: 'list' }),
+      name: 'favorites',
       Icon: HeartIcon,
     },
     {
-      name: t('WithIcon.list.user', { ns: 'list' }),
+      name: 'user',
       Icon: UserIcon,
     },
     {
-      name: t('WithIcon.list.cart', { ns: 'list' }),
+      name: 'cart',
       Icon: ShoppingCartIcon,
     },
     {
-      name: t('WithIcon.list.settings', { ns: 'list' }),
+      name: 'settings',
       Icon: CogIcon,
     },
   ];
   return (
     <div
-      className={`w-full max-w-xs overflow-hidden rounded-lg shadow-lg md:!w-2/3 bg-gray-50 dark:bg-gray-900 shadow-gray-900/10 dark:shadow-gray-900/30 component contrast-more:bg-white dark:contrast-more:bg-gray-900 contrast-more:contrast-ring  ${
+      className={`component contrast-more:contrast-ring w-full max-w-xs overflow-hidden rounded-lg bg-gray-50 shadow-lg shadow-gray-900/10 contrast-more:bg-white dark:bg-gray-900 dark:shadow-gray-900/30 dark:contrast-more:bg-gray-900 md:!w-2/3  ${
         props.className ? props.className : ``
       }`}
     >
       <ul
-        aria-label={t('WithIcon.ul', { ns: 'list' })}
-        className='divide-y divide-gray-200/70 dark:divide-gray-700/70 contrast-more:divide-gray-600 dark:contrast-more:divide-gray-200'
+        aria-label='List of states in United States'
+        className='divide-y divide-gray-200/70 contrast-more:divide-gray-600 dark:divide-gray-700/70 dark:contrast-more:divide-gray-200'
       >
         {list.map(({ name, Icon }) => (
           <li key={name}>
             <button
-              className='flex items-center justify-start w-full px-4 py-2 capitalize transition outline-none select-none hover:bg-gray-200/30 focus-visible:bg-gray-200/30 dark:hover:bg-gray-600/30 dark:focus-visible:bg-gray-600/30 hover:contrast-more:bg-amber-300 dark:hover:contrast-more:bg-amber-400 text-gray-700 dark:text-gray-200 contrast-more:text-gray-900 dark:contrast-more:text-gray-50 dark:contrast-more:focus-visible:text-gray-900 dark:contrast-more:hover:text-gray-900'
+              className='flex w-full select-none items-center justify-start px-4 py-2 capitalize text-gray-700 outline-none transition hover:bg-gray-200/30 focus-visible:bg-gray-200/30 contrast-more:text-gray-900 hover:contrast-more:bg-amber-300 dark:text-gray-200 dark:hover:bg-gray-600/30 dark:focus-visible:bg-gray-600/30 dark:contrast-more:text-gray-50 dark:hover:contrast-more:bg-amber-400 dark:contrast-more:hover:text-gray-900 dark:contrast-more:focus-visible:text-gray-900'
               onClick={() =>
                 setNotification({
                   enabled: true,
@@ -53,7 +51,7 @@ function ListWithIconComponent({ setNotification, ...props }) {
                 })
               }
             >
-              <Icon className='w-4 h-4 mr-2' />
+              <Icon className='mr-2 h-4 w-4' />
               <span>{name}</span>
             </button>
           </li>

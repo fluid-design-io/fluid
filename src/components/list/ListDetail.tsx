@@ -1,15 +1,14 @@
-import { CodeBlockFeatureProps } from '@/interfaces/CodeBlock';
-import { useTranslation } from 'next-i18next';
 //@ts-ignore
 import withstar from 'raw-loader!@/lib/code/ListDetail.code.txt';
 import { useState } from 'react';
+
+import { CodeBlockFeatureProps } from '@/interfaces/CodeBlock';
 
 import { ListDetailLargeComponent } from '.';
 import ListDetailComponent from './components/ListDetailComponent';
 
 function ListDetail() {
   const [notification, setNotification] = useState(undefined);
-  const { t } = useTranslation('common');
   const raw = {
     withstar,
     large: ``,
@@ -36,10 +35,10 @@ function ListDetail() {
   };
   return (
     <>
-      <div className='grid w-full pt-20 pb-16 place-items-center'>
+      <div className='grid w-full place-items-center pt-20 pb-16'>
         <ListDetailComponent setNotification={setNotification} />
       </div>
-      <div className='grid w-full pt-20 pb-16 place-items-center'>
+      <div className='grid w-full place-items-center pt-20 pb-16'>
         <ListDetailLargeComponent />
       </div>
     </>

@@ -1,39 +1,37 @@
 import { StarIcon as StartIconOutline } from '@heroicons/react/24/outline';
 import { StarIcon } from '@heroicons/react/24/solid';
-import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import { useState } from 'react';
 
 const StaredButton = ({ stared, setNotification }) => {
-  const { t } = useTranslation('list');
   const [isStared, setIsStared] = useState(stared);
   return isStared ? (
     <button
-      className='absolute p-1.5 rounded-full ltr:right-0.5 ltr:left-auto rtl:left-0.5 rtl:right-auto  contrast-more:group-focus-visible:bg-gray-50 contrast-more:group-hover:bg-gray-50 dark:contrast-more:group-focus-visible:bg-gray-900 dark:contrast-more:group-hover:bg-gray-900 transition'
+      className='absolute rounded-full p-1.5 transition ltr:right-0.5 ltr:left-auto rtl:left-0.5  rtl:right-auto contrast-more:group-hover:bg-gray-50 contrast-more:group-focus-visible:bg-gray-50 dark:contrast-more:group-hover:bg-gray-900 dark:contrast-more:group-focus-visible:bg-gray-900'
       onClick={() => {
         setIsStared(!isStared);
         setNotification({
           enabled: true,
-          message: t(`Detail.unstarted`, { ns: 'list' }),
+          message: 'Unstarred',
           Icon: StartIconOutline,
         });
       }}
     >
-      <StarIcon className='w-5 h-5 text-yellow-400' />
+      <StarIcon className='h-5 w-5 text-yellow-400' />
     </button>
   ) : (
     <button
-      className='group-hover:opacity-100 group-focus:opacity-100 focus:opacity-100 opacity-80 pointer-hover:opacity-0 absolute p-1.5 rounded-full  ltr:right-0.5 ltr:left-auto rtl:left-0.5 rtl:right-auto contrast-more:group-focus-visible:bg-gray-900 contrast-more:group-hover:bg-gray-900 transition'
+      className='absolute rounded-full p-1.5 opacity-80 transition focus:opacity-100 group-hover:opacity-100 group-focus:opacity-100  ltr:right-0.5 ltr:left-auto rtl:left-0.5 rtl:right-auto contrast-more:group-hover:bg-gray-900 contrast-more:group-focus-visible:bg-gray-900 pointer-hover:opacity-0'
       onClick={() => {
         setIsStared(!isStared);
         setNotification({
           enabled: true,
-          message: t(`Detail.started`, { ns: 'list' }),
+          message: 'Starred',
           Icon: StarIcon,
         });
       }}
     >
-      <StarIcon className='w-5 h-5 text-gray-300 dark:text-gray-600 dark:contrast-more:text-gray-100' />
+      <StarIcon className='h-5 w-5 text-gray-300 dark:text-gray-600 dark:contrast-more:text-gray-100' />
     </button>
   );
 };
@@ -61,12 +59,12 @@ function ListDetailComponent({ setNotification, ...props }) {
   ];
   return (
     <div
-      className={`w-full max-w-xs overflow-hidden rounded-lg shadow-lg bg-gray-50 dark:bg-gray-900 shadow-gray-900/10 dark:shadow-gray-900/30 component contrast-more:bg-white dark:contrast-more:bg-gray-900 contrast-more:contrast-ring ${
+      className={`component contrast-more:contrast-ring w-full max-w-xs overflow-hidden rounded-lg bg-gray-50 shadow-lg shadow-gray-900/10 contrast-more:bg-white dark:bg-gray-900 dark:shadow-gray-900/30 dark:contrast-more:bg-gray-900 ${
         props.className ? props.className : ``
       } `}
     >
-      <ul className='divide-y select-none divide-gray-200/50 dark:divide-gray-700/30 contrast-more:divide-gray-600 dark:contrast-more:divide-gray-200'>
-        <li className='flex justify-between px-2 py-1 list-detail-li'>
+      <ul className='select-none divide-y divide-gray-200/50 contrast-more:divide-gray-600 dark:divide-gray-700/30 dark:contrast-more:divide-gray-200'>
+        <li className='list-detail-li flex justify-between px-2 py-1'>
           <h1 className='text-xs font-semibold text-gray-700 dark:text-gray-200'>
             Animal book
           </h1>
@@ -76,18 +74,18 @@ function ListDetailComponent({ setNotification, ...props }) {
         </li>
         {list.map(({ title, description, src, stared }) => (
           <li
-            className='flex space-x-2 items-center px-2 py-1.5 relative group hover:bg-gray-200/30 focus:bgstone-200/30 dark:hover:bg-gray-600/30 dark:focus:bg-gray-600/30 hover:contrast-more:bg-amber-300 dark:hover:contrast-more:bg-amber-400 group transition outline-none'
+            className='focus:bgstone-200/30 group group relative flex items-center space-x-2 px-2 py-1.5 outline-none transition hover:bg-gray-200/30 hover:contrast-more:bg-amber-300 dark:hover:bg-gray-600/30 dark:focus:bg-gray-600/30 dark:hover:contrast-more:bg-amber-400'
             key={title}
             tabIndex={0}
           >
-            <div className='relative flex-shrink-0 w-8 h-8 overflow-hidden rounded-full rtl:ml-2'>
+            <div className='relative h-8 w-8 flex-shrink-0 overflow-hidden rounded-full rtl:ml-2'>
               <Image alt={title} layout='fill' objectFit='cover' src={src} />
             </div>
             <div className='flex-1 select-none'>
-              <h3 className='text-sm font-semibold leading-4 contrast-more:text-base md:!text-base text-gray-800 dark:text-gray-300 contrast-more:text-gray-900 dark:contrast-more:text-gray-50 dark:contrast-more:group-focus-visible:text-gray-900 dark:contrast-more:group-hover:text-gray-900'>
+              <h3 className='text-sm font-semibold leading-4 text-gray-800 contrast-more:text-base contrast-more:text-gray-900 dark:text-gray-300 dark:contrast-more:text-gray-50 dark:contrast-more:group-hover:text-gray-900 dark:contrast-more:group-focus-visible:text-gray-900 md:!text-base'>
                 {title}
               </h3>
-              <p className='leading-none md:!leading-tight py-0.5 text-xs contrast-more:text-sm contrast-more:font-medium md:!text-sm text-gray-600/90 dark:text-gray-400/80 max-w-[80%] sm:max-w-[90%] line-clamp-2 md:!line-clamp-1 contrast-more:text-gray-900 dark:contrast-more:text-gray-50 dark:contrast-more:group-focus-visible:text-gray-800 dark:contrast-more:group-hover:text-gray-800'>
+              <p className='max-w-[80%] py-0.5 text-xs leading-none text-gray-600/90 line-clamp-2 contrast-more:text-sm contrast-more:font-medium contrast-more:text-gray-900 dark:text-gray-400/80 dark:contrast-more:text-gray-50 dark:contrast-more:group-hover:text-gray-800 dark:contrast-more:group-focus-visible:text-gray-800 sm:max-w-[90%] md:!text-sm md:!leading-tight md:!line-clamp-1'>
                 {description}
               </p>
             </div>

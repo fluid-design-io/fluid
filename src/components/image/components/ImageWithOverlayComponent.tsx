@@ -1,34 +1,28 @@
-import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 
 function ImageWithOverlayComponent({ src = undefined, ...props }) {
-  const { t } = useTranslation('image');
   return (
     <div
       tabIndex={0}
-      aria-label={`${t('with-overlay.ocl', { ns: 'image' })}. ${t(
-        'with-overlay.ocldesc',
-        { ns: 'image' }
-      )}`}
-      className={`relative w-full max-w-xs overflow-hidden shadow component card-bg rounded-xl group focus-within:ring-2 focus-within:ring-gray-600 dark:focus-within:ring-gray-300 outline-none ${
+      aria-label='$Ocean is life. It is pure greatness and everyone must enjoy it. Shot by Andrzej Kryszpiniuk. From Unsplash.'
+      className={`component card-bg group relative w-full max-w-xs overflow-hidden rounded-xl shadow outline-none focus-within:ring-2 focus-within:ring-gray-600 dark:focus-within:ring-gray-300 ${
         props.className ? props.className : `h-48`
       }`}
     >
       {/* Background Overlay */}
-      <div className='absolute inset-0 z-[4] opacity-0 group-hover:opacity-100 group-focus:opacity-100 bg-black/10 motion-reduce:duration-500 transition-opacity motion-safe:transition-all pointer-touch:opacity-100 contrast-more:bg-black/20 ' />
+      <div className='absolute inset-0 z-[4] bg-black/10 opacity-0 transition-opacity group-hover:opacity-100 group-focus:opacity-100 motion-safe:transition-all motion-reduce:duration-500 contrast-more:bg-black/20 pointer-touch:opacity-100 ' />
       {/* Text Overlay */}
-      <div className='px-4 pb-2 pt-6 absolute bottom-0 left-0 right-0 text-left rtl:text-right z-[5] from-black/0 to-black/50 contrast-more:to-black/90 motion-reduce:duration-500 transition-opacity motion-safe:transition-all bg-gradient-to-b translate-y-[calc(100%-3.875rem)] pointer-touch:translate-y-0 group-hover:translate-y-0 group-focus:translate-y-0'>
-        <h2 className='text-xl font-semibold text-sky-100'>
-          {t('with-overlay.ocl', { ns: 'image' })}
-        </h2>
-        <p className='leading-tight transition-opacity opacity-0 text-sky-100 group-hover:opacity-100 group-focus:opacity-100 pointer-touch:opacity-100 motion-reduce:duration-500 motion-safe:transition-all'>
-          {t('with-overlay.ocldesc', { ns: 'image' })}
+      <div className='absolute bottom-0 left-0 right-0 z-[5] translate-y-[calc(100%-3.875rem)] bg-gradient-to-b from-black/0 to-black/50 px-4 pb-2 pt-6 text-left transition-opacity group-hover:translate-y-0 group-focus:translate-y-0 rtl:text-right motion-safe:transition-all motion-reduce:duration-500 contrast-more:to-black/90 pointer-touch:translate-y-0'>
+        <h2 className='text-xl font-semibold text-sky-100'>Ocean is life.</h2>
+        <p className='leading-tight text-sky-100 opacity-0 transition-opacity group-hover:opacity-100 group-focus:opacity-100 motion-safe:transition-all motion-reduce:duration-500 pointer-touch:opacity-100'>
+          It is pure greatness and everyone must enjoy it. Shot by Andrzej
+          Kryszpiniuk. From Unsplash.
         </p>
       </div>
       {/* Image Background */}
-      <div className='relative w-full h-48'>
+      <div className='relative h-48 w-full'>
         <Image
-          alt={t('with-overlay.ocldesc', { ns: 'image' })}
+          alt='It is pure greatness and everyone must enjoy it. Shot by Andrzej Kryszpiniuk. From Unsplash.'
           layout='fill'
           objectFit='cover'
           src={
