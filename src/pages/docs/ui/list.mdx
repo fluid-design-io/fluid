@@ -1,0 +1,51 @@
+import { MDXLayoutNext } from '@/components';
+import { ListDetail, ListNested, ListSimple } from '@/components/list';
+
+export const meta = {
+  title: 'List',
+  description: 'List UI | Fluid Design',
+  date: '2023-02-01',
+  author: 'Oliver Pan',
+  tags: [
+    'fluid ui',
+    'react',
+    'framer motion',
+    'headless ui',
+    'tailwindcss',
+    'button',
+  ],
+};
+
+export default (props) => (
+  <MDXLayoutNext
+    meta={meta}
+    components={{
+      ListDetail,
+      ListNested,
+      ListSimple,
+    }}
+    {...props}
+  />
+);
+
+# List
+
+Lists are composed of multiple rows of items that can include text, buttons, toggles, icons, thumbnails, and other elements. Lists are typically made up of items with similar data content, such as images and text.
+
+## Simple
+
+<CodeFrame title='Simple List'>
+  <ListSimple />
+</CodeFrame>
+
+## Nested
+
+<CodeFrame title='Nested List'>
+  <ListNested />
+</CodeFrame>
+
+## Detail
+
+<CodeFrame title='Detail List'>
+  <ListDetail />
+</CodeFrame>

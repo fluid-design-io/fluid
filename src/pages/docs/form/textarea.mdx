@@ -1,0 +1,54 @@
+import { FormExamples, MDXLayoutNext } from '@/components';
+
+export const meta = {
+  title: 'Textarea',
+  description: 'Form component | Fluid Design',
+  date: '2023-02-01',
+  author: 'Oliver Pan',
+  tags: [
+    'fluid ui',
+    'react',
+    'framer motion',
+    'headless ui',
+    'tailwindcss',
+    'form',
+    'textarea',
+  ],
+};
+
+export default (props) => (
+  <MDXLayoutNext meta={meta} components={FormExamples} {...props} />
+);
+
+# Textarea
+
+Textarea is a component that allows users to enter multiple lines of text.
+
+<CodeFrame title='Example'>
+  <Textarea.Basic />
+</CodeFrame>
+
+```jsx
+import { Textarea } from '@fluid-design/fluid-ui';
+
+const Example = () => {
+  return (
+    <Form
+      initialValues={{
+        message: '',
+      }}
+    >
+      <Textarea label='Message' name='message' maxRows={4} />
+    </Form>
+  );
+};
+```
+
+## Component API
+
+| Prop          | Default | Description                                                                                                      |
+| ------------- | ------- | ---------------------------------------------------------------------------------------------------------------- |
+| `name`        | -       | `String` <Table.D>Input field name</Table.D>                                                                     |
+| `label`       |         | `String` <Table.D>Input field label, if not provided, the label will be the same as the name</Table.D>           |
+| `placeholder` |         | `String` <Table.D>Input field placeholder, if label is not provided, this will replace the label field</Table.D> |
+| `description` |         | `String` <Table.D>Input field description showing under this field</Table.D>                                     |

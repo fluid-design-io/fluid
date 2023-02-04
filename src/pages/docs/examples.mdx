@@ -1,0 +1,37 @@
+import { Button } from '@fluid-design/fluid-ui';
+import { Examples } from '@/components/Examples';
+import { MDXLayoutNext } from '@/components';
+
+export const meta = {
+  title: 'Examples',
+  description: 'Examples of how to use Fluid UI components',
+  date: '2023-02-01',
+  author: 'Oliver Pan',
+  tags: [
+    'fluid ui',
+    'react',
+    'framer motion',
+    'headless ui',
+    'tailwindcss',
+    'button',
+  ],
+};
+
+export default (props) => (
+  <MDXLayoutNext
+    meta={meta}
+    components={{
+      Button,
+      ...Examples,
+    }}
+    {...props}
+  />
+);
+
+# Examples
+
+This is a demo page for the library.
+
+<div className='not-prose'>
+  <Examples />
+</div>
