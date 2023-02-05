@@ -1,3 +1,4 @@
+import { FluidProvider } from '@fluid-design/fluid-ui';
 import { Router } from 'next/router';
 import '@docsearch/css';
 
@@ -19,8 +20,10 @@ Router.events.on('routeChangeError', onRouteChange);
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider>
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <FluidProvider>
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </FluidProvider>
   );
 }

@@ -18,7 +18,7 @@
   "dependencies": {
     "@code-hike/mdx": "^0.8.0",
     "@docsearch/react": "^3.3.2",
-    "@fluid-design/fluid-ui": "^2.4.0",
+    "@fluid-design/fluid-ui": "^2.4.4",
     "@hcaptcha/react-hcaptcha": "^1.4.4",
     "@headlessui/react": "^1.7.9",
     "@heroicons/react": "^2.0.14",
@@ -48,7 +48,7 @@
     "scroll-into-view-if-needed": "^3.0.4",
     "shiki": "^0.12.1",
     "swiper": "^9.0.2",
-    "tailwind-merge": "^1.9.0",
+    "tailwind-merge": "^1.9.1",
     "yup": "^0.32.11",
     "zustand": "^4.3.2"
   },
