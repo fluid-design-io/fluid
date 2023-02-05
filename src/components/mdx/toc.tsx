@@ -1,7 +1,8 @@
-import { Popover } from '@headlessui/react';
+import { Menu } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/24/solid';
 import cn from 'clsx';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence,  motion } from 'framer-motion';
+import Link from 'next/link';
 import React, {
   Fragment,
   ReactElement,
@@ -84,18 +85,23 @@ const ListItem = ({
   slug,
   text,
   activeAnchor,
-  handleClose,
+  ...props
 }: {
   heading: any;
   slug: string;
   text: string;
   activeAnchor: ActiveAnchor;
-  handleClose: () => void;
 }) => {
   const state = activeAnchor[`${slug}`];
   return (
-    <li
-      className={cn(
+    <Menu.Item>
+      {({ active }) => (
+      <Link
+        aria-selected={state?.isActive}
+        href={`#${slug}`}
+        className={clsxm(
+          '-mx-2 -my-0.5 w-full rounded-md px-2 py-0.5 capitalize transition hocus:bg-gray-50/75 dark:hocus:bg-gray-900/75',
+          state?.isActive && 'font-medium text-gray-800 dark:text-gray-100',
         'doc-nav',
         {
           1: '',
@@ -104,21 +110,14 @@ const ListItem = ({
           4: 'ml-8',
           5: 'ml-12',
           6: 'ml-16',
-        }[heading.depth || 1]
-      )}
-    >
-      <a
-        aria-selected={state?.isActive}
-        href={`#${slug}`}
-        onClick={handleClose}
-        className={clsxm(
-          '-mx-2 -my-0.5 w-full rounded-md px-2 py-0.5 capitalize transition hocus:bg-gray-50/75 dark:hocus:bg-gray-900/75',
-          state?.isActive && 'font-medium text-gray-800 dark:text-gray-100'
+        }[heading.depth || 1],
+        { 'bg-gray-100 dark:bg-gray-800': active }
         )}
+        {...props}
       >
         {text}
-      </a>
-    </li>
+      </Link>)}
+    </Menu.Item>
   );
 };
 
@@ -160,10 +159,8 @@ const Desktop = () => {
   );
 };
 
-const Mobile = () => {
+const Mobile = ({hasScrolled, isWithinTop}) => {
   const anchors = useActiveAnchor();
-  const [showMoblieDoc, setShowMoblieDoc] = useState(false);
-  const [hasScrolled] = useScrolled();
 
   const headings = Object.keys(anchors).map((anchor) => ({
     index: anchors[anchor].index,
@@ -182,25 +179,25 @@ const Mobile = () => {
     depth: 1,
     text: 'On this page',
   };
-
   if (headings.length === 0) {
     return null;
   }
   return (
-    <Popover
+    <Menu
       as={motion.div}
-      className='fluid-toc-mobile relative z-30 order-first w-full border-b border-b-gray-800/5 dark:border-b-gray-50/10 xl:hidden'
+      className={clsxm('fluid-toc-mobile relative z-30 order-first w-full border-b border-b-gray-800/5 dark:border-b-gray-50/10 xl:hidden',
+        {'bg-white/60 dark:bg-gray-800/60': isWithinTop}
+      )}
     >
-      {({ open, close }) => (
+      {({ open }) => (
         <Fragment>
-          <Popover.Button
+          <Menu.Button
             as={motion.button}
-            className='mobile-doc-nav focus-ring flex w-full flex-shrink-0 items-center justify-between px-4 text-sm [-webkit-tap-highlight-color:transparent] sm:px-4 md:px-8 lg:px-14'
-            onClick={() => setShowMoblieDoc(!showMoblieDoc)}
+            className='mobile-doc-nav focus-visible:ring-inset focus-ring flex w-full flex-shrink-0 items-center justify-between px-4 text-sm [-webkit-tap-highlight-color:transparent] sm:px-4 md:px-8 lg:px-14'
             role='button'
             animate={{
-              paddingTop: hasScrolled ? '1rem' : '0.375rem',
-              paddingBottom: hasScrolled ? '1rem' : '0.375rem',
+              paddingTop: hasScrolled && !isWithinTop? '1rem' : '0.375rem',
+              paddingBottom: hasScrolled && !isWithinTop? '1rem' : '0.375rem',
             }}
             transition={{
               type: 'spring',
@@ -211,7 +208,7 @@ const Mobile = () => {
             <p className='relative min-w-[6rem] text-left rtl:text-right'>
               <span
                 className={clsxm(
-                  showMoblieDoc ? 'opacity-0' : 'opacity-100',
+                  open ? 'opacity-0' : 'opacity-100',
                   'transition-opacity delay-300'
                 )}
               >
@@ -219,7 +216,7 @@ const Mobile = () => {
               </span>
               <span
                 className={clsxm(
-                  showMoblieDoc ? 'opacity-100' : 'opacity-0',
+                  open ? 'opacity-100' : 'opacity-0',
                   'absolute left-0 top-0 bottom-0 w-full text-gray-800 transition-opacity delay-300 dark:text-gray-50'
                 )}
               >
@@ -227,7 +224,7 @@ const Mobile = () => {
               </span>
             </p>
             <motion.span
-              animate={{ rotate: showMoblieDoc ? -180 : 0 }}
+              animate={{ rotate: open ? -180 : 0 }}
               className='mr-[env(safe-area-inset-right)]'
               initial={{ rotate: 0 }}
               transition={{
@@ -237,13 +234,13 @@ const Mobile = () => {
             >
               <ChevronDownIcon className='h-5 w-5 text-gray-500 contrast-more:text-gray-800 dark:text-gray-300 dark:contrast-more:text-gray-200' />
             </motion.span>
-          </Popover.Button>
-          <AnimatePresence>
-            {showMoblieDoc && (
-              <Popover.Panel
+          </Menu.Button>
+          <AnimatePresence mode="wait">
+            {open && (
+              <Menu.Items
                 animate={{ height: 'auto' }}
                 as={motion.div}
-                className='doc-nav-expand max-h-[calc(100vh-6rem)] overflow-y-auto overflow-x-hidden px-4 contrast-more:font-semibold sm:px-6 lg:px-14'
+                className='doc-nav-expand focus-ring focus-within:ring-inset max-h-[calc(100vh-6rem)] overflow-y-auto overflow-x-hidden px-4 contrast-more:font-semibold sm:px-6 lg:px-14'
                 exit={{ height: 0 }}
                 initial={{ height: 0 }}
                 static
@@ -257,7 +254,6 @@ const Mobile = () => {
                     return (
                       <ListItem
                         activeAnchor={anchors}
-                        handleClose={() => setShowMoblieDoc(false)}
                         heading={heading}
                         key={`${heading.value}-mobile`}
                         slug={heading.value}
@@ -266,12 +262,12 @@ const Mobile = () => {
                     );
                   })}
                 </div>
-              </Popover.Panel>
+              </Menu.Items>
             )}
           </AnimatePresence>
         </Fragment>
       )}
-    </Popover>
+    </Menu>
   );
 };
 
