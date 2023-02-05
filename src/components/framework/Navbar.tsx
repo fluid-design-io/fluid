@@ -2,7 +2,7 @@
 import { Button } from '@fluid-design/fluid-ui';
 import { motion, useTransform } from 'framer-motion';
 import Link from 'next/link';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { IoLogoGithub } from 'react-icons/io';
 
 import { useScrolled } from '@/lib';
@@ -20,6 +20,13 @@ export const Navbar = ({ sidebar, ...props }) => {
   const [hasScrolled, scrollY] = useScrolled();
   const bgOpacityLight = useTransform(scrollY, [0, 128], [0.5, 0.9]);
   const bgOpacityDark = useTransform(scrollY, [0, 128], [0, 0.8]);
+  const [isWithinTop, setWithinTop] = useState(true);
+  const scrollHandler = () => {
+    setWithinTop(window.scrollY < 100);
+  };
+  useEffect(() => {
+    return scrollY.on('change', scrollHandler);
+  }, [scrollY]);
   return (
     <nav
       className={clsxm(
@@ -35,7 +42,7 @@ export const Navbar = ({ sidebar, ...props }) => {
           'bg-gray-100/[var(--bg-opacity-light)] dark:bg-gray-900/[var(--bg-opacity-dark)]'
         )}
         animate={{
-          y: hasScrolled ? -menuBarRef.current?.offsetHeight || 0 : 0,
+          y: hasScrolled && !isWithinTop ? -menuBarRef.current?.offsetHeight || 0 : 0,
         }}
         initial={{
           y: 0,
@@ -114,7 +121,7 @@ export const Navbar = ({ sidebar, ...props }) => {
             </div>
           </div>
         </div>
-        <TOC.Mobile />
+        <TOC.Mobile {...{hasScrolled, isWithinTop}} />
       </motion.div>
     </nav>
   );
