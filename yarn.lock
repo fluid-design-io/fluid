@@ -273,10 +273,10 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@fluid-design/fluid-ui@^2.4.4":
-  version "2.4.4"
-  resolved "https://registry.yarnpkg.com/@fluid-design/fluid-ui/-/fluid-ui-2.4.4.tgz#62990b595d3de292aad3b95b18c62f92a767de5a"
-  integrity sha512-BLyy04nZ6V3etimKGHUF8JU7bQNX65PTJoN4key3grEGvOx99OQ8AIN75yFUAKsNHVVzZOdXXKvgdAM3r6L6xA==
+"@fluid-design/fluid-ui@^2.4.6":
+  version "2.4.6"
+  resolved "https://registry.yarnpkg.com/@fluid-design/fluid-ui/-/fluid-ui-2.4.6.tgz#0c08a3638eb8450aae4f5dac98ba365555fe4c9f"
+  integrity sha512-pF/qSdERdYMzRw+Viog2f5mZ2TAKYHgSNGE6wXC4a7SUGnY6DcyAtSUwNzntRQExAZnKDTz8+aakXe9cqcBzeQ==
   dependencies:
     "@headlessui/react" "^1.7.7"
     "@heroicons/react" "^2.0.13"
@@ -4083,11 +4083,6 @@ prettier@^2.8.3:
   version "2.8.3"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.3.tgz#ab697b1d3dd46fb4626fbe2f543afe0cc98d8632"
   integrity sha512-tJ/oJ4amDihPoufT5sM0Z1SKEuKay8LfVAMlbbhnnkvt6BUserZylqo2PN+p9KeljLr0OHa2rXHU1T8reeoTrw==
-
-prism-react-renderer@^1.3.5:
-  version "1.3.5"
-  resolved "https://registry.yarnpkg.com/prism-react-renderer/-/prism-react-renderer-1.3.5.tgz#786bb69aa6f73c32ba1ee813fbe17a0115435085"
-  integrity sha512-IJ+MSwBWKG+SM3b2SUfdrhC+gu01QkV2KmRQgREThBfSQRoufqRfxfHUxpG1WcaFjP+kojcFyO9Qqtpgt3qLCg==
 
 prop-types@^15.8.1:
   version "15.8.1"
