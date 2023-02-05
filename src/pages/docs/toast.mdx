@@ -1,4 +1,5 @@
-import { MDXLayoutNext } from '@/components';
+import { ToastExamples, MDXLayoutNext } from '@/components';
+import { FluidProvider } from '@fluid-design/fluid-ui';
 
 export const meta = {
   title: 'Toast',
@@ -16,11 +17,42 @@ export const meta = {
 };
 
 export default (props) => (
-  <MDXLayoutNext meta={meta} components={{}} {...props} />
+  <MDXLayoutNext meta={meta} components={ToastExamples} {...props} />
 );
 
 # Toast
 
 Toast is used to display a message to the user. They are usually displayed at the top of the screen and disappear after a few seconds.
 
-Examples coming soon.
+## Basic Usage
+
+<CodeFrame title='Simple'>
+  <FluidProvider>
+    <ToastExamples.Simple />
+  </FluidProvider>
+</CodeFrame>
+
+```jsx
+import { Button, useToast } from '@fluid-design/fluid-ui';
+
+const ToastSimple = () => {
+  const [presentToast] = useToast();
+  return (
+    <Wrap>
+      <Button
+        label='Present Toast'
+        onClick={() =>
+          presentToast({
+            title: 'Order placed',
+            message: 'Your order has been placed.',
+            role: 'success', // success, error, info
+            autoDismiss: true, // allows the toast to dismiss automatically
+            duration: 3000, // will dismiss after 3 seconds
+            component: null, // this will replace the message
+          })
+        }
+      />
+    </Wrap>
+  );
+};
+```

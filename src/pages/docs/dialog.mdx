@@ -1,4 +1,5 @@
-import { MDXLayoutNext } from '@/components';
+import { DialogExamples, MDXLayoutNext } from '@/components';
+import { FluidProvider } from '@fluid-design/fluid-ui';
 
 export const meta = {
   title: 'Dialog',
@@ -17,11 +18,132 @@ export const meta = {
 };
 
 export default (props) => (
-  <MDXLayoutNext meta={meta} components={{}} {...props} />
+  <MDXLayoutNext meta={meta} components={DialogExamples} {...props} />
 );
 
 # Dialog
 
 Dialog (Modal) is used to display content that requires user interaction. They are used to display information, ask for input, or require a decision.
 
-Examples coming soon.
+## Basic Usage
+
+<CodeFrame title='Simple'>
+  <FluidProvider>
+    <DialogExamples.Simple />
+  </FluidProvider>
+</CodeFrame>
+
+```jsx
+import { Button, Dialog, useModal } from '@fluid-design/fluid-ui';
+const SimpleModal = ({ dismiss, onConfirm }) => {
+  return (
+    <Dialog className='component'>
+      <Dialog.Body className='bg-whtie'>
+        <Dialog.Title>Modal Title</Dialog.Title>
+        <Dialog.Description>
+          This is a simple modal. It has a title, a description, and a footer.
+        </Dialog.Description>
+        <p>Modal Content</p>
+      </Dialog.Body>
+      <Dialog.Footer>
+        <Button
+          type='button'
+          color='blue'
+          onClick={() => {
+            onConfirm();
+            dismiss();
+          }}
+        >
+          Confirm
+        </Button>
+        <Button type='button' onClick={dismiss}>
+          Close
+        </Button>
+      </Dialog.Footer>
+    </Dialog>
+  );
+};
+
+const SimpleComponent = () => {
+  const [presentModal] = useModal(SimpleModal, {
+    // You can pass any props to the modal component
+    onConfirm: () => console.log('Confirmed'),
+  });
+  return <Button label='Present Modal' onClick={() => presentModal()} />;
+};
+```
+
+## Nested Modal
+
+Nested modals are often used to display a confirmation dialog after a user has performed an action.
+Since the modal is built using Headless UI, it supports focus trapping out of the box.
+This means that when a modal is open, the user will be unable to interact with the rest of the page until the modal is closed.
+The keyboard focus will be trapped inside the modal, and the user will be able to navigate the modal using the keyboard.
+
+<CodeFrame title='Nested'>
+  <FluidProvider>
+    <DialogExamples.Nested />
+  </FluidProvider>
+</CodeFrame>
+
+<CH.Code>
+
+```tsx Button.tsx
+import { Button, useModal } from '@fluid-design/fluid-ui';
+
+const NestedComponent = () => {
+  const [presentModal] = useModal(NestedModal1);
+  return <Button label='Nested Modal' onClick={() => presentModal()} />;
+};
+```
+
+```tsx Modal.tsx
+import { Button, Dialog, useModal } from '@fluid-design/fluid-ui';
+const NestedModal2 = ({ dismiss }) => {
+  const [nestedModal] = useModal(NestedModal1);
+  return (
+    <Dialog>
+      <Dialog.Body>
+        <Dialog.Title>Are you sure?</Dialog.Title>
+        <Dialog.Description>
+          You have unsaved changes. Are you sure you want to cancel? All unsaved
+          changes will be lost.
+        </Dialog.Description>
+      </Dialog.Body>
+      <Dialog.Footer>
+        <Button onClick={nestedModal} type='button' color='emerald'>
+          Nest ME!
+        </Button>
+        <Button onClick={dismiss} type='button'>
+          Close
+        </Button>
+      </Dialog.Footer>
+    </Dialog>
+  );
+};
+
+const NestedModal1 = ({ dismiss }) => {
+  const [nestedModal] = useModal(NestedModal2);
+  return (
+    <Dialog>
+      <Dialog.Body>
+        <Dialog.Title>Are you sure?</Dialog.Title>
+        <Dialog.Description>
+          You have unsaved changes. Are you sure you want to cancel? All unsaved
+          changes will be lost.
+        </Dialog.Description>
+      </Dialog.Body>
+      <Dialog.Footer>
+        <Button onClick={nestedModal} type='button' color='emerald'>
+          Nest ME!
+        </Button>
+        <Button onClick={dismiss} type='button'>
+          Close
+        </Button>
+      </Dialog.Footer>
+    </Dialog>
+  );
+};
+```
+
+</CH.Code>
