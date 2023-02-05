@@ -1,54 +1,18 @@
+<!-- markdownlint-disable-next-line -->
 <p align="center">
-
-<a href="#">
-
-<img alt="Fluid" src="https://github.com/fluid-design-io/fluid/blob/main/public/assets/fluid-logo.webp?raw=true" width="80" />
-
-</a>
-
+  <a href="https://fluid-design.io/docs/" rel="noopener" target="_blank"><img width="150" src="https://user-images.githubusercontent.com/13263720/205263424-c7458db9-a1ea-4b7c-8c0b-cfdc811fb5f4.png" alt="Fluid UI logo"></a>
 </p>
 
-<h1 align="center">
+<h1 align="center">Fluid UI</h1>
 
-Fluid
+<div align="center">
 
-</h1>
+[![NPM](https://img.shields.io/npm/v/@fluid-design/fluid-ui.svg)](https://www.npmjs.com/package/@fluid-design/fluid-ui)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/fluid-design-io/fluid-ui/blob/main/LICENSE)
 
-<p align="center">
+</div>
 
-Fluid is an open source React UI library for building beautiful mordern UI components that supports advanced a11y features.
-
-</p>
-
-<p align="center">
-
-Fluid is based on <a href="https://reactjs.com/">React</a>, <a href="https://tailwindcss.com/">tailwindcss</a>, <a href="https://headlessui.dev/">headless-ui</a>, and <a href="https://www.framer.com/motion/">framer-motion</a>.
-
-</p>
-
-<p align="center">
-
-<a href="https://github.com/fluid-design-io/fluid/blob/main/LICENSE">
-
-<img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Ionic Framework is released under the MIT license." />
-
-</a>
-
-</p>
-
-<h2 align="center">
-
-<a href="http://fluid-design.io/docs/usage">Usage</a>
-
-<span> · </span>
-
-<a href="http://fluid-design.io/docs/docs">Docs</a>
-
-<span> · </span>
-
-<a href="http://fluid-design.io/docs/examples">Examples</a>
-
-<br />
+Fluid UI is an elegant component library for React. It is built on top of mordern libraries like [tailwindcss](https://tailwindcss.com/), [headlessui](https://headlessui.dev/) and [framer-motion](https://www.framer.com/motion/).
 
 ### Getting Started
 
