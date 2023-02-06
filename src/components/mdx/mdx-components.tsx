@@ -1,6 +1,7 @@
 /* Source: https://github.com/shuding/nextra/blob/core/packages/nextra-theme-docs/src/mdx-components.tsx */
 import { HashtagIcon } from '@heroicons/react/24/outline';
 import Slugger from 'github-slugger';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { ComponentProps, ReactElement, useEffect, useRef } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -77,14 +78,12 @@ const createHeaderLink = (
   Tag: `h${2 | 3 | 4 | 5 | 6}`,
   context: { index: number }
 ) =>
-  (function HeaderLink(
-    {
-      children,
-      ...props
-    }: ComponentProps<'h2'>
-  ): ReactElement {
+  function HeaderLink({
+    children,
+    ...props
+  }: ComponentProps<'h2'>): ReactElement {
     setActiveAnchor = useSetActiveAnchor();
-    const obRef = useRef<HTMLSpanElement>(null);
+    const obRef = useRef<HTMLDivElement>(null);
     const id = Slugger.slug(children);
     const depth = Number(Tag.slice(1));
     const { pathname } = useRouter();
@@ -111,31 +110,31 @@ const createHeaderLink = (
       };
     }, []);
     return (
-      <Tag className='group pointer-events-none relative' {...props}>
-        <span
-          className='subheading-anchor -mt-28 block pt-28 lg:-mt-16 lg:pt-16'
-          id={id}
-          ref={obRef}
-        />
-        <div className='pointer-events-auto flex items-center'>
-          <CopyToClipboard text={`${pathname}#${id}`}>
-            <a
-              aria-label={`${`Click to copy section hashtag`}`}
-              aria-live='assertive'
-              className='anchor anchor-link hash-link hash absolute top-28 bottom-0 right-0 ml-0 flex items-center border-0 opacity-0 focus:opacity-100 group-hover:opacity-100 md:top-16 lg:right-auto lg:mt-0.5 lg:-ml-9 xl:-ml-10 pointer-touch:opacity-80'
-              href={`#${id}`}
-              title={`Direct link to heading ${id}`}
-            >
-              <div data-tooltip-top='Copy'>
-                <HashtagIcon className='flex h-6 w-6 items-center justify-center rounded-md p-1 text-gray-400 shadow-sm ring-1 ring-gray-900/5 hover:text-gray-700 hover:shadow hover:ring-gray-900/10 dark:bg-gray-700 dark:text-gray-300 dark:shadow-none dark:ring-0 dark:hover:text-gray-50' />
-              </div>
-            </a>
-          </CopyToClipboard>
+      <div
+        className='group relative flex scroll-m-28 items-baseline lg:scroll-m-16'
+        id={id}
+        ref={obRef}
+      >
+        <CopyToClipboard text={`${pathname}#${id}`}>
+          <Link
+            aria-label={`${`Click to copy section hashtag`}`}
+            aria-live='assertive'
+            className='anchor anchor-link hash-link hash absolute top-6 bottom-0 right-0 ml-0 flex items-center border-0 opacity-0 focus:opacity-100 group-hover:opacity-100 lg:top-5 lg:right-auto lg:mt-0.5 lg:-ml-9 xl:-ml-10 pointer-touch:opacity-80'
+            href={`#${id}`}
+            title={`Direct link to heading ${id}`}
+          >
+            <HashtagIcon
+              data-tooltip-top='Copy'
+              className='flex h-6 w-6 items-center justify-center rounded-md p-1 text-gray-400 shadow-sm ring-1 ring-gray-900/5 hover:text-gray-700 hover:shadow hover:ring-gray-900/10 dark:bg-gray-700 dark:text-gray-300 dark:shadow-none dark:ring-0 dark:hover:text-gray-50'
+            />
+          </Link>
+        </CopyToClipboard>
+        <Tag className='relative' {...props}>
           {children}
-        </div>
-      </Tag>
+        </Tag>
+      </div>
     );
-  });
+  };
 
 const A = ({ href = '', ...props }) => (
   <Anchor
