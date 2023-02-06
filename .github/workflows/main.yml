@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Use Node ${{ matrix.node }}
         uses: actions/setup-node@v2
@@ -38,6 +38,6 @@ jobs:
         uses: cycjimmy/semantic-release-action@v3.0.0
         with:
           branch: main
-    env: 
+    env:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
