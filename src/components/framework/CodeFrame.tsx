@@ -238,14 +238,14 @@ export const CodeFrame = ({ title = 'Example', children = null, ...props }) => {
               isPrefDark && 'dark'
             )}
           >
-            <h5
+            <div
               className={clsxm(
                 isPrefDark ? 'text-white' : 'text-gray-500',
                 'line-clamp-1'
               )}
             >
               {title}
-            </h5>
+            </div>
             <div
               className={`pointer-events-auto z-[4] flex flex-shrink-0 justify-center space-x-2 rounded-md bg-gray-50/75 py-1 px-1 backdrop-blur-md backdrop-brightness-90 backdrop-filter motion-safe:transition-opacity contrast-more:shadow-none dark:bg-gray-800/30 dark:shadow-gray-900/20 sm:shadow-md sm:shadow-gray-400/10 ${touchStyle}`}
             >
