@@ -273,10 +273,10 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@fluid-design/fluid-ui@^2.4.6":
-  version "2.4.6"
-  resolved "https://registry.yarnpkg.com/@fluid-design/fluid-ui/-/fluid-ui-2.4.6.tgz#0c08a3638eb8450aae4f5dac98ba365555fe4c9f"
-  integrity sha512-pF/qSdERdYMzRw+Viog2f5mZ2TAKYHgSNGE6wXC4a7SUGnY6DcyAtSUwNzntRQExAZnKDTz8+aakXe9cqcBzeQ==
+"@fluid-design/fluid-ui@^2.4.7":
+  version "2.4.7"
+  resolved "https://registry.yarnpkg.com/@fluid-design/fluid-ui/-/fluid-ui-2.4.7.tgz#2d1e4aa01a680ab70284f4c5b5f3bc0cf8ba8b81"
+  integrity sha512-1THyBQuFBdGEmFtxZT8Pt9baVd1LS2c5LanJSuSGe/P22ve2P/JI6yqrN2WKuv9uVeA5UyIztt7v6Y6u02P1Og==
   dependencies:
     "@headlessui/react" "^1.7.7"
     "@heroicons/react" "^2.0.13"
