@@ -97,5 +97,6 @@ module.exports = {
     require('@headlessui/tailwindcss'),
     require('@fluid-design/fluid-ui/dist/plugin/core'),
     require('@fluid-design/fluid-ui/dist/plugin/button'),
+    require('@fluid-design/fluid-ui/dist/plugin/tooltip'),
   ],
 };

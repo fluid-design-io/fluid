@@ -1,0 +1,147 @@
+import { MDXLayoutNext } from '@/components';
+import { Button } from '@fluid-design/fluid-ui';
+
+export const meta = {
+  title: 'Tootip Plugin',
+  description: 'Tootip Plugin | Fluid Design',
+  date: '2023-02-01',
+  author: 'Oliver Pan',
+  tags: [
+    'fluid ui',
+    'react',
+    'framer motion',
+    'headless ui',
+    'tailwindcss',
+    'tooltip plugin',
+  ],
+};
+
+export default (props) => <MDXLayoutNext meta={meta} {...props} />;
+
+# Tooltip Plugin
+
+The tooltip plugin provides a simple way to add tooltips to your application.
+It is purely CSS based and does not require any JavaScript.
+
+## Installation
+
+Install the plugin from npm:
+
+```js
+npm install @fluid-design/fluid-ui
+```
+
+Then add the plugin to your tailwind.config.js file:
+
+```js tailwind.config.js
+// tailwind.config.js
+module.exports = {
+  theme: {
+    // ...
+  },
+  plugins: [
+    require('@fluid-design/fluid-ui/dist/plugin/core'),
+    require('@fluid-design/fluid-ui/dist/plugin/tooltip'),
+    // ...
+  ],
+};
+```
+
+## Usage
+
+```jsx
+
+<button data-tooltip-left='Left'>Left</butotn>
+<button data-tooltip-right='Right'>Right</butotn>
+<button data-tooltip-top='Top'>Top</butotn>
+<button data-tooltip-bottom='Bottom'>Bottom</butotn>
+<button data-tooltip='Default'>Default</butotn>
+
+```
+
+## Examples
+
+<CodeFrame title='Basic Tooltip'>
+  <div className='flex gap-4 px-8 py-24'>
+    <div className='text-gray-700 dark:text-gray-200' data-tooltip-left='Left'>
+      Left
+    </div>
+    <div
+      className='text-gray-700 dark:text-gray-200'
+      data-tooltip-right='Right'
+    >
+      Right
+    </div>
+    <div className='text-gray-700 dark:text-gray-200' data-tooltip-top='Top'>
+      Top
+    </div>
+    <div
+      className='text-gray-700 dark:text-gray-200'
+      data-tooltip-bottom='Bottom'
+    >
+      Bottom
+    </div>
+    <div className='text-gray-700 dark:text-gray-200' data-tooltip='Default'>
+      Default
+    </div>
+  </div>
+</CodeFrame>
+
+<CodeFrame title='Custom Tooltip'>
+  <div className='flex gap-4 px-8 py-24'>
+    <div
+      data-tooltip-left='Yellow'
+      style={{
+        '--tooltip-background-color': '#f6ad55',
+        '--tooltip-arrow-border-color': '#f6ad55',
+        '--tooltip-color': '#000',
+      }}
+    >
+      Color
+    </div>
+    <div>
+      <div
+        data-tooltip-right='Rectangle'
+        style={{
+          '--tooltip-border-radius': '0',
+          '--tooltip-arrow-border-radius': '0',
+        }}
+      >
+        Border Radius
+      </div>
+    </div>
+  </div>
+</CodeFrame>
+
+## Customization
+
+You can customize the tooltip by overriding the default css variables using `data-tooltip-*` attributes.
+
+```jsx
+<button
+  data-tooltip-left='Left'
+  style={{ '--tooltip-background-color': 'red' }}
+>
+  Left
+</button>
+// ...
+```
+
+## Plugin API
+
+By default, the plugin uses the following configuration:
+
+| Variable                      | Description                            | Default                                       |
+| ----------------------------- | -------------------------------------- | --------------------------------------------- |
+| --tooltip-width               | The width of the tooltip               | `fit-content`                                 |
+| --tooltip-min-height          | The minimum height of the tooltip      | `fit-content`                                 |
+| --tooltip-arrow-width         | The width of the tooltip arrow         | `12px`                                        |
+| --tooltip-arrow-height        | The height of the tooltip arrow        | `12px`                                        |
+| --tooltip-background-color    | The background color of the tooltip    | `theme("colors.stone.700")`                   |
+| --tooltip-color               | The color of the tooltip               | `theme("colors.stone.50")`                    |
+| --tooltip-border-radius       | The border radius of the tooltip       | `theme("spacing.1")`                          |
+| --tooltip-padding             | The padding of the tooltip             | `${theme("spacing.1")} ${theme("spacing.2")}` |
+| --tooltip-font-size           | The font size of the tooltip           | `theme("fontSize.sm")`                        |
+| --tooltip-arrow-border-color  | The border color of the tooltip arrow  | `theme("colors.stone.700")`                   |
+| --tooltip-arrow-border-radius | The border radius of the tooltip arrow | `3px`                                         |
+| --tooltip-pointer-events      | The pointer events of the tooltip      | `none`                                        |
