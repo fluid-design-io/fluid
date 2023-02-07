@@ -231,19 +231,19 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@docsearch/css@3.3.2":
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/@docsearch/css/-/css-3.3.2.tgz#2c49995e6fbc7834c75f317b277ed6e4019223a4"
-  integrity sha512-dctFYiwbvDZkksMlsmc7pj6W6By/EjnVXJq5TEPd05MwQe+dcdHJgaIn1c8wfsucxHpIsdrUcgSkACHCq6aIhw==
+"@docsearch/css@3.3.3":
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/@docsearch/css/-/css-3.3.3.tgz#f9346c9e24602218341f51b8ba91eb9109add434"
+  integrity sha512-6SCwI7P8ao+se1TUsdZ7B4XzL+gqeQZnBc+2EONZlcVa0dVrk0NjETxozFKgMv0eEGH8QzP1fkN+A1rH61l4eg==
 
-"@docsearch/react@^3.3.2":
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/@docsearch/react/-/react-3.3.2.tgz#252b659c66682f24902bf6db257f63ee73ffe8fa"
-  integrity sha512-ugILab2TYKSh6IEHf6Z9xZbOovsYbsdfo60PBj+Bw+oMJ1MHJ7pBt1TTcmPki1hSgg8mysgKy2hDiVdPm7XWSQ==
+"@docsearch/react@^3.3.3":
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/@docsearch/react/-/react-3.3.3.tgz#907b6936a565f880b4c0892624b4f7a9f132d298"
+  integrity sha512-pLa0cxnl+G0FuIDuYlW+EBK6Rw2jwLw9B1RHIeS4N4s2VhsfJ/wzeCi3CWcs5yVfxLd5ZK50t//TMA5e79YT7Q==
   dependencies:
     "@algolia/autocomplete-core" "1.7.4"
     "@algolia/autocomplete-preset-algolia" "1.7.4"
-    "@docsearch/css" "3.3.2"
+    "@docsearch/css" "3.3.3"
     algoliasearch "^4.0.0"
 
 "@emotion/is-prop-valid@^0.8.2":
@@ -273,10 +273,10 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@fluid-design/fluid-ui@^2.4.7":
-  version "2.4.7"
-  resolved "https://registry.yarnpkg.com/@fluid-design/fluid-ui/-/fluid-ui-2.4.7.tgz#2d1e4aa01a680ab70284f4c5b5f3bc0cf8ba8b81"
-  integrity sha512-1THyBQuFBdGEmFtxZT8Pt9baVd1LS2c5LanJSuSGe/P22ve2P/JI6yqrN2WKuv9uVeA5UyIztt7v6Y6u02P1Og==
+"@fluid-design/fluid-ui@^2.5.1":
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/@fluid-design/fluid-ui/-/fluid-ui-2.5.1.tgz#a6843682e04c407d661bafeaf8a8276199a638e0"
+  integrity sha512-l8m73uLj6pVa37CivZGYJme9by0SCzGjIWnAbRjud9kNpeA2O2ACn2vBPhfnB15/J28racYhB9TBHV/JDdgo5g==
   dependencies:
     "@headlessui/react" "^1.7.7"
     "@heroicons/react" "^2.0.13"
@@ -296,7 +296,14 @@
   dependencies:
     "@babel/runtime" "^7.17.9"
 
-"@headlessui/react@^1.7.7", "@headlessui/react@^1.7.9":
+"@headlessui/react@^1.7.10":
+  version "1.7.10"
+  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.10.tgz#0971a33843a76f2bf4b801a43f76e3730fe15884"
+  integrity sha512-1m66h/5eayTEZVT2PI13/2PG3EVC7a9XalmUtVSC8X76pcyKYMuyX1XAL2RUtCr8WhoMa/KrDEyoeU5v+kSQOw==
+  dependencies:
+    client-only "^0.0.1"
+
+"@headlessui/react@^1.7.7":
   version "1.7.9"
   resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.9.tgz#fcb4cf50afbb2161cf7ea8e2301805ec05c24e49"
   integrity sha512-Bobh/+mDciu8kEE2hvdukFYjbfaG4MEkK/6TjWOgqcODLKYpRhWPKPE+dCcCSz/YrwjFVrEAMOiWtfk6sW20/w==
@@ -2208,10 +2215,10 @@ framer-motion@^8.4.3:
   optionalDependencies:
     "@emotion/is-prop-valid" "^0.8.2"
 
-framer-motion@^9.0.1:
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-9.0.1.tgz#0b63c22bdde1c38ce8da88141bb81ef0137c68e9"
-  integrity sha512-0EP7+b/hnsbrFOum9zU+23Fq2cJJrLOqv/yJ26fIzK4CC33ZAjXZGi1/XyblbgnUF0cxZ/SEDj5IYHeQo42qNg==
+framer-motion@^9.0.2:
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-9.0.2.tgz#b599beb987ca1341e32ec5a2a9c667f2143976e9"
+  integrity sha512-n7ZdIUBrT1xklowQNRQ6/h54+3ysmz422CP0rrhjE1X2tshiJy0WWQ7tv6y/fcOSQd23htNA9vvbUFLYMQ5lEQ==
   dependencies:
     "@motionone/dom" "^10.15.3"
     hey-listen "^1.0.8"
@@ -3718,10 +3725,10 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
-next-sitemap@^3.1.49:
-  version "3.1.49"
-  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-3.1.49.tgz#ed661fc800ead8a32728783c710ca28ef1a2d76d"
-  integrity sha512-bxBq+MQdi580PKn/8ert4X0RL8Kp9scvyiq6TmIpkCQC3bd4DResTyxHY2AuCGKz83ut2udHwKMZu3ztj3aq3w==
+next-sitemap@^3.1.50:
+  version "3.1.50"
+  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-3.1.50.tgz#b8d8aaeaa9344884d012a5ed9662ef3ef9e3766b"
+  integrity sha512-BnxAbjOK1zVcYvpZ4sYfhPXcL3ajLh/AIJLR39YKrhFxrD92KkiAGuVaKhfpoQLUf+ldsGBkGpdml2N5Qdd1KA==
   dependencies:
     "@corex/deepmerge" "^4.0.29"
     minimist "^1.2.7"
