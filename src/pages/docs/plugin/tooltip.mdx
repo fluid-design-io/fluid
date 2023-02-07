@@ -87,6 +87,16 @@ module.exports = {
   </div>
 </CodeFrame>
 
+```jsx
+<div className='flex gap-4 px-8 py-24'>
+  <div data-tooltip-left='Left'>Left</div>
+  <div data-tooltip-right='Right'>Right</div>
+  <div data-tooltip-top='Top'>Top</div>
+  <div data-tooltip-bottom='Bottom'>Bottom</div>
+  <div data-tooltip='Default'>Default</div>
+</div>
+```
+
 <CodeFrame title='Custom Tooltip'>
   <div className='flex gap-4 px-8 py-24'>
     <div
@@ -112,6 +122,32 @@ module.exports = {
     </div>
   </div>
 </CodeFrame>
+
+```jsx
+<div className='flex gap-4 px-8 py-24'>
+  <div
+    data-tooltip-left='Yellow'
+    style={{
+      '--tooltip-background-color': '#f6ad55',
+      '--tooltip-arrow-border-color': '#f6ad55',
+      '--tooltip-color': '#000',
+    }}
+  >
+    Color
+  </div>
+  <div>
+    <div
+      data-tooltip-right='Rectangle'
+      style={{
+        '--tooltip-border-radius': '0',
+        '--tooltip-arrow-border-radius': '0',
+      }}
+    >
+      Border Radius
+    </div>
+  </div>
+</div>
+```
 
 ## Customization
 

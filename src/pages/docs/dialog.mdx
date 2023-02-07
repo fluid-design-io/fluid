@@ -38,28 +38,16 @@ import { Button, Dialog, useModal } from '@fluid-design/fluid-ui';
 const SimpleModal = ({ dismiss, onConfirm }) => {
   return (
     <Dialog className='component'>
-      <Dialog.Body className='bg-whtie'>
+      <Dialog.Header>
         <Dialog.Title>Modal Title</Dialog.Title>
+        <Dialog.CloseButton dismiss={dismiss} />
+      </Dialog.Header>
+      <Dialog.Body className='bg-whtie'>
         <Dialog.Description>
           This is a simple modal. It has a title, a description, and a footer.
         </Dialog.Description>
         <p>Modal Content</p>
       </Dialog.Body>
-      <Dialog.Footer>
-        <Button
-          type='button'
-          color='blue'
-          onClick={() => {
-            onConfirm();
-            dismiss();
-          }}
-        >
-          Confirm
-        </Button>
-        <Button type='button' onClick={dismiss}>
-          Close
-        </Button>
-      </Dialog.Footer>
     </Dialog>
   );
 };
@@ -147,3 +135,15 @@ const NestedModal1 = ({ dismiss }) => {
 ```
 
 </CH.Code>
+
+## Dialog with Form
+
+Having a form inside a modal is a common pattern.
+You can programmatically control weather the modal can be dismissed by clicking outside of
+the modal or pressing the escape key by passing the `onClose` prop to the `useModal` hook.
+
+<CodeFrame title='Form'>
+  <FluidProvider>
+    <DialogExamples.Form />
+  </FluidProvider>
+</CodeFrame>
