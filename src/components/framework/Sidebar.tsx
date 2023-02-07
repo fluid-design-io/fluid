@@ -26,7 +26,7 @@ const secondaryNavigation = [
     groupName: 'Plugins',
     groupList: [
       { name: 'Button', href: 'plugin/button', isDone: true },
-      { name: 'Tooltip', href: 'plugin/tooltip', isDone: false },
+      { name: 'Tooltip', href: 'plugin/tooltip', isDone: true },
     ],
   },
   {

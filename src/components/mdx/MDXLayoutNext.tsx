@@ -20,7 +20,7 @@ export const MDXLayoutNext: (props) => React.ReactElement = ({
   ...props
 }) => {
   const meta = props.meta || {};
-  const defaultComponents = getComponents({ isRawLayout: false }) as any;
+  const defaultComponents = getComponents() as any;
   return (
     <>
       <Seo {...meta} category='doc' />

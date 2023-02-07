@@ -73,7 +73,7 @@ function useAutocomplete() {
                     params: {
                       hitsPerPage: 5,
                       highlightPreTag:
-                        '<mark class="underline bg-transparent text-emerald-500">',
+                        '<mark class="underline bg-transparent text-primary-500">',
                       highlightPostTag: '</mark>',
                     },
                   },
@@ -186,7 +186,7 @@ function SearchResult({ result, resultIndex, autocomplete, collection }) {
       <div
         id={`${id}-title`}
         aria-hidden='true'
-        className='text-sm font-medium text-gray-900 group-aria-selected:text-emerald-500 dark:text-white'
+        className='text-sm font-medium text-gray-900 group-aria-selected:text-primary-500 dark:text-white'
         dangerouslySetInnerHTML={{ __html: titleHtml }}
       />
       {hierarchyHtml.length > 0 && (
@@ -278,7 +278,7 @@ const SearchInput = forwardRef(function SearchInput(
       />
       {autocompleteState.status === 'stalled' && (
         <div className='absolute inset-y-0 right-3 flex items-center'>
-          <LoadingIcon className='h-5 w-5 animate-spin stroke-gray-200 text-gray-900 dark:stroke-gray-800 dark:text-emerald-400' />
+          <LoadingIcon className='h-5 w-5 animate-spin stroke-gray-200 text-gray-900 dark:stroke-gray-800 dark:text-primary-400' />
         </div>
       )}
     </div>
