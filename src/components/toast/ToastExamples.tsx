@@ -29,7 +29,7 @@ const ToastSimple = () => {
             autoDismiss: true,
             duration: 3000,
             component: null,
-          })
+          } as any)
         }
         weight='light'
         color='emerald'
@@ -41,7 +41,7 @@ const ToastSimple = () => {
             title: 'Order shipped',
             message: 'Your order has been shipped.',
             role: 'info',
-          })
+          } as any)
         }
         weight='light'
         color='sky'
@@ -54,7 +54,7 @@ const ToastSimple = () => {
             message: 'Your order has failed.',
             role: 'error',
             autoDismiss: false,
-          })
+          } as any)
         }
         weight='light'
         color='red'
