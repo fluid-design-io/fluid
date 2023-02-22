@@ -248,11 +248,11 @@ const Plugins = () => {
       src: 'plugin-button',
       href: 'plugin/button',
     },
-    /* {
-      name: "Tooltip",
+    {
+      name: 'Tooltip',
       src: 'plugin-tooltip',
       href: 'plugin/tooltip',
-    }, */
+    },
   ];
   return <GridWrap list={plugins} />;
 };

@@ -38,7 +38,7 @@ Dialog (Modal) is used to display content that requires user interaction. They a
 import { Button, Dialog, useModal } from '@fluid-design/fluid-ui';
 const SimpleModal = ({ dismiss, onConfirm }) => {
   return (
-    <Dialog className='component'>
+    <Dialog>
       <Dialog.Header>
         <Dialog.Title>Modal Title</Dialog.Title>
         <Dialog.CloseButton dismiss={dismiss} />
@@ -75,7 +75,7 @@ The keyboard focus will be trapped inside the modal, and the user will be able t
   </FluidProvider>
 </CodeFrame>
 
-<CH.Code>
+<CH.Code style={{minHeight:400}}>
 
 ```tsx Button.tsx
 import { Button, useModal } from '@fluid-design/fluid-ui';
@@ -151,4 +151,53 @@ the modal or pressing the escape key by passing the `onClose` prop to the `useMo
 
 ## Component API
 
-Coming soon...
+### Dialog.Title
+
+| Prop      | Default | Description                                                                        |
+| --------- | ------- | ---------------------------------------------------------------------------------- |
+| className | `''`    | `string` <Table.D>The CSS class to apply to the component's root element</Table.D> |
+| children  |         | `ReactNode` <Table.D>The content to display inside the component</Table.D>         |
+
+### Dialog.Description
+
+| Prop      | Default | Description                                                                        |
+| --------- | ------- | ---------------------------------------------------------------------------------- |
+| className | `''`    | `string` <Table.D>The CSS class to apply to the component's root element</Table.D> |
+| children  |         | `ReactNode` <Table.D>The content to display inside the component</Table.D>         |
+
+### Dialog.Header
+
+| Prop          | Default | Description                                                                        |
+| ------------- | ------- | ---------------------------------------------------------------------------------- |
+| className     | `''`    | `string` <Table.D>The CSS class to apply to the component's root element</Table.D> |
+| transparentBg | `false` | `boolean` <Table.D>If true, the background will be transparent</Table.D>           |
+| children      |         | `ReactNode` <Table.D>The content to display inside the component</Table.D>         |
+
+### Dialog.Body
+
+| Prop      | Default | Description                                                                        |
+| --------- | ------- | ---------------------------------------------------------------------------------- |
+| className | `''`    | `string` <Table.D>The CSS class to apply to the component's root element</Table.D> |
+| children  |         | `ReactNode` <Table.D>The content to display inside the component</Table.D>         |
+
+### Dialog.Footer
+
+| Prop          | Default | Description                                                                        |
+| ------------- | ------- | ---------------------------------------------------------------------------------- |
+| className     | `''`    | `string` <Table.D>The CSS class to apply to the component's root element</Table.D> |
+| transparentBg | `false` | `boolean` <Table.D>If true, the background will be transparent</Table.D>           |
+| children      |         | `ReactNode` <Table.D>The content to display inside the component</Table.D>         |
+
+### Dialog.CloseButton
+
+| Prop      | Default | Description                                                                        |
+| --------- | ------- | ---------------------------------------------------------------------------------- |
+| className | `''`    | `string` <Table.D>The CSS class to apply to the component's root element</Table.D> |
+| dismiss   |         | `() => void` <Table.D>The function to call when the button is clicked</Table.D>    |
+
+### Dialog
+
+| Prop      | Default | Description                                                                        |
+| --------- | ------- | ---------------------------------------------------------------------------------- |
+| className | `''`    | `string` <Table.D>The CSS class to apply to the component's root element</Table.D> |
+| children  |         | `ReactNode` <Table.D>The content to display inside the component</Table.D>         |

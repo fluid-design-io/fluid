@@ -36,7 +36,7 @@ Toast is used to display a message to the user. They are usually displayed at th
 ```jsx
 import { Button, useToast } from '@fluid-design/fluid-ui';
 
-const ToastSimple = () => {
+export const ToastSimple = () => {
   const [presentToast] = useToast();
   return (
     <Wrap>
@@ -58,6 +58,74 @@ const ToastSimple = () => {
 };
 ```
 
+## Custom Toast
+
+You can also have an unstyled toast with a custom component. This is useful if you want to have a toast with a custom layout.
+Blank role will not apply anything to the toast, which means you'll need to handle the `dismiss` button yourself.
+
+<CodeFrame title='Custom'>
+  <FluidProvider>
+    <ToastExamples.Custom />
+  </FluidProvider>
+</CodeFrame>
+
+```jsx
+import { Button, useToast } from '@fluid-design/fluid-ui';
+
+export const ToastCustom = () => {
+  const [presentToast] = useToast();
+  const component = ({ dismiss }) => (
+    <div className='flex flex-col items-center justify-center gap-4 dark:text-white p-2'>
+      <h3 className='text-2xl font-bold'>Custom Body</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+        voluptates, quod, quia, voluptatibus quae voluptatem quibusdam
+      </p>
+      <div className='flex justify-between w-full'>
+        <div className='flex-grow' />
+        <Button
+          label='Dismiss'
+          onClick={dismiss}
+          color='fuchsia'
+          weight='clear'
+          size='sm'
+        />
+      </div>
+    </div>
+  );
+  return (
+    <Wrap>
+      <Button
+        label='Custom Toast'
+        onClick={() =>
+          presentToast({
+            // mark
+            role: 'blank',
+            // mark
+            component,
+          } as any)
+        }
+        weight='light'
+        color='gray'
+      />
+    </Wrap>
+  );
+};
+
+```
+
 ## Component API
 
-Coming soon...
+| Prop             | Default     | Description                                                                                                                                        |
+| ---------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title            |             | `string` <Table.D>Title of the toast</Table.D>                                                                                                     |
+| message          |             | `string` <Table.D>Message to display in the toast. Note: If component is provided, message will be ignored</Table.D>                               |
+| role             | `'default'` | `'success'`, `'error'`, `'info'`, `'warning'`, `'default'`, `'blank'` <Table.D>Role of the toast</Table.D>                                         |
+| id               |             | <Table.D>The id of the toast</Table.D>                                                                                                             |
+| autoDismiss      | `true`      | `boolean` <Table.D>Whether to auto dismiss the toast</Table.D>                                                                                     |
+| duration         | `4000`      | `number` <Table.D>Duration in milliseconds to auto dismiss the toast</Table.D>                                                                     |
+| component        | `null`      | `({ dismiss }: { dismiss: () => void }) => ReactNode` <Table.D>Component to render in the toast</Table.D>                                          |
+| dismissIcon      | `XMarkIcon` | `any` <Table.D>Icon to use for the dismiss button</Table.D>                                                                                        |
+| onDismiss        | `null`      | `({ id, role }: { id: string; role: string }) => void` <Table.D>Callback function to run when the toast is dismissed</Table.D>                     |
+| icon             | `null`      | `JSX.Element \| ((props: any) => JSX.Element)` <Table.D>Icon to render in the toast. If not provided, the icon will be based on the role</Table.D> |
+| dismissClassName |             | `string` <Table.D>Class name to apply to the dismiss button</Table.D>                                                                              |
