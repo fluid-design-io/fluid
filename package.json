@@ -1,6 +1,6 @@
 {
   "name": "fluid-design",
-  "version": "2.5.0",
+  "version": "2.5.2",
   "description": "A collection of beautifully designed components that are responsive, supports features like dark mode and a11y with elegant transitions.",
   "private": false,
   "scripts": {
@@ -16,7 +16,7 @@
     "semantic-release": "semantic-release --branches main"
   },
   "dependencies": {
-    "@code-hike/mdx": "^0.8.0",
+    "@code-hike/mdx": "0.8.1-next.0",
     "@docsearch/react": "^3.3.3",
     "@fluid-design/fluid-ui": "^2.6.0",
     "@hcaptcha/react-hcaptcha": "^1.4.4",
