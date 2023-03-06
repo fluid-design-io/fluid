@@ -31,7 +31,7 @@ export default function ContactPage() {
 
     const { error } = await res.json();
     if (error) {
-      console.log(error);
+      process.env.NODE_ENV === 'development' && console.error(error);
       // setShowSuccessMessage(false);
       // setShowFailureMessage(true);
       // setButtonText("Send");

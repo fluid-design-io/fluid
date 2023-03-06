@@ -336,7 +336,7 @@ pre .line {
   @apply pointer-events-auto opacity-100;
 }
 a.skip-main {
-  @apply position-absolute width-1 height-1 pointer-events-none left-[-999px] top-auto z-[-999] overflow-hidden;
+  @apply pointer-events-none absolute left-[-999px] top-auto z-[-999] h-1 w-1 overflow-hidden;
 }
 a.skip-main:focus,
 a.skip-main:active {
