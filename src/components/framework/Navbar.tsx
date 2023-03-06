@@ -42,7 +42,10 @@ export const Navbar = ({ sidebar, ...props }) => {
           'bg-gray-100/[var(--bg-opacity-light)] dark:bg-gray-900/[var(--bg-opacity-dark)]'
         )}
         animate={{
-          y: hasScrolled && !isWithinTop ? -menuBarRef.current?.offsetHeight || 0 : 0,
+          y:
+            hasScrolled && !isWithinTop
+              ? -menuBarRef.current?.offsetHeight || 0
+              : 0,
         }}
         initial={{
           y: 0,
@@ -116,12 +119,13 @@ export const Navbar = ({ sidebar, ...props }) => {
                 target='_blank'
                 icon={IoLogoGithub}
                 iconOnly
+                aria-label='GitHub repository'
               />
               <ThemeSwitch />
             </div>
           </div>
         </div>
-        <TOC.Mobile {...{hasScrolled, isWithinTop}} />
+        <TOC.Mobile {...{ hasScrolled, isWithinTop }} />
       </motion.div>
     </nav>
   );

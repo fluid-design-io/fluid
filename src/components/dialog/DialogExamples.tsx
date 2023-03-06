@@ -19,7 +19,7 @@ const Wrap = ({ className = '', children }) => {
 const NestedModal2 = ({ dismiss }) => {
   const [nestedModal] = useModal(NestedModal1);
   return (
-    <Dialog>
+    <Dialog className='component'>
       <Dialog.Header transparentBg>
         <Dialog.Title>Are you sure?</Dialog.Title>
       </Dialog.Header>
@@ -44,7 +44,7 @@ const NestedModal2 = ({ dismiss }) => {
 const NestedModal1 = ({ dismiss }) => {
   const [nestedModal] = useModal(NestedModal2);
   return (
-    <Dialog>
+    <Dialog className='component'>
       <Dialog.Header transparentBg>
         <Dialog.Title>Are you sure?</Dialog.Title>
       </Dialog.Header>
@@ -68,7 +68,7 @@ const NestedModal1 = ({ dismiss }) => {
 
 const ConfirmCancelModal = ({ onConfirm, dismiss, ...props }) => {
   return (
-    <Dialog>
+    <Dialog className='component'>
       <Dialog.Header transparentBg>
         <Dialog.Title>Are you sure?</Dialog.Title>
       </Dialog.Header>
@@ -98,7 +98,7 @@ const ConfirmCancelModalWrap = ({ onConfirm, dismiss, onClose, ...props }) => {
   const canDismiss = name === 'John Doe';
   onClose(canDismiss ? dismiss : presentConfirmModal);
   return (
-    <Dialog>
+    <Dialog className='component'>
       <Dialog.Header transparentBg>
         <Dialog.Title>My Profile</Dialog.Title>
       </Dialog.Header>

@@ -220,7 +220,7 @@ a {
 }
 
 h1:not(:where([class~='component'] *)) {
-  @apply bg-gradient-to-t from-stone-800 to-stone-600 bg-clip-text dark:from-stone-400 dark:to-stone-100 text-3xl md:text-4xl lg:text-5xl font-bold pb-4 -mb-4;
+  @apply -mb-4 bg-gradient-to-t from-stone-800 to-stone-600 bg-clip-text pb-4 text-3xl font-bold dark:from-stone-400 dark:to-stone-100 md:text-4xl lg:text-5xl;
   -webkit-text-fill-color: transparent;
 }
 h2:not(:where([class~='component'] *)) {
@@ -265,23 +265,6 @@ p:not(:where([class~='component'] *)) {
 }
 .button-primary-dark {
   @apply select-none bg-primary-50 text-primary-800 transition hover:bg-primary-100 hover:text-primary-900 focus:bg-primary-100 focus:text-primary-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-transparent active:bg-primary-200 contrast-more:border contrast-more:border-primary-800 contrast-more:bg-primary-50 contrast-more:text-primary-900 contrast-more:hover:bg-primary-50 contrast-more:hover:text-primary-900 contrast-more:focus:bg-primary-50 dark:bg-primary-900 dark:text-primary-100 dark:hover:bg-primary-900/50 dark:hover:text-primary-100 dark:focus:bg-primary-900/50 dark:focus:text-primary-100 dark:focus-visible:ring-offset-primary-600 dark:active:bg-primary-700 dark:contrast-more:border-primary-200 dark:contrast-more:bg-black dark:contrast-more:font-bold dark:contrast-more:text-primary-50 dark:contrast-more:hover:bg-primary-800 dark:contrast-more:hover:text-primary-50 dark:contrast-more:focus:bg-primary-800 dark:contrast-more:focus:text-primary-50;
-}
-
-.Resizer {
-  z-index: 1;
-  box-sizing: border-box;
-  background-clip: padding-box;
-}
-.Resizer.vertical {
-  width: 11px;
-  margin: 0 -5px;
-  border-left: 6px solid rgba(255, 255, 255, 0);
-  border-right: 6px solid rgba(255, 255, 255, 0);
-  @apply hidden sm:!block;
-}
-.Resizer.vertical::after {
-  content: '';
-  @apply absolute left-2 right-0 top-[calc(50%-16px)] h-8 w-1.5 cursor-ew-resize rounded-full bg-gray-500/60 contrast-more:bg-gray-800 dark:bg-gray-500/80 dark:contrast-more:bg-gray-300;
 }
 
 pre .token-line {
@@ -353,27 +336,12 @@ pre .line {
   @apply pointer-events-auto opacity-100;
 }
 a.skip-main {
-  left: -999px;
-  position: absolute;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  z-index: -999;
+  @apply position-absolute width-1 height-1 pointer-events-none left-[-999px] top-auto z-[-999] overflow-hidden;
 }
 a.skip-main:focus,
 a.skip-main:active {
   @apply rounded-lg border-4 border-primary-700 bg-primary-100 font-semibold text-primary-800 shadow-lg shadow-primary-300/40 outline-none dark:border-primary-700 dark:bg-primary-200 dark:text-slate-700 dark:shadow-primary-800/30;
-  left: auto;
-  top: auto;
-  width: 30%;
-  height: auto;
-  overflow: auto;
-  margin: 10px 35%;
-  padding: 5px;
-  text-align: center;
-  font-size: 1.2em;
-  z-index: 999;
+  @apply left-auto top-auto z-[999] m-[10px_35%] h-auto w-1/3 overflow-auto p-1 text-center text-lg;
 }
 
 /* App Segment Control */
