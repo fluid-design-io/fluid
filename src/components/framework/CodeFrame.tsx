@@ -205,7 +205,7 @@ export const CodeFrame = ({ title = 'Example', children = null, ...props }) => {
         <div
           className={clsxm(
             props.className,
-            'code-block-wrap focus-ring not-prose relative my-6 min-h-[8rem] w-full translate-x-0 transform-gpu cursor-auto overflow-hidden border-y border-gray-300/50 transition-colors contrast-more:border-gray-800 dark:border-gray-500/20 dark:bg-gray-900/90 dark:contrast-more:border-gray-100 sm:rounded-xl sm:border'
+            'code-block-wrap focus-ring not-prose relative my-6 min-h-[9rem] w-full translate-x-0 transform-gpu cursor-auto overflow-hidden border-y border-gray-300/50 transition-colors contrast-more:border-gray-800 dark:border-gray-500/20 dark:bg-gray-900/90 dark:contrast-more:border-gray-100 sm:rounded-xl sm:border'
           )}
         >
           <div

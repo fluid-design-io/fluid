@@ -69,7 +69,7 @@ export const Navbar = ({ sidebar, ...props }) => {
             <AppLogo className={`${sidebar ? 'sm:!hidden' : ''}`} />
             {!sidebar && (
               <div
-                aria-hidden={sidebar}
+                aria-hidden='true'
                 className={` hidden flex-shrink-0 sm:!block`}
               >
                 <Link href='/' className='flex'>
