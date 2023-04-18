@@ -1,4 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
 const modeScript = `
   let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
@@ -54,7 +55,11 @@ class MyDocument extends Document {
             rel='preload'
             type='font/woff2'
           />
-          <script dangerouslySetInnerHTML={{ __html: modeScript }} />
+          <Script
+            id='mode-switch-script'
+            dangerouslySetInnerHTML={{ __html: modeScript }}
+            strategy='beforeInteractive'
+          />
         </Head>
         <body>
           <Main />

@@ -6,7 +6,7 @@ const Wrap = ({ className = '', children }) => {
   return (
     <div
       className={clsxm(
-        'flex h-full flex-wrap items-center justify-center gap-6 px-4 lg:px-6',
+        'flex flex-wrap items-center justify-center gap-6 py-8 px-4 lg:px-6',
         className
       )}
     >
@@ -91,13 +91,13 @@ const ToastSimple = () => {
 const ToastCustom = () => {
   const [presentToast] = useToast();
   const component = ({ dismiss }) => (
-    <div className='flex flex-col items-center justify-center gap-4 dark:text-white p-2'>
+    <div className='flex flex-col items-center justify-center gap-4 p-2 dark:text-white'>
       <h3 className='text-2xl font-bold'>Custom Body</h3>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
         voluptates, quod, quia, voluptatibus quae voluptatem quibusdam
       </p>
-      <div className='flex justify-between w-full'>
+      <div className='flex w-full justify-between'>
         <div className='flex-grow' />
         <Button
           label='Dismiss'

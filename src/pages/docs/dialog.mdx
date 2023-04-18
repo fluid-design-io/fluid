@@ -5,7 +5,7 @@ export const meta = {
   templateTitle: 'Dialog',
   description:
     'Learn how to create engaging and interactive dialogs using Fluid Design. Discover all the features and options available to enhance the user experience.',
-  date: '2023-02-01',
+  date: '2023-04-01',
   author: 'Oliver Pan',
   tags: [
     'fluid ui',
@@ -28,11 +28,7 @@ Dialog (Modal) is used to display content that requires user interaction. They a
 
 ## Basic Usage
 
-<CodeFrame title='Simple'>
-  <FluidProvider>
-    <DialogExamples.Simple />
-  </FluidProvider>
-</CodeFrame>
+<DialogExamples.Simple />
 
 ```jsx
 import { Button, Dialog, useModal } from '@fluid-design/fluid-ui';
@@ -69,11 +65,7 @@ Since the modal is built using Headless UI, it supports focus trapping out of th
 This means that when a modal is open, the user will be unable to interact with the rest of the page until the modal is closed.
 The keyboard focus will be trapped inside the modal, and the user will be able to navigate the modal using the keyboard.
 
-<CodeFrame title='Nested'>
-  <FluidProvider>
-    <DialogExamples.Nested />
-  </FluidProvider>
-</CodeFrame>
+<DialogExamples.Nested />
 
 <CH.Code>
 
@@ -143,11 +135,7 @@ Having a form inside a modal is a common pattern.
 You can programmatically control weather the modal can be dismissed by clicking outside of
 the modal or pressing the escape key by passing the `onClose` prop to the `useModal` hook.
 
-<CodeFrame title='Form'>
-  <FluidProvider>
-    <DialogExamples.Form />
-  </FluidProvider>
-</CodeFrame>
+<DialogExamples.Form />
 
 ## Component API
 

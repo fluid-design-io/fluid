@@ -5,7 +5,7 @@ export const meta = {
   templateTitle: 'Toast',
   description:
     'Get started with creating accordions using Fluid Design. Learn how to use the accordion component to organize content and improve the user experience.',
-  date: '2023-02-01',
+  date: '2023-04-01',
   author: 'Oliver Pan',
   tags: [
     'fluid ui',
@@ -27,11 +27,7 @@ Toast is used to display a message to the user. They are usually displayed at th
 
 ## Basic Usage
 
-<CodeFrame title='Simple'>
-  <FluidProvider>
-    <ToastExamples.Simple />
-  </FluidProvider>
-</CodeFrame>
+<ToastExamples.Simple />
 
 ```jsx
 import { Button, useToast } from '@fluid-design/fluid-ui';
@@ -63,11 +59,7 @@ export const ToastSimple = () => {
 You can also have an unstyled toast with a custom component. This is useful if you want to have a toast with a custom layout.
 Blank role will not apply anything to the toast, which means you'll need to handle the `dismiss` button yourself.
 
-<CodeFrame title='Custom'>
-  <FluidProvider>
-    <ToastExamples.Custom />
-  </FluidProvider>
-</CodeFrame>
+<ToastExamples.Custom />
 
 ```jsx
 import { Button, useToast } from '@fluid-design/fluid-ui';

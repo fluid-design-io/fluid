@@ -7,7 +7,7 @@ const Wrap = ({ className = '', children }) => {
   return (
     <div
       className={clsxm(
-        'flex h-full flex-wrap items-center justify-center gap-6 px-4 lg:px-6',
+        'flex flex-wrap items-center justify-center gap-6 py-8 px-4 lg:px-6',
         className
       )}
     >

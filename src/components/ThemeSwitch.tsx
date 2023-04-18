@@ -56,36 +56,34 @@ export const ThemeSwitch = (props) => {
           weight='clear'
           iconOnly
         >
-          {mode === 'dark' && (
-            <motion.div
-              variants={iconVariants}
-              transition={{
-                type: 'spring',
-                stiffness: 150,
-                damping: 15,
-                mass: 0.2,
-              }}
-            >
-              <MdOutlineLightMode className={clsxm('h-4 w-4 fill-gray-100')} />
-            </motion.div>
-          )}
-          {mode === 'light' && (
-            <motion.div
-              variants={iconVariants}
-              transition={{
-                type: 'spring',
-                stiffness: 150,
-                damping: 15,
-                mass: 0.2,
-              }}
-            >
-              <MdDarkMode
-                className={clsxm(
-                  'h-4 w-4 fill-gray-600 transition-colors dark:fill-gray-100'
-                )}
-              />
-            </motion.div>
-          )}
+          <motion.div
+            variants={iconVariants}
+            transition={{
+              type: 'spring',
+              stiffness: 150,
+              damping: 15,
+              mass: 0.2,
+            }}
+            className='hidden dark:block'
+          >
+            <MdOutlineLightMode className={clsxm('h-4 w-4 fill-gray-100')} />
+          </motion.div>
+          <motion.div
+            variants={iconVariants}
+            transition={{
+              type: 'spring',
+              stiffness: 150,
+              damping: 15,
+              mass: 0.2,
+            }}
+            className='dark:hidden'
+          >
+            <MdDarkMode
+              className={clsxm(
+                'h-4 w-4 fill-gray-600 transition-colors dark:fill-gray-100'
+              )}
+            />
+          </motion.div>
         </Button>
       </AnimatePresence>
     </div>
